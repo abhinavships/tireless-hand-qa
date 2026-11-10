@@ -1,0 +1,8 @@
+{
+  "scenario": "S03",
+  "project": "desktop",
+  "label": "mutant-M05b",
+  "status": "failed",
+  "message": "Error: Selected QA-7733ab3e-flying-B battery must match API for drone-195, not the previously selected drone's battery (tolerance 2%)",
+  "duration": 72554
+}

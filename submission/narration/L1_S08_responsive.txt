@@ -1,0 +1,8 @@
+[   0.0s  section 1: title card + clean  (7.1s video, 16.8s speech)]
+Scenario: phone and tablet screens. The test opens the cockpit at phone size. It checks that nothing scrolls sideways, that the operator can reach and tap a drone, and that telemetry, video and the connection badge are all reachable and not covered. The normal app passes at every size.
+
+[   7.1s  section 2: title card + mutant-M09  (4.7s video, 12.6s speech)]
+We planted a bug that pushes the content off a narrow screen. The test caught it and failed with the message: Operator must scroll horizontally: content 1040 pixels exceeds viewport 390 pixels.
+
+[  11.8s  section 3: title card + mutant-M09b  (6.1s video, 9.5s speech)]
+We planted a bug that collapses the drone list on small phones. The test caught it and failed with the message: Operator cannot reach the drone row: it is clipped and covered.

@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S08",
+    "project": "phone",
+    "label": "mutant-M09",
+    "status": "failed",
+    "message": "Error: Operator must scroll horizontally: content 1040px exceeds viewport 390px\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 1\nReceived:    650\n\n   at ../lib/oracles.ts:85\n\n  83 |     viewport: document.documentElement.clientWidth,\n  84 |   }));\n> 85 |   expect(dimensions.content - dimensions.viewport, `Operator must scroll horizontally: content ${dimensions.content}px exceeds viewport ${dimensions.viewport}px`).toBeLessThanOrEqual(tolerance);\n     |                                                                                                                                                                    ^\n  86 | }\n  87 |\n  88 | /** Assert two visible peer regions do not geometrically overlap beyond a rounding tolerance. */\n    at expectNoHorizontalScroll (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/oracles.ts:85:164)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S08-responsive.spec.ts:7:2",
+    "duration": 1307,
+    "title": "S08 @responsive · fleet selection and primary content are reachable at every size",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "phone-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.png",
+      "phone-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.webm",
+      "phone-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.md",
+      "phone-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.zip"
+    ]
+  }
+]

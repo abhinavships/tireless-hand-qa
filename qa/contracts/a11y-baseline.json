@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-09-26",
+  "description": "Reviewed clean desktop axe baseline. Only the specific existing low-contrast dock-closed and standby pills are allowed; rules and all other targets remain checked.",
+  "pages": {
+    "cockpit": [
+      { "id": "color-contrast", "impact": "serious", "selector": "[data-testid^=\"device-row-drone-\"] > .device-pills > .pill-closed.pill", "reason": "Clean baseline dock closed pill has contrast 4.06 selected / 4.45 unselected, below 4.5." },
+      { "id": "color-contrast", "impact": "serious", "selector": "[data-testid^=\"device-row-drone-\"] > .device-pills > .pill-standby.pill", "reason": "Clean baseline standby pill has contrast 4.06 selected / 4.45 unselected, below 4.5." }
+    ],
+    "dashboard": []
+  }
+}

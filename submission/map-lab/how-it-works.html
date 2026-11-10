@@ -1,0 +1,233 @@
+<title>How the Map QA Works</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#eef2f0;--paper:#f8faf9;--ink:#15242a;--muted:#5b6b70;--line:#c9d4d2;--grid:#dde5e3;
+  --accent:#0b7489;--accent-soft:#d6ecef;--sab:#9a5bc4;--sab-soft:#efe4f6;--wire:#b07412;--wire-soft:#f6ecd8;
+  --ok:#1f8a55;--ok-soft:#dcf1e5;--bad:#c2412d;--bad-soft:#f7e0db;
+  --display:"Saira Condensed","Arial Narrow",sans-serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#0d1517;--paper:#132024;--ink:#e3ecec;--muted:#8fa2a6;--line:#27393e;--grid:#1a2a2e;
+  --accent:#4fc3d6;--accent-soft:#12343b;--sab:#c99af0;--sab-soft:#2b1f36;--wire:#e7b04e;--wire-soft:#33280f;
+  --ok:#5bd394;--ok-soft:#123324;--bad:#ff8a72;--bad-soft:#3a1c16;}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#0d1517;--paper:#132024;--ink:#e3ecec;--muted:#8fa2a6;--line:#27393e;--grid:#1a2a2e;
+  --accent:#4fc3d6;--accent-soft:#12343b;--sab:#c99af0;--sab-soft:#2b1f36;--wire:#e7b04e;--wire-soft:#33280f;
+  --ok:#5bd394;--ok-soft:#123324;--bad:#ff8a72;--bad-soft:#3a1c16;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15.5px/1.65 var(--body);padding-inline:16px;padding-block:0 64px;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+.wrap{max-width:1040px;margin:0 auto}
+header{padding-block:40px 8px;display:grid;gap:8px}
+.eyebrow{font:600 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font:700 clamp(38px,6.5vw,64px)/.95 var(--display);margin:0;text-wrap:balance}
+h2{font:700 28px/1.1 var(--display);margin:0;letter-spacing:.02em;text-wrap:balance;display:flex;gap:10px;align-items:baseline}
+h2 .n{font:600 13px var(--mono);color:var(--accent);letter-spacing:.08em}
+.lede{max-width:66ch;font-size:17.5px}
+.oneline{margin-top:10px;padding:14px 16px;border-left:4px solid var(--accent);background:var(--paper);border-radius:0 8px 8px 0;font-weight:600;max-width:72ch}
+section{margin-top:36px;display:grid;gap:12px}
+.sheet{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:18px}
+p{margin:0;max-width:70ch}
+.scroll{overflow-x:auto}
+code{font:13.5px var(--mono);background:var(--accent-soft);padding:1px 5px;border-radius:4px}
+ul{margin:0;padding-left:20px;display:grid;gap:4px;max-width:70ch}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td:first-child{font:600 13px var(--mono);color:var(--accent);white-space:nowrap}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.card h3{margin:0 0 6px;font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.card.sab{background:var(--sab-soft);border-color:var(--sab)}.card.sab h3{color:var(--sab)}
+.card.qa{background:var(--accent-soft);border-color:var(--accent)}.card.qa h3{color:var(--accent)}
+.card.ref{border-color:var(--ink)}
+.example{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.ex{border-radius:8px;padding:12px 14px}
+.ex .k{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ex .v{font:700 30px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.ex.wire{background:var(--wire-soft)}.ex.map{background:var(--bad-soft)}.ex.map .v{color:var(--bad)}.ex.verdict{background:var(--bad-soft)}
+.stat{display:flex;flex-wrap:wrap;gap:10px}
+.stat div{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 12px}
+.stat b{display:block;font:700 24px/1 var(--display);font-variant-numeric:tabular-nums}.stat span{font-size:12.5px;color:var(--muted)}
+pre{font:13.5px/1.7 var(--mono);background:var(--ink);color:var(--paper);border-radius:6px;padding:12px 14px;overflow-x:auto;margin:0}
+pre .c{color:#8fa2a6}
+svg text{font-family:var(--body)}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:grid;gap:4px;align-content:start}
+.step .t{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.step b{font-size:15px}
+.tag{display:inline-block;font:600 11px var(--mono);padding:1px 7px;border-radius:99px}
+.tag.new{background:var(--accent-soft);color:var(--accent)}.tag.ok{background:var(--ok-soft);color:var(--ok)}.tag.bad{background:var(--bad-soft);color:var(--bad)}
+.callout{border-left:4px solid var(--bad);background:var(--bad-soft);padding:10px 14px;border-radius:0 8px 8px 0;max-width:75ch}
+.callout.ok{border-color:var(--ok);background:var(--ok-soft)}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Tireless Hand · Map QA explainer</div>
+  <h1>How the Map QA Works</h1>
+  <p class="lede">The FlytBase cockpit draws its map with Cesium, a 3D globe. The map is a single canvas, so there is no text in the page to read. This QA looks inside the map anyway and checks every drone against what the drone actually reported. It also works out new checks by itself: a local LLM proposes them, and the clean app decides which ones are real.</p>
+  <p class="oneline">QA reads what the map draws, compares it with what the drone reported over the websocket, and any difference beyond the learned tolerance is a bug.</p>
+</header>
+
+<section>
+  <h2><span class="n">THE LOOP</span>From a drone message to a verdict</h2>
+  <div class="sheet scroll">
+    <svg viewBox="0 0 980 300" width="980" height="300" role="img" aria-labelledby="lT lD">
+      <title id="lT">Map QA data flow</title>
+      <desc id="lD">The simulator sends telemetry over the websocket to the cockpit, which draws it with Cesium. QA records the websocket messages as truth and reads the Cesium scene as what the map shows, then compares the two.</desc>
+      <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker></defs>
+      <rect x="10" y="30" width="170" height="80" rx="8" fill="var(--paper)" stroke="var(--line)"/>
+      <text x="95" y="64" text-anchor="middle" font-size="15" font-weight="600" fill="var(--ink)">Drone (simulator)</text>
+      <text x="95" y="86" text-anchor="middle" font-size="12" fill="var(--muted)">GPS, height, yaw, status</text>
+      <line x1="180" y1="70" x2="266" y2="70" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#a)"/>
+      <text x="223" y="60" text-anchor="middle" font-size="11" fill="var(--muted)">websocket</text>
+      <rect x="270" y="30" width="230" height="80" rx="8" fill="var(--paper)" stroke="var(--line)"/>
+      <text x="385" y="64" text-anchor="middle" font-size="15" font-weight="600" fill="var(--ink)">Cockpit map (Cesium)</text>
+      <text x="385" y="86" text-anchor="middle" font-size="12" fill="var(--muted)">models, icons, labels, tracks</text>
+
+      <rect x="10" y="180" width="300" height="100" rx="8" fill="var(--wire-soft)" stroke="var(--wire)"/>
+      <text x="26" y="206" font-size="12" font-weight="600" fill="var(--wire)" letter-spacing="1.2">TRUTH · WIRE TAP</text>
+      <text x="26" y="230" font-size="13" fill="var(--ink)">Every websocket message the browser</text>
+      <text x="26" y="250" font-size="13" fill="var(--ink)">received, with its arrival time</text>
+      <line x1="120" y1="110" x2="120" y2="176" stroke="var(--wire)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a)"/>
+
+      <rect x="340" y="180" width="300" height="100" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+      <text x="356" y="206" font-size="12" font-weight="600" fill="var(--accent)" letter-spacing="1.2">WHAT THE MAP SHOWS · SCENE READ</text>
+      <text x="356" y="230" font-size="13" fill="var(--ink)">React fiber → Cesium Viewer → every</text>
+      <text x="356" y="250" font-size="13" fill="var(--ink)">entity's position, heading, label, icon</text>
+      <line x1="430" y1="110" x2="470" y2="176" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a)"/>
+
+      <rect x="690" y="130" width="280" height="150" rx="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+      <text x="706" y="158" font-size="12" font-weight="600" fill="var(--ink)" letter-spacing="1.2">COMPARE · 15 + 8 DISCOVERED</text>
+      <text x="706" y="184" font-size="13" fill="var(--ink)">|map − truth| ≤ learned tolerance?</text>
+      <text x="706" y="212" font-size="13" fill="var(--ok)">✔ yes → PASS</text>
+      <text x="706" y="236" font-size="13" fill="var(--bad)">✖ no → BUG, with the numbers</text>
+      <text x="706" y="262" font-size="12" fill="var(--muted)">"label says 590 m, drone is at 30 m"</text>
+      <line x1="310" y1="230" x2="336" y2="230" stroke="var(--muted)" stroke-width="1.5"/>
+      <line x1="640" y1="230" x2="686" y2="210" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#a)"/>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">1</span>What the cockpit map is</h2>
+  <p>Every drone and dock is an object in Cesium's scene: a 3D drone model, a dock icon, a text label such as "Drone 1 in_flight", a height label such as "30 m", a vertical height line and a flight track. All of it is painted into one <code>&lt;canvas&gt;</code>. Normal Playwright checks read DOM text, so on their own they cannot tell whether the drone is drawn in the right place.</p>
+</section>
+
+<section>
+  <h2><span class="n">2</span>How QA sees inside the map</h2>
+  <p><code>qa/map/anatomy.ts</code> runs inside the page through Playwright (the Chrome DevTools Protocol). It starts at the map's <code>&lt;div&gt;</code>, walks React's internal fiber tree to Cesium's <code>Viewer</code>, and reads what the map is drawing. The product code is not changed.</p>
+  <ul>
+    <li>Each object's latitude, longitude and height, converted from Cesium's 3D coordinates</li>
+    <li>The direction the drone model points, calculated from its rotation</li>
+    <li>Label text, icon image, model file and track points</li>
+    <li>The camera: where it looks and whether it is top-down</li>
+    <li><code>drillPick</code>: what is actually drawn at a given pixel, which tells QA whether an icon is visible and clickable</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">3</span>The truth it compares against</h2>
+  <p>At the same time, QA records every websocket message the browser receives: the drone's real GPS position, height, yaw and flight status. That is what the map is supposed to show.</p>
+  <div class="example">
+    <div class="ex wire"><div class="k">Drone reported (wire)</div><div class="v">30 m</div><div>position.height</div></div>
+    <div class="ex map"><div class="k">Map height label shows</div><div class="v">590 m</div><div>label on the drone</div></div>
+    <div class="ex verdict"><div class="k">Verdict</div><div class="v" style="color:var(--bad)">G3 · BUG</div><div>the label shows sea-level altitude (bug MAP04)</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">4</span>The 15 checks</h2>
+  <p>The inspector (<code>map/inspector.ts</code>) creates its own test drone, flies it, and checks the following. It deletes the drone afterwards.</p>
+  <div class="sheet scroll">
+    <table>
+      <thead><tr><th>Check</th><th>Question it answers</th></tr></thead>
+      <tbody>
+        <tr><td>G1</td><td>Does every drone and dock the backend knows have an object on the map?</td></tr>
+        <tr><td>G2</td><td>Is the drone drawn where its GPS says it is (within 0.5 m)?</td></tr>
+        <tr><td>G3</td><td>Does the height label match the real height, and is the 3D model at that height?</td></tr>
+        <tr><td>G4</td><td>Does the model point the way the drone is facing?</td></tr>
+        <tr><td>G5</td><td>Does the map label show the current flight status?</td></tr>
+        <tr><td>G6</td><td>Does the dock-to-drone distance on the map match "Dist. from home" in the panel?</td></tr>
+        <tr><td>G7</td><td>Does the flight track end at the drone and keep growing?</td></tr>
+        <tr><td>G8</td><td>Is the drone visible at its pixel, and does clicking it select it?</td></tr>
+        <tr><td>G9</td><td>Does selecting a drone fly the camera to that drone?</td></tr>
+        <tr><td>G10</td><td>Is only the selected drone highlighted?</td></tr>
+        <tr><td>G11</td><td>Is 2D really top-down and 3D oblique?</td></tr>
+        <tr><td>G12</td><td>Does a deleted drone disappear, with its track and labels?</td></tr>
+        <tr><td>G13</td><td>Do docks that stop sending data switch to the offline icon? The real app fails this; it is a product finding.</td></tr>
+        <tr><td>G14</td><td>Does each new position reach the map quickly, or is the map showing an old message?</td></tr>
+        <tr><td>G15</td><td>Icon census: exactly one known icon per device, none missing, none extra, none too small to see?</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">5</span>The learner</h2>
+  <p>You run <code>npm run map:learn</code> once on the clean app. It records what normal looks like: the icon files, the camera angles, and a 25-second test flight that measures how accurate and how fast the map is. Those measurements set the tolerances.</p>
+  <div class="stat">
+    <div><b>0 m</b><span>position error on the clean app</span></div>
+    <div><b>0°</b><span>heading error</span></div>
+    <div><b>~80 ms</b><span>message → map, typical</span></div>
+    <div><b>~500 ms</b><span>between messages</span></div>
+  </div>
+  <p>The map is exact on this app, so most tolerances stay at their minimums. The timing matters: because a message normally reaches the map in about 80 ms, G14 can tell when the map is a whole message behind (bug MAP14), even though every position it draws is a real one.</p>
+</section>
+
+
+<section>
+  <h2><span class="n">6</span>The agent discovers its own checks</h2>
+  <p>The 15 checks above were written by hand. The agent also finds checks by itself with <code>npm run map:discover</code>. A local coding model proposes; the live app decides.</p>
+  <div class="flow">
+    <div class="step"><span class="t">1 · Propose</span><b>LLM reads the map code</b><span>Qwen2.5-Coder 7B on the RTX 5090 reads <code>CesiumMap.tsx</code> (about 400 lines) and one real websocket message per topic, and writes checks in a strict format. Asked 3 times at different temperatures, about 5 s each.</span></div>
+    <div class="step"><span class="t">2 · Verify</span><b>Clean app filters them</b><span>Each check runs on every drone and dock while a test drone flies. A check that is false on the clean app is thrown away. That removes hallucinations.</span></div>
+    <div class="step"><span class="t">3 · Repair</span><b>Evidence goes back</b><span>Checks that were false go back to the LLM with what the map really showed. Its corrections are verified again.</span></div>
+    <div class="step"><span class="t">4 · Keep</span><b>Saved and reused</b><span>Survivors go to <code>map/out/discovered.json</code>, re-verified and merged on every run. <code>npm run qa</code> runs them as D1…D8 on the whole fleet.</span></div>
+  </div>
+  <div class="sheet scroll">
+    <table>
+      <thead><tr><th>Check</th><th>What the map draws must equal</th><th>Runs on</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>D1</td><td>Drone position = <code>global_position.position</code> lat/lon, ±1 m</td><td>every drone</td><td><span class="tag new">whole fleet</span></td></tr>
+        <tr><td>D2</td><td>Drone height above ground = <code>position.height</code>, ±1 m</td><td>every drone</td><td><span class="tag new">whole fleet</span></td></tr>
+        <tr><td>D3</td><td>Model heading = <code>attitude.yaw</code>, ±2°</td><td>every drone</td><td><span class="tag new">whole fleet</span></td></tr>
+        <tr><td>D4</td><td>Track ends at the drone's position, ±1 m</td><td>every drone</td><td><span class="tag new">whole fleet</span></td></tr>
+        <tr><td>D5</td><td>Dock icon position = <code>dock.dock_location</code>, ±1 m</td><td>every dock</td><td><span class="tag new">not in G1–G15</span></td></tr>
+        <tr><td>D6</td><td>Label = "<code>{name} {flight_status}</code>"</td><td>every drone</td><td><span class="tag new">whole fleet</span></td></tr>
+        <tr><td>D7</td><td>Height line reaches the drone's height, ±1 m</td><td>every drone</td><td><span class="tag new">not in G1–G15</span></td></tr>
+        <tr><td>D8</td><td>Height line stands at the drone's position, ±1 m</td><td>every drone</td><td><span class="tag new">not in G1–G15</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="example">
+    <div class="ex wire"><div class="k">Proposed</div><div class="v">25</div><div>distinct checks across runs</div></div>
+    <div class="ex" style="background:var(--ok-soft)"><div class="k">Kept</div><div class="v" style="color:var(--ok)">8</div><div>true on the clean app, tight tolerance</div></div>
+    <div class="ex map"><div class="k">Rejected</div><div class="v">17</div><div>false, not applicable, or too loose</div></div>
+  </div>
+  <p><b>Examples the filter caught.</b> The LLM guessed the height label reads "Drone 1 0 m"; the map shows "0 m", so it was rejected. It proposed flight tracks for docks, which do not exist, so those were rejected too. In one repair it "fixed" a dock-height check by widening the tolerance to 1000 m. A check like that can never fail, so any check looser than 5 m or 5° is now rejected.</p>
+  <p class="callout ok"><b>Proof.</b> Planted bug MAP16 draws every dock icon 30 m east of its real location. None of the hand-written checks look at dock positions. Discovered check D5 flagged all 8 docks: "Dock 1 … 31.6 m away". The referee confirmed the planted bug by its sha256 fingerprint.</p>
+</section>
+<section>
+  <h2><span class="n">7</span>Planting bugs is kept separate</h2>
+  <div class="two">
+    <div class="sheet card sab"><h3>Saboteur · npm run bug</h3><p>Applies a patch to the cockpit code (for example <code>MAP04-height-asl.patch</code>), copies it into the running container, and seals the answer with a sha256 fingerprint.</p></div>
+    <div class="sheet card qa"><h3>QA · npm run qa</h3><p>A separate process. It never reads the patch or the answer. It only sees the running app, the same way an operator would.</p></div>
+    <div class="sheet card ref"><h3>Answer · npm run bug:reveal</h3><p>Shows what was planted after QA has reported, so you can check whether QA caught it. <code>npm run bug:revert</code> restores the original code.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">8</span>Try it</h2>
+  <pre><span class="c"># in qa/</span>
+npm run map:discover     <span class="c"># agent discovers checks on the clean app (GPU)</span>
+npm run bug              <span class="c"># list the 15 map bugs</span>
+npm run bug -- MAP16     <span class="c"># plant one you choose (MAP16 = dock offset)</span>
+npm run bug:random       <span class="c"># or a secret one (may be none)</span>
+<span class="c"># reload http://localhost:4010 and look at the map</span>
+npm run qa               <span class="c"># visible browser: every step on screen, report card at the end</span>
+npm run bug:reveal       <span class="c"># what was planted</span>
+npm run bug:revert       <span class="c"># back to the original cockpit</span></pre>
+</section>
+</div>

@@ -1,0 +1,21 @@
+# MAP13 | Map & geospatial | targets: map | Selecting a flying drone flies the camera to its dock instead of the drone
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..61b9cef 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -191,10 +191,11 @@ function panToDevice(viewer: Cesium.Viewer, state: TelemetryState, lastSeq: { cu
+   const dd = state.data[req.deviceId];
+   const pos = dd?.global_position?.position;
+   const dock = dd?.dock?.dock_location;
+-  const target = pos
+-    ? { lon: pos.longitude, lat: pos.latitude }
+-    : dock
+-      ? { lon: dock.longitude, lat: dock.latitude }
++  const dockOf = state.data[state.devices.find((d) => d.id === req.deviceId)?.dockId ?? '']?.dock?.dock_location;
++  const target = dockOf
++    ? { lon: dockOf.longitude, lat: dockOf.latitude }
++    : pos
++      ? { lon: pos.longitude, lat: pos.latitude }
+       : null;
+   if (!target) return;
+   const groundH = groundHeight(viewer, ground, `pan:${req.deviceId}`, target.lon, target.lat);

@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S03",
+    "project": "desktop",
+    "label": "mutant-M05",
+    "status": "failed",
+    "message": "Error: battery: operator sees 0, but API says 98.2 (allowed difference 2); telemetry may belong to the wrong drone or be stale\n\nexpect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 2\nReceived:    98.2\n\nCall Log:\n- Timeout 8000ms exceeded while waiting on the predicate\n\n  34 |         expectTelemetryMatchesState(displayed,{battery:state.battery,altRlt:state.height,altAgl:state.height},{battery:2,altRlt:2,altAgl:2});\n  35 |         expectTelemetryMatchesState(displayed,{battery:battery.percent,altRlt:position.position.height,altAsl:position.position.elevation,hspeed:position.speed.horizontal,vspeed:position.speed.vertical},{battery:2,altRlt:2,altAsl:2,hspeed:1,vspeed:1});\n> 36 |       }).toPass({timeout:8_000,intervals:[100,200,300]});\n     |          ^\n  37 |     };\n  38 |     await narrate(page,'S03 · select flying drone: compare panel to API and raw socket');\n  39 |     await compareSelected(isolatedDrone.id,isolatedDrone.name);\n    at compareSelected (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S03-selected-telemetry.spec.ts:36:10)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S03-selected-telemetry.spec.ts:39:5",
+    "duration": 20542,
+    "title": "S03 · selected drone shows its real battery, altitude and speed @telemetry @visual",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s03-selected-telemetry-spec-ts-s03-selected-drone-shows-its-real-battery-altitude-and-speed-telemetry-visual.png",
+      "desktop-r0-s03-selected-telemetry-spec-ts-s03-selected-drone-shows-its-real-battery-altitude-and-speed-telemetry-visual.webm",
+      "desktop-r0-s03-selected-telemetry-spec-ts-s03-selected-drone-shows-its-real-battery-altitude-and-speed-telemetry-visual.md",
+      "desktop-r0-s03-selected-telemetry-spec-ts-s03-selected-drone-shows-its-real-battery-altitude-and-speed-telemetry-visual.zip"
+    ]
+  }
+]

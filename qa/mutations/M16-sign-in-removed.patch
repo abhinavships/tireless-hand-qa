@@ -1,0 +1,17 @@
+# M16 | Functional Security | targets: S11 | AUTH_FIXTURE: sign-in button removed from email and OTP form
+--- a/frontend/src/App.tsx
++++ b/frontend/src/App.tsx
+@@ -24,7 +24,6 @@
+         <input id="auth-email" type="email" value={email} onChange={event => setEmail(event.target.value)} />
+         <label htmlFor="auth-otp">OTP</label>
+         <input id="auth-otp" inputMode="numeric" value={otp} onChange={event => setOtp(event.target.value)} />
+-        <button type="submit" disabled={!valid}>Sign in</button>
+       </form>
+     </main>
+   );
+@@ -49,3 +48,5 @@
+ }
+ 
+ Object.assign(globalThis, { __authFixtureLab: 'mutation-lab:F-auth' });
++
++Object.assign(globalThis, { __mutationLab: 'mutation-lab:M16' });

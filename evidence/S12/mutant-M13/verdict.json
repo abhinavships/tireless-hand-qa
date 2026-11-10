@@ -1,0 +1,8 @@
+{
+  "scenario": "S12",
+  "project": "desktop",
+  "label": "mutant-M13",
+  "status": "failed",
+  "message": "Error: Operator cannot land Drone 1: Land control missing",
+  "duration": 10589
+}

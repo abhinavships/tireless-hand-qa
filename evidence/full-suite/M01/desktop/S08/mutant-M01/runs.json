@@ -1,0 +1,20 @@
+[
+  {
+    "sourceSpecId": "36ffa09ca0c913cba357-7a94c5d70b320293687f",
+    "scenario": "S08",
+    "project": "desktop",
+    "label": "mutant-M01",
+    "status": "failed",
+    "message": "Error: Video identity must follow selected drone\n\nexpect(locator).toContainText(expected) failed\n\nLocator: locator('.video-header')\nExpected substring: \"QA-941ea96c\"\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Video identity must follow selected drone locator('.video-header') with timeout 10000ms\n  - waiting for locator('.video-header')\n\n\n  10 |  await cockpit.selectDrone(isolatedDrone.id);\n  11 |  await expect(page.getByRole('heading',{name:/Drone Telemetry/}),'Selected drone identity must update after a reachable row click').toContainText(isolatedDrone.name);\n> 12 |  await expect(page.locator('.video-header'),'Video identity must follow selected drone').toContainText(isolatedDrone.name);\n     |                                                                                          ^\n  13 |  await narrate(page,'S08 · telemetry, video and connection badge must be reachable without sideways scrolling');\n  14 |  for(const id of ['telemetry-battery','telemetry-home-distance','video-player','video-state','socket-status']) await expectVisibleAndUsable(page.getByTestId(id));\n  15 |  await expectVisibleAndUsable(page.getByRole('link',{name:/Control panel/}));\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S08-responsive.spec.ts:12:90",
+    "duration": 11785,
+    "title": "S08 @responsive · fleet selection and primary content are reachable at every size",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.png",
+      "desktop-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.webm",
+      "desktop-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.md",
+      "desktop-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.zip"
+    ]
+  }
+]

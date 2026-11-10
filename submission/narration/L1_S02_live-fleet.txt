@@ -1,0 +1,5 @@
+[   0.0s  section 1: title card + clean  (12.1s video, 15.2s speech)]
+Scenario: the drone list must match the real fleet. The test compares every row with the server's list of drones and their docks. Then it adds a new drone and checks that it appears within five seconds, without reloading the page, and removes it again. The normal app passes.
+
+[  12.1s  section 2: title card + mutant-M04  (9.9s video, 9.2s speech)]
+We planted a bug that silently hides the last drone in the list. The test caught it and failed with the message: operators must see every drone with its correct name and dock.

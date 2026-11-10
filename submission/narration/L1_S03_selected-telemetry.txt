@@ -1,0 +1,8 @@
+[   0.0s  section 1: title card + clean  (24.1s video, 18.2s speech)]
+Scenario: the telemetry panel must show the drone you selected. The test flies one drone and keeps a second drone on the ground. It compares battery, altitude and speed on screen with the true values from the server and from the live data feed. When it switches drones, the numbers must switch too. The normal app passes.
+
+[  24.1s  section 2: title card + mutant-M05  (23.7s video, 9.1s speech)]
+We planted a bug that shows the battery as zero. The test caught it and failed with the message: operator sees 0, but the API says 98.2.
+
+[  47.8s  section 3: title card + mutant-M05b  (16.9s video, 10.1s speech)]
+We planted a subtler bug that takes the battery value from the previously selected drone. The test caught this one too, because the numbers on screen no longer matched the selected drone.

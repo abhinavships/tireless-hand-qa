@@ -1,0 +1,50 @@
+[
+  {
+    "scenario": "S03",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 80491,
+    "title": "S03 · selected drone shows its real battery, altitude and speed @telemetry @visual",
+    "repeat": "e65d5739f352ac96bcdc-89c945ce19d0fbf13c3d",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-0-screenshot.png",
+      "t03-hard-0-video.webm",
+      "t03-hard-0-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S03",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 76525,
+    "title": "S03 · selected drone shows its real battery, altitude and speed @telemetry @visual",
+    "repeat": "e65d5739f352ac96bcdc-727f2c82759edbd0d7db",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-1-screenshot.png",
+      "t03-hard-1-video.webm",
+      "t03-hard-1-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S03",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 72518,
+    "title": "S03 · selected drone shows its real battery, altitude and speed @telemetry @visual",
+    "repeat": "e65d5739f352ac96bcdc-4dc34fd1a7ffaca326af",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-2-screenshot.png",
+      "t03-hard-2-video.webm",
+      "t03-hard-2-trace.zip"
+    ]
+  }
+]

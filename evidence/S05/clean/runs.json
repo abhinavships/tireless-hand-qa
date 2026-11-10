@@ -1,0 +1,139 @@
+[
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 6586,
+    "title": "S05(a) simulator offline does not falsify status @telemetry @network",
+    "repeat": "3df8af9950ac331886cf-5ca48d61231c03d58234",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-0-screenshot.png",
+      "t03-hard-0-video.webm",
+      "t03-hard-0-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 8323,
+    "title": "S05(c) new drone without telemetry never claims active flight @telemetry @network",
+    "repeat": "3df8af9950ac331886cf-46ec58a0c8916bc5e754",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-1-no_telemetry_screen.png",
+      "t03-hard-1-screenshot.png",
+      "t03-hard-1-video.webm",
+      "t03-hard-1-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 10859,
+    "title": "S05(a) simulator offline does not falsify status @telemetry @network",
+    "repeat": "3df8af9950ac331886cf-7361ed206542d8e986fa",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-2-screenshot.png",
+      "t03-hard-2-video.webm",
+      "t03-hard-2-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 5962,
+    "title": "S05(c) new drone without telemetry never claims active flight @telemetry @network",
+    "repeat": "3df8af9950ac331886cf-2a249e2ea81e3f7677e2",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-3-no_telemetry_screen.png",
+      "t03-hard-3-screenshot.png",
+      "t03-hard-3-video.webm",
+      "t03-hard-3-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 5789,
+    "title": "S05(a) simulator offline does not falsify status @telemetry @network",
+    "repeat": "3df8af9950ac331886cf-d8e10e6a35567ea7994a",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-4-screenshot.png",
+      "t03-hard-4-video.webm",
+      "t03-hard-4-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3673,
+    "title": "S05(c) new drone without telemetry never claims active flight @telemetry @network",
+    "repeat": "3df8af9950ac331886cf-43b30e9f6cddcfaf1c6e",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-5-no_telemetry_screen.png",
+      "t03-hard-5-screenshot.png",
+      "t03-hard-5-video.webm",
+      "t03-hard-5-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "clean",
+    "status": "failed",
+    "message": "Error: F1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds\n\nF1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  38 |    const cleared=(await cockpit.readTelemetry()).battery===null;\n  39 |    return explicit||cleared;\n> 40 |   },{timeout:5000,message:'F1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds'}).toBe(true);\n     |                                                                                                                                                                       ^\n  41 |  } catch(error) {\n  42 |   const observationPath=testInfo.outputPath('stale-telemetry-observation.json');\n  43 |   await writeFile(observationPath,JSON.stringify({faults:await api.faults(),truth:(await api.state()).drones[isolatedDrone.id],visible:await cockpit.readTelemetry(),flight:await cockpit.flightPill().innerText(),socket:await cockpit.badge().innerText()},null,2));\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:40:167",
+    "duration": 17310,
+    "title": "S05(b) lost telemetry is visibly stale within five seconds @finding @telemetry @network",
+    "repeat": "3df8af9950ac331886cf-300652831c5fc4271ccc",
+    "attempt": 0,
+    "artifacts": [
+      "t03-finding-0-stale_telemetry_observation.json",
+      "t03-finding-0-stale_telemetry_screen.png",
+      "t03-finding-0-screenshot.png",
+      "t03-finding-0-video.webm",
+      "t03-finding-0-error_context.md",
+      "t03-finding-0-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "clean",
+    "status": "failed",
+    "message": "Error: F1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds\n\nF1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  38 |    const cleared=(await cockpit.readTelemetry()).battery===null;\n  39 |    return explicit||cleared;\n> 40 |   },{timeout:5000,message:'F1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds'}).toBe(true);\n     |                                                                                                                                                                       ^\n  41 |  } catch(error) {\n  42 |   const observationPath=testInfo.outputPath('stale-telemetry-observation.json');\n  43 |   await writeFile(observationPath,JSON.stringify({faults:await api.faults(),truth:(await api.state()).drones[isolatedDrone.id],visible:await cockpit.readTelemetry(),flight:await cockpit.flightPill().innerText(),socket:await cockpit.badge().innerText()},null,2));\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:40:167",
+    "duration": 18904,
+    "title": "S05(b) lost telemetry is visibly stale within five seconds @finding @telemetry @network",
+    "repeat": "3df8af9950ac331886cf-544503f852b2e7efa5b2",
+    "attempt": 0,
+    "artifacts": [
+      "t03-finding-1-stale_telemetry_observation.json",
+      "t03-finding-1-stale_telemetry_screen.png",
+      "t03-finding-1-screenshot.png",
+      "t03-finding-1-video.webm",
+      "t03-finding-1-error_context.md",
+      "t03-finding-1-trace.zip"
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "scenario": "S01",
+  "project": "desktop",
+  "label": "mutant-M02",
+  "status": "failed",
+  "message": "Error: Cockpit: operator cannot reach Control panel action",
+  "duration": 17205
+}

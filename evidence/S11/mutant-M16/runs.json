@@ -1,0 +1,40 @@
+[
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-087ea40a20fa632876f7",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "mutant-M16",
+    "status": "passed",
+    "message": "",
+    "duration": 593,
+    "title": "S11 @security signed-out route guards (evaluator-ready)",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-1.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-video-1.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-2.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-81f3abb67e63aa83dd96",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "mutant-M16",
+    "status": "failed",
+    "message": "Error: Operator cannot sign in: Sign in action missing\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('button', { name: 'Sign in', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Operator cannot sign in: Sign in action missing getByRole('button', { name: 'Sign in', exact: true }) with timeout 10000ms\n  - waiting for getByRole('button', { name: 'Sign in', exact: true })\n\n\n  27 |  for(const form of contracts.loginForms){await page.goto(form.url);await narrate(page,'S11: email, OTP and usable sign-in action are required');\n  28 |  const email=page.getByLabel(form.emailLabel,{exact:true});const otp=page.getByLabel(form.otpLabel,{exact:true});const submit=page.getByRole('button',{name:form.submitName,exact:true});\n> 29 |  await expect(email).toBeVisible();await expect(otp).toBeVisible();await email.fill('operator@example.test');await otp.fill('123456');await expect(submit,'Operator cannot sign in: Sign in action missing').toBeVisible();await expect(submit,'Sign-in action must be enabled after email and OTP are entered').toBeEnabled();\n     |                                                                                                                                                                                                              ^\n  30 |  if(form.successRoute){await submit.click();await expect.poll(()=>new URL(page.url()).pathname,{message:'Valid fixture sign-in must open protected settings'}).toBe(form.successRoute);await expect(page.getByTestId('auth-settings')).toBeVisible();}\n  31 |  }\n  32 | });\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts:29:206",
+    "duration": 10434,
+    "title": "S11 @security sign-in required controls (evaluator-ready)",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.md",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.zip"
+    ]
+  }
+]

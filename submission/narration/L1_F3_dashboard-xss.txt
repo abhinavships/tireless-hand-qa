@@ -1,0 +1,2 @@
+[   0.0s  section 1: title card + clean  (25.1s video, 27.8s speech)]
+Finding three. This is a real bug in the unmodified app. The cockpit shows code-like drone names safely, but the control panel does not. It inserts the name straight into the page, so the hidden code runs in the operator's browser. The test fails for both test names with the message: Stored XSS, a drone name executes JavaScript in the dashboard. Why it matters: anyone who can add a drone could take over an operator's control panel session and send take off or land commands.

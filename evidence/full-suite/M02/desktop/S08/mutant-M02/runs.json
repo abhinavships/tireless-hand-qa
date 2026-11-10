@@ -1,0 +1,20 @@
+[
+  {
+    "sourceSpecId": "36ffa09ca0c913cba357-7a94c5d70b320293687f",
+    "scenario": "S08",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "failed",
+    "message": "Error: Operator cannot see the required control or region\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /Control panel/ })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Operator cannot see the required control or region getByRole('link', { name: /Control panel/ }) with timeout 10000ms\n  - waiting for getByRole('link', { name: /Control panel/ })\n\n\n   at ../lib/oracles.ts:52\n\n  50 | /** Scroll a control into reach and verify its centre is visible, unclipped, enabled and hit-testable. */\n  51 | export async function expectVisibleAndUsable(locator: Locator): Promise<void> {\n> 52 |   await expect(locator, 'Operator cannot see the required control or region').toBeVisible();\n     |                                                                               ^\n  53 |   await expect(locator, 'Operator cannot use the disabled control').toBeEnabled();\n  54 |   await locator.scrollIntoViewIfNeeded();\n  55 |   const result = await locator.evaluate((element) => {\n    at expectVisibleAndUsable (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/oracles.ts:52:79)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S08-responsive.spec.ts:15:8",
+    "duration": 29601,
+    "title": "S08 @responsive · fleet selection and primary content are reachable at every size",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.png",
+      "desktop-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.webm",
+      "desktop-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.md",
+      "desktop-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.zip"
+    ]
+  }
+]

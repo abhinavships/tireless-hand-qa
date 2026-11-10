@@ -1,0 +1,115 @@
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+
+Running 2 tests using 1 worker
+
+(node:23411) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry (11.4s)
+(node:23638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop] › scenarios/S05-offline-truth.spec.ts:6:1 › S05(a) simulator offline does not falsify status @telemetry @network (14.8s)
+
+
+  1) [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry 
+
+    Error: Flight phase standby: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator
+
+    Flight phase standby: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "api": "standby",
+    -   "list": "standby",
+    +   "list": "in_flight",
+        "panel": "standby",
+        "socket": "standby",
+      }
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      22 |         const [state,pills]=await Promise.all([api.state(),page.evaluate((id)=>({list:document.querySelector(`[data-testid="device-row-${id}"] .device-pills .pill:last-child`)?.textContent?.trim(),panel:document.querySelector('[data-testid="status-flight"]')?.textContent?.trim()}),id)]);
+      23 |         return {api:state.drones[id]?.status,socket:(truth.messages.get(topic(id,'flight_status')) as FlightTruth)?.flight_status,...pills};
+    > 24 |       },{timeout:8_000,message:`Flight phase ${status}: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator`}).toEqual({api:status,socket:status,list:status,panel:status});
+         |                                                                                                                                                                   ^
+      25 |
+      26 |     };
+      27 |     await narrate(page,'S04 · start grounded: both status pills match API and socket standby');
+        at checkStatus (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S04-flight-workflow.spec.ts:24:163)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S04-flight-workflow.spec.ts:29:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-1790407307610-21587ec2/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407307610-21587ec2/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-1790407307610-21587ec2/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-1790407307610-21587ec2/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-1790407307610-21587ec2/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › scenarios/S05-offline-truth.spec.ts:6:1 › S05(a) simulator offline does not falsify status @telemetry @network 
+
+    Error: Offline drone list must preserve the last truthful grounded status, never invent in_flight/online
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('device-row-drone-160').locator('.device-pills .pill').last()
+    Expected: "standby"
+    Received: "in_flight"
+    Timeout:  10000ms
+
+    Call log:
+      - Offline drone list must preserve the last truthful grounded status, never invent in_flight/online getByTestId('device-row-drone-160').locator('.device-pills .pill').last() with timeout 10000ms
+      - waiting for getByTestId('device-row-drone-160').locator('.device-pills .pill').last()
+        24 × locator resolved to <span class="pill pill-in_flight">in_flight</span>
+           - unexpected value "in_flight"
+
+
+      15 |   await api.fault({kind:'sim-offline',seconds:20});
+      16 |   await expect.poll(async()=>(await api.health()).simulator,{message:'Simulator-offline fault must disconnect the simulator truth source'}).toBe('disconnected');
+    > 17 |   await expect(cockpit.flightPill(isolatedDrone.id),'Offline drone list must preserve the last truthful grounded status, never invent in_flight/online').toHaveText(flight.flight_status);
+         |                                                                                                                                                          ^
+      18 |   await expect(page.getByTestId(`device-row-${isolatedDrone.id}`).locator('.device-pills .pill').first(),'Offline dock pill must agree with retained raw dock truth').toHaveText(`dock ${dock.status}`);
+      19 |   await expect(cockpit.flightPill(),'Offline selected panel must agree with the last raw flight status, never invent in_flight/online').toHaveText(flight.flight_status);
+      20 |   await expect.poll(()=>truth.socket.connected,{message:'Browser-topic truth socket remains connected while simulator is offline'}).toBe(true);
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:17:154
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-1790407307610-21587ec2/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407307610-21587ec2/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-1790407307610-21587ec2/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-1790407307610-21587ec2/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-1790407307610-21587ec2/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry 
+    [desktop] › scenarios/S05-offline-truth.spec.ts:6:1 › S05(a) simulator offline does not falsify status @telemetry @network 
+Evidence collected for 2 scenarios (mutant-M03c; RUN_ID=run-1790407307610-21587ec2)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx

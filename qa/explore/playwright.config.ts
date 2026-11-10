@@ -1,0 +1,2 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({testDir:'.',testMatch:'*.spec.ts',timeout:420000,workers:1,retries:0,outputDir:`../../evidence/explore/${process.env.EXPLORE_RUN??'faults'}/artifacts`,reporter:[['list'],['json',{outputFile:`../../evidence/explore/${process.env.EXPLORE_RUN??'faults'}/results.json`}]],use:{baseURL:'http://localhost:4010',viewport:{width:1440,height:900},video:'on',trace:'on',screenshot:'on'}});

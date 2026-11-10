@@ -1,0 +1,5 @@
+[   0.0s  section 1: title card + clean  (12.5s video, 17.7s speech)]
+Scenario: the connection badge must tell the truth. The test makes the server refuse connections. The badge must stop saying connected within five seconds. When the connection comes back, the badge must recover, and fresh flight data must arrive, all without reloading the page. The normal app passes.
+
+[  12.5s  section 2: title card + mutant-M07  (13.3s video, 9.3s speech)]
+We planted a bug that makes the badge always say connected. The test caught it and failed with the message: Socket is disconnected but operator is falsely told connected.

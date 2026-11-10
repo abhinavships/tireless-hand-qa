@@ -1,0 +1,21 @@
+[
+  {
+    "sourceSpecId": "3df8af9950ac331886cf-46ec58a0c8916bc5e754",
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "mutant-M03b",
+    "status": "failed",
+    "message": "Error: A drone with no telemetry must show unknown/unavailable, never invented in_flight or online\n\nexpect(locator).toHaveText(expected) failed\n\nLocator: getByTestId('device-row-drone-193').locator('.device-pills .pill').last()\nExpected pattern: /^(—|unknown|offline|unavailable|no data)$/i\nReceived string:  \"in_flight\"\nTimeout: 10000ms\n\nCall log:\n  - A drone with no telemetry must show unknown/unavailable, never invented in_flight or online getByTestId('device-row-drone-193').locator('.device-pills .pill').last() with timeout 10000ms\n  - waiting for getByTestId('device-row-drone-193').locator('.device-pills .pill').last()\n    23 × locator resolved to <span class=\"pill pill-in_flight\">in_flight</span>\n       - unexpected value \"in_flight\"\n\n\n  64 |   expect(truth.messages.has(topic(id,'flight_status')),'Independent socket confirms this new drone has no retained or delivered flight status').toBe(false);\n  65 |   expect((await api.state()).drones[id].status,'Known new drone is grounded in simulator truth').toBe('standby');\n> 66 |   await expect(cockpit.flightPill(id),'A drone with no telemetry must show unknown/unavailable, never invented in_flight or online').toHaveText(/^(—|unknown|offline|unavailable|no data)$/i);\n     |                                                                                                                                      ^\n  67 |   await expect(cockpit.flightPill(),'Selected drone without telemetry must not claim a known flight phase').toHaveText(/^(—|unknown|offline|unavailable|no data)$/i);\n  68 |   const screen=testInfo.outputPath('no-telemetry-screen.png');await page.screenshot({path:screen});\n  69 |   await testInfo.attach('no-telemetry-screen',{path:screen,contentType:'image/png'});\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:66:134",
+    "duration": 16427,
+    "title": "S05(c) new drone without telemetry never claims active flight @telemetry @network",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.png",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network-screenshot-1.png",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.webm",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.md",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.zip"
+    ]
+  }
+]

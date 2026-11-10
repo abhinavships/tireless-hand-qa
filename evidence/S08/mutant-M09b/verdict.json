@@ -1,0 +1,8 @@
+{
+  "scenario": "S08",
+  "project": "phone",
+  "label": "mutant-M09b",
+  "status": "failed",
+  "message": "Error: Operator cannot reach/use device-row-drone-161: is vertically clipped by an ancestor; centre is covered by section",
+  "duration": 2722
+}

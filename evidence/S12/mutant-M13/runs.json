@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S12",
+    "project": "desktop",
+    "label": "mutant-M13",
+    "status": "failed",
+    "message": "Error: Operator cannot land Drone 1: Land control missing\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByTestId('dash-row-drone-1').getByRole('button', { name: 'Land', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Operator cannot land Drone 1: Land control missing getByTestId('dash-row-drone-1').getByRole('button', { name: 'Land', exact: true }) with timeout 10000ms\n  - waiting for getByTestId('dash-row-drone-1').getByRole('button', { name: 'Land', exact: true })\n\n\n  19 |     await expect(row, `Operator cannot find fleet drone ${drone.name} on the control panel`).toBeVisible();\n  20 |     await expect(row.getByRole('button', { name: 'Take off', exact: true }), `Operator cannot take off ${drone.name}: Take off control missing`).toBeVisible();\n> 21 |     await expect(row.getByRole('button', { name: 'Land', exact: true }), `Operator cannot land ${drone.name}: Land control missing`).toBeVisible();\n     |                                                                                                                                      ^\n  22 |   }\n  23 |   const faults = page.locator('details').filter({ has: page.locator('summary', { hasText: 'Faults' }) });\n  24 |   await expectVisibleAndUsable(faults.locator('summary'));\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S12-dashboard-contract.spec.ts:21:134",
+    "duration": 10589,
+    "title": "S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s12-dashboard-contract-spec-ts-s12-visual-functional-control-panel-offers-flight-controls-and-takeoff-reaches-the-cockpit.png",
+      "desktop-r0-s12-dashboard-contract-spec-ts-s12-visual-functional-control-panel-offers-flight-controls-and-takeoff-reaches-the-cockpit.webm",
+      "desktop-r0-s12-dashboard-contract-spec-ts-s12-visual-functional-control-panel-offers-flight-controls-and-takeoff-reaches-the-cockpit.md",
+      "desktop-r0-s12-dashboard-contract-spec-ts-s12-visual-functional-control-panel-offers-flight-controls-and-takeoff-reaches-the-cockpit.zip"
+    ]
+  }
+]

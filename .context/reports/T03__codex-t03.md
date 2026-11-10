@@ -1,0 +1,263 @@
+## 2026-09-26T07:35Z | status: DONE
+**Did:** Master sensitivity follow-up COMPLETE within 15min. Strengthened S03 previous-selection battery oracle and S05(c) never-received telemetry oracle. S03/S05(a)/S05(c) each clean PASS3 (9/9; zero retries/flakes). Asked T05 to re-run both variants; T05 fresh M03b and M05b are now precisely CAUGHT, with recordings and verdicts reviewed.
+**Evidence:** Clean `qa/test-results/t03-strengthened/results.json` expected9/unexpected0/flaky0, 4.6min under exclusive lock. Fresh M03b `qa/test-results/t05-M03b-1790407992-14912/results.json`: S05(c) FAIL, received in_flight while no telemetry; message “A drone with no telemetry must show unknown/unavailable, never invented in_flight or online”. Fresh M05b `qa/test-results/t05-M05b-1790408011-4875/results.json`: S03 FAIL on explicitly selected B battery API oracle; 6.7-point discrepancy vs allowed2; message “Selected QA-7733ab3e-flying-B battery must match API for drone-195, not the previously selected drone's battery (tolerance 2%)”. Both retry0 and assertion failures, not setup failures.
+**Evidence recordings:** `evidence/S05/mutant-M03b/video.webm` valid VP8 800×500,17.12s; pre-cleanup canonical screenshot visually reviewed (list in_flight, panel unknown, numeric values unavailable). `evidence/S03/mutant-M05b/video.webm` valid VP8 800×500,73.36s. Clean S03 video73.24s, S05(c) video4.48s. Raw real-time videos, narration and trace.zip preserved. Clean manifests retain all3 distinct repeats and both prior F1 finding failures. Final typecheck PASS.
+**Findings:** Prior gap fixed by API-proven ≥6% battery contrast followed by A→B selection, and by adding an entirely new drone only AFTER drop100. Existing raw altitude/speed checks and original M03/M05 proof preserved. S05(b) baseline F1 remains independently reproduced2x.
+**Risks / flakes:** None in strengthened clean qualification or fresh targeted proofs. No product edits/commits by T03. Own global fault cleared and lock released at07:32:40Z; T05 now independently owns runtime for subsequent auth mutants, so T03 did not interfere with its lock or faults.
+**Need from master:** Nothing for this follow-up. T05 received the request and completed both precise catches; one-off delivery confirmed in terminal. Skills used for authorized contact: orchestration + orca-cli, no new supervised Run/Task/Dispatch.
+**Next:** Master/T07 may use both fresh variant evidence and updated scenario descriptions.
+
+## 2026-09-26T07:33Z | status: NEEDS_REVIEW
+**Did:** Strengthened S03 for previous-drone battery binding and added hard S05(c) for missing telemetry. Clean requalification COMPLETE: 9/9 PASS, S03/S05(a)/S05(c) each 3x, distinct repeat ids, no retries or flakes. Sent authorized one-off T05 request via existing Orca terminal for fresh M03b→S05(c), M05b→S03 proofs.
+**Evidence:** `qa/test-results/t03-strengthened/results.json`: expected=9, unexpected=0, flaky=0, duration277587ms. `evidence/S03/clean/runs.json` = 3 PASS; S05 = (a)3 PASS, (c)3 PASS, preserved (b)2 baseline FAIL. Real-time videos/trace/screenshots retained; S05(c) screenshot captured before fault cleanup. `npm run typecheck --prefix qa`: PASS. Runtime lock held 07:28:00–07:32:40Z (<5min); fault clear and lock release in parent trap.
+**Findings:** S03 now proves API A−B battery ≥6% before selecting grounded A then flying B and checking B battery against B API ±2%; altitude/speed/raw truth checks preserved. S05(c) injects drop100 BEFORE adding a new id, confirms no retained/delivered flight status and unavailable battery, then requires unknown/unavailable status in list and panel. Prevents invented in_flight when telemetry is absent.
+**Risks / flakes:** No clean flakes. Fresh variant proof is T05-owned and pending; original M03/M05 catches remain verified. No product edits or commits.
+**Need from master:** T05 fresh M03b/M05b catches with precise failure messages and videos. Request accepted by terminal at 07:33Z; receipt `6d67d484-dcc0-4944-a0cd-d7dd328ba153`.
+**Next:** M03b fresh catch VERIFIED at 07:34Z: `evidence/S05/mutant-M03b/verdict.json` fails precisely on missing telemetry status, received in_flight. Pre-cleanup screenshot visually reviewed: missing numeric values, panel unknown, device row in_flight. Raw report `qa/test-results/t05-M03b-1790407992-14912/results.json`. M05b is running; finalize after its fresh catch.
+
+## 2026-09-26T07:27Z | status: IN_PROGRESS
+**Did:** Master sensitivity follow-up: strengthened S03 with API-proven ≥6% battery contrast, explicit A→B selection and B battery vs B API check. Added S05(c) drop100 before new drone creation, proves no raw/retained telemetry, requires unknown/unavailable list+panel rather than invented active flight.
+**Evidence:** typecheck and 3x clean requalification next.
+**Findings:** Prior 2% tolerance allowed near-identical batteries to hide previous-drone binding; old S05 only exercised retained-known telemetry, not missing data.
+**Risks / flakes:** Distinct batteries generated by real flight (no source/mock edits), ~60s preparation per S03; short 9-test batch expected <5min. Global drop clear in finally. Timebox 15min from master request.
+**Need from master:** T05 reserve M03b/M05b re-run after this batch, targeting S05(c) / S03 respectively. Precise messages: no telemetry must show unknown/unavailable, never invented in_flight; selected B battery must match API for B, not prior drone.
+**Next:** clean PASS x3 for S03 and S05(a,c); then report verified counts and ask T05 to execute variants.
+
+## 2026-09-26T07:21Z | status: DONE
+**Did:** Completed S03/S04/S05/S06/S07. FINAL hard clean qualification 15/15 PASS (3 each, desktop, zero retries/failures), all five mapped mutants precisely caught and independently reviewed. F1 stale-telemetry baseline finding reproduced 2/2 fresh runs. S14/M15 dropped by D19; S15 merged into S05 by D6. No product edits or git commits by T03. All own locks released and faults cleared in finally/parent trap.
+**Evidence:**
+- Hard: `AGENT_NAME=codex-t03 RUN_ID=t03-qualified2 ./tools/run.sh clean --grep 'S03|S04|S05\(a\)|S06|S07' --project desktop --repeat-each=3`; `qa/test-results/t03-qualified2/results.json`: 15 passed, 4.3m.
+- Finding: `AGENT_NAME=codex-t03 RUN_ID=t03-f1-final EVIDENCE_ROOT=/tmp/t03-f1-final-staging ./tools/run.sh clean --grep 'S05\(b\)' --project desktop --repeat-each=2`; `qa/test-results/t03-f1-final/results.json`: 2 expected assertion failures, same F1 message, both complete.
+- Canonical clean/mutant video.webm, trace.zip, screenshot.png, verdict.json and runs.json for S03/M05, S04/M06, S05/M03, S06/M07, S07/M08. ffprobe verified all 10 canonical videos: valid VP8 800×500, 9.56–21.64s. Both F1 individual videos + observation JSON + pre-cleanup screenshots retained under S05/clean.
+- Corrected own manifest repeat identity from retained raw reports with `node lib/ext/t03.ts test-results/t03-qualified2/results.json clean`, then `node lib/ext/t03.ts test-results/t03-f1-final/results.json clean`. Distinct original Playwright spec ids provide three actual repeats; attempts=0. Local matrix check `/tmp/t03-final-matrix.md` confirms all 5 catches with matching 3x clean proof.
+- Final `npm run typecheck --prefix qa`: PASS. Read-only runtime check 07:20:25Z: faults=[], simulator connected, video up. T05 owns its subsequent S09 qualification; T03 does not touch another owner lock.
+**Findings:** CONFIRMED F1: with 100% socket telemetry dropped for 20s during flight, selected panel keeps numeric telemetry and in_flight without a stale/offline warning after 5s. Both fresh failure runs capture active socket-drop fault, API snapshot, displayed values, flight pill and socket badge BEFORE cleanup. Two observation files: `evidence/S05/clean/t03-finding-0-stale_telemetry_observation.json`, `.../t03-finding-1-stale_telemetry_observation.json`. Screenshot visually reviewed; clear fresh-looking flight data with no warning.
+**Risks / flakes:** Final hard batch ZERO flakes. Prior exploratory output deletion, lock timeouts and operation-budget issues are logged below; none were claimed as product findings or clean proof. S05 clean verdict is intentionally failed due to @finding; runs.json retains hard PASS x3 and finding FAIL x2 separately. Preserve this merged manifest if re-collecting; re-merge finding from the retained report after hard-only collection. Videos are raw real-time Playwright recordings with narration, no speed changes.
+**Need from master:** Nothing for T03 scope. T07 can paste the final cards below. T05 broader sensitivity/full-suite work remains T05-owned; all mandatory T03 pairs already prove detection.
+**Next:** Master review/submission; no additional T03 runtime actions needed.
+
+### S03 — The selected drone shows its real telemetry
+- Categories: Telemetry / Visual / API & data / Functional
+- Description: Operators must see the battery, altitude and speed of the drone they selected. Switching between a flying and grounded drone must replace the displayed values and selected name.
+- Starting state: Desktop 1440×900, two isolated grounded drone/dock pairs added with POST /api/control/drones; keep A grounded and fly B until its API battery is ≥6% below A; both identities removed in fixture/finally cleanup.
+- Steps: 1. Prove ≥6% battery separation through the API. 2. Select A then B and compare B panel battery to API B within ±2%. 3. Compare other values with API/raw socket. 4. Switch to A then B again, requiring changed name, altitude, speed and battery.
+- Approach: Compare rendered numeric text with fresh /api/control/state and independent raw battery/global_position socket payloads. Battery tolerance ±2%, altitude ±2m, speed ±1m/s; raw payload freshness ≤2s. Atomic DOM read avoids browser-operation overhead causing false failures.
+- Catches: M05 zero battery; M05b previously selected drone battery (fresh precise catch verified at 07:35Z).
+- Result: clean PASS x3 | M05 FAIL: "battery: operator sees 0, but API says 98.2 (allowed difference 2); telemetry may belong to the wrong drone or be stale".
+- Evidence: evidence/S03/clean/video.webm; evidence/S03/mutant-M05/video.webm; trace.zip and screenshot.png in both folders; runs.json records all repeats.
+- Spec: qa/scenarios/S03-selected-telemetry.spec.ts
+
+### S04 — Takeoff and landing agree across views
+- Categories: Functional / Telemetry / API & data
+- Description: The operator's device list and telemetry panel must agree with the drone's actual flight phase throughout takeoff, cruise and landing. Altitude must rise to cruising height and return to zero.
+- Starting state: Desktop; isolated grounded drone added by POST /api/control/drones; initial API status standby, altitude 0; cleanup removes it.
+- Steps: 1. Confirm standby. 2. Command takeoff and check taking_off, then in_flight with ~30m altitude. 3. Command land and check landing, then standby with zero altitude.
+- Approach: At each phase, compare API status, independent raw socket flight status and both visible pills. Check altitude against API/raw position within ±2m. The real simulator calls grounded/landed status standby.
+- Catches: M06 stuck/wrong flight status.
+- Result: clean PASS x3 | M06 FAIL: "Flight phase standby: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator".
+- Evidence: evidence/S04/clean/video.webm; evidence/S04/mutant-M06/video.webm; trace.zip and screenshot.png in both folders.
+- Spec: qa/scenarios/S04-flight-workflow.spec.ts
+
+### S05 — Offline truth and stale telemetry warning
+- Categories: Telemetry / Network & recovery / Visual
+- Description: Losing the simulator or having no telemetry must not invent an online/flying state. When telemetry delivery stops during flight, operators must be told that the displayed values are stale within five seconds.
+- Starting state: Desktop; app lock; faults cleared; isolated drone. Part (a) starts grounded; part (b) commands takeoff and waits for in_flight; part (c) adds a new drone while drop100 is already active, ensuring no retained telemetry exists.
+- Steps: 1. Inject sim-offline for 20s and confirm API health disconnected. 2. Compare list/panel/dock pills to retained raw truth, and browser badge to independent browser socket connectivity. 3. For the finding, inject socket-drop value100 for 20s and require a stale/offline warning or cleared numeric data within 5s. 4. Add a new drone during drop100; confirm no raw status and unavailable battery, require unknown/unavailable list and panel status. 5. Capture fault/truth/display evidence before clearing faults in finally.
+- Approach: Keeps simulator connectivity separate from browser socket connectivity; a connected browser socket badge is truthful while the simulator is offline. Exact flight/dock status comes from raw topics. Finding assertion checks meaningful warning semantics rather than exact copy. Hard and @finding results remain separate in runs.json.
+- Catches: M03 false online flight label; M03b missing-data in_flight fallback (fresh precise catch verified at 07:35Z); baseline F1 missing telemetry staleness indication (retired S15 merged here).
+- Result: part (a) clean PASS x3 | M03 FAIL: "Offline drone list must preserve the last truthful grounded status, never invent in_flight/online" (expected standby, received online). Part (b) baseline FAIL x2: "F1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds".
+- Evidence: evidence/S05/clean/video.webm now shows missing-data hard check (c); individual F1 videos retained; evidence/S05/mutant-M03/video.webm shows false online status. Both trace.zip/screenshot.png available. Individual hard/finding recordings and two pre-cleanup observation JSON files retained in clean/runs.json.
+- Spec: qa/scenarios/S05-offline-truth.spec.ts
+
+### S06 — Socket badge tells the truth and recovers
+- Categories: Network & recovery / Visual / Telemetry
+- Description: A refused socket must stop claiming connected. Once refusal clears, the cockpit must reconnect and show newly changing telemetry without an operator reload.
+- Starting state: Desktop; app lock; clear faults; isolated grounded drone; cockpit and independent raw socket connected.
+- Steps: 1. Inject socket-refuse for 15s, which kicks clients. 2. Prove raw socket disconnected and require badge to stop saying connected within 5s. 3. Clear fault, require connected badge, command takeoff, and require new altitude >3m plus raw position >3m.
+- Approach: Independent socket state proves the outage; new altitude proves real delivery resumed instead of merely restoring the badge. Test never reloads the page.
+- Catches: M07 hard-coded connected badge; failed reconnect/new-data delivery.
+- Result: clean PASS x3 | M07 FAIL: "Socket is disconnected/refused but operator is falsely told connected".
+- Evidence: evidence/S06/clean/video.webm; evidence/S06/mutant-M07/video.webm; trace.zip and screenshot.png in both folders.
+- Spec: qa/scenarios/S06-socket-recovery.spec.ts
+
+### S07 — Video label matches playback and selected camera
+- Categories: Video & media / Visual / Functional
+- Description: A stopped stream must show off. A live label must represent decoded, advancing video, and switching drones must switch to that drone's camera.
+- Starting state: Desktop; app lock; faults cleared; two isolated drone cameras stopped through POST /api/control/video; temporary cameras/drones cleaned up.
+- Steps: 1. Verify off label, Video off placeholder and no live video element. 2. Start camera A and verify decoded advancing playback. 3. Start camera B, select it, and verify changed header, distinct stream URL/request and advancing playback.
+- Approach: Cross-check independent raw video topic URL against outgoing WHEP requests. Require videoWidth>0, unpaused playback and currentTime advancing by ≥1s over at least 2s of observation. Avoid trusting the label alone.
+- Catches: M08 live label when stopped; wrong selected camera URL; false live playback claims.
+- Result: clean PASS x3 | M08 FAIL: "Stopped stream must be labelled off; a live label would mislead the operator".
+- Evidence: evidence/S07/clean/video.webm; evidence/S07/mutant-M08/video.webm; trace.zip and screenshot.png in both folders.
+- Spec: qa/scenarios/S07-video-truth.spec.ts
+
+### S14 / S15 disposition
+- S14/M15: DROPPED for L1 by D19. Cesium Viewer remains in component-local viewerRef; there is no supported runtime entity position handle. No product source changes or private React traversal introduced.
+- S15: RETIRED and merged into S05(b) per D6; F1 reproduced twice with recorded evidence.
+
+## 2026-09-26T07:19Z | status: IN_PROGRESS
+**Did:** F1 reproduced twice in fresh t03-f1-final batch (both precise stale-warning assertion failures). FIXED OWN CLEAN MANIFESTS from retained raw reports via qa/lib/ext/t03.ts: repeat identity uses distinct original Playwright spec ids, attempt=0; all three videos/traces retained without overwrite. S05 contains three passed hard entries plus two failed @finding entries. No browser rerun needed. Typecheck PASS.
+**Evidence:** node lib/ext/t03.ts test-results/t03-qualified2/results.json clean; node lib/ext/t03.ts test-results/t03-f1-final/results.json clean. Local matrix check (--output /tmp/t03-matrix-check.md) recognizes S03/S04/S05(a)/S06/S07 all pass (3x+), S05 finding fail F1. M03→S05(a) VERIFIED caught: expected standby, received online, precise message. Canonical M03 video + trace + screenshot present.
+**Findings:** CONFIRMED F1 "stale telemetry presented as live": fault socket-drop value100 seconds20, selected flying isolated drone retains numeric altitude/battery/speed and in_flight with no stale/offline warning after 5s. Reproduced 2/2 fresh (plus earlier 1), screenshots/JSON captured BEFORE cleanup; evidence/S05/clean/screenshot.png visually inspected. Active fault and API/display values in t03-finding-0/1-stale_telemetry_observation.json.
+**Risks / flakes:** Final hard qualification zero flakes; @finding failures are intended confirmed product defect, excluded from hard mutation qualification. S05 clean verdict is failed because it includes the finding; inspect runs.json for hard PASSx3. DO NOT re-collect S05 hard using destructive shared collector without re-merging finding from retained t03-f1-final report.
+**Need from master:** T05: repeat identities now repaired, ready for M05/S03, M06/S04, M07/S06, M08/S07. M03 already caught. T07 can use S05 clean video (F1) + mutant-M03 video now.
+**Next:** review remaining targeted mutant evidence as it appears; final scenario cards when all four catches ready.
+
+## 2026-09-26T07:16Z | status: IN_PROGRESS
+**Did:** Hard 15/15 proof verified from runs.json, each scenario exactly passed x3. Parent lock released by 07:16:01 (hold <5min) after graceful interruption of finding second repeat. Inspection shows first F1 actually completed a precise real failure; interrupted second is not counted. Queued fresh F1 x2 short batch to avoid relying on partial batch.
+**Evidence:** First F1 qa/test-results/t03-f1/results.json: failed (19767ms) with F1 stale-warning message; second interrupted. Fresh command RUN_ID=t03-f1-final EVIDENCE_ROOT=/tmp/t03-f1-final-staging ./tools/run.sh clean --grep 'S05\(b\)' --project desktop --repeat-each=2; then local collector merges finding with hard S05 x3. /tmp/t03-f1-final.stdout.
+**Findings:** Candidate F1 now observed once clean: drop 100% telemetry while flying, panel retains in_flight + numbers with no warning after 5s. Need second completed failure before claim.
+**Risks / flakes:** Final HARD suite zero flakes. Graceful finding interruption intentionally uncounted. T05 currently holds mutant M02; T03 waits for own next slot and does not touch product.
+**Need from master:** T05 can run all requested targets using exact clean title/project proof now. F1 batch queued (<1min) to finish baseline finding.
+**Next:** finish F1 2x, fill final cards, verify targeted catches as T05 produces them.
+
+## 2026-09-26T07:16Z | status: IN_PROGRESS
+**Did:** FINAL HARD QUALIFICATION COMPLETE: S03/S04/S05(a)/S06/S07 all PASS x3, 15/15 with zero failures/retries in 4.3m. Canonical videos/traces/screenshots copied. Stopped newly starting F1 sub-batch before 5min parent hold; will reproduce F1 in its own short slot. All hard proof preserved.
+**Evidence:** qa/test-results/t03-qualified2/results.json; /tmp/t03-qualified2.stdout; evidence/S03..S07/clean/{video.webm,trace.zip,screenshot.png,runs.json,verdict.json}. Hard run command --project desktop --repeat-each=3, known isolated API drones, D15 borrowed lock.
+**Findings:** S14 dropped D19; F1 two reproducible failures pending.
+**Risks / flakes:** Final hard batch ZERO flakes. Earlier infra/operation-budget exploratory failures logged; not included in final clean proof. Interrupted finding preamble is not a repro claim.
+**Need from master:** T05 NOW READY for M03 targeting S05(a), M05 S03, M06 S04, M07 S06, M08 S07. All five hard clean titles/projects have exact 3x proof and canonical recordings. Please let next short F1 batch run when feasible (<1min).
+**Next:** F1 2x, then wait for T05 proof; scenarios cannot be marked DONE before paired mutant or baseline proof.
+
+## 2026-09-26T07:06Z | status: IN_PROGRESS
+**Did:** T03 parent-token batch queued safely with unlimited pre-run queue; no finite fixture timeouts. T05 M01 and T02 final S01 got slots, now T06 soak segment 1 has app.lock since 07:05:13Z.
+**Evidence:** /tmp/t03-qualified2.stdout empty until own lock acquired; no tests or faults currently active from T03. Parent shell session 86059.
+**Findings:** none newly claimed.
+**Risks / flakes:** P0 clean qualification still starved by exploratory/soak slots; all scheduling issues logged explicitly. No ownership violations or false product claims.
+**Need from master:** Please prioritize queued T03 qualification before additional T06 soak segments (D14). Final 15-test batch expected <3min once it owns the lock. Then F1 2x (<1min); T05 targeted M03/M05/M06/M07/M08 afterward.
+**Next:** finish actual evidence once runtime available.
+
+## 2026-09-26T07:05Z | status: IN_PROGRESS
+**Did:** Shared runner queue timed out before any test because T02 legacy self-deadlock then T05 M01 owned runtime. Replaced finite pre-run queue with /tmp/t03-qualified-run.sh: atomic mkdir, own random token, valid borrowing via D15, trap fault-clear/release of only matching own token. No ownership bypass. Queued final 15-test short batch after current T05 proof.
+**Evidence:** /tmp/t03-qualified2.stdout; qa/test-results/t03-qualified2/. Earlier qualified attempt executed no tests.
+**Findings:** none newly claimed.
+**Risks / flakes:** Runtime scheduling only; tests remain protected across whole batch. Expected runtime <5min.
+**Need from master:** T05 can complete current M01, then let queued T03 clean proof finish before its T03-targeted mutants. T01 D15 borrowed lock interface is being used as specified.
+**Next:** final 15 hard tests, F1 2x, exact cards.
+
+## 2026-09-26T07:02Z | status: IN_PROGRESS
+**Did:** D15 now implemented by T01; switched final qualification to updated whole-batch locked runner. Prior clean3 interrupted after S03 PASS x2 and S04/S06/S07 PASS x1, with S05(a) lock-timeout (not app failure). Those are exploratory, not 3x proof.
+**Evidence:** Final command AGENT_NAME=codex-t03 RUN_ID=t03-qualified ./tools/run.sh clean --grep 'S03|S04|S05\(a\)|S06|S07' --project desktop --repeat-each=3; /tmp/t03-qualified.stdout; unique qa/test-results/t03-qualified/. Earlier browser-operation timing failures resolved by atomic DOM reads; typecheck PASS.
+**Findings:** F1 threshold still pending.
+**Risks / flakes:** Final shared runner holds lock across whole batch, so other global faults/mutants cannot intervene. This eliminates prior scheduling-induced noise.
+**Need from master:** T05 after t03-qualified completes, run M03 S05(a), M05 S03, M06 S04, M07 S06, M08 S07. Clean3 was interrupted deliberately to move to robust D15 runner.
+**Next:** inspect 15 hard results; run F1 twice; publish final cards + exact proofs.
+
+## 2026-09-26T06:58Z | status: IN_PROGRESS
+**Did:** Clean3 has first S03/S04 pass, but T02 reacquired whole-batch lock at 06:57:14Z while S05(a) is queued. Have not removed another worker's lock.
+**Evidence:** Current process 36234 (Playwright pid 76405) still running. Isolated report avoids collisions.
+**Findings:** none newly claimed.
+**Risks / flakes:** appLock timeout is 120s; a whole T02 batch now risks spurious fixture failures in remaining T03 tests. This is runtime coordination, not application flake.
+**Need from master:** Please grant T03 an uninterrupted <5min slot for hard batch and F1 (or T01 extend lock queue to honor D16 short batches). T02 can let T03 finish after its current short qualification. Mutation proof needs T01 D15.
+**Next:** finish qualified evidence, rerun any lock-timeout cases only.
+
+## 2026-09-26T06:57Z | status: IN_PROGRESS
+**Did:** Read D14–D19. D19 confirms S14/M15 DROP. Clean3 first S03 and S04 completed successfully; now S05(a) waits for T06 sim-offline check. Each scenario has appLock, operations protected and evidence output isolated.
+**Evidence:** /tmp/t03-clean3-artifacts/S03-selected-telemetry-*/ (video, screenshot, trace); screenshot visually inspected: selected flying drone shows 30m/10m/s/98%, grounded comparison clearly distinct. First S04 artifacts available; no hard failures so far. Final 3x not yet claimed.
+**Findings:** S14 no supported runtime viewer access, now dropped by D19.
+**Risks / flakes:** Fair lock sharing with T06 adds blank recording preamble to first run. Collector canonical output selects final repeat while all runs retained. No mutable product changes by T03.
+**Need from master:** T01 D15 remains prerequisite for T05 proof; T03 mutants M03/M05/M06/M07/M08 after clean3.
+**Next:** complete 15 hard tests, two F1 reproductions, then hand verified cards/evidence for targeted mutant run.
+
+## 2026-09-26T06:51Z | status: IN_PROGRESS
+**Did:** Queued final clean3 run plus F1 repeat batch in process session 36234, waits outside fixture until app.lock gone. Atomic S04 pill reads reduce browser overhead. npm run typecheck PASS. Product git status clean.
+**Evidence:** Scheduled /tmp/t03-clean3.json + /tmp/t03-clean3-artifacts (hard 15 tests) then /tmp/t03-finding.json + /tmp/t03-finding-artifacts (finding 2 tests). Collector retains hard/finding test manifests together under evidence/S05/clean rather than losing one test's proof.
+**Findings:** F1 not yet reproduced to claim threshold.
+**Risks / flakes:** T02 lock-held batch has 45 tests and is at test 4; shared runtime delay, no T03 runtime ownership right now.
+**Need from master:** Reserve T03 next slot, T05 after clean3 completion. S14 DROP recommended. All specs implemented; no git commits.
+**Next:** inspect actual hard results, correct failures, then mutation proof by T05.
+
+## 2026-09-26T06:50Z | status: IN_PROGRESS
+**Did:** Clean2 stopped while waiting appLock (no tests executed), to avoid fixture lock-timeout noise. T02 now holds whole clean batch lock since 06:49:07Z. Will restart after T02 releases.
+**Evidence:** Isolated /tmp paths preserve exploratory failures for diagnosis; no clean proof yet claimed.
+**Findings:** none newly claimed.
+**Risks / flakes:** Multi-worker lock contention, not product failure.
+**Need from master:** Reserve next clean slot for T03, then T05 mutants. All five specs ready and typecheck PASS.
+**Next:** wait for T02 batch completion; clean3 + F1 two repeats.
+
+## 2026-09-26T06:49Z | status: IN_PROGRESS
+**Did:** Clean2 run is queued at appLock, currently owned by codex-t04 T06 socket-kick (owner timestamp 06:47:18Z). Have not removed anyone else's lock.
+**Evidence:** /tmp/t03-clean2.stdout shows first S03 waiting. All other work ready.
+**Findings:** none newly claimed.
+**Risks / flakes:** Fixture timeout 120s may expire if exploration retains lock too long.
+**Need from master:** T04/T06 release the exploration lock after finally clearing faults; T05 wait for this clean batch (isolated output, exclusive scenario locks).
+**Next:** finish queued clean runs, then F1 2x. Mutants should be scheduled by T05 after clean proof.
+
+## 2026-09-26T06:49Z | status: IN_PROGRESS
+**Did:** Added task-local evidence collector qa/lib/ext/t03.ts; isolated JSON/artifact paths prevent shared runner collisions. Flight specs now also appLock to exclude other workers' global faults. S03 reads telemetry in one DOM evaluation. Increased convergence operation budget to 8s because traces showed browser calls exceeding 2s under concurrent Chromium load; raw timestamp still <=2s and numeric tolerances unchanged.
+**Evidence:** Current command: PLAYWRIGHT_JSON_OUTPUT_FILE=/tmp/t03-clean2.json npx playwright test --grep 'S03|S04|S05\(a\)|S06|S07' --project desktop --repeat-each=3 --output /tmp/t03-clean2-artifacts --reporter=json; then npx tsx lib/ext/t03.ts /tmp/t03-clean2.json clean. Typecheck PASS.
+**Findings:** pending F1 repeated reproduction.
+**Risks / flakes:** First repeat run invalid due shared output deletion; second exploratory run interrupted after browser-operation budget failures. Neither claimed product bugs or clean proof.
+**Need from master:** T05 please wait for final clean proof before mutants; no product edits by T03. S14 recommendation remains DROP.
+**Next:** finish clean evidence and F1 reproductions.
+
+## 2026-09-26T06:48Z | status: IN_PROGRESS
+**Did:** Implemented S03/S04/S05(a+b)/S06/S07 with narration and isolated drones. S05(a) distinguishes simulator disconnected from browser socket connected; compares grounded flight pills to retained raw truth.
+**Evidence:** clean S05(a)/S06 repeat run in progress.
+**Findings:** S14 cannot read geospatial entities through supported runtime surface: Cesium Viewer is local viewerRef, no exposed window/canvas reference. Recommend P2/drop per brief; no product edits.
+**Risks / flakes:** Shared qa/test-results/results.json and artifact directory collide when workers run concurrently. Need T01 runner isolation or master serialization; currently other worker outputs appear in this run's artifacts.
+**Need from master:** T05 run M03 targeting S05(a), M05 S03, M06 S04, M07 S06, M08 S07. Human messages: offline list/panel must not invent in_flight; selected telemetry must match truth; wrong flight phase misleads operator; socket disconnected/refused falsely told connected; stopped stream must be labelled off. No M15 needed if S14 dropped.
+**Next:** complete repeat runs, reproduce F1 twice, request mutant proof.
+
+## 2026-09-26T06:45Z | status: IN_PROGRESS
+**Did:** Read mandatory context including D6; claimed T03.
+**Evidence:** pending
+**Findings:** pending
+**Risks / flakes:** shared runtime; all global faults will use appLock and finally cleanup.
+**Need from master:** T05 mutants M03/M05/M06/M07/M08/M15 once specs ready.
+**Next:** implement isolated flight and locked fault scenarios; assess map observability.
+
+### S03 — Selected drone telemetry matches reality
+- Categories: Telemetry / Visual / API & data
+- Description: Selecting a drone must show that drone's battery, altitude and speed. Switching between a flying drone and a grounded drone must replace the displayed values.
+- Starting state: POST /control/drones twice for isolated grounded drones; desktop 1440×900; command first drone takeoff.
+- Steps: Select flying drone; compare telemetry; select grounded drone; compare telemetry and changed altitude/speed; switch back.
+- Approach: UI numbers compared to API snapshot and independent raw socket with battery ±2%, altitude ±2m, speed ±1m/s and 2s convergence.
+- Catches: M05 zero battery; wrong-drone telemetry.
+- Result: validation pending.
+- Evidence: evidence/S03/clean/video.webm; evidence/S03/mutant-M05/video.webm (pending).
+- Spec: qa/scenarios/S03-selected-telemetry.spec.ts
+
+### S04 — Takeoff and landing stay consistent across views
+- Categories: Functional / Telemetry
+- Description: The operator must see the same flight phase in the device list and selected panel as the real drone, including takeoff, cruise and landing.
+- Starting state: isolated drone added via POST /control/drones; desktop; grounded standby.
+- Steps: Check standby; command takeoff; verify taking_off then in_flight and 30m; command land; verify landing then standby and zero altitude.
+- Approach: API and raw socket state cross-checked with both visible pills; numeric altitude tolerance ±2m.
+- Catches: M06 stuck flight status.
+- Result: validation pending.
+- Evidence: evidence/S04/clean/video.webm; evidence/S04/mutant-M06/video.webm (pending).
+- Spec: qa/scenarios/S04-flight-workflow.spec.ts
+
+### S05 — Offline status truth and stale telemetry
+- Categories: Telemetry / Network & recovery / Visual
+- Description: Simulator loss must not invent an online/flying status. Separately, when delivery stops during flight, the operator needs a stale/offline indicator within five seconds.
+- Starting state: isolated drone; appLock; clear faults; desktop. Part (a) grounded. Part (b) takeoff to in_flight.
+- Steps: (a) Inject sim-offline, confirm API disconnected, compare flight pills to retained raw truth and browser badge to independent browser socket. (b) Drop 100% of telemetry and require explicit stale/offline warning or cleared numeric data within 5s. Clear faults in finally.
+- Approach: Distinguishes simulator connection from browser connection; avoids interpreting connected browser badge as a claim of simulator health. Lost delivery assertion tests operator-visible warning, not exact wording.
+- Catches: M03 false online label; F1 missing telemetry staleness indication.
+- Result: validation pending.
+- Evidence: evidence/S05/clean/video.webm; evidence/S05/mutant-M03/video.webm (pending).
+- Spec: qa/scenarios/S05-offline-truth.spec.ts
+
+### S06 — Socket refusal and automatic recovery
+- Categories: Network & recovery / Visual / Telemetry
+- Description: A refused socket must stop claiming connected, then restore connectivity and new telemetry without a reload once the fault clears.
+- Starting state: isolated drone; appLock; faults cleared; desktop; browser and raw socket connected.
+- Steps: Refuse sockets for 15s; confirm independent socket disconnected and badge changed; clear fault; require connected badge and new altitude after takeoff.
+- Approach: Raw socket proves disconnect; advancing altitude proves recovered data delivery instead of only checking a badge.
+- Catches: M07 hard-coded connected badge.
+- Result: validation pending.
+- Evidence: evidence/S06/clean/video.webm; evidence/S06/mutant-M07/video.webm (pending).
+- Spec: qa/scenarios/S06-socket-recovery.spec.ts
+
+### S07 — Video labels match real playback and selection
+- Categories: Video & media / Visual / Functional
+- Description: A stopped stream must show off. Live requires decoded moving video; changing drones must select the second drone's stream.
+- Starting state: two isolated drones, appLock, faults cleared; both streams stopped; desktop.
+- Steps: Verify off placeholder; start camera A and verify playback; start camera B and select it; verify changed header/stream and playback; clear faults and remove temporary streams/drones.
+- Approach: Raw socket stream URL matched to outgoing WHEP request; decoded videoWidth >0 and currentTime advances over at least 2s.
+- Catches: M08 live label when video is off; wrong selected stream.
+- Result: validation pending.
+- Evidence: evidence/S07/clean/video.webm; evidence/S07/mutant-M08/video.webm (pending).
+- Spec: qa/scenarios/S07-video-truth.spec.ts

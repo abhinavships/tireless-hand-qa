@@ -1,0 +1,138 @@
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+
+Running 4 tests using 1 worker
+
+(node:59232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › scenarios/S09-xss.spec.ts:6:2 › S09 @security cockpit renders payload 1 as text (2.4s)
+  ✓  2 [desktop] › scenarios/S09-xss.spec.ts:6:2 › S09 @security cockpit renders payload 2 as text (4.1s)
+  ✘  3 [desktop] › scenarios/S09-xss.spec.ts:6:2 › S09 @security dashboard renders payload 1 as text (11.1s)
+(node:59569) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [desktop] › scenarios/S09-xss.spec.ts:6:2 › S09 @security dashboard renders payload 2 as text (11.2s)
+
+
+  1) [desktop] › scenarios/S09-xss.spec.ts:6:2 › S09 @security dashboard renders payload 1 as text ─
+
+    Error: Stored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session
+
+    Stored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session
+
+    expect(received).toBeUndefined()
+
+    Received: 1
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      13 |    const marker=await page.evaluate(()=>Reflect.get(window,'__xss'));
+      14 |    if(marker!==undefined)await narrate(page,`S09 FAILED: drone name executed JavaScript on ${surface}; __xss=${marker}`);
+    > 15 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();
+         |                                                                                                                                                                                        ^
+      16 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);
+      17 |    await expect(row.locator('img[src="x"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);
+      18 |   } finally {await api.removeDrone(drone.id);}
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:15:184
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › scenarios/S09-xss.spec.ts:6:2 › S09 @security dashboard renders payload 2 as text ─
+
+    Error: Drone name is interpreted as HTML on dashboard rather than shown as literal operator text
+
+    expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('dash-row-drone-229')
+    Timeout: 10000ms
+    - Expected substring  -  1
+    + Received string     + 14
+
+    - "><svg onload=window.__xss=2>
+    +
+    +         ">drone-229 · dock-229
+    +         standby
+    +         100 %
+    +         0.0 m
+    +         0.0 m/s
+    +         0 m
+    +         off
+    +         
+    +           Take off
+    +           Land
+    +           Start video
+    +           Remove
+    +         
+
+    Call log:
+      - Drone name is interpreted as HTML on dashboard rather than shown as literal operator text getByTestId('dash-row-drone-229') with timeout 10000ms
+      - waiting for getByTestId('dash-row-drone-229')
+        24 × locator resolved to <tr data-testid="dash-row-drone-229">…</tr>
+           - unexpected value "
+            ">drone-229 · dock-229
+            standby
+            100 %
+            0.0 m
+            0.0 m/s
+            0 m
+            off
+            
+              Take off
+              Land
+              Start video
+              Remove
+            "
+
+
+      14 |    if(marker!==undefined)await narrate(page,`S09 FAILED: drone name executed JavaScript on ${surface}; __xss=${marker}`);
+      15 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();
+    > 16 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);
+         |                                                                                                                   ^
+      17 |    await expect(row.locator('img[src="x"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);
+      18 |   } finally {await api.removeDrone(drone.id);}
+      19 |  });
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:16:115
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M02-1790408726-18594/artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › scenarios/S09-xss.spec.ts:6:2 › S09 @security dashboard renders payload 1 as text ──
+    [desktop] › scenarios/S09-xss.spec.ts:6:2 › S09 @security dashboard renders payload 2 as text ──
+  2 passed (30.8s)
+Evidence collected for 1 scenarios (mutant-M02; RUN_ID=t05-M02-1790408726-18594)
+Evidence collected for 1 scenarios (mutant-M02; RUN_ID=t05-M02-1790408726-18594)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx

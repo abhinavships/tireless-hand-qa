@@ -1,0 +1,18 @@
+# M15 | Map | targets: S14 | Drone marker latitude and longitude swapped
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -272,7 +272,7 @@
+     const droneH = pos.elevation + offset;
+     const groundBelow = groundHeight(viewer, ground, `below:${device.id}`, pos.longitude, pos.latitude);
+     const entity = viewer.entities.getOrCreateEntity(device.id);
+-    entity.position = new Cesium.ConstantPositionProperty(Cesium.Cartesian3.fromDegrees(pos.longitude, pos.latitude, droneH));
++    entity.position = new Cesium.ConstantPositionProperty(Cesium.Cartesian3.fromDegrees(pos.latitude, pos.longitude, droneH));
+     entity.orientation = new Cesium.ConstantProperty(droneOrientation(pos.longitude, pos.latitude, droneH, heading));
+     syncHeightReference(viewer, device.id, pos.longitude, pos.latitude, droneH, groundBelow, formatHeight(pos.height));
+     if (!entity.model) {
+@@ -399,3 +399,5 @@
+     </>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M15" });

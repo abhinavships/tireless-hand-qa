@@ -1,0 +1,14 @@
+# MAP04 | Map & geospatial | targets: map | Height label shows sea-level altitude instead of height above take-off
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..1fb8afa 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -274,7 +274,7 @@ function syncEntities(
+     const entity = viewer.entities.getOrCreateEntity(device.id);
+     entity.position = new Cesium.ConstantPositionProperty(Cesium.Cartesian3.fromDegrees(pos.longitude, pos.latitude, droneH));
+     entity.orientation = new Cesium.ConstantProperty(droneOrientation(pos.longitude, pos.latitude, droneH, heading));
+-    syncHeightReference(viewer, device.id, pos.longitude, pos.latitude, droneH, groundBelow, formatHeight(pos.height));
++    syncHeightReference(viewer, device.id, pos.longitude, pos.latitude, droneH, groundBelow, formatHeight(pos.elevation));
+     if (!entity.model) {
+       entity.model = new Cesium.ModelGraphics({
+         scale: DRONE_MODEL_STYLE.scale,

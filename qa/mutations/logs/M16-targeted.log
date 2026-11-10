@@ -1,0 +1,62 @@
+ product-frontend-1 Copying frontend/src/App.tsx to product-frontend-1:/app/frontend/src/App.tsx
+ product-frontend-1 Copied frontend/src/App.tsx to product-frontend-1:/app/frontend/src/App.tsx
+
+Running 2 tests using 1 worker
+
+(node:44122) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › scenarios/S11-auth-contract.spec.ts:13:1 › S11 @security signed-out route guards (evaluator-ready) (593ms)
+  ✘  2 [desktop] › scenarios/S11-auth-contract.spec.ts:25:1 › S11 @security sign-in required controls (evaluator-ready) (10.4s)
+
+
+  1) [desktop] › scenarios/S11-auth-contract.spec.ts:25:1 › S11 @security sign-in required controls (evaluator-ready) 
+
+    Error: Operator cannot sign in: Sign in action missing
+
+    expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Sign in', exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Operator cannot sign in: Sign in action missing getByRole('button', { name: 'Sign in', exact: true }) with timeout 10000ms
+      - waiting for getByRole('button', { name: 'Sign in', exact: true })
+
+
+      27 |  for(const form of contracts.loginForms){await page.goto(form.url);await narrate(page,'S11: email, OTP and usable sign-in action are required');
+      28 |  const email=page.getByLabel(form.emailLabel,{exact:true});const otp=page.getByLabel(form.otpLabel,{exact:true});const submit=page.getByRole('button',{name:form.submitName,exact:true});
+    > 29 |  await expect(email).toBeVisible();await expect(otp).toBeVisible();await email.fill('operator@example.test');await otp.fill('123456');await expect(submit,'Operator cannot sign in: Sign in action missing').toBeVisible();await expect(submit,'Sign-in action must be enabled after email and OTP are entered').toBeEnabled();
+         |                                                                                                                                                                                                              ^
+      30 |  if(form.successRoute){await submit.click();await expect.poll(()=>new URL(page.url()).pathname,{message:'Valid fixture sign-in must open protected settings'}).toBe(form.successRoute);await expect(page.getByTestId('auth-settings')).toBeVisible();}
+      31 |  }
+      32 | });
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts:29:206
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M16-1790408102-12738/artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M16-1790408102-12738/artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M16-1790408102-12738/artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M16-1790408102-12738/artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M16-1790408102-12738/artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S11-auth-contract.spec.ts:25:1 › S11 @security sign-in required controls (evaluator-ready) 
+  1 passed (11.4s)
+Evidence collected for 1 scenarios (mutant-M16; RUN_ID=t05-M16-1790408102-12738)
+Evidence collected for 1 scenarios (mutant-M16; RUN_ID=t05-M16-1790408102-12738)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/App.tsx to product-frontend-1:/app/frontend/src/App.tsx
+ product-frontend-1 Copied frontend/src/App.tsx to product-frontend-1:/app/frontend/src/App.tsx

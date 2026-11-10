@@ -1,0 +1,10 @@
+# M09b | Responsive | targets: S08 | Device list silently disappears at <=480px
+--- a/frontend/src/styles.css
++++ b/frontend/src/styles.css
+@@ -157,3 +157,6 @@
+ }
+ .video-state-reconnecting { color: var(--caution-30); }
+ .video-state-live { color: var(--success-50); }
++
++@media (max-width:480px) { .device-list { overflow:hidden; max-height:0; } }
++:root { --mutation-lab: "mutation-lab:M09b"; }

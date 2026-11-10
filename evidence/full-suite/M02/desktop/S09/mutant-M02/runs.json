@@ -1,0 +1,72 @@
+[
+  {
+    "sourceSpecId": "b4d88bd1b5d056fcec1f-5c68be1be3324a2fd1af",
+    "scenario": "S09",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "passed",
+    "message": "",
+    "duration": 2436,
+    "title": "S09 @security cockpit renders payload 1 as text",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-1-as-text.png",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-1-as-text.webm",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-1-as-text.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "b4d88bd1b5d056fcec1f-4188c9919efc3f3f06c6",
+    "scenario": "S09",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "passed",
+    "message": "",
+    "duration": 4136,
+    "title": "S09 @security cockpit renders payload 2 as text",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-2-as-text.png",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-2-as-text.webm",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-2-as-text.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "b4d88bd1b5d056fcec1f-eff5f3dabb94b43076e3",
+    "scenario": "S09",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "failed",
+    "message": "Error: Stored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session\n\nStored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session\n\nexpect(received).toBeUndefined()\n\nReceived: 1\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n  13 |    const marker=await page.evaluate(()=>Reflect.get(window,'__xss'));\n  14 |    if(marker!==undefined)await narrate(page,`S09 FAILED: drone name executed JavaScript on ${surface}; __xss=${marker}`);\n> 15 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n     |                                                                                                                                                                                        ^\n  16 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n  17 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  18 |   } finally {await api.removeDrone(drone.id);}\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:15:184",
+    "duration": 11066,
+    "title": "S09 @security dashboard renders payload 1 as text",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s09-xss-spec-ts-s09-security-dashboard-renders-payload-1-as-text.png",
+      "desktop-r0-s09-xss-spec-ts-s09-security-dashboard-renders-payload-1-as-text.webm",
+      "desktop-r0-s09-xss-spec-ts-s09-security-dashboard-renders-payload-1-as-text.md",
+      "desktop-r0-s09-xss-spec-ts-s09-security-dashboard-renders-payload-1-as-text.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "b4d88bd1b5d056fcec1f-eaa4204bb2c8568b782b",
+    "scenario": "S09",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "failed",
+    "message": "Error: Drone name is interpreted as HTML on dashboard rather than shown as literal operator text\n\nexpect(locator).toContainText(expected) failed\n\nLocator: getByTestId('dash-row-drone-229')\nTimeout: 10000ms\n- Expected substring  -  1\n+ Received string     + 14\n\n- \"><svg onload=window.__xss=2>\n+\n+         \">drone-229 · dock-229\n+         standby\n+         100 %\n+         0.0 m\n+         0.0 m/s\n+         0 m\n+         off\n+         \n+           Take off\n+           Land\n+           Start video\n+           Remove\n+         \n\nCall log:\n  - Drone name is interpreted as HTML on dashboard rather than shown as literal operator text getByTestId('dash-row-drone-229') with timeout 10000ms\n  - waiting for getByTestId('dash-row-drone-229')\n    24 × locator resolved to <tr data-testid=\"dash-row-drone-229\">…</tr>\n       - unexpected value \"\n        \">drone-229 · dock-229\n        standby\n        100 %\n        0.0 m\n        0.0 m/s\n        0 m\n        off\n        \n          Take off\n          Land\n          Start video\n          Remove\n        \"\n\n\n  14 |    if(marker!==undefined)await narrate(page,`S09 FAILED: drone name executed JavaScript on ${surface}; __xss=${marker}`);\n  15 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n> 16 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n     |                                                                                                                   ^\n  17 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  18 |   } finally {await api.removeDrone(drone.id);}\n  19 |  });\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:16:115",
+    "duration": 11208,
+    "title": "S09 @security dashboard renders payload 2 as text",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s09-xss-spec-ts-s09-security-dashboard-renders-payload-2-as-text.png",
+      "desktop-r0-s09-xss-spec-ts-s09-security-dashboard-renders-payload-2-as-text.webm",
+      "desktop-r0-s09-xss-spec-ts-s09-security-dashboard-renders-payload-2-as-text.md",
+      "desktop-r0-s09-xss-spec-ts-s09-security-dashboard-renders-payload-2-as-text.zip"
+    ]
+  }
+]

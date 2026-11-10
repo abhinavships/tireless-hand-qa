@@ -1,0 +1,8 @@
+{
+  "scenario": "S00",
+  "project": "desktop",
+  "label": "mutant-M01",
+  "status": "failed",
+  "message": "Error: Baseline drone video must be labelled live",
+  "duration": 33550
+}

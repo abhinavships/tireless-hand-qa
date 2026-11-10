@@ -1,0 +1,74 @@
+ product-frontend-1 Copying frontend/src/App.tsx to product-frontend-1:/app/frontend/src/App.tsx
+ product-frontend-1 Copied frontend/src/App.tsx to product-frontend-1:/app/frontend/src/App.tsx
+
+Running 2 tests using 1 worker
+
+(node:43487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S11-auth-contract.spec.ts:13:1 › S11 @security signed-out route guards (evaluator-ready) (11.0s)
+(node:43763) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop] › scenarios/S11-auth-contract.spec.ts:25:1 › S11 @security sign-in required controls (evaluator-ready) (616ms)
+
+
+  1) [desktop] › scenarios/S11-auth-contract.spec.ts:13:1 › S11 @security signed-out route guards (evaluator-ready) 
+
+    Error: Signed-out visitor can open protected route http://localhost:4010/settings
+
+    Signed-out visitor can open protected route http://localhost:4010/settings
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      18 |   const fresh=await context.newPage();const video=fresh.video();
+      19 |   try{const response=await fresh.goto(route.url);await narrate(fresh,'S11: fresh signed-out visitor must be denied protected content');
+    > 20 |    await expect.poll(()=>response?.status()===401 || (route.loginRoute!==undefined && new URL(fresh.url()).pathname===new URL(route.loginRoute,route.url).pathname),{message:`Signed-out visitor can open protected route ${route.url}`}).toBe(true);
+         |                                                                                                                                                                                                                                           ^
+      21 |    if(route.protectedSelector)await expect(fresh.locator(route.protectedSelector),'Signed-out visitor must not see protected content').toHaveCount(0);
+      22 |   }finally{if(!fresh.isClosed()){const shot=info.outputPath('signed-out-settings.png');await fresh.screenshot({path:shot});await info.attach('signed-out-settings',{path:shot,contentType:'image/png'});}await context.close();if(video)await info.attach('signed-out-route-video',{path:await video.path(),contentType:'video/webm'});}
+      23 |  }
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts:20:235
+
+    attachment #1: signed-out-settings (image/png) ─────────────────────────────────────────────────
+    test-results/t05-M12-1790408087-31199/artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/attachments/signed-out-settings-082c583449d8bf183ba740d58fea9f3950cb52ec.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: signed-out-route-video (video/webm) ─────────────────────────────────────────────
+    test-results/t05-M12-1790408087-31199/artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/attachments/signed-out-route-video-f4a8d498082de61e558ff2d638883c5943c22466.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M12-1790408087-31199/artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M12-1790408087-31199/artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M12-1790408087-31199/artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M12-1790408087-31199/artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M12-1790408087-31199/artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M12-1790408087-31199/artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S11-auth-contract.spec.ts:13:1 › S11 @security signed-out route guards (evaluator-ready) 
+  1 passed (12.4s)
+Evidence collected for 1 scenarios (mutant-M12; RUN_ID=t05-M12-1790408087-31199)
+Evidence collected for 1 scenarios (mutant-M12; RUN_ID=t05-M12-1790408087-31199)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/App.tsx to product-frontend-1:/app/frontend/src/App.tsx
+ product-frontend-1 Copied frontend/src/App.tsx to product-frontend-1:/app/frontend/src/App.tsx

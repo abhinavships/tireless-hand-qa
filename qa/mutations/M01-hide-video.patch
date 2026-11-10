@@ -1,0 +1,16 @@
+# M01 | Visual | targets: S01 | Required FPV tile removed
+--- a/frontend/src/pages/CockpitPage.tsx
++++ b/frontend/src/pages/CockpitPage.tsx
+@@ -55,9 +55,11 @@
+         <Suspense fallback={<div className="map-loading">Loading map…</div>}>
+           <CesiumMap />
+         </Suspense>
+-        <VideoTile />
++        {/* Video tile accidentally omitted */}
+       </main>
+       <AlertToasts />
+     </div>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M01" });

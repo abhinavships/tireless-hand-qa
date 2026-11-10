@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tireless Hand System Design</title>
+<style>
+:root{--bg:#f7f7f5;--ink:#1c1d1f;--muted:#5d6068;--card:#fff;--line:#e3e3df}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141517;--ink:#ecedef;--muted:#a0a4ad;--card:#1d1f22;--line:#2d3035}}
+:root[data-theme="dark"]{--bg:#141517;--ink:#ecedef;--muted:#a0a4ad;--card:#1d1f22;--line:#2d3035}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:28px 16px}
+h1{font-size:24px;margin:0 0 4px}.sub{color:var(--muted);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0;overflow-x:auto}
+h2{font-size:17px;margin:0 0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Tireless Hand: system design</h1>
+<p class="sub">Agentic UI testing for FlytBase Cockpit · Level 1 · Abhinav</p>
+
+<div class="card">
+<h2>1 · Runtime: how one scenario finds a bug</h2>
+<pre class="mermaid">
+flowchart LR
+  subgraph SUT["Product under test (Docker)"]
+    UI["Cockpit UI :4010<br/>map · devices · telemetry · video"]
+    BE["Backend :4000<br/>Control API + socket.io"]
+    SIM["Simulator<br/>drones + docks"]
+    VID["MediaMTX :8889<br/>WebRTC video"]
+    SIM --> BE --> UI
+    VID --> UI
+  end
+
+  SPEC["Scenario spec Sxx<br/>(Playwright + TS)"]
+  ENV["C1 Environment controller<br/>api.ts: reset · add drone ·<br/>take off · inject fault"]
+  FIX["C6 Fixtures<br/>isolated drone · app lock"]
+  PO["C2 Cockpit page object<br/>open · select · read"]
+  BROWSER["Chromium<br/>phone 390 · tablet 768 · desktop 1440"]
+  TRUTH["Ground truth<br/>/api/devices · /api/control/state ·<br/>raw socket payloads"]
+  ORA{"C3 Oracles + C4 Screen contracts<br/>status matches truth? values match?<br/>visible · not covered · no h-scroll?<br/>text not HTML? org isolated?"}
+  PASS["PASS ✔"]
+  FAIL["FAIL ✖<br/>user-impact message<br/>'Cockpit: operator cannot reach Video tile'"]
+  EVI["C7 Evidence<br/>video.webm · trace.zip ·<br/>screenshot · verdict.json"]
+
+  SPEC -->|1 Arrange| FIX --> ENV -->|HTTP| BE
+  SPEC -->|2 Act| PO --> BROWSER -->|drives| UI
+  BROWSER -->|what the operator sees| ORA
+  ENV -->|what is actually true| TRUTH --> ORA
+  ORA -->|3 Assert| PASS
+  ORA --> FAIL
+  PASS --> EVI
+  FAIL --> EVI
+</pre>
+</div>
+
+<div class="card">
+<h2>2 · Proof: mutation lab (does each scenario really catch its bug?)</h2>
+<pre class="mermaid">
+flowchart LR
+  M["Mutant patch Mxx<br/>e.g. hide video tile ·<br/>status 'online' when offline ·<br/>push list off screen at phone width ·<br/>render name as HTML"]
+  L["Take app lock"]
+  A["git apply to product/<br/>→ hot reload"]
+  R["Run mapped scenarios"]
+  C{"Scenario FAILS<br/>with precise message?"}
+  OK["CAUGHT ✔<br/>video: clean PASS → mutant FAIL"]
+  MISS["MISSED ✖<br/>harden the oracle"]
+  REV["Revert patch<br/>product/ clean · release lock"]
+  MAT["Mutation matrix<br/>scenario × mutant"]
+  M --> L --> A --> R --> C
+  C -->|yes| OK --> REV
+  C -->|no| MISS --> REV
+  REV --> MAT
+</pre>
+</div>
+
+<div class="card">
+<h2>3 · Authoring: the agent team that builds and hardens the system</h2>
+<pre class="mermaid">
+flowchart TB
+  MASTER["Claude master agent<br/>plans · reviews evidence · decisions · final call"]
+  CTX[(".context/<br/>mission · product map · protocol ·<br/>backlog · BOARD · reports · decisions")]
+  T01["T01 harness<br/>shared lib + recorder"]
+  T02["T02 static / responsive<br/>S01 S02 S08 S12 S13"]
+  T03["T03 live-data truth<br/>S03–S07"]
+  T04["T04 security<br/>S09 S10 S11 S17"]
+  T05["T05 mutation lab<br/>M01–M16 + matrix"]
+  T06["T06 exploratory bug hunt"]
+  FLAG["Flag agent<br/>monitors workers · flags issues"]
+  SUB["Submission agent<br/>write-up · video reels"]
+  OUT["Deterministic test suite + evidence<br/>→ evaluation document"]
+  MASTER <--> CTX
+  CTX <--> T01 & T02 & T03 & T04 & T05 & T06
+  FLAG --> CTX
+  T01 & T02 & T03 & T04 & T05 & T06 --> OUT
+  SUB --> OUT
+  MASTER --> SUB
+</pre>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+mermaid.initialize({ startOnLoad: true, theme: dark ? 'dark' : 'default', flowchart: { htmlLabels: true, curve: 'basis' } });
+</script>
+</body>
+</html>

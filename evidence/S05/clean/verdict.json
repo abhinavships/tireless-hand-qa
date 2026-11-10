@@ -1,0 +1,8 @@
+{
+  "scenario": "S05",
+  "project": "desktop",
+  "label": "clean",
+  "status": "failed",
+  "message": "Error: F1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds\n\nF1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  38 |    const cleared=(await cockpit.readTelemetry()).battery===null;\n  39 |    return explicit||cleared;\n> 40 |   },{timeout:5000,message:'F1: telemetry delivery stopped but the operator still sees numeric values and in_flight without a stale/offline warning after 5 seconds'}).toBe(true);\n     |                                                                                                                                                                       ^\n  41 |  } catch(error) {\n  42 |   const observationPath=testInfo.outputPath('stale-telemetry-observation.json');\n  43 |   await writeFile(observationPath,JSON.stringify({faults:await api.faults(),truth:(await api.state()).drones[isolatedDrone.id],visible:await cockpit.readTelemetry(),flight:await cockpit.flightPill().innerText(),socket:await cockpit.badge().innerText()},null,2));\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:40:167",
+  "duration": 77406
+}

@@ -1,0 +1,492 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "explore/playwright.config.ts",
+      "operator.spec.ts",
+      "-g",
+      "fault exploration",
+      "--grep-invert",
+      "socket-kick"
+    ],
+    "configFile": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore/playwright.config.ts",
+    "rootDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 420000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../evidence/explore/faults-remaining/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "operator.spec.ts",
+      "file": "operator.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T06 fault exploration socket-refuse",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 178807,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:51:59.501Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-refuse/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-refuse/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-refuse/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-e89c9ed80764de0e49a8",
+          "file": "operator.spec.ts",
+          "line": 22,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration socket-delay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 42155,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:55:02.436Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-delay/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-delay/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-delay/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-02e49e9d15ae53278fce",
+          "file": "operator.spec.ts",
+          "line": 22,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration socket-drop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31404,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:55:46.738Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-drop/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-drop/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-drop/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-5d3b8ec8befce8c90668",
+          "file": "operator.spec.ts",
+          "line": 22,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration sim-offline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 55442,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:56:22.209Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-sim-offline/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-sim-offline/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-sim-offline/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-2c3452a5f207b4ceac7a",
+          "file": "operator.spec.ts",
+          "line": 22,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration video-freeze",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 193461,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:57:19.874Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-freeze/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-freeze/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-freeze/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-d96351d23ccf7c88ba7e",
+          "file": "operator.spec.ts",
+          "line": 22,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration video-stutter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 74233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T07:00:33.775Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-stutter/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-stutter/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-stutter/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-3e1abebf38aafd490548",
+          "file": "operator.spec.ts",
+          "line": 22,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration video-degrade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21238,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T07:01:49.369Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-degrade/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-degrade/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-degrade/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-636cdabaabbbf04c3c8e",
+          "file": "operator.spec.ts",
+          "line": 22,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration video-flicker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 22534,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T07:02:11.100Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-flicker/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-flicker/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-flicker/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-05109b51a60fce666c70",
+          "file": "operator.spec.ts",
+          "line": 22,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-26T06:51:58.728Z",
+    "duration": 635491.94,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

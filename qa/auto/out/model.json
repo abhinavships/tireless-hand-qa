@@ -1,0 +1,503 @@
+{
+ "unexplained": [
+  {
+   "selector": "[data-testid=\"telemetry-wind\"]",
+   "texts": [
+    "S 6.9 m/s",
+    "SE 6.9 m/s",
+    "SE 6.8 m/s"
+   ]
+  }
+ ],
+ "presenceBy": {
+  "desktop": [
+   {
+    "sel": "[data-testid=\"socket-status\"]",
+    "label": "[data-testid=\"socket-status\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"status-flight\"]",
+    "label": "[data-testid=\"status-flight\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-battery\"]",
+    "label": "[data-testid=\"telemetry-battery\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-rlt\"]",
+    "label": "[data-testid=\"telemetry-alt-rlt\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-agl\"]",
+    "label": "[data-testid=\"telemetry-alt-agl\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-asl\"]",
+    "label": "[data-testid=\"telemetry-alt-asl\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-hspeed\"]",
+    "label": "[data-testid=\"telemetry-hspeed\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-vspeed\"]",
+    "label": "[data-testid=\"telemetry-vspeed\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-heading\"]",
+    "label": "[data-testid=\"telemetry-heading\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-wind\"]",
+    "label": "[data-testid=\"telemetry-wind\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-home-distance\"]",
+    "label": "[data-testid=\"telemetry-home-distance\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"map-view-2d\"]",
+    "label": "[data-testid=\"map-view-2d\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"map-view-3d\"]",
+    "label": "[data-testid=\"map-view-3d\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"video-state\"]",
+    "label": "[data-testid=\"video-state\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"map-canvas\"]",
+    "label": "[data-testid=\"map-canvas\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "a[href=\"http://localhost:4000/dashboard\"]",
+    "label": "a[href=\"http://localhost:4000/dashboard\"]",
+    "hitTest": true
+   }
+  ],
+  "tablet": [
+   {
+    "sel": "[data-testid=\"socket-status\"]",
+    "label": "[data-testid=\"socket-status\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"status-flight\"]",
+    "label": "[data-testid=\"status-flight\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-battery\"]",
+    "label": "[data-testid=\"telemetry-battery\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-rlt\"]",
+    "label": "[data-testid=\"telemetry-alt-rlt\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-agl\"]",
+    "label": "[data-testid=\"telemetry-alt-agl\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-asl\"]",
+    "label": "[data-testid=\"telemetry-alt-asl\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-hspeed\"]",
+    "label": "[data-testid=\"telemetry-hspeed\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-vspeed\"]",
+    "label": "[data-testid=\"telemetry-vspeed\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-heading\"]",
+    "label": "[data-testid=\"telemetry-heading\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-wind\"]",
+    "label": "[data-testid=\"telemetry-wind\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-home-distance\"]",
+    "label": "[data-testid=\"telemetry-home-distance\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"map-view-2d\"]",
+    "label": "[data-testid=\"map-view-2d\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"map-view-3d\"]",
+    "label": "[data-testid=\"map-view-3d\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"video-state\"]",
+    "label": "[data-testid=\"video-state\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"map-canvas\"]",
+    "label": "[data-testid=\"map-canvas\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "a[href=\"http://localhost:4000/dashboard\"]",
+    "label": "a[href=\"http://localhost:4000/dashboard\"]",
+    "hitTest": true
+   }
+  ],
+  "phone": [
+   {
+    "sel": "[data-testid=\"socket-status\"]",
+    "label": "[data-testid=\"socket-status\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"status-flight\"]",
+    "label": "[data-testid=\"status-flight\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-battery\"]",
+    "label": "[data-testid=\"telemetry-battery\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-rlt\"]",
+    "label": "[data-testid=\"telemetry-alt-rlt\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-agl\"]",
+    "label": "[data-testid=\"telemetry-alt-agl\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-alt-asl\"]",
+    "label": "[data-testid=\"telemetry-alt-asl\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-hspeed\"]",
+    "label": "[data-testid=\"telemetry-hspeed\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-vspeed\"]",
+    "label": "[data-testid=\"telemetry-vspeed\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-heading\"]",
+    "label": "[data-testid=\"telemetry-heading\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-wind\"]",
+    "label": "[data-testid=\"telemetry-wind\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"telemetry-home-distance\"]",
+    "label": "[data-testid=\"telemetry-home-distance\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"map-view-2d\"]",
+    "label": "[data-testid=\"map-view-2d\"]",
+    "hitTest": false
+   },
+   {
+    "sel": "[data-testid=\"map-view-3d\"]",
+    "label": "[data-testid=\"map-view-3d\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"video-state\"]",
+    "label": "[data-testid=\"video-state\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "[data-testid=\"map-canvas\"]",
+    "label": "[data-testid=\"map-canvas\"]",
+    "hitTest": true
+   },
+   {
+    "sel": "a[href=\"http://localhost:4000/dashboard\"]",
+    "label": "a[href=\"http://localhost:4000/dashboard\"]",
+    "hitTest": true
+   }
+  ]
+ },
+ "learnedAt": "2026-09-26T10:54:55.902Z",
+ "app": "http://localhost:4010",
+ "entityPattern": "device-row-{id}",
+ "entities": [
+  "drone-1",
+  "drone-2",
+  "drone-3",
+  "drone-4",
+  "drone-358",
+  "drone-385",
+  "drone-399"
+ ],
+ "presence": [
+  {
+   "sel": "[data-testid=\"socket-status\"]",
+   "label": "[data-testid=\"socket-status\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"status-flight\"]",
+   "label": "[data-testid=\"status-flight\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-battery\"]",
+   "label": "[data-testid=\"telemetry-battery\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-alt-rlt\"]",
+   "label": "[data-testid=\"telemetry-alt-rlt\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-alt-agl\"]",
+   "label": "[data-testid=\"telemetry-alt-agl\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-alt-asl\"]",
+   "label": "[data-testid=\"telemetry-alt-asl\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-hspeed\"]",
+   "label": "[data-testid=\"telemetry-hspeed\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-vspeed\"]",
+   "label": "[data-testid=\"telemetry-vspeed\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-heading\"]",
+   "label": "[data-testid=\"telemetry-heading\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-wind\"]",
+   "label": "[data-testid=\"telemetry-wind\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"telemetry-home-distance\"]",
+   "label": "[data-testid=\"telemetry-home-distance\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"map-view-2d\"]",
+   "label": "[data-testid=\"map-view-2d\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"map-view-3d\"]",
+   "label": "[data-testid=\"map-view-3d\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"video-state\"]",
+   "label": "[data-testid=\"video-state\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "[data-testid=\"map-canvas\"]",
+   "label": "[data-testid=\"map-canvas\"]",
+   "hitTest": true
+  },
+  {
+   "sel": "a[href=\"http://localhost:4000/dashboard\"]",
+   "label": "a[href=\"http://localhost:4000/dashboard\"]",
+   "hitTest": true
+  }
+ ],
+ "bindings": [
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"status-flight\"]",
+   "label": "status-flight",
+   "attr": "flight_status",
+   "path": "flight_status",
+   "digits": null,
+   "template": "{v}",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"telemetry-battery\"]",
+   "label": "telemetry-battery",
+   "attr": "battery",
+   "path": "percent",
+   "digits": 0,
+   "template": "{v} %",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"telemetry-alt-rlt\"]",
+   "label": "telemetry-alt-rlt",
+   "attr": "global_position",
+   "path": "position.height",
+   "digits": 1,
+   "template": "{v} m",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"telemetry-alt-agl\"]",
+   "label": "telemetry-alt-agl",
+   "attr": "global_position",
+   "path": "position.height",
+   "digits": 1,
+   "template": "{v} m",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"telemetry-alt-asl\"]",
+   "label": "telemetry-alt-asl",
+   "attr": "global_position",
+   "path": "position.elevation",
+   "digits": 1,
+   "template": "{v} m",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"telemetry-hspeed\"]",
+   "label": "telemetry-hspeed",
+   "attr": "global_position",
+   "path": "speed.horizontal",
+   "digits": 1,
+   "template": "{v} m/s",
+   "alternatives": [
+    {
+     "attr": "global_position",
+     "path": "home_position.distance"
+    }
+   ],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"telemetry-vspeed\"]",
+   "label": "telemetry-vspeed",
+   "attr": "global_position",
+   "path": "speed.vertical",
+   "digits": 1,
+   "template": "{v} m/s",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"telemetry-heading\"]",
+   "label": "telemetry-heading",
+   "attr": "attitude",
+   "path": "yaw",
+   "digits": 0,
+   "template": "{v} °",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"telemetry-home-distance\"]",
+   "label": "telemetry-home-distance",
+   "attr": "global_position",
+   "path": "speed.horizontal",
+   "digits": 0,
+   "template": "{v} m",
+   "alternatives": [
+    {
+     "attr": "global_position",
+     "path": "home_position.distance"
+    }
+   ],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "panel",
+   "selector": "[data-testid=\"map-view-3d\"]",
+   "label": "map-view-3d",
+   "attr": "global_position",
+   "path": "speed.vertical",
+   "digits": 0,
+   "template": "{v}D",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  },
+  {
+   "kind": "row",
+   "selector": "[data-testid=\"device-row-{id}\"] > div:nth-child(2) > span:nth-child(2)",
+   "label": "row span:nth-child(2)",
+   "attr": "flight_status",
+   "path": "flight_status",
+   "digits": null,
+   "template": "{v}",
+   "alternatives": [],
+   "samples": 24,
+   "confidence": 1
+  }
+ ],
+ "echoes": [
+  ".panel-title > span:nth-child(1)",
+  ".video-header > span:nth-child(1)"
+ ],
+ "connectionSel": "[data-testid=\"socket-status\"]"
+}

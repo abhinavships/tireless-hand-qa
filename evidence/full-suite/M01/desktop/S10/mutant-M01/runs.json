@@ -1,0 +1,38 @@
+[
+  {
+    "sourceSpecId": "76d9627b4f53d9328cb4-a2789c88e85986652496",
+    "scenario": "S10",
+    "project": "desktop",
+    "label": "mutant-M01",
+    "status": "failed",
+    "message": "Error: Organization isolation broken: evil org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"devices\",\n+   \"flytbase/drone-1/telemetry/battery\",\n+ ]\n\n  23 |   await page.evaluate(({identity,received})=>{const proof=document.createElement('pre');proof.id='org-isolation-proof';proof.textContent=`CLIENT org-id: ${identity}\\nEXPECTED: refused or no FlytBase topics\\nACTUAL RECEIVED:\\n${JSON.stringify(received,null,2)}`;Object.assign(proof.style,{position:'fixed',bottom:'12px',right:'12px',width:'min(600px,90vw)',maxHeight:'45vh',overflow:'auto',background:'#101827',color:'#fff',padding:'14px',zIndex:'2147483646',font:'13px monospace'});document.body.appendChild(proof);},{identity,received});\n  24 |   await narrate(page,`S10 FAILED: ${identity} org received ${leaked.length} forbidden topics; expected no FlytBase fleet/telemetry`);\n> 25 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  26 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  27 | });\n  28 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:25:124",
+    "duration": 7364,
+    "title": "S10 @security evil org cannot read FlytBase fleet and telemetry",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s10-org-isolation-spec-ts-s10-security-evil-org-cannot-read-flytbase-fleet-and-telemetry.png",
+      "desktop-r0-s10-org-isolation-spec-ts-s10-security-evil-org-cannot-read-flytbase-fleet-and-telemetry.webm",
+      "desktop-r0-s10-org-isolation-spec-ts-s10-security-evil-org-cannot-read-flytbase-fleet-and-telemetry.md",
+      "desktop-r0-s10-org-isolation-spec-ts-s10-security-evil-org-cannot-read-flytbase-fleet-and-telemetry.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "76d9627b4f53d9328cb4-eed5f7d92a117030f9cf",
+    "scenario": "S10",
+    "project": "desktop",
+    "label": "mutant-M01",
+    "status": "failed",
+    "message": "Error: Organization isolation broken: missing org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"devices\",\n+   \"flytbase/drone-1/telemetry/battery\",\n+ ]\n\n  23 |   await page.evaluate(({identity,received})=>{const proof=document.createElement('pre');proof.id='org-isolation-proof';proof.textContent=`CLIENT org-id: ${identity}\\nEXPECTED: refused or no FlytBase topics\\nACTUAL RECEIVED:\\n${JSON.stringify(received,null,2)}`;Object.assign(proof.style,{position:'fixed',bottom:'12px',right:'12px',width:'min(600px,90vw)',maxHeight:'45vh',overflow:'auto',background:'#101827',color:'#fff',padding:'14px',zIndex:'2147483646',font:'13px monospace'});document.body.appendChild(proof);},{identity,received});\n  24 |   await narrate(page,`S10 FAILED: ${identity} org received ${leaked.length} forbidden topics; expected no FlytBase fleet/telemetry`);\n> 25 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  26 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  27 | });\n  28 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:25:124",
+    "duration": 7880,
+    "title": "S10 @security missing org cannot read FlytBase fleet and telemetry",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s10-org-isolation-spec-ts-s10-security-missing-org-cannot-read-flytbase-fleet-and-telemetry.png",
+      "desktop-r0-s10-org-isolation-spec-ts-s10-security-missing-org-cannot-read-flytbase-fleet-and-telemetry.webm",
+      "desktop-r0-s10-org-isolation-spec-ts-s10-security-missing-org-cannot-read-flytbase-fleet-and-telemetry.md",
+      "desktop-r0-s10-org-isolation-spec-ts-s10-security-missing-org-cannot-read-flytbase-fleet-and-telemetry.zip"
+    ]
+  }
+]

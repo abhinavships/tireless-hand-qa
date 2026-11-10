@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S04",
+    "project": "desktop",
+    "label": "mutant-M03c",
+    "status": "failed",
+    "message": "Error: Flight phase standby: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator\n\nFlight phase standby: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Object {\n    \"api\": \"standby\",\n-   \"list\": \"standby\",\n+   \"list\": \"in_flight\",\n    \"panel\": \"standby\",\n    \"socket\": \"standby\",\n  }\n\nCall Log:\n- Timeout 8000ms exceeded while waiting on the predicate\n\n  22 |         const [state,pills]=await Promise.all([api.state(),page.evaluate((id)=>({list:document.querySelector(`[data-testid=\"device-row-${id}\"] .device-pills .pill:last-child`)?.textContent?.trim(),panel:document.querySelector('[data-testid=\"status-flight\"]')?.textContent?.trim()}),id)]);\n  23 |         return {api:state.drones[id]?.status,socket:(truth.messages.get(topic(id,'flight_status')) as FlightTruth)?.flight_status,...pills};\n> 24 |       },{timeout:8_000,message:`Flight phase ${status}: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator`}).toEqual({api:status,socket:status,list:status,panel:status});\n     |                                                                                                                                                                   ^\n  25 |\n  26 |     };\n  27 |     await narrate(page,'S04 · start grounded: both status pills match API and socket standby');\n    at checkStatus (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S04-flight-workflow.spec.ts:24:163)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S04-flight-workflow.spec.ts:29:5",
+    "duration": 11413,
+    "title": "S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s04-flight-workflow-spec-ts-s04-takeoff-cruise-and-landing-agree-across-list-panel-api-and-socket-functional-telemetry.png",
+      "desktop-r0-s04-flight-workflow-spec-ts-s04-takeoff-cruise-and-landing-agree-across-list-panel-api-and-socket-functional-telemetry.webm",
+      "desktop-r0-s04-flight-workflow-spec-ts-s04-takeoff-cruise-and-landing-agree-across-list-panel-api-and-socket-functional-telemetry.md",
+      "desktop-r0-s04-flight-workflow-spec-ts-s04-takeoff-cruise-and-landing-agree-across-list-panel-api-and-socket-functional-telemetry.zip"
+    ]
+  }
+]

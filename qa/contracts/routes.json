@@ -1,0 +1,30 @@
+{
+  "baseOverlay": "F-auth",
+  "enableEnvironment": "AUTH_FIXTURE=1",
+  "routes": [
+    {
+      "url": "http://localhost:4010/",
+      "requiresAuth": false
+    },
+    {
+      "url": "http://localhost:4000/dashboard",
+      "requiresAuth": false
+    },
+    {
+      "url": "http://localhost:4010/settings",
+      "requiresAuth": true,
+      "loginRoute": "/login",
+      "protectedSelector": "[data-testid=auth-settings]"
+    }
+  ],
+  "loginForms": [
+    {
+      "url": "http://localhost:4010/login",
+      "emailLabel": "Email",
+      "otpLabel": "OTP",
+      "submitName": "Sign in",
+      "successRoute": "/settings"
+    }
+  ],
+  "note": "S11 runs only with the T05 F-auth base overlay applied and AUTH_FIXTURE=1. Overlay must expose labelled Email/OTP controls and an auth-settings testid. Baseline no-auth app is skipped."
+}

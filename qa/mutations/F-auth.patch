@@ -1,0 +1,56 @@
+# F-auth | Security | targets: S11 | AUTH_FIXTURE BASE: login controls and signed-out settings guard
+--- a/frontend/src/App.tsx
++++ b/frontend/src/App.tsx
+@@ -1,13 +1,51 @@
+-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
++import { useState } from 'react';
++import type { FormEvent } from 'react';
++import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+ import { CockpitPage } from './pages/CockpitPage';
++
++const authSessionKey = 'mutation-lab-auth-session';
++
++function LoginPage() {
++  const [email, setEmail] = useState('');
++  const [otp, setOtp] = useState('');
++  const navigate = useNavigate();
++  const valid = email === 'operator@example.test' && otp === '123456';
++  function signIn(event: FormEvent<HTMLFormElement>) {
++    event.preventDefault();
++    if (!valid) return;
++    sessionStorage.setItem(authSessionKey, 'signed-in');
++    navigate('/settings', { replace: true });
++  }
++  return (
++    <main style={{ padding: 24, maxWidth: 480, margin: '0 auto' }}>
++      <h1>Sign in</h1>
++      <form onSubmit={signIn}>
++        <label htmlFor="auth-email">Email</label>
++        <input id="auth-email" type="email" value={email} onChange={event => setEmail(event.target.value)} />
++        <label htmlFor="auth-otp">OTP</label>
++        <input id="auth-otp" inputMode="numeric" value={otp} onChange={event => setOtp(event.target.value)} />
++        <button type="submit" disabled={!valid}>Sign in</button>
++      </form>
++    </main>
++  );
++}
++
++function SettingsPage() {
++  if (sessionStorage.getItem(authSessionKey) !== 'signed-in') return <Navigate to="/login" replace />;
++  return <main data-testid="auth-settings" style={{ padding: 24 }}><h1>Protected settings</h1><button type="button">Save settings</button></main>;
++}
+ 
+ export function App() {
+   return (
+     <BrowserRouter>
+       <Routes>
+         <Route path="/" element={<CockpitPage />} />
++        <Route path="/login" element={<LoginPage />} />
++        <Route path="/settings" element={<SettingsPage />} />
+         <Route path="*" element={<Navigate to="/" replace />} />
+       </Routes>
+     </BrowserRouter>
+   );
+ }
++
++Object.assign(globalThis, { __authFixtureLab: 'mutation-lab:F-auth' });

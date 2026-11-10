@@ -1,0 +1,11 @@
+[   0.0s  section 1: title card + clean  (10.7s video, 15.1s speech)]
+Scenario: offline truth. The test disconnects the drone simulator. The screen must keep showing the drone's last real status and must never invent a flying or online drone. The browser's own connection badge must still be correct. The normal app passes this check.
+
+[  10.7s  section 2: title card + mutant-M03  (19.0s video, 12.7s speech)]
+We planted a bug that shows a drone as online while the simulator is offline. The test caught it and failed with the message: Offline drone list must preserve the last truthful grounded status, never invent in flight or online.
+
+[  29.6s  section 3: title card + mutant-M03b  (8.9s video, 11.4s speech)]
+Here is an honest gap. This planted bug changes what the screen shows when the status is missing completely. Our test never reaches that state, so the bug was not caught. We report this as a known miss.
+
+[  38.5s  section 4: title card + mutant-M03c  (18.7s video, 7.4s speech)]
+Another planted bug shows a grounded drone as airborne. The test caught it with the same message: never invent in flight or online.

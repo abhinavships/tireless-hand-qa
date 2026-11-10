@@ -1,0 +1,20 @@
+[
+  {
+    "sourceSpecId": "155f77a9a6747f301e13-24ec269ed798a5fb74c7",
+    "scenario": "S00",
+    "project": "desktop",
+    "label": "mutant-M01",
+    "status": "failed",
+    "message": "Error: Baseline drone video must be labelled live\n\nexpect(locator).toHaveText(expected) failed\n\nLocator: getByTestId('video-state')\nExpected: \"live\"\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n  - Baseline drone video must be labelled live getByTestId('video-state') with timeout 30000ms\n  - waiting for getByTestId('video-state')\n\n\n  13 |  await expect.poll(async()=>{const t=await cockpit.readTelemetry();return [t.battery,t.altRlt,t.hspeed].every(v=>v!==null&&Number.isFinite(v));},{message:'Selected drone must show numeric battery, altitude and speed'}).toBe(true);\n  14 |  await narrate(page,'S00 · step 3 · video reports live');\n> 15 |  await expect(cockpit.videoLabel(),'Baseline drone video must be labelled live').toHaveText('live',{timeout:30_000});\n     |                                                                                  ^\n  16 | });\n  17 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S00-smoke.spec.ts:15:82",
+    "duration": 33550,
+    "title": "S00 · harness smoke: connected fleet, telemetry and live video",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.png",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.webm",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.md",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.zip"
+    ]
+  }
+]

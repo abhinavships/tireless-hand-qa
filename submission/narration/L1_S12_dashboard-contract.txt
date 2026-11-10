@@ -1,0 +1,5 @@
+[   0.0s  section 1: title card + clean  (33.1s video, 15.4s speech)]
+Scenario: the control panel. The operator must find every drone with Take off and Land buttons, plus the fault controls. The test clicks Take off, checks that the drone really launches, and then checks that the cockpit shows it flying. The normal app passes.
+
+[  33.1s  section 2: title card + mutant-M13  (13.9s video, 8.3s speech)]
+We planted a bug that removes the Land button. The test caught it and failed with the message: Operator cannot land Drone 1: Land control missing.

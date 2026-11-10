@@ -1,0 +1,14 @@
+# MAP09 | Map & geospatial | targets: map | Map label keeps the first status it saw (says standby while flying)
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..70263e0 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -294,7 +294,7 @@ function syncEntities(
+       });
+     }
+     entity.model!.uri = new Cesium.ConstantProperty(selected ? DRONE_MODEL.selected : DRONE_MODEL.unselected);
+-    entity.label!.text = new Cesium.ConstantProperty(`${device.name} ${status}`.trim());
++    if (!entity.label!.text) entity.label!.text = new Cesium.ConstantProperty(`${device.name} ${status}`.trim());
+ 
+     const track = state.track[device.id];
+     if (track && track.length >= 2) {

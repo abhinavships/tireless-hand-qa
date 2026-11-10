@@ -1,0 +1,66 @@
+ product-frontend-1 Copying frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+ product-frontend-1 Copied frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+
+Running 1 test using 1 worker
+
+(node:17931) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry (8.7s)
+
+
+  1) [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry 
+
+    Error: Flight phase standby: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator
+
+    Flight phase standby: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "api": "standby",
+        "list": "standby",
+    -   "panel": "standby",
+    +   "panel": "docked",
+        "socket": "standby",
+      }
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      22 |         const [state,pills]=await Promise.all([api.state(),page.evaluate((id)=>({list:document.querySelector(`[data-testid="device-row-${id}"] .device-pills .pill:last-child`)?.textContent?.trim(),panel:document.querySelector('[data-testid="status-flight"]')?.textContent?.trim()}),id)]);
+      23 |         return {api:state.drones[id]?.status,socket:(truth.messages.get(topic(id,'flight_status')) as FlightTruth)?.flight_status,...pills};
+    > 24 |       },{timeout:8_000,message:`Flight phase ${status}: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator`}).toEqual({api:status,socket:status,list:status,panel:status});
+         |                                                                                                                                                                   ^
+      25 |
+      26 |     };
+      27 |     await narrate(page,'S04 · start grounded: both status pills match API and socket standby');
+        at checkStatus (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S04-flight-workflow.spec.ts:24:163)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S04-flight-workflow.spec.ts:29:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-1790407106471-c53f5a82/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407106471-c53f5a82/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-1790407106471-c53f5a82/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-1790407106471-c53f5a82/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-1790407106471-c53f5a82/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry 
+Evidence collected for 1 scenarios (mutant-M06; RUN_ID=run-1790407106471-c53f5a82)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+ product-frontend-1 Copied frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx

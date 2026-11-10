@@ -1,0 +1,18 @@
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+
+Running 4 tests using 1 worker
+
+(node:56481) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › scenarios/S05-offline-truth.spec.ts:6:1 › S05(a) simulator offline does not falsify status @telemetry @network (13.6s)
+  ✓  2 [desktop] › scenarios/S05-offline-truth.spec.ts:53:1 › S05(c) new drone without telemetry never claims active flight @telemetry @network (10.4s)
+  ✓  3 [desktop] › scenarios/S06-socket-recovery.spec.ts:5:1 › S06 socket badge reports refusal and recovers without reload @network @visual (24.1s)
+  ✓  4 [desktop] › scenarios/S07-video-truth.spec.ts:26:1 › S07 · video off/live labels match actual playback and selected stream @video @visual (22.1s)
+
+  4 passed (1.3m)
+Evidence collected for 3 scenarios (mutant-M02; RUN_ID=t05-M02-1790408609-15410)
+Evidence collected for 3 scenarios (mutant-M02; RUN_ID=t05-M02-1790408609-15410)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx

@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "mutant-M03c",
+    "status": "failed",
+    "message": "Error: Offline drone list must preserve the last truthful grounded status, never invent in_flight/online\n\nexpect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('device-row-drone-160').locator('.device-pills .pill').last()\nExpected: \"standby\"\nReceived: \"in_flight\"\nTimeout:  10000ms\n\nCall log:\n  - Offline drone list must preserve the last truthful grounded status, never invent in_flight/online getByTestId('device-row-drone-160').locator('.device-pills .pill').last() with timeout 10000ms\n  - waiting for getByTestId('device-row-drone-160').locator('.device-pills .pill').last()\n    24 × locator resolved to <span class=\"pill pill-in_flight\">in_flight</span>\n       - unexpected value \"in_flight\"\n\n\n  15 |   await api.fault({kind:'sim-offline',seconds:20});\n  16 |   await expect.poll(async()=>(await api.health()).simulator,{message:'Simulator-offline fault must disconnect the simulator truth source'}).toBe('disconnected');\n> 17 |   await expect(cockpit.flightPill(isolatedDrone.id),'Offline drone list must preserve the last truthful grounded status, never invent in_flight/online').toHaveText(flight.flight_status);\n     |                                                                                                                                                          ^\n  18 |   await expect(page.getByTestId(`device-row-${isolatedDrone.id}`).locator('.device-pills .pill').first(),'Offline dock pill must agree with retained raw dock truth').toHaveText(`dock ${dock.status}`);\n  19 |   await expect(cockpit.flightPill(),'Offline selected panel must agree with the last raw flight status, never invent in_flight/online').toHaveText(flight.flight_status);\n  20 |   await expect.poll(()=>truth.socket.connected,{message:'Browser-topic truth socket remains connected while simulator is offline'}).toBe(true);\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:17:154",
+    "duration": 14753,
+    "title": "S05(a) simulator offline does not falsify status @telemetry @network",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.png",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.webm",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.md",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.zip"
+    ]
+  }
+]

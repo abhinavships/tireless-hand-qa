@@ -1,0 +1,407 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "explore/playwright.config.ts",
+      "operator.spec.ts"
+    ],
+    "configFile": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore/playwright.config.ts",
+    "rootDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../evidence/explore/faults/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "operator.spec.ts",
+      "file": "operator.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T06 operator add remove rapid switch and phone",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 46024,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.video-header')\nExpected substring: \u001b[32m\"Explore Alpha\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.video-header') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.video-header')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.video-header')\nExpected substring: \u001b[32m\"Explore Alpha\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.video-header') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.video-header')\u001b[22m\n\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore/operator.spec.ts:10:208",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore/operator.spec.ts",
+                      "column": 208,
+                      "line": 10
+                    },
+                    "snippet": "   8 |  await cockpit.open(); await cockpit.waitReady();\n   9 |  await narrate(page,'Add two isolated drones, rapidly switch selection, and remove the selected drone.');\n> 10 |  for(let i=0;i<20;i++){ const d=i%2?a.drone:b.drone;await cockpit.selectDrone(d.id); await expect(page.locator('.telemetry').locator('..')).toContainText(d.name); await expect(page.locator('.video-header')).toContainText(d.name);}\n     |                                                                                                                                                                                                                ^\n  11 |  await api.command(a.drone.id,'takeoff');await cockpit.selectDrone(a.drone.id);\n  12 |  await expect(cockpit.flightPill()).toHaveText(/taking_off|in_flight/);\n  13 |  await api.removeDrone(a.drone.id);await expect(page.getByTestId(`device-row-${a.drone.id}`)).toHaveCount(0);await expect(page.locator('.telemetry').locator('..')).not.toContainText(a.drone.name);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore/operator.spec.ts",
+                        "column": 208,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.video-header')\nExpected substring: \u001b[32m\"Explore Alpha\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.video-header') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.video-header')\u001b[22m\n\n\n   8 |  await cockpit.open(); await cockpit.waitReady();\n   9 |  await narrate(page,'Add two isolated drones, rapidly switch selection, and remove the selected drone.');\n> 10 |  for(let i=0;i<20;i++){ const d=i%2?a.drone:b.drone;await cockpit.selectDrone(d.id); await expect(page.locator('.telemetry').locator('..')).toContainText(d.name); await expect(page.locator('.video-header')).toContainText(d.name);}\n     |                                                                                                                                                                                                                ^\n  11 |  await api.command(a.drone.id,'takeoff');await cockpit.selectDrone(a.drone.id);\n  12 |  await expect(cockpit.flightPill()).toHaveText(/taking_off|in_flight/);\n  13 |  await api.removeDrone(a.drone.id);await expect(page.getByTestId(`device-row-${a.drone.id}`)).toHaveCount(0);await expect(page.locator('.telemetry').locator('..')).not.toContainText(a.drone.name);\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore/operator.spec.ts:10:208"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:46:19.655Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore/operator.spec.ts",
+                    "column": 208,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-95d5c783efd1c26ad9f1",
+          "file": "operator.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "T06 fault exploration socket-kick",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 145956,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:08.220Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-fault-exploration-socket-kick/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-fault-exploration-socket-kick/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-fault-exploration-socket-kick/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-8b90573fb01a2da1b625",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration socket-refuse",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "interrupted",
+                  "duration": 95297,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:50:04.291Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-fault-exploration-socket-refuse/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-fault-exploration-socket-refuse/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/faults/artifacts/operator-T06-fault-exploration-socket-refuse/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-e89c9ed80764de0e49a8",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration socket-delay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-02e49e9d15ae53278fce",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration socket-drop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-5d3b8ec8befce8c90668",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration sim-offline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-2c3452a5f207b4ceac7a",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration video-freeze",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-d96351d23ccf7c88ba7e",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration video-stutter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-3e1abebf38aafd490548",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration video-degrade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-636cdabaabbbf04c3c8e",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        },
+        {
+          "title": "T06 fault exploration video-flicker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-05109b51a60fce666c70",
+          "file": "operator.spec.ts",
+          "line": 21,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-26T06:46:19.109Z",
+    "duration": 320798.679,
+    "expected": 1,
+    "skipped": 8,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

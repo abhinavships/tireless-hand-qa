@@ -1,0 +1,8 @@
+{
+  "scenario": "S11",
+  "project": "desktop",
+  "label": "mutant-M16",
+  "status": "failed",
+  "message": "Error: Operator cannot sign in: Sign in action missing",
+  "duration": 11027
+}

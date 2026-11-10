@@ -1,0 +1,40 @@
+{
+ "name": "tireless-hand-qa",
+ "private": true,
+ "type": "module",
+ "scripts": {
+  "test": "playwright test",
+  "typecheck": "tsc --noEmit",
+  "evidence": "tsx tools/evidence.ts",
+  "demo:1": "tsx demo/live.ts 1",
+  "demo:2": "tsx demo/live.ts 2",
+  "demo:3": "tsx demo/live.ts 3",
+  "demo:4": "tsx demo/live.ts 4",
+  "demo:5": "tsx demo/live.ts 5",
+  "demo:6": "tsx demo/live.ts 6",
+  "dashboard": "tsx demo/dashboard.ts",
+  "blind": "tsx blind/referee.ts",
+  "auto:learn": "tsx auto/engine.ts learn",
+  "auto:plan": "tsx auto/engine.ts plan",
+  "auto:run": "tsx auto/engine.ts run",
+  "auto:full": "tsx auto/engine.ts run --full",
+  "hub": "tsx hub/hub.ts",
+  "map:trial": "tsx map/trial.ts",
+  "map:learn": "tsx map/learn.ts",
+  "bug": "tsx map/bug.ts",
+  "qa": "tsx map/qa.ts",
+  "bug:random": "tsx map/bug.ts random",
+  "bug:reveal": "tsx map/bug.ts reveal",
+  "bug:revert": "tsx map/bug.ts revert",
+  "bug:status": "tsx map/bug.ts status",
+  "map:discover": "tsx map/discover.ts"
+ },
+ "devDependencies": {
+  "@playwright/test": "^1.56.0",
+  "@axe-core/playwright": "^4.10.0",
+  "socket.io-client": "^4.8.1",
+  "typescript": "^5.9.0",
+  "tsx": "^4.20.0",
+  "@types/node": "^24.0.0"
+ }
+}

@@ -1,0 +1,61 @@
+ product-frontend-1 Copying frontend/src/components/SocketBadge.tsx to product-frontend-1:/app/frontend/src/components/SocketBadge.tsx
+ product-frontend-1 Copied frontend/src/components/SocketBadge.tsx to product-frontend-1:/app/frontend/src/components/SocketBadge.tsx
+
+Running 1 test using 1 worker
+
+(node:18387) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S06-socket-recovery.spec.ts:5:1 › S06 socket badge reports refusal and recovers without reload @network @visual (10.0s)
+
+
+  1) [desktop] › scenarios/S06-socket-recovery.spec.ts:5:1 › S06 socket badge reports refusal and recovers without reload @network @visual 
+
+    Error: Socket is disconnected/refused but operator is falsely told connected
+
+    expect(locator).not.toHaveText(expected) failed
+
+    Locator:  getByTestId('socket-status')
+    Expected: not "socket connected"
+    Received: "socket connected"
+    Timeout:  5000ms
+
+    Call log:
+      - Socket is disconnected/refused but operator is falsely told connected getByTestId('socket-status') with timeout 5000ms
+      - waiting for getByTestId('socket-status')
+        14 × locator resolved to <span title="Socket connection" data-testid="socket-status" class="badge badge-reconnecting">socket connected</span>
+           - unexpected value "socket connected"
+
+
+      12 |   await api.fault({kind:'socket-refuse',seconds:15});
+      13 |   await expect.poll(()=>truth.socket.connected,{message:'Fault must disconnect the independent truth socket'}).toBe(false);
+    > 14 |   await expect(cockpit.badge(),'Socket is disconnected/refused but operator is falsely told connected').not.toHaveText('socket connected',{timeout:5000});
+         |                                                                                                             ^
+      15 |   await narrate(page,'S06: clear refusal; socket and fresh telemetry must recover without a reload');
+      16 |   await api.clearFaults();
+      17 |   await expect(cockpit.badge(),'Socket badge must recover without operator reload').toHaveText('socket connected',{timeout:15000});
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S06-socket-recovery.spec.ts:14:109
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-1790407117674-b1bcca68/artifacts/S06-socket-recovery-S06-so-c2bbb-thout-reload-network-visual-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407117674-b1bcca68/artifacts/S06-socket-recovery-S06-so-c2bbb-thout-reload-network-visual-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-1790407117674-b1bcca68/artifacts/S06-socket-recovery-S06-so-c2bbb-thout-reload-network-visual-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-1790407117674-b1bcca68/artifacts/S06-socket-recovery-S06-so-c2bbb-thout-reload-network-visual-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-1790407117674-b1bcca68/artifacts/S06-socket-recovery-S06-so-c2bbb-thout-reload-network-visual-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S06-socket-recovery.spec.ts:5:1 › S06 socket badge reports refusal and recovers without reload @network @visual 
+Evidence collected for 1 scenarios (mutant-M07; RUN_ID=run-1790407117674-b1bcca68)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/SocketBadge.tsx to product-frontend-1:/app/frontend/src/components/SocketBadge.tsx
+ product-frontend-1 Copied frontend/src/components/SocketBadge.tsx to product-frontend-1:/app/frontend/src/components/SocketBadge.tsx

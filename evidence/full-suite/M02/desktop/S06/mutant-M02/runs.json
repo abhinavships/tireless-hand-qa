@@ -1,0 +1,19 @@
+[
+  {
+    "sourceSpecId": "65316dd44cec9f3393ed-9dd09f1edbf892570fe2",
+    "scenario": "S06",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "passed",
+    "message": "",
+    "duration": 24142,
+    "title": "S06 socket badge reports refusal and recovers without reload @network @visual",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s06-socket-recovery-spec-ts-s06-socket-badge-reports-refusal-and-recovers-without-reload-network-visual.png",
+      "desktop-r0-s06-socket-recovery-spec-ts-s06-socket-badge-reports-refusal-and-recovers-without-reload-network-visual.webm",
+      "desktop-r0-s06-socket-recovery-spec-ts-s06-socket-badge-reports-refusal-and-recovers-without-reload-network-visual.zip"
+    ]
+  }
+]

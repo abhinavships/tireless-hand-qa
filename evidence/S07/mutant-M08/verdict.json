@@ -1,0 +1,8 @@
+{
+  "scenario": "S07",
+  "project": "desktop",
+  "label": "mutant-M08",
+  "status": "failed",
+  "message": "Error: Stopped stream must be labelled off; a live label would mislead the operator",
+  "duration": 14829
+}

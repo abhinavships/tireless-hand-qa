@@ -1,0 +1,16 @@
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+
+Running 4 tests using 1 worker
+
+(node:66895) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S05-offline-truth.spec.ts:6:1 › S05(a) simulator offline does not falsify status @telemetry @network (1.1m)
+(node:67835) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop] › scenarios/S05-offline-truth.spec.ts:53:1 › S05(c) new drone without telemetry never claims active flight @telemetry @network (1.0m)
+(node:68577) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [desktop] › scenarios/S06-socket-recovery.spec.ts:5:1 › S06 socket badge reports refusal and recovers without reload @network @visual (1.0m)
+(node:70102) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

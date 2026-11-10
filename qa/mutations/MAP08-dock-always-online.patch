@@ -1,0 +1,14 @@
+# MAP08 | Map & geospatial | targets: map | Dock icon always shows online, even when its data has stopped
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..f81d145 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -227,7 +227,7 @@ function syncEntities(
+         Cesium.Cartesian3.fromDegrees(loc.longitude, loc.latitude, dockGround),
+       );
+       syncHeightReference(viewer, device.id, loc.longitude, loc.latitude, dockGround, dockGround, `${formatHeight(loc.altitude)} ASL`);
+-      const online = Date.now() - (dd?.heartbeat?.device_heartbeat_timestamp ?? 0) < STALE_AFTER_MS;
++      const online = true;
+       const dockSelected = byId.get(device.droneId ?? '')?.id === state.selectedDeviceId;
+       if (!entity.billboard) {
+         entity.billboard = new Cesium.BillboardGraphics({

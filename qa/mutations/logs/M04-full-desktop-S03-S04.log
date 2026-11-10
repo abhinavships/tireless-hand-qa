@@ -1,0 +1,99 @@
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+
+Running 2 tests using 1 worker
+
+(node:62602) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual (1.9m)
+(node:64791) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry (1.7m)
+
+
+  1) [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual 
+
+    Test timeout of 110000ms exceeded.
+
+    Error: locator.click: Test timeout of 110000ms exceeded.
+    Call log:
+      - waiting for getByTestId('device-row-drone-234')
+
+
+       at ../lib/cockpit.ts:14
+
+      12 |  async waitRow(id:string) { await expect(this.page.getByTestId(`device-row-${id}`),`Fleet row ${id} must appear in the cockpit`).toBeVisible(); }
+      13 |  /** Select a drone through the same row an operator clicks. */
+    > 14 |  async selectDrone(id:string) { await this.page.getByTestId(`device-row-${id}`).click(); await expect(this.page.getByTestId(`device-row-${id}`)).toHaveClass(/selected/); }
+         |                                                                                 ^
+      15 |  /** Read selected drone telemetry without silently converting missing values to zero. */
+      16 |  async readTelemetry():Promise<Telemetry> {
+      17 |   const ids={battery:'battery',altRlt:'alt-rlt',altAgl:'alt-agl',altAsl:'alt-asl',hspeed:'hspeed',vspeed:'vspeed',heading:'heading',wind:'wind',homeDistance:'home-distance'};
+        at Cockpit.selectDrone (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/cockpit.ts:14:81)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S03-selected-telemetry.spec.ts:21:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408855-6586/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408855-6586/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M04-1790408855-6586/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408855-6586/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M04-1790408855-6586/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry 
+
+    Test timeout of 100000ms exceeded.
+
+    Error: locator.click: Test timeout of 100000ms exceeded.
+    Call log:
+      - waiting for getByTestId('device-row-drone-235')
+
+
+       at ../lib/cockpit.ts:14
+
+      12 |  async waitRow(id:string) { await expect(this.page.getByTestId(`device-row-${id}`),`Fleet row ${id} must appear in the cockpit`).toBeVisible(); }
+      13 |  /** Select a drone through the same row an operator clicks. */
+    > 14 |  async selectDrone(id:string) { await this.page.getByTestId(`device-row-${id}`).click(); await expect(this.page.getByTestId(`device-row-${id}`)).toHaveClass(/selected/); }
+         |                                                                                 ^
+      15 |  /** Read selected drone telemetry without silently converting missing values to zero. */
+      16 |  async readTelemetry():Promise<Telemetry> {
+      17 |   const ids={battery:'battery',altRlt:'alt-rlt',altAgl:'alt-agl',altAsl:'alt-asl',hspeed:'hspeed',vspeed:'vspeed',heading:'heading',wind:'wind',homeDistance:'home-distance'};
+        at Cockpit.selectDrone (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/cockpit.ts:14:81)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S04-flight-workflow.spec.ts:17:68
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408855-6586/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408855-6586/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M04-1790408855-6586/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408855-6586/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M04-1790408855-6586/artifacts/S04-flight-workflow-S04-·--09507-socket-functional-telemetry-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual 
+    [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry 
+Evidence collected for 2 scenarios (mutant-M04; RUN_ID=t05-M04-1790408855-6586)
+Evidence collected for 2 scenarios (mutant-M04; RUN_ID=t05-M04-1790408855-6586)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx

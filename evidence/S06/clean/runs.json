@@ -1,0 +1,50 @@
+[
+  {
+    "scenario": "S06",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 14773,
+    "title": "S06 socket badge reports refusal and recovers without reload @network @visual",
+    "repeat": "65316dd44cec9f3393ed-9dd09f1edbf892570fe2",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-0-screenshot.png",
+      "t03-hard-0-video.webm",
+      "t03-hard-0-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S06",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 9379,
+    "title": "S06 socket badge reports refusal and recovers without reload @network @visual",
+    "repeat": "65316dd44cec9f3393ed-5cf98cfb5a14cb1bf7af",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-1-screenshot.png",
+      "t03-hard-1-video.webm",
+      "t03-hard-1-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S06",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 10064,
+    "title": "S06 socket badge reports refusal and recovers without reload @network @visual",
+    "repeat": "65316dd44cec9f3393ed-30bb539f2d239e8b3e97",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-2-screenshot.png",
+      "t03-hard-2-video.webm",
+      "t03-hard-2-trace.zip"
+    ]
+  }
+]

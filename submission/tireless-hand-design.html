@@ -1,0 +1,177 @@
+<title>Tireless Hand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f2f4f6; --panel:#ffffff; --ink:#15202b; --muted:#56616d; --line:#dde2e7;
+  --accent:#c9731f; --accent-soft:#fbeedd; --ok:#23794d; --ok-soft:#e3f3ea; --bad:#b4401b; --bad-soft:#fbe7df;
+  --hud:#1d2a36;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --ground:#10161c; --panel:#171f27; --ink:#e7ecf1; --muted:#9aa6b2; --line:#2a3440;
+  --accent:#f0a24f; --accent-soft:#3a2a17; --ok:#5cc28d; --ok-soft:#173327; --bad:#ff8a63; --bad-soft:#3b1f16; --hud:#0b1015;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#10161c; --panel:#171f27; --ink:#e7ecf1; --muted:#9aa6b2; --line:#2a3440;
+  --accent:#f0a24f; --accent-soft:#3a2a17; --ok:#5cc28d; --ok-soft:#173327; --bad:#ff8a63; --bad-soft:#3b1f16; --hud:#0b1015;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:16px/1.6 "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;padding:0 16px}
+.wrap{max-width:1040px;margin:0 auto;padding-block:40px 72px;display:grid;gap:44px}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-wrap:balance;margin:0;letter-spacing:.01em}
+h1{font-size:clamp(40px,7vw,64px);line-height:1;font-weight:700}
+h2{font-size:28px;font-weight:600;margin-bottom:12px}
+h3{font-size:20px;font-weight:600}
+p{margin:0;max-width:68ch}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:18px;color:var(--muted);margin-top:14px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13.5px}
+header{display:grid;gap:10px}
+.thesis{background:var(--hud);color:#e9eef3;border-radius:14px;padding:22px 24px;display:grid;gap:8px}
+.thesis p{max-width:none;font-size:17px}
+.thesis b{color:#f3b36b;font-weight:600}
+.diagram{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;overflow-x:auto}
+.diagram .cap{color:var(--muted);font-size:14px;margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.part{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:6px;align-content:start}
+.part .tag{font:500 12px/1 "IBM Plex Mono",monospace;color:var(--muted)}
+.part p{font-size:15px;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:620px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font:500 12px/1.2 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.chip{display:inline-block;font:500 12.5px/1.6 "IBM Plex Mono",monospace;padding:0 8px;border-radius:6px;white-space:nowrap}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.acc{background:var(--accent-soft);color:var(--accent)}
+.stack{display:grid;gap:14px}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.rule{border-left:3px solid var(--accent);padding:2px 0 2px 14px;display:grid;gap:4px}
+.rule p{font-size:15px;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;gap:12px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;min-width:150px;flex:1}
+.stat b{display:block;font:700 34px/1 "Barlow Condensed",sans-serif;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:14px}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+a{color:var(--accent)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">FlytBase AHC · Agentic Software Testing · Level 1</span>
+  <h1>Tireless Hand</h1>
+  <p class="lede">A testing system that looks at the drone cockpit the way an operator does, and checks that what's on screen is true.</p>
+</header>
+
+<section class="thesis" aria-label="Core idea">
+  <p>Most UI tests check that a button <b>exists</b>. We check that the screen is <b>true</b>.</p>
+  <p>Every check compares what the operator sees with what the system actually reports, at phone, tablet and desktop size, while we deliberately break the network, the simulator and the video.</p>
+</section>
+
+<section>
+  <h2>How one test run works</h2>
+  <div class="diagram">
+<pre class="mermaid">
+flowchart LR
+  A["1 · Set the scene<br/>Control API: add a test drone,<br/>take off, inject a fault"] --> B["2 · Use the app<br/>Real Chrome browser at<br/>phone · tablet · desktop"]
+  B --> C["What the operator sees<br/>status pills, telemetry,<br/>video label, layout"]
+  A --> D["What is actually true<br/>API state + live data feed"]
+  C --> E{"3 · Compare<br/>(oracles)"}
+  D --> E
+  E -->|match| F["PASS"]
+  E -->|mismatch| G["FAIL, with a message that<br/>names the operator impact"]
+  F --> H["4 · Evidence<br/>video · screenshot · trace · verdict"]
+  G --> H
+</pre>
+    <p class="cap">Each test creates its own drone and removes it afterwards, so every run starts from the same known state and anyone can repeat it.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The parts</h2>
+  <div class="grid">
+    <div class="part"><span class="tag">Environment controller</span><h3>Sets up the situation</h3><p>Talks to the cockpit's control API: adds drones, takes off, lands, starts and stops video, injects faults, and reads the true simulator state.</p></div>
+    <div class="part"><span class="tag">Browser driver</span><h3>Acts like an operator</h3><p>Opens the real cockpit in Chrome, selects drones and clicks buttons, at three screen sizes. A caption on screen names each step for the video.</p></div>
+    <div class="part"><span class="tag">Oracles</span><h3>Decide what "correct" means</h3><p>Compare the screen with ground truth: statuses, values within tolerance, reachability, layout, safe rendering of text.</p></div>
+    <div class="part"><span class="tag">Screen contracts</span><h3>List what each screen must offer</h3><p>A short declarative list per screen (e.g. badge, device list, video tile, Take off, Land). One generic checker enforces it, so a removed button is caught on any screen, including new ones like a sign-in page.</p></div>
+    <div class="part"><span class="tag">Evidence recorder</span><h3>Proves what happened</h3><p>Every run keeps a real-time video, a screenshot, a step-by-step trace and a verdict with a plain-English failure message.</p></div>
+    <div class="part"><span class="tag">Mutation lab</span><h3>Proves each test works</h3><p>Plants a realistic bug in the app, reruns the tests, and confirms the right test fails. Then it removes the bug and confirms everything passes again.</p></div>
+  </div>
+</section>
+
+<section class="stack">
+  <h2>What the oracles check</h2>
+  <p>Each check pairs something the operator sees with an independent source of truth. The check fails only when a real operator would be misled or blocked.</p>
+  <div class="tw"><table>
+    <tr><th>Operator question</th><th>What we read on screen</th><th>Compared against</th><th>Example failure</th></tr>
+    <tr><td>Is this drone really flying?</td><td>Status pill in the device list and in the telemetry panel</td><td>Simulator state + live data feed</td><td><span class="chip bad">list says in_flight, API says standby</span></td></tr>
+    <tr><td>Are these the selected drone's numbers?</td><td>Battery, altitude, speed</td><td>That drone's API state, within tolerance (±2 %, ±2 m, ±1 m/s)</td><td><span class="chip bad">sees 0 %, API says 98.2 %</span></td></tr>
+    <tr><td>Am I connected?</td><td>Connection badge</td><td>Our own independent socket client</td><td><span class="chip bad">refused, but badge says connected</span></td></tr>
+    <tr><td>Is the video live?</td><td>Video label</td><td>Decoded frames, advancing playback time, requested stream URL</td><td><span class="chip bad">stream stopped, label says live</span></td></tr>
+    <tr><td>Can I use it on my phone?</td><td>Position of every key control</td><td>Viewport bounds, hit-test at the element's centre, page width</td><td><span class="chip bad">content 1040 px wide on a 390 px screen</span></td></tr>
+    <tr><td>Is anything missing?</td><td>Every item in the screen contract</td><td>Visible, inside the viewport, not covered</td><td><span class="chip bad">operator cannot reach Video tile</span></td></tr>
+    <tr><td>Is my data safe?</td><td>How drone names render; who receives live data</td><td>A runtime script marker; a client with a wrong organisation ID</td><td><span class="chip bad">name runs as script</span></td></tr>
+  </table></div>
+</section>
+
+<section class="stack">
+  <h2>Conditions every test can run under</h2>
+  <div class="tw"><table>
+    <tr><th>Dimension</th><th>Values</th></tr>
+    <tr><td>Screen size</td><td><span class="chip acc">phone 390×844</span> <span class="chip acc">tablet 768×1024</span> <span class="chip acc">desktop 1440×900</span></td></tr>
+    <tr><td>Drone state</td><td>docked · taking off · in flight · landing · just added · just removed</td></tr>
+    <tr><td>Network</td><td>normal · connections refused · telemetry dropped · telemetry delayed</td></tr>
+    <tr><td>Backend</td><td>simulator online · simulator offline, then recovered</td></tr>
+    <tr><td>Video</td><td>off · live · frozen · switched to another drone</td></tr>
+    <tr><td>User</td><td>right organisation · wrong organisation · none</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>How we prove a test catches its bug</h2>
+  <div class="diagram">
+<pre class="mermaid">
+flowchart LR
+  P["Plant a realistic bug<br/>e.g. hide the video tile,<br/>show offline as online,<br/>push the list off a phone screen"] --> R["Run the matching tests"]
+  R --> Q{"Does the test fail<br/>with a precise message?"}
+  Q -->|yes| C["Caught<br/>video: clean pass, then fail"]
+  Q -->|no| M["Missed<br/>strengthen the check,<br/>report the gap"]
+  C --> V["Remove the bug<br/>and confirm the clean app passes"]
+  M --> V
+</pre>
+    <p class="cap">A test only counts once it passes three times in a row on the clean app and fails on its planted bug.</p>
+  </div>
+</section>
+
+<section class="stack">
+  <h2>Why the results can be trusted</h2>
+  <div class="rules">
+    <div class="rule"><h3>Meaning, not pixels</h3><p>Checks use names, IDs, statuses and geometry. Wording changes and a moving map don't cause false alarms.</p></div>
+    <div class="rule"><h3>Isolated and repeatable</h3><p>Each test creates what it needs and cleans up. Anything that affects the whole app runs one at a time.</p></div>
+    <div class="rule"><h3>Waits for live data properly</h3><p>Telemetry arrives once or twice a second, so checks poll with a time limit instead of sleeping for a fixed time.</p></div>
+    <div class="rule"><h3>Failures explain themselves</h3><p>A failure says what the operator would experience, e.g. "Operator cannot land Drone 1: Land control missing".</p></div>
+  </div>
+</section>
+
+<section class="stack">
+  <h2>At a glance</h2>
+  <div class="stats">
+    <div class="stat"><b>11</b><span>scenarios with video</span></div>
+    <div class="stat"><b>15 / 16</b><span>planted bugs caught</span></div>
+    <div class="stat"><b>3</b><span>real bugs found in the unmodified app</span></div>
+    <div class="stat"><b>3</b><span>screen sizes per layout test</span></div>
+  </div>
+</section>
+
+<footer>
+  Full write-up with every scenario and video:
+  <a href="https://docs.google.com/document/d/1h9wqUqsl_T76JtZqM9EXSaVhOSreTRi4PkvTUEwTLto/edit">evaluation document</a> ·
+  <a href="https://drive.google.com/drive/folders/18ZxHgzCHinhJbpiU3o_-VrwRn7Cd6550">all videos</a>.
+  Tireless Hand · Abhinav · 2026
+</footer>
+
+</div>

@@ -1,0 +1,8 @@
+{
+  "scenario": "S00",
+  "project": "desktop",
+  "label": "clean",
+  "status": "failed",
+  "message": "Error: Smoke starting state requires the baseline fleet of four drones",
+  "duration": 201
+}

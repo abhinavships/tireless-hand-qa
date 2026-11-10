@@ -1,0 +1,14 @@
+{
+  "name": "Control panel",
+  "url": "http://localhost:4000/dashboard",
+  "scenario": "S12",
+  "elements": [
+    { "name": "Control panel identity", "locator": { "role": "heading", "name": "Cockpit Control Panel" }, "mustBeVisible": true, "region": "header" },
+    { "name": "Connection status", "locator": { "testid": "dash-socket" }, "mustBeVisible": true, "region": "header" },
+    { "name": "Simulator status", "locator": { "testid": "dash-sim" }, "mustBeVisible": true, "region": "header" },
+    { "name": "Cockpit link", "locator": { "role": "link", "name": "Open cockpit" }, "mustBeClickable": true, "region": "header" },
+    { "name": "Add drone action", "locator": { "testid": "dash-drone-add" }, "mustBeClickable": true, "region": "fleet management" },
+    { "name": "Fleet controls table", "locator": { "css": "#drones" }, "mustBeVisible": true, "region": "flight controls" },
+    { "name": "Fault controls disclosure", "locator": { "css": "details.section > summary" }, "mustBeClickable": true, "region": "faults" }
+  ]
+}

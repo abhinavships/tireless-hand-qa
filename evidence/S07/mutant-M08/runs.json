@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S07",
+    "project": "desktop",
+    "label": "mutant-M08",
+    "status": "failed",
+    "message": "Error: Stopped stream must be labelled off; a live label would mislead the operator\n\nexpect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('video-state')\nExpected: \"off\"\nReceived: \"live\"\nTimeout:  10000ms\n\nCall log:\n  - Stopped stream must be labelled off; a live label would mislead the operator getByTestId('video-state') with timeout 10000ms\n  - waiting for getByTestId('video-state')\n    23 × locator resolved to <span data-testid=\"video-state\" class=\"muted video-state video-state-live\">live</span>\n       - unexpected value \"live\"\n\n\n  50 |     await cockpit.selectDrone(isolatedDrone.id);\n  51 |     await narrate(page, 'S07 · stream stopped: operator must see Off and the Video off placeholder');\n> 52 |     await expect(cockpit.videoLabel(), 'Stopped stream must be labelled off; a live label would mislead the operator').toHaveText('off');\n     |                                                                                                                        ^\n  53 |     await expect(page.getByTestId('video-player'), 'Stopped stream must show the Video off placeholder').toContainText('Video off');\n  54 |     await expect(page.locator('video[data-testid=\"video-player\"]'), 'Stopped stream must not retain a live player').toHaveCount(0);\n  55 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S07-video-truth.spec.ts:52:120",
+    "duration": 14829,
+    "title": "S07 · video off/live labels match actual playback and selected stream @video @visual",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s07-video-truth-spec-ts-s07-video-off-live-labels-match-actual-playback-and-selected-stream-video-visual.png",
+      "desktop-r0-s07-video-truth-spec-ts-s07-video-off-live-labels-match-actual-playback-and-selected-stream-video-visual.webm",
+      "desktop-r0-s07-video-truth-spec-ts-s07-video-off-live-labels-match-actual-playback-and-selected-stream-video-visual.md",
+      "desktop-r0-s07-video-truth-spec-ts-s07-video-off-live-labels-match-actual-playback-and-selected-stream-video-visual.zip"
+    ]
+  }
+]

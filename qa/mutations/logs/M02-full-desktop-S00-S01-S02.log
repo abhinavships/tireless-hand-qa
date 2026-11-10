@@ -1,0 +1,75 @@
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+
+Running 3 tests using 1 worker
+
+(node:52953) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › scenarios/S00-smoke.spec.ts:3:1 › S00 · harness smoke: connected fleet, telemetry and live video (6.0s)
+  ✘  2 [desktop] › scenarios/S01-shell-contract.spec.ts:4:1 › S01 @visual · required screen regions and actions remain reachable (20.8s)
+(node:53546) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [desktop] › scenarios/S02-live-fleet.spec.ts:36:1 › S02 @functional @api @realtime device list follows fleet additions and removals without reload (11.3s)
+
+
+  1) [desktop] › scenarios/S01-shell-contract.spec.ts:4:1 › S01 @visual · required screen regions and actions remain reachable 
+
+    Error: Cockpit: operator cannot reach Control panel action
+
+    Cockpit: Control panel action missing; operator cannot access the header region
+
+    expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('link', { name: 'Control panel' })
+    Expected: 1
+    Received: 0
+    Timeout:  2000ms
+
+    Call log:
+      - Cockpit: Control panel action missing; operator cannot access the header region getByRole('link', { name: 'Control panel' }) with timeout 2000ms
+      - waiting for getByRole('link', { name: 'Control panel' })
+        20 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at ../lib/ext/t02.ts:29
+
+      27 |    await expect(target,`${contract.name}: ${item.name} missing; operator cannot access the ${item.region} region`).toHaveCount(1,{timeout:2_000});
+      28 |    if(item.mustBeVisible||item.mustBeClickable) await expectVisibleAndUsable(target);
+    > 29 |   },`${contract.name}: operator cannot reach ${item.name}`).toPass({timeout:15_000});
+         |                                                             ^
+      30 |  }
+      31 | }
+      32 |
+        at checkContract (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/ext/t02.ts:29:61)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S01-shell-contract.spec.ts:11:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408461-22891/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408461-22891/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M02-1790408461-22891/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M02-1790408461-22891/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M02-1790408461-22891/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S01-shell-contract.spec.ts:4:1 › S01 @visual · required screen regions and actions remain reachable 
+  2 passed (40.5s)
+Evidence collected for 3 scenarios (mutant-M02; RUN_ID=t05-M02-1790408461-22891)
+Evidence collected for 3 scenarios (mutant-M02; RUN_ID=t05-M02-1790408461-22891)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx

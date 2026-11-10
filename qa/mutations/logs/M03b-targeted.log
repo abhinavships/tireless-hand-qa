@@ -1,0 +1,66 @@
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+
+Running 1 test using 1 worker
+
+(node:41167) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S05-offline-truth.spec.ts:53:1 › S05(c) new drone without telemetry never claims active flight @telemetry @network (16.4s)
+
+
+  1) [desktop] › scenarios/S05-offline-truth.spec.ts:53:1 › S05(c) new drone without telemetry never claims active flight @telemetry @network 
+
+    Error: A drone with no telemetry must show unknown/unavailable, never invented in_flight or online
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator: getByTestId('device-row-drone-193').locator('.device-pills .pill').last()
+    Expected pattern: /^(—|unknown|offline|unavailable|no data)$/i
+    Received string:  "in_flight"
+    Timeout: 10000ms
+
+    Call log:
+      - A drone with no telemetry must show unknown/unavailable, never invented in_flight or online getByTestId('device-row-drone-193').locator('.device-pills .pill').last() with timeout 10000ms
+      - waiting for getByTestId('device-row-drone-193').locator('.device-pills .pill').last()
+        23 × locator resolved to <span class="pill pill-in_flight">in_flight</span>
+           - unexpected value "in_flight"
+
+
+      64 |   expect(truth.messages.has(topic(id,'flight_status')),'Independent socket confirms this new drone has no retained or delivered flight status').toBe(false);
+      65 |   expect((await api.state()).drones[id].status,'Known new drone is grounded in simulator truth').toBe('standby');
+    > 66 |   await expect(cockpit.flightPill(id),'A drone with no telemetry must show unknown/unavailable, never invented in_flight or online').toHaveText(/^(—|unknown|offline|unavailable|no data)$/i);
+         |                                                                                                                                      ^
+      67 |   await expect(cockpit.flightPill(),'Selected drone without telemetry must not claim a known flight phase').toHaveText(/^(—|unknown|offline|unavailable|no data)$/i);
+      68 |   const screen=testInfo.outputPath('no-telemetry-screen.png');await page.screenshot({path:screen});
+      69 |   await testInfo.attach('no-telemetry-screen',{path:screen,contentType:'image/png'});
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:66:134
+
+    attachment #1: no-telemetry-screen (image/png) ─────────────────────────────────────────────────
+    test-results/t05-M03b-1790407992-14912/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/attachments/no-telemetry-screen-e21174eabbd89066c3a0da22e0b19f3ffef6c9e8.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M03b-1790407992-14912/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M03b-1790407992-14912/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M03b-1790407992-14912/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M03b-1790407992-14912/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M03b-1790407992-14912/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S05-offline-truth.spec.ts:53:1 › S05(c) new drone without telemetry never claims active flight @telemetry @network 
+Evidence collected for 1 scenarios (mutant-M03b; RUN_ID=t05-M03b-1790407992-14912)
+Evidence collected for 1 scenarios (mutant-M03b; RUN_ID=t05-M03b-1790407992-14912)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx

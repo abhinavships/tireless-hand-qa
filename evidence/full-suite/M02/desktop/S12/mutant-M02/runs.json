@@ -1,0 +1,19 @@
+[
+  {
+    "sourceSpecId": "ebe638741bd6aa1c867f-fa1eeee070332736d750",
+    "scenario": "S12",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "passed",
+    "message": "",
+    "duration": 12975,
+    "title": "S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s12-dashboard-contract-spec-ts-s12-visual-functional-control-panel-offers-flight-controls-and-takeoff-reaches-the-cockpit.png",
+      "desktop-r0-s12-dashboard-contract-spec-ts-s12-visual-functional-control-panel-offers-flight-controls-and-takeoff-reaches-the-cockpit.webm",
+      "desktop-r0-s12-dashboard-contract-spec-ts-s12-visual-functional-control-panel-offers-flight-controls-and-takeoff-reaches-the-cockpit.zip"
+    ]
+  }
+]

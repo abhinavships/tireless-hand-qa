@@ -1,0 +1,8 @@
+{
+  "scenario": "S13",
+  "project": "desktop",
+  "label": "mutant-M14",
+  "status": "failed",
+  "message": "Error: Operators face new serious/critical accessibility barriers on dashboard; unnamed buttons cannot communicate their action",
+  "duration": 4413
+}

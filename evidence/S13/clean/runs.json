@@ -1,0 +1,116 @@
+[
+  {
+    "scenario": "S13",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 14203,
+    "title": "S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers",
+    "repeat": 0,
+    "sourceSpecId": "60b635a94137ae7cbd04-62890b0d717ddfce8e74",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-S13-6-0-0.json",
+      "desktop-r0-S13-6-0-1.json",
+      "desktop-r0-S13-6-0-2.png",
+      "desktop-r0-S13-6-0-3.webm",
+      "desktop-r0-S13-6-0-4.webm",
+      "desktop-r0-S13-6-0-5.webm",
+      "desktop-r0-S13-6-0-6.zip"
+    ]
+  },
+  {
+    "scenario": "S13",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 12279,
+    "title": "S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers",
+    "repeat": 1,
+    "sourceSpecId": "60b635a94137ae7cbd04-3e218a7b6c05b98ac5de",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r1-S13-7-0-0.json",
+      "desktop-r1-S13-7-0-1.json",
+      "desktop-r1-S13-7-0-2.png",
+      "desktop-r1-S13-7-0-3.webm",
+      "desktop-r1-S13-7-0-4.webm",
+      "desktop-r1-S13-7-0-5.webm",
+      "desktop-r1-S13-7-0-6.zip"
+    ]
+  },
+  {
+    "scenario": "S13",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 6491,
+    "title": "S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers",
+    "repeat": 2,
+    "sourceSpecId": "60b635a94137ae7cbd04-042697139f01246e11be",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r2-S13-8-0-0.json",
+      "desktop-r2-S13-8-0-1.json",
+      "desktop-r2-S13-8-0-2.png",
+      "desktop-r2-S13-8-0-3.webm",
+      "desktop-r2-S13-8-0-4.webm",
+      "desktop-r2-S13-8-0-5.webm",
+      "desktop-r2-S13-8-0-6.zip"
+    ]
+  },
+  {
+    "scenario": "S13",
+    "project": "tablet",
+    "label": "clean",
+    "status": "skipped",
+    "message": "",
+    "duration": 129,
+    "title": "S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers",
+    "repeat": 0,
+    "sourceSpecId": "60b635a94137ae7cbd04-cb2203a059caa87013da",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r0-S13-9-0-0.png",
+      "tablet-r0-S13-9-0-1.webm",
+      "tablet-r0-S13-9-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S13",
+    "project": "tablet",
+    "label": "clean",
+    "status": "skipped",
+    "message": "",
+    "duration": 213,
+    "title": "S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers",
+    "repeat": 1,
+    "sourceSpecId": "60b635a94137ae7cbd04-2f8728f234fe37b87e1d",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r1-S13-10-0-0.png",
+      "tablet-r1-S13-10-0-1.webm",
+      "tablet-r1-S13-10-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S13",
+    "project": "tablet",
+    "label": "clean",
+    "status": "skipped",
+    "message": "",
+    "duration": 222,
+    "title": "S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers",
+    "repeat": 2,
+    "sourceSpecId": "60b635a94137ae7cbd04-8f96c7a866f9cae707c8",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r2-S13-11-0-0.png",
+      "tablet-r2-S13-11-0-1.webm",
+      "tablet-r2-S13-11-0-2.zip"
+    ]
+  }
+]

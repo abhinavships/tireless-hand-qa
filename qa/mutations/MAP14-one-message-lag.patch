@@ -1,0 +1,37 @@
+# MAP14 | Map & geospatial | targets: map | Map draws the previous position message (drone and track one message behind the wire)
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..72635df 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -206,6 +206,8 @@ function panToDevice(viewer: Cesium.Viewer, state: TelemetryState, lastSeq: { cu
+   });
+ }
+ 
++const LAG = new Map<string, { cur: unknown; prev: unknown; track: [number, number, number][] }>();
++
+ function syncEntities(
+   viewer: Cesium.Viewer,
+   state: TelemetryState,
+@@ -260,8 +262,11 @@ function syncEntities(
+       continue;
+     }
+ 
+-    const pos = dd?.global_position?.position;
+-    if (!pos) continue;
++    const live = dd?.global_position?.position;
++    if (!live) continue;
++    const lag = LAG.get(device.id);
++    if (lag?.cur !== live) LAG.set(device.id, { cur: live, prev: lag?.cur ?? live, track: (state.track[device.id] ?? []).slice(0, -1) });
++    const pos = LAG.get(device.id)!.prev as typeof live;
+     const selected = state.selectedDeviceId === device.id;
+     const status = dd?.flight_status?.flight_status ?? '';
+     const heading = dd?.attitude?.yaw ?? 0;
+@@ -296,7 +301,7 @@ function syncEntities(
+     entity.model!.uri = new Cesium.ConstantProperty(selected ? DRONE_MODEL.selected : DRONE_MODEL.unselected);
+     entity.label!.text = new Cesium.ConstantProperty(`${device.name} ${status}`.trim());
+ 
+-    const track = state.track[device.id];
++    const track = LAG.get(device.id)!.track;
+     if (track && track.length >= 2) {
+       const line = viewer.entities.getOrCreateEntity(trackId(device.id));
+       const positions = Cesium.Cartesian3.fromDegreesArrayHeights(track.flatMap(([lon, lat, asl]) => [lon, lat, asl + offset]));

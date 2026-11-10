@@ -1,0 +1,19 @@
+[
+  {
+    "sourceSpecId": "05baff4f9c28997cf801-2262ba506c9ab6dfd35c",
+    "scenario": "S07",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "passed",
+    "message": "",
+    "duration": 22068,
+    "title": "S07 · video off/live labels match actual playback and selected stream @video @visual",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s07-video-truth-spec-ts-s07-video-off-live-labels-match-actual-playback-and-selected-stream-video-visual.png",
+      "desktop-r0-s07-video-truth-spec-ts-s07-video-off-live-labels-match-actual-playback-and-selected-stream-video-visual.webm",
+      "desktop-r0-s07-video-truth-spec-ts-s07-video-off-live-labels-match-actual-playback-and-selected-stream-video-visual.zip"
+    ]
+  }
+]

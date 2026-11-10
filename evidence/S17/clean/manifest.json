@@ -1,0 +1,37 @@
+[
+  {
+    "file": "video.webm",
+    "bytes": 205349,
+    "sha256": "cf0bdc2b09329cff102cea392aac0bb0b6cb0e5a657dfe9731d83f96686621d5"
+  },
+  {
+    "file": "trace.zip",
+    "bytes": 1293633,
+    "sha256": "64a04aff435da08015fdf54c28413b6657a7c343222b5c06108ef75e271b68b9"
+  },
+  {
+    "file": "screenshot.png",
+    "bytes": 120914,
+    "sha256": "466aea14285fbfd2a9dbae76026a3809a348b4a79994d0d4c2216af63c134451"
+  },
+  {
+    "file": "security-posture.json",
+    "bytes": 626,
+    "sha256": "34c066b70c213eacfebbbb1dd272d1914f6d3beba89140a640eee5aa1dda989d"
+  },
+  {
+    "file": "verdict.json",
+    "bytes": 127,
+    "sha256": "482da4a67e9741c66bf98dcdbfdbfe5a25e53eb32afac75ee68ac1ac182398d3"
+  },
+  {
+    "file": "runs.json",
+    "bytes": 360,
+    "sha256": "f3e8788d9138016f859d900a36ee786e6bff9cf6a490c3a5df3529dbea5bf662"
+  },
+  {
+    "file": "qualification-note.md",
+    "bytes": 311,
+    "sha256": "1cb792b8964e9cbfc9fff37cdd7b6c0e4a10dc317f20ce369cdf6d22ca5be921"
+  }
+]

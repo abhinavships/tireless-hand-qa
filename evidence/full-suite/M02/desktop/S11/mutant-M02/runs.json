@@ -1,0 +1,28 @@
+[
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-087ea40a20fa632876f7",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "skipped",
+    "message": "",
+    "duration": 0,
+    "title": "S11 @security signed-out route guards (evaluator-ready)",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": []
+  },
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-81f3abb67e63aa83dd96",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "skipped",
+    "message": "",
+    "duration": 0,
+    "title": "S11 @security sign-in required controls (evaluator-ready)",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": []
+  }
+]

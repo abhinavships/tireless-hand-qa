@@ -1,0 +1,104 @@
+[
+  {
+    "scenario": "S12",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 29609,
+    "title": "S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit",
+    "repeat": 0,
+    "sourceSpecId": "ebe638741bd6aa1c867f-fa1eeee070332736d750",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-S12-0-0-0.png",
+      "desktop-r0-S12-0-0-1.webm",
+      "desktop-r0-S12-0-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S12",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 13217,
+    "title": "S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit",
+    "repeat": 1,
+    "sourceSpecId": "ebe638741bd6aa1c867f-0640b996a540a1842bf9",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r1-S12-1-0-0.png",
+      "desktop-r1-S12-1-0-1.webm",
+      "desktop-r1-S12-1-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S12",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 14416,
+    "title": "S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit",
+    "repeat": 2,
+    "sourceSpecId": "ebe638741bd6aa1c867f-6ef8df77cc9de89703b6",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r2-S12-2-0-0.png",
+      "desktop-r2-S12-2-0-1.webm",
+      "desktop-r2-S12-2-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S12",
+    "project": "tablet",
+    "label": "clean",
+    "status": "skipped",
+    "message": "",
+    "duration": 167,
+    "title": "S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit",
+    "repeat": 0,
+    "sourceSpecId": "ebe638741bd6aa1c867f-b6743de35f27c5daffbd",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r0-S12-3-0-0.png",
+      "tablet-r0-S12-3-0-1.webm",
+      "tablet-r0-S12-3-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S12",
+    "project": "tablet",
+    "label": "clean",
+    "status": "skipped",
+    "message": "",
+    "duration": 165,
+    "title": "S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit",
+    "repeat": 1,
+    "sourceSpecId": "ebe638741bd6aa1c867f-a207a3f1381467d0c8e6",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r1-S12-4-0-0.png",
+      "tablet-r1-S12-4-0-1.webm",
+      "tablet-r1-S12-4-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S12",
+    "project": "tablet",
+    "label": "clean",
+    "status": "skipped",
+    "message": "",
+    "duration": 211,
+    "title": "S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit",
+    "repeat": 2,
+    "sourceSpecId": "ebe638741bd6aa1c867f-eac369a02a7cc5487858",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r2-S12-5-0-0.png",
+      "tablet-r2-S12-5-0-1.webm",
+      "tablet-r2-S12-5-0-2.zip"
+    ]
+  }
+]

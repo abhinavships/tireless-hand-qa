@@ -1,0 +1,322 @@
+{
+  "segment": 1,
+  "durationMs": 150858,
+  "samples": [
+    {
+      "elapsed": 0,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 3.9,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 10351,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 4.1,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 20391,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 3.9,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 30422,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 3.4,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 40450,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 3.5,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 50483,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 3.4,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 60511,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 3.6,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 70552,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 3.7,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 80577,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 3.6,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 90615,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 4.1,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 100651,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 4.2,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 110691,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 4.6,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 120748,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 4.4,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 130798,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 4.7,
+        "homeDistance": 0
+      }
+    },
+    {
+      "elapsed": 140833,
+      "badge": "socket connected",
+      "video": "live",
+      "rows": 4,
+      "fleet": 4,
+      "faults": {
+        "faults": []
+      },
+      "telemetry": {
+        "battery": 100,
+        "altRlt": 0,
+        "altAgl": 0,
+        "altAsl": 560,
+        "hspeed": 0,
+        "vspeed": 0,
+        "heading": 47,
+        "wind": 4.7,
+        "homeDistance": 0
+      }
+    }
+  ],
+  "errors": []
+}

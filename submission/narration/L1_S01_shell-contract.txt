@@ -1,0 +1,8 @@
+[   0.0s  section 1: title card + clean  (6.7s video, 25.5s speech)]
+Scenario one: the cockpit shell. When operators open the cockpit, they need every key part of the screen: the connection badge, the drone list, the telemetry panel, the map, the video, and the link to the control panel. The test adds its own drone, opens the cockpit, and checks that each part is on screen, not hidden, and not covered by anything else. On the normal app, it passes on phone, tablet and desktop.
+
+[   6.7s  section 2: title card + mutant-M01  (22.2s video, 8.1s speech)]
+We planted a bug that removes the video tile. The test caught it and failed with the message: Cockpit: operator cannot reach Video tile.
+
+[  28.8s  section 3: title card + mutant-M02  (20.1s video, 9.1s speech)]
+We planted a bug that removes the link to the control panel. The test caught it and failed with the message: Cockpit: operator cannot reach Control panel action.

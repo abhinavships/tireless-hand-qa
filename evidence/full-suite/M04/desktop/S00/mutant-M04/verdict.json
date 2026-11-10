@@ -1,0 +1,8 @@
+{
+  "scenario": "S00",
+  "project": "desktop",
+  "label": "mutant-M04",
+  "status": "failed",
+  "message": "Error: Every baseline drone must appear in the cockpit",
+  "duration": 17330
+}

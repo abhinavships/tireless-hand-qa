@@ -1,0 +1,8 @@
+{
+  "scenario": "S06",
+  "project": "desktop",
+  "label": "mutant-M07",
+  "status": "failed",
+  "message": "Error: Socket is disconnected/refused but operator is falsely told connected",
+  "duration": 10014
+}

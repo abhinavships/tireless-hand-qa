@@ -1,0 +1,8 @@
+{
+  "scenario": "S05",
+  "project": "desktop",
+  "label": "mutant-M04",
+  "status": "timedOut",
+  "message": "Test timeout of 60000ms exceeded.",
+  "duration": 122148
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "sourceSpecId": "3df8af9950ac331886cf-5ca48d61231c03d58234",
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "mutant-M04",
+    "status": "timedOut",
+    "message": "Test timeout of 60000ms exceeded.\nError: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByTestId('device-row-drone-242')\n\n\n   at ../lib/cockpit.ts:14\n\n  12 |  async waitRow(id:string) { await expect(this.page.getByTestId(`device-row-${id}`),`Fleet row ${id} must appear in the cockpit`).toBeVisible(); }\n  13 |  /** Select a drone through the same row an operator clicks. */\n> 14 |  async selectDrone(id:string) { await this.page.getByTestId(`device-row-${id}`).click(); await expect(this.page.getByTestId(`device-row-${id}`)).toHaveClass(/selected/); }\n     |                                                                                 ^\n  15 |  /** Read selected drone telemetry without silently converting missing values to zero. */\n  16 |  async readTelemetry():Promise<Telemetry> {\n  17 |   const ids={battery:'battery',altRlt:'alt-rlt',altAgl:'alt-agl',altAsl:'alt-asl',hspeed:'hspeed',vspeed:'vspeed',heading:'heading',wind:'wind',homeDistance:'home-distance'};\n    at Cockpit.selectDrone (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/cockpit.ts:14:81)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:13:66",
+    "duration": 61044,
+    "title": "S05(a) simulator offline does not falsify status @telemetry @network",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.png",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.webm",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.md",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "3df8af9950ac331886cf-46ec58a0c8916bc5e754",
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "mutant-M04",
+    "status": "timedOut",
+    "message": "Test timeout of 60000ms exceeded.\nError: page.screenshot: Target page, context or browser has been closed\n\n  69 |   await testInfo.attach('no-telemetry-screen',{path:screen,contentType:'image/png'});\n  70 |  } catch(error) {\n> 71 |   const screen=testInfo.outputPath('no-telemetry-screen.png');await page.screenshot({path:screen});\n     |                                                                          ^\n  72 |   await testInfo.attach('no-telemetry-screen',{path:screen,contentType:'image/png'});\n  73 |   throw error;\n  74 |  } finally {\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:71:74",
+    "duration": 61104,
+    "title": "S05(c) new drone without telemetry never claims active flight @telemetry @network",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.png",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.webm",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.md",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.zip"
+    ]
+  }
+]

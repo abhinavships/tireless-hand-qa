@@ -1,0 +1,61 @@
+ product-frontend-1 Copying frontend/src/styles.css to product-frontend-1:/app/frontend/src/styles.css
+ product-frontend-1 Copied frontend/src/styles.css to product-frontend-1:/app/frontend/src/styles.css
+
+Running 1 test using 1 worker
+
+(node:24241) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [phone] › scenarios/S08-responsive.spec.ts:4:1 › S08 @responsive · fleet selection and primary content are reachable at every size (2.7s)
+
+
+  1) [phone] › scenarios/S08-responsive.spec.ts:4:1 › S08 @responsive · fleet selection and primary content are reachable at every size 
+
+    Error: Operator cannot reach/use device-row-drone-161: is vertically clipped by an ancestor; centre is covered by section
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "is vertically clipped by an ancestor",
+    +   "centre is covered by section",
+    + ]
+
+       at ../lib/oracles.ts:76
+
+      74 |     return { label: element.getAttribute('data-testid') ?? element.textContent?.trim().slice(0, 100) ?? element.tagName, issues };
+      75 |   });
+    > 76 |   expect(result.issues, `Operator cannot reach/use ${result.label}: ${result.issues.join('; ')}`).toEqual([]);
+         |                                                                                                   ^
+      77 | }
+      78 |
+      79 | /** Assert the page does not require horizontal scrolling to reach its content. */
+        at expectVisibleAndUsable (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/oracles.ts:76:99)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S08-responsive.spec.ts:9:2
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-1790407336903-65d16c86/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-phone/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407336903-65d16c86/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-phone/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-1790407336903-65d16c86/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-phone/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-1790407336903-65d16c86/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-phone/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-1790407336903-65d16c86/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-phone/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [phone] › scenarios/S08-responsive.spec.ts:4:1 › S08 @responsive · fleet selection and primary content are reachable at every size 
+Evidence collected for 1 scenarios (mutant-M09b; RUN_ID=run-1790407336903-65d16c86)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/styles.css to product-frontend-1:/app/frontend/src/styles.css
+ product-frontend-1 Copied frontend/src/styles.css to product-frontend-1:/app/frontend/src/styles.css

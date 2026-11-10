@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tireless Hand Mechanism</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--ground:#f2f4f6;--panel:#fff;--ink:#15202b;--muted:#56616d;--line:#dde2e7;--accent:#c9731f;--accent-soft:#fbeedd;--ok:#23794d;--ok-soft:#e3f3ea;--bad:#b4401b;--bad-soft:#fbe7df;--blue:#2d6cdf;--blue-soft:#e4edfc;--hud:#1d2a36}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ground:#10161c;--panel:#171f27;--ink:#e7ecf1;--muted:#9aa6b2;--line:#2a3440;--accent:#f0a24f;--accent-soft:#3a2a17;--ok:#5cc28d;--ok-soft:#173327;--bad:#ff8a63;--bad-soft:#3b1f16;--blue:#7aa8ff;--blue-soft:#1a2842;--hud:#0b1015}}
+:root[data-theme="dark"]{color-scheme:dark;--ground:#10161c;--panel:#171f27;--ink:#e7ecf1;--muted:#9aa6b2;--line:#2a3440;--accent:#f0a24f;--accent-soft:#3a2a17;--ok:#5cc28d;--ok-soft:#173327;--bad:#ff8a63;--bad-soft:#3b1f16;--blue:#7aa8ff;--blue-soft:#1a2842;--hud:#0b1015}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.6 "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;padding:0 16px}
+.wrap{max-width:1060px;margin:0 auto;padding-block:40px 80px;display:grid;gap:48px}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif;margin:0;text-wrap:balance}
+h1{font-size:clamp(40px,7vw,62px);line-height:1}
+h2{font-size:30px;margin-bottom:12px}
+h3{font-size:20px;margin-bottom:6px}
+p{margin:0 0 10px;max-width:70ch}
+.eyebrow{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:18px;color:var(--muted);margin-top:12px}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:13.5px}
+code{background:var(--blue-soft);padding:1px 6px;border-radius:5px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.diagram{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;overflow-x:auto}
+.cap{color:var(--muted);font-size:14px;margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.tw{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font:500 12.5px/1.6 "IBM Plex Mono",monospace;padding:0 8px;border-radius:6px;white-space:nowrap}
+.ok{background:var(--ok-soft);color:var(--ok)}.bad{background:var(--bad-soft);color:var(--bad)}.acc{background:var(--accent-soft);color:var(--accent)}.blu{background:var(--blue-soft);color:var(--blue)}
+.q{background:var(--hud);color:#e9eef3;border-radius:14px;padding:22px 24px}
+.q h2{color:#f3b36b}
+.q p{max-width:none}
+.steps{display:grid;gap:12px;counter-reset:s}
+.step{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.step .n{font:700 22px "Barlow Condensed",sans-serif;background:var(--accent-soft);color:var(--accent);border-radius:10px;text-align:center;padding:4px 0}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.src{border-top:4px solid var(--line)}
+.src.a{border-top-color:var(--accent)}.src.b{border-top-color:var(--blue)}.src.c{border-top-color:var(--ok)}
+.src ul{margin:8px 0 0;padding-left:18px}.src li{margin:4px 0}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+pre.term{background:var(--hud);color:#dfe6ec;border-radius:12px;padding:14px 16px;overflow-x:auto;font:12.5px/1.6 "IBM Plex Mono",monospace;margin:0}
+.warn{color:#f3b36b}.good{color:#7fdcaa}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">FlytBase AHC · Agentic Software Testing</span>
+  <h1>Tireless Hand</h1>
+  <p class="lede">How the system learns what the cockpit should show, generates its own scenarios, and finds bugs without being told what they are.</p>
+</header>
+
+<section>
+  <h2>1 · System design</h2>
+  <div class="diagram">
+<pre class="mermaid">
+flowchart TB
+  subgraph SUT["Product under test"]
+    UI["Cockpit UI :4010"]
+    BE["Backend + control API :4000"]
+    SIM["Simulator"]
+    SIM --> BE -->|socket.io messages| UI
+  end
+
+  subgraph L1["Layer 1 · Curated invariants (blind)"]
+    SAB["Saboteur process<br/>plants a secret bug or none<br/>publishes sha256 commitment"]
+    INS["Blind QA process<br/>11 checks, told nothing"]
+    REF["Referee<br/>reveals + verifies + scores"]
+  end
+
+  subgraph L2["Layer 2 · Wire-to-pixel ledger"]
+    TAP["Wire tap<br/>every message the browser received"]
+    EXA["Exact match<br/>screen = format(message)"]
+    LOC["Root-cause locator<br/>backend→wire or wire→screen"]
+  end
+
+  subgraph L3["Layer 3 · Autonomous scenario engine"]
+    LEARN["Learn<br/>entities, usable elements,<br/>display bindings"]
+    SYN["Synthesise<br/>360 combinations → 30 pairwise"]
+    EXE["Execute<br/>arrange, fault, action, recovery"]
+    JUD["Judge<br/>7 generic invariants"]
+    CLU["Cluster<br/>root cause + simplest repro"]
+    LEARN --> SYN --> EXE --> JUD --> CLU
+  end
+
+  SAB -. modifies .-> UI
+  INS --> TAP
+  EXE --> TAP
+  TAP --> EXA --> LOC
+  UI --> TAP
+  BE --> LOC
+  INS --> REF
+  SAB --> REF
+</pre>
+    <p class="cap">Three layers share one idea: never trust the screen alone. Compare it with an independent source (the backend, the messages the browser actually received, or the app's own other views).</p>
+  </div>
+</section>
+
+<section class="stack">
+  <h2>2 · How it learns</h2>
+  <p>The learner treats the cockpit as a black box. It never reads the source code. It watches two things at the same moments: <b>what the screen shows</b> and <b>what data the browser just received</b>. Then it asks, for every value on screen, "which piece of received data, formatted how, produces exactly this text?"</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><h3>Explore</h3><p>Open the app, list every element with a stable ID, and record which ones an operator can see and use at desktop, tablet and phone size. Find repeated per-entity elements (<code>device-row-drone-3</code>) to learn what the entities are.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Make the data move</h3><p>Add a probe drone, select it and fly it: take off, climb, cruise, land. Moving values make the correlation unambiguous (a value that is always 0 could match anything).</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>Sample both sides together</h3><p>24 times over about 16 seconds, read every on-screen text and, for the same instant, the last three websocket messages the browser received for that drone.</p></div></div>
+    <div class="step"><div class="n">4</div><div><h3>Score every candidate</h3><p>For each on-screen value, try every field of every message: does <code>field.toFixed(d)</code>, with the same number of decimals as the screen, reproduce the number? Count matches across samples, giving extra weight to matches on non-zero values.</p></div></div>
+    <div class="step"><div class="n">5</div><div><h3>Keep only strong bindings</h3><p>A binding is accepted if it matches in at least 80 % of samples. Ties on zero-only values are kept as alternatives. Result: a <b>binding</b> such as <code>telemetry-battery = battery.percent as "{0 dp} %"</code>.</p></div></div>
+    <div class="step"><div class="n">6</div><div><h3>Flag what can't be explained</h3><p>Any measured value on screen (a number with a unit) that matches no received field is reported as <span class="chip bad">unexplained</span>. On a healthy build these are a few known items; on a broken build this is where the bug shows up.</p></div></div>
+  </div>
+
+  <h3 style="margin-top:14px">Worked example: learning the battery</h3>
+  <div class="tw"><table>
+    <tr><th>Sample</th><th>Screen shows</th><th>battery.percent</th><th>battery.voltage</th><th>battery.temperature</th><th>position.height</th></tr>
+    <tr><td class="num">1</td><td class="num">100 %</td><td class="num"><span class="chip ok">100 ✓</span></td><td class="num">25.2 ✗</td><td class="num">30 ✗</td><td class="num">0 ✗</td></tr>
+    <tr><td class="num">9</td><td class="num">99 %</td><td class="num"><span class="chip ok">99.4 → 99 ✓</span></td><td class="num">25.1 ✗</td><td class="num">30 ✗</td><td class="num">24.0 ✗</td></tr>
+    <tr><td class="num">17</td><td class="num">98 %</td><td class="num"><span class="chip ok">98.3 → 98 ✓</span></td><td class="num">25.0 ✗</td><td class="num">31 ✗</td><td class="num">30.0 ✗</td></tr>
+    <tr><td colspan="2"><b>Score over 24 samples</b></td><td class="num"><span class="chip ok">24/24</span></td><td class="num">0/24</td><td class="num">0/24</td><td class="num">0/24</td></tr>
+  </table></div>
+  <p class="cap">Learned binding: <code>telemetry-battery = battery.percent</code>, rendered with 0 decimals and the suffix " %", at 100 % confidence.</p>
+
+  <h3 style="margin-top:14px">What it learned on the real cockpit (no hand-written expectations)</h3>
+<pre class="term">learned 10 bindings from 1290 wire messages:
+ • status-flight            = flight_status.flight_status          as "&lt;text&gt;"      [100%]
+ • telemetry-battery        = battery.percent                      as "&lt;0 dp&gt; %"   [100%]
+ • telemetry-alt-agl        = global_position.position.height      as "&lt;1 dp&gt; m"   [100%]
+ • telemetry-alt-asl        = global_position.position.elevation   as "&lt;1 dp&gt; m"   [100%]
+ • telemetry-hspeed         = global_position.speed.horizontal     as "&lt;1 dp&gt; m/s" [100%]
+ • telemetry-vspeed         = global_position.speed.vertical       as "&lt;1 dp&gt; m/s" [100%]
+ • telemetry-heading        = attitude.yaw                         as "&lt;0 dp&gt; °"   [100%]
+ • telemetry-home-distance  = global_position.home_position.distance as "&lt;0 dp&gt; m" [100%]
+ • telemetry-alt-rlt        = global_position.position.height      as "&lt;1 dp&gt; m"   [100%]
+ • device-row pill          = flight_status.flight_status          as "&lt;text&gt;"      [100%]</pre>
+  <p class="cap">These are identical to the display rules we had written by hand earlier, which is how we know the learner is right.</p>
+</section>
+
+<section class="q">
+  <h2>3 · "Doesn't learning need a normal app? How can it then find bugs?"</h2>
+  <p>Yes, and that is exactly the right question. Learning from the app assumes the build you learn from is healthy. If the build were already broken, a naive learner would learn the bug as "normal". The system handles this in three ways, and only one of them depends on learning.</p>
+</section>
+
+<section>
+  <div class="three">
+    <div class="card src a"><span class="chip acc">Learned truth</span><h3 style="margin-top:8px">Needs a trusted baseline</h3>
+      <p>Bindings, the usable-element set per screen size, and which elements name the selected drone.</p>
+      <ul><li><b>Baseline:</b> the last released build. Here, the unmodified starter kit; the evaluators plant their bugs into exactly that build.</li><li><b>Catches:</b> regressions, meaning anything a change breaks.</li><li><b>Like:</b> the way a senior tester remembers how the app looked yesterday.</li></ul></div>
+    <div class="card src b"><span class="chip blu">External truth</span><h3 style="margin-top:8px">No baseline needed</h3>
+      <p>The screen is compared with sources that don't come from the UI at all.</p>
+      <ul><li>Device list = <code>/api/devices</code></li><li>Telemetry = simulator state</li><li>Connection badge = our own independent connection</li><li>A drone name must never execute as code</li><li><b>Catches:</b> bugs that were already in the product on day one (F2, F3 were found this way).</li></ul></div>
+    <div class="card src c"><span class="chip ok">Consistency truth</span><h3 style="margin-top:8px">No baseline needed</h3>
+      <p>The app must agree with itself.</p>
+      <ul><li>Device-list status = panel status</li><li>Selecting A → B → A shows only each drone's own data</li><li>After a fault clears, values recover without a reload</li><li>Data that has stopped arriving must not look live</li><li><b>Catches:</b> contradictions, even if every single screen looks plausible (F1 was found this way).</li></ul></div>
+  </div>
+</section>
+
+<section class="stack">
+  <h2>4 · Proof: learning on a secretly broken build</h2>
+  <p>We planted bug M05 (battery always shows 0 %) and then ran the learner on the broken build, as if it were the baseline. It did not accept the bug as normal:</p>
+<pre class="term"><span class="good">=== learning on the clean build</span>
+  learned 10 bindings
+   • telemetry-battery = battery.percent as "&lt;0 dp&gt; %"  [100%]
+
+<span class="warn">=== learning on a secretly broken build (M05)</span>
+  learned 9 bindings
+  ⚠ unexplained value [data-testid="telemetry-battery"]: shows "0 %"
+    but matches no field the UI received for this drone</pre>
+  <p>A measured value that no received data can explain is suspicious by definition. So even a learner pointed at a broken build surfaces the bug, as an unexplained value for a human to confirm, instead of silently learning it. On the clean build the only unexplained measured value is <b>wind</b>, which comes from the dock's weather (a different entity) with a direction lookup; it is reviewed once and noted as expected.</p>
+</section>
+
+<section class="stack">
+  <h2>5 · How scenarios are generated and judged</h2>
+  <div class="diagram">
+<pre class="mermaid">
+flowchart LR
+  M["Learned model"] --> S["Scenario space<br/>viewport 3 × state 4 ×<br/>condition 6 × action 5<br/>= 360"]
+  S --> P["Pairwise planner<br/>every value pair covered<br/>→ 30 scenarios"]
+  P --> X["Execute each:<br/>own drone → fault → action<br/>→ clear fault → recovery"]
+  X --> J{"Generic invariants<br/>BIND · FLEET · USE · FIT<br/>ECHO · HONEST · RECOVER"}
+  J -->|violations| C["Cluster by rule + element + layer<br/>simplest failing scenario = reproducer"]
+  J -->|true on this build| F["Product findings<br/>(e.g. stale data shown as live)"]
+</pre>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Invariant</th><th>Rule</th><th>Truth source</th></tr>
+    <tr><td><b>BIND</b></td><td>Every learned value equals the learned format of one of the last messages the UI received, exactly</td><td>Learned + wire</td></tr>
+    <tr><td><b>FLEET</b></td><td>Device list = backend fleet; added and removed drones appear and disappear</td><td>External</td></tr>
+    <tr><td><b>USE</b></td><td>Everything usable on the known-good build is still visible, on screen and not covered</td><td>Learned (per screen size)</td></tr>
+    <tr><td><b>FIT</b></td><td>No sideways scrolling</td><td>Consistency</td></tr>
+    <tr><td><b>ECHO</b></td><td>Panels name the selected drone</td><td>Learned + consistency</td></tr>
+    <tr><td><b>HONEST</b></td><td>The connection indicator never says "connected" while connections are refused</td><td>External (own connection)</td></tr>
+    <tr><td><b>RECOVER</b></td><td>After a fault clears, the indicator and live values recover without a reload</td><td>Consistency</td></tr>
+  </table></div>
+</section>
+
+<section class="stack">
+  <h2>6 · Verified results</h2>
+  <div class="tw"><table>
+    <tr><th>Run</th><th>What happened</th></tr>
+    <tr><td>Generated suite, clean app</td><td><span class="chip ok">29/30 pass</span> 2,225 of 2,226 assertions exact. One real inconsistency: a drone added while the simulator is offline is accepted by the API but never reaches the UI (located at backend→wire). Finding F1 (stale data shown as live) rediscovered automatically in 7 scenarios.</td></tr>
+    <tr><td>Generated suite, secret bug</td><td><span class="chip ok">caught</span> 12/12 scenarios flag one cluster: "control-panel link was usable on the known-good build, now missing". Reveal: M02. Nothing else flagged.</td></tr>
+    <tr><td>Blind inspector, clean</td><td><span class="chip ok">11/11 pass</span> 96/96 exact wire-to-pixel matches, no false alarms.</td></tr>
+    <tr><td>Blind inspector, M05b</td><td><span class="chip ok">caught</span> The tolerance check passed (missed it); the ledger and metamorphic checks caught it, located at wire→screen.</td></tr>
+    <tr><td>Learner on a broken build (M05)</td><td><span class="chip ok">flagged</span> "battery shows 0 % but matches no field the UI received".</td></tr>
+  </table></div>
+</section>
+
+<section class="stack">
+  <h2>7 · Limits, stated plainly</h2>
+  <div class="grid">
+    <div class="card"><h3>Baseline quality</h3><p>Learned rules are only as good as the build they were learned from. Mitigated by external and consistency truth, and by reporting unexplained values instead of learning them.</p></div>
+    <div class="card"><h3>Coverage of the generator</h3><p>The generated scenario space covers the cockpit. Control-panel buttons, the video label's meaning and script injection are covered by the curated blind checks.</p></div>
+    <div class="card"><h3>Values from other entities</h3><p>The learner correlates with the selected drone's messages. Values derived from another entity (wind from the dock) stay unexplained until reviewed.</p></div>
+  </div>
+</section>
+
+<footer>Tireless Hand · Abhinav · 2026 · code: <code>qa/auto/</code> (learner + engine), <code>qa/blind/</code> (saboteur, inspector, ledger, referee)</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>
+(function(){const dark=document.documentElement.dataset.theme==='dark'||(document.documentElement.dataset.theme!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches);
+try{mermaid.initialize({startOnLoad:true,theme:dark?'dark':'default',flowchart:{htmlLabels:true,curve:'basis'}});}catch(e){}})();
+</script>
+</body>
+</html>

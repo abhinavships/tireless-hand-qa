@@ -1,0 +1,155 @@
+[
+  {
+    "scenario": "S02",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 8769,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 0,
+    "sourceSpecId": "154886626a1970a4c7cf-42502b83d7e6f2249c6f",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-S02-0-0-0.png",
+      "desktop-r0-S02-0-0-1.webm",
+      "desktop-r0-S02-0-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S02",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 6647,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 1,
+    "sourceSpecId": "154886626a1970a4c7cf-d5958cc1464e262aad77",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r1-S02-1-0-0.png",
+      "desktop-r1-S02-1-0-1.webm",
+      "desktop-r1-S02-1-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S02",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 5247,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 2,
+    "sourceSpecId": "154886626a1970a4c7cf-bbd9dc49b639dacd26e7",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r2-S02-2-0-0.png",
+      "desktop-r2-S02-2-0-1.webm",
+      "desktop-r2-S02-2-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S02",
+    "project": "tablet",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 6077,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 0,
+    "sourceSpecId": "154886626a1970a4c7cf-9957f758554152abc7ed",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r0-S02-3-0-0.png",
+      "tablet-r0-S02-3-0-1.webm",
+      "tablet-r0-S02-3-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S02",
+    "project": "tablet",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 5539,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 1,
+    "sourceSpecId": "154886626a1970a4c7cf-c7274ab26f6707ea9a0d",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r1-S02-4-0-0.png",
+      "tablet-r1-S02-4-0-1.webm",
+      "tablet-r1-S02-4-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S02",
+    "project": "tablet",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 6689,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 2,
+    "sourceSpecId": "154886626a1970a4c7cf-faa0c9f6e3ed29c4b415",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r2-S02-5-0-0.png",
+      "tablet-r2-S02-5-0-1.webm",
+      "tablet-r2-S02-5-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S02",
+    "project": "phone",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 5831,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 0,
+    "sourceSpecId": "154886626a1970a4c7cf-d47fbacb077183c709df",
+    "attempt": 0,
+    "artifacts": [
+      "phone-r0-S02-6-0-0.png",
+      "phone-r0-S02-6-0-1.webm",
+      "phone-r0-S02-6-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S02",
+    "project": "phone",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 6374,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 1,
+    "sourceSpecId": "154886626a1970a4c7cf-c907db8113560ab5efad",
+    "attempt": 0,
+    "artifacts": [
+      "phone-r1-S02-7-0-0.png",
+      "phone-r1-S02-7-0-1.webm",
+      "phone-r1-S02-7-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S02",
+    "project": "phone",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 5319,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 2,
+    "sourceSpecId": "154886626a1970a4c7cf-2043ed1fef307f7105ee",
+    "attempt": 0,
+    "artifacts": [
+      "phone-r2-S02-8-0-0.png",
+      "phone-r2-S02-8-0-1.webm",
+      "phone-r2-S02-8-0-2.zip"
+    ]
+  }
+]

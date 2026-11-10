@@ -1,0 +1,18 @@
+# M08 | Video | targets: S07 | Stopped video falsely labeled live
+--- a/frontend/src/components/VideoTile.tsx
++++ b/frontend/src/components/VideoTile.tsx
+@@ -20,7 +20,7 @@
+     return playWhep(video.url, el, setState);
+   }, [enabled, video?.url]);
+ 
+-  const label = !enabled ? 'off' : state === 'playing' ? 'live' : state;
++  const label = !enabled ? 'live' : state === 'playing' ? 'live' : state;
+ 
+   return (
+     <div className="video-tile">
+@@ -48,3 +48,5 @@
+     </div>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M08" });

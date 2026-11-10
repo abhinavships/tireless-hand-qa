@@ -1,0 +1,108 @@
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+
+Running 4 tests using 1 worker
+
+(node:50841) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S10-org-isolation.spec.ts:6:52 › S10 @security evil org cannot read FlytBase fleet and telemetry (7.4s)
+(node:51128) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop] › scenarios/S10-org-isolation.spec.ts:6:52 › S10 @security missing org cannot read FlytBase fleet and telemetry (7.9s)
+  -  3 [desktop] › scenarios/S11-auth-contract.spec.ts:13:1 › S11 @security signed-out route guards (evaluator-ready)
+  -  4 [desktop] › scenarios/S11-auth-contract.spec.ts:25:1 › S11 @security sign-in required controls (evaluator-ready)
+
+
+  1) [desktop] › scenarios/S10-org-isolation.spec.ts:6:52 › S10 @security evil org cannot read FlytBase fleet and telemetry 
+
+    Error: Organization isolation broken: evil org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "devices",
+    +   "flytbase/drone-1/telemetry/battery",
+    + ]
+
+      23 |   await page.evaluate(({identity,received})=>{const proof=document.createElement('pre');proof.id='org-isolation-proof';proof.textContent=`CLIENT org-id: ${identity}\nEXPECTED: refused or no FlytBase topics\nACTUAL RECEIVED:\n${JSON.stringify(received,null,2)}`;Object.assign(proof.style,{position:'fixed',bottom:'12px',right:'12px',width:'min(600px,90vw)',maxHeight:'45vh',overflow:'auto',background:'#101827',color:'#fff',padding:'14px',zIndex:'2147483646',font:'13px monospace'});document.body.appendChild(proof);},{identity,received});
+      24 |   await narrate(page,`S10 FAILED: ${identity} org received ${leaked.length} forbidden topics; expected no FlytBase fleet/telemetry`);
+    > 25 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);
+         |                                                                                                                            ^
+      26 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}
+      27 | });
+      28 |
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:25:124
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › scenarios/S10-org-isolation.spec.ts:6:52 › S10 @security missing org cannot read FlytBase fleet and telemetry 
+
+    Error: Organization isolation broken: missing org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "devices",
+    +   "flytbase/drone-1/telemetry/battery",
+    + ]
+
+      23 |   await page.evaluate(({identity,received})=>{const proof=document.createElement('pre');proof.id='org-isolation-proof';proof.textContent=`CLIENT org-id: ${identity}\nEXPECTED: refused or no FlytBase topics\nACTUAL RECEIVED:\n${JSON.stringify(received,null,2)}`;Object.assign(proof.style,{position:'fixed',bottom:'12px',right:'12px',width:'min(600px,90vw)',maxHeight:'45vh',overflow:'auto',background:'#101827',color:'#fff',padding:'14px',zIndex:'2147483646',font:'13px monospace'});document.body.appendChild(proof);},{identity,received});
+      24 |   await narrate(page,`S10 FAILED: ${identity} org received ${leaked.length} forbidden topics; expected no FlytBase fleet/telemetry`);
+    > 25 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);
+         |                                                                                                                            ^
+      26 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}
+      27 | });
+      28 |
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:25:124
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M01-1790408404-12060/artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › scenarios/S10-org-isolation.spec.ts:6:52 › S10 @security evil org cannot read FlytBase fleet and telemetry 
+    [desktop] › scenarios/S10-org-isolation.spec.ts:6:52 › S10 @security missing org cannot read FlytBase fleet and telemetry 
+  2 skipped
+Evidence collected for 2 scenarios (mutant-M01; RUN_ID=t05-M01-1790408404-12060)
+Evidence collected for 2 scenarios (mutant-M01; RUN_ID=t05-M01-1790408404-12060)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx

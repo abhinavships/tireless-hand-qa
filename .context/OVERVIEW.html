@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level 1 Game Plan</title>
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#1c1d1f;--muted:#5d6068;--line:#e3e3df;--accent:#2f5bea;--ok:#1f8a4c;--warn:#b25e00;--bad:#c0392b;--chip:#eef1fb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141517;--card:#1d1f22;--ink:#ecedef;--muted:#a0a4ad;--line:#2d3035;--accent:#7b9bff;--ok:#4cc27f;--warn:#f0a44b;--bad:#ff7b6b;--chip:#252a38}}
+:root[data-theme="dark"]{--bg:#141517;--card:#1d1f22;--ink:#ecedef;--muted:#a0a4ad;--line:#2d3035;--accent:#7b9bff;--ok:#4cc27f;--warn:#f0a44b;--bad:#ff7b6b;--chip:#252a38}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:40px 16px 80px}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:40px 0 12px}
+.sub{color:var(--muted);margin:0 0 28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:12px 0}
+.verdict{border-left:4px solid var(--warn)}
+.verdict b{color:var(--warn)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.tw{overflow-x:auto}
+.chip{display:inline-block;background:var(--chip);color:var(--accent);border-radius:999px;padding:1px 9px;font-size:12.5px;font-weight:600;margin:2px 2px 2px 0}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.step .n{color:var(--accent);font-weight:700;font-size:13px}
+.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}.warn{color:var(--warn);font-weight:600}
+code{background:var(--chip);padding:1px 6px;border-radius:5px;font-size:13.5px}
+ul{padding-left:20px;margin:6px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Level 1: what it is and what we're doing</h1>
+<p class="sub">FlytBase AHC SWE Hackathon · Agentic Software Testing · Team Tireless Hand (solo: Abhinav) · 2026-09-26</p>
+
+<div class="card verdict">
+<b>Is L1 just a system-design round? No.</b> The system design is only <em>part 1</em> of the submission. <em>Part 2</em> is a numbered list of
+<b>test scenarios, each with a real-time screen-recording video</b>. The spec says "each one is evaluated on its own" and
+"a scenario without [a video] is not evaluated". Evaluators also <b>inject deliberate bugs (mutations)</b> into the app, and our system has to catch them.
+A design-only submission would score close to zero on 5 of the 6 criteria.
+</div>
+
+<h2>1. The whole problem statement, in one minute</h2>
+<div class="card">
+<p style="margin-top:0">AI now writes code faster than people can verify it. <b>Testing is the bottleneck.</b> The challenge: build an <b>agentic testing system</b>
+that tests a running web app <b>from the user's point of view</b> and returns <b>reproducible evidence</b>, judging behaviour by <em>meaning</em>, not by pixels or exact text.</p>
+<p>The product under test is the <b>FlytBase Cockpit starter kit</b>: a drone operations UI (map, device list, telemetry, live video) plus a
+<b>control panel</b> and API that can take off and land drones and <b>inject faults</b> (socket drops, simulator offline, video freeze…).</p>
+<p style="margin-bottom:0">Categories to cover:
+<span class="chip">Visual</span><span class="chip">Responsive</span><span class="chip">Functional</span><span class="chip">API &amp; data</span>
+<span class="chip">Map</span><span class="chip">Video</span><span class="chip">Telemetry</span><span class="chip">Real-time</span><span class="chip">State</span>
+<span class="chip">Network recovery</span><span class="chip">Performance</span><span class="chip">Long-running</span><span class="chip">Security</span><span class="chip">Audit</span></p>
+</div>
+
+<h2>2. Level 1: "Static UI and basic security testing"</h2>
+<div class="card">
+<p style="margin-top:0"><b>How it's evaluated:</b> they mutate the app and check whether our tests notice. Their examples:</p>
+<ul>
+<li>The sign-in button is removed from a login page (email + OTP)</li>
+<li>A drone is shown <b>online when it's offline</b></li>
+<li>The main action is pushed <b>off screen at phone width</b></li>
+<li>A <b>signed-out user</b> can open a page that needs sign-in</li>
+</ul>
+<p><b>What we submit</b> (form):</p>
+<div class="tw"><table>
+<tr><th>Field</th><th>Required</th><th>Contents</th></tr>
+<tr><td>Write-up (Google Doc)</td><td class="ok">Yes</td><td>① System design: the parts and how they work together · ② Scenarios: Title, Description, Approach, <b>Video link</b> for each</td></tr>
+<tr><td>Video (Google Drive)</td><td class="ok">Yes</td><td>Overview recording, plus a per-scenario video linked in the doc</td></tr>
+<tr><td>Code (.zip)</td><td class="muted">Optional</td><td>The <code>qa/</code> test system, ≤150 MB</td></tr>
+</table></div>
+</div>
+
+<div class="card">
+<p style="margin-top:0"><b>Judging criteria</b> (quality over quantity):</p>
+<div class="tw"><table>
+<tr><th>Criterion</th><th>How we score on it</th></tr>
+<tr><td>Validity</td><td>Only real user-facing breakage; assert on meaning, not wording</td></tr>
+<tr><td>Reproducibility &amp; evidence</td><td>Every test sets a known start state via the API; video + trace for every run</td></tr>
+<tr><td>Product understanding</td><td>Cross-check the device list vs telemetry panel vs map vs API: "is this drone really flying?"</td></tr>
+<tr><td>Breadth</td><td>Phone/tablet/desktop, offline/degraded states, signed-in/out, live data, faults</td></tr>
+<tr><td>Depth &amp; impact</td><td>Full workflows (take off → fly → land), not just "a button exists"</td></tr>
+<tr><td>Precision</td><td>Passes 3× clean, zero false positives, one scenario per root cause</td></tr>
+</table></div>
+</div>
+
+<h2>3. What we're building: the "Tireless Hand" system</h2>
+<div class="flow">
+<div class="step"><div class="n">1 · ARRANGE</div>Set a known state through the control API (reset, add an isolated drone, take off, inject a fault)</div>
+<div class="step"><div class="n">2 · ACT</div>Playwright drives the real cockpit at phone / tablet / desktop sizes</div>
+<div class="step"><div class="n">3 · ORACLE</div>Compare what the operator <em>sees</em> with ground truth (API + socket)</div>
+<div class="step"><div class="n">4 · EVIDENCE</div>Real-time video, screenshots, trace, and a verdict with a user-impact message</div>
+<div class="step"><div class="n">5 · PROVE</div>Mutation lab: inject our own bug and show the test goes red</div>
+</div>
+
+<h2>3b. What exactly we're building for Level 1</h2>
+<div class="card">
+<ul style="margin-top:0">
+<li><b>A test system (<code>qa/</code>)</b>: Playwright + TypeScript that opens the real cockpit in a browser, puts it into known situations through the control API, and checks that what's on screen is <em>true</em>.</li>
+<li><b>About 11 scenarios</b>, each one user-meaningful (e.g. "the simulator goes offline, so drones must not look online"), each run at phone / tablet / desktop.</li>
+<li><b>A mutation lab</b>: we plant the same kinds of bugs the evaluators will plant (a removed button, a status flipped to online, a layout pushed off screen, a broken auth guard, HTML injection) and show each scenario goes <span class="bad">red</span> on the bug and stays <span class="ok">green</span> on the clean app.</li>
+<li><b>Evidence per scenario</b>: a real-time video with on-screen step captions, a screenshot, a Playwright trace, and a verdict with a plain-English failure message.</li>
+<li><b>The write-up</b>: system design + scenario cards + mutation matrix + video links → Google Doc → submit.</li>
+</ul>
+</div>
+
+<h2>3c. How it compares with current best practice</h2>
+<div class="card tw"><table>
+<tr><th>Approach</th><th>What it does well</th><th>Where it breaks on this product</th><th>What we do instead</th></tr>
+<tr><td><b>Scripted E2E</b><br><span class="muted">Selenium / Cypress / plain Playwright</span></td><td>Fast, repeatable, cheap</td><td>Checks only the paths and exact selectors/text it was given; "element exists" passes even when the value is wrong or stale</td><td>Same fast engine, but assertions are <b>oracles against ground truth</b> (API + live socket): "the pill says in_flight, and the simulator agrees"</td></tr>
+<tr><td><b>Visual regression</b><br><span class="muted">Percy / Applitools / screenshot diffs</span></td><td>Catches layout changes</td><td>A live map, moving drones and video make pixel diffs noisy, so lots of false positives; it can't tell stale data from fresh</td><td><b>Geometric usability checks</b> (in viewport, not covered via hit-testing, no horizontal scroll) at 3 sizes; the map/video are masked, not diffed</td></tr>
+<tr><td><b>Autonomous AI browser agents</b><br><span class="muted">computer-use / browser-agent QA tools</span></td><td>Understand intent, explore unseen paths</td><td>Slow and costly per run, non-deterministic, can hallucinate bugs, and evidence is hard to reproduce</td><td>Agents work at <b>authoring time</b> (they explore, write and harden the tests, and hunt bugs). The <b>runtime is deterministic</b>: seconds per scenario, near-zero cost, identical every run</td></tr>
+<tr><td><b>Manual QA</b></td><td>Judgment, product sense</td><td>Doesn't scale to every change; hard to reproduce</td><td>Product knowledge is encoded as <b>screen contracts + operator oracles</b>, and every run leaves a video + trace</td></tr>
+</table>
+<p style="margin-bottom:0"><b>Why ours is stronger, in short:</b></p>
+<ul style="margin-bottom:0">
+<li><b>Proven detection, not claimed detection</b>: each scenario ships with a planted bug it demonstrably catches (mutation testing applied to UI tests).</li>
+<li><b>Truth over presence</b>: we check that statuses and values <em>match reality</em>, which is exactly the "online when offline" class that selector tests miss.</li>
+<li><b>Changing conditions built in</b>: we inject socket drops, simulator outages and video freezes, then check the UI degrades honestly and recovers.</li>
+<li><b>Precision by design</b>: 3× clean-pass rule, isolated test drones, a shared lock for global faults, and the LLM judge is advisory only, so there are no hallucinated failures.</li>
+<li><b>Generic for unseen screens</b>: declarative screen contracts + a route/auth-guard crawler cover pages evaluators may add (e.g. a login with email + OTP).</li>
+</ul>
+</div>
+
+<h2>3d. Live links (open while the stack is running)</h2>
+<div class="card tw"><table>
+<tr><th>URL</th><th>What it is</th></tr>
+<tr><td><a href="http://localhost:4010" target="_blank">localhost:4010</a></td><td><b>Cockpit</b>: the app under test (map, devices, telemetry, video)</td></tr>
+<tr><td><a href="http://localhost:4000/dashboard" target="_blank">localhost:4000/dashboard</a></td><td><b>Control panel</b>: take off / land, add drones, inject faults</td></tr>
+<tr><td><a href="http://localhost:4000/api/health" target="_blank">localhost:4000/api/health</a></td><td>Backend health (simulator + video status)</td></tr>
+<tr><td><a href="http://localhost:9323" target="_blank">localhost:9323</a></td><td><b>Playwright report</b>: the latest test run with videos, traces, screenshots</td></tr>
+<tr><td><a href="http://localhost:8090/evidence/" target="_blank">localhost:8090/evidence/</a></td><td><b>Evidence folders</b>: per-scenario clean / mutant videos + verdicts</td></tr>
+<tr><td><a href="http://localhost:8090/.context/" target="_blank">localhost:8090/.context/</a></td><td>Coordination files: BOARD, reports, decisions, tasks</td></tr>
+<tr><td><a href="http://localhost:8090/submission/writeup.md" target="_blank">localhost:8090/submission/writeup.md</a></td><td>Draft of the submission write-up</td></tr>
+</table></div>
+
+<h2>4. Who is doing what right now</h2>
+<div class="card tw"><table>
+<tr><th>Agent</th><th>Task</th><th>Status</th></tr>
+<tr><td>Claude (master)</td><td>Plan, review evidence, decisions, final call</td><td class="ok">active</td></tr>
+<tr><td>codex-t01</td><td>T01: Playwright harness + shared helpers + evidence recorder</td><td class="ok">approved · round 2 fixes</td></tr>
+<tr><td>codex-t02</td><td>T02: screen contracts, device list, phone layout, control panel, a11y (S01 S02 S08 S12 S13)</td><td class="warn">in progress</td></tr>
+<tr><td>codex-t03</td><td>T03: telemetry truth, flight workflow, offline truth, socket badge, video, map (S03–S07 S14)</td><td class="warn">in progress</td></tr>
+<tr><td>codex-t04</td><td>T04 security (XSS, org isolation, auth guard, headers) + T06 bug hunt</td><td class="warn">in progress</td></tr>
+<tr><td>codex-t05</td><td>T05: mutation lab, proves each scenario catches its bug</td><td class="warn">in progress</td></tr>
+<tr><td>Claude sub-agent</td><td>T07: write-up draft + video pipeline + upload checklist</td><td class="ok">first pass done</td></tr>
+</table></div>
+
+<h2>5. Priority scenarios (P0)</h2>
+<div class="card tw"><table>
+<tr><th>#</th><th>Scenario</th><th>Maps to evaluator example</th></tr>
+<tr><td>S01</td><td>Every required cockpit region is present and usable</td><td>"sign-in button removed"-style missing element</td></tr>
+<tr><td>S02</td><td>Device list matches the real fleet, live add/remove</td><td>wrong or missing data</td></tr>
+<tr><td>S03</td><td>Telemetry shows the selected drone's real values</td><td>data from the wrong source</td></tr>
+<tr><td>S04</td><td>Take off → fly → land is reflected everywhere</td><td>action shows success but no result</td></tr>
+<tr><td>S05</td><td>Simulator offline: drones must not look online</td><td class="ok">"online when offline"</td></tr>
+<tr><td>S06</td><td>Socket badge tells the truth + recovers</td><td>status conflict</td></tr>
+<tr><td>S07</td><td>Video label matches the real stream state</td><td>"dropped stream still looks live"</td></tr>
+<tr><td>S08</td><td>Phone width: actions reachable, no overflow</td><td class="ok">"main action off screen at phone width"</td></tr>
+<tr><td>S09</td><td>Drone names can't inject scripts (XSS)</td><td>basic security</td></tr>
+<tr><td>S10</td><td>Org isolation on the live data socket</td><td class="ok">"access without permission"</td></tr>
+<tr><td>S11</td><td>Generic sign-in guard + login form contract</td><td class="ok">"signed-out user opens protected page"</td></tr>
+</table></div>
+
+<h2>6. Path to submission</h2>
+<div class="card">
+<ul>
+<li><b>Now:</b> T01 finishes the harness → T02/T03/T04 write scenarios → T05 proves each with a mutant</li>
+<li><b>Master:</b> reviews every scenario (3× clean pass, mutant fail, video) and drops anything weak</li>
+<li><b>Then:</b> build the videos → upload to Drive (you approve) → Google Doc → you submit the form</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

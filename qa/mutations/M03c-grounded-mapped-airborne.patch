@@ -1,0 +1,19 @@
+# M03c | Sensitivity | targets: S05 S04 | Grounded status mapped airborne in list only; baseline calls grounded standby
+--- a/frontend/src/components/DeviceList.tsx
++++ b/frontend/src/components/DeviceList.tsx
+@@ -20,7 +20,8 @@
+           const dock = drone.dockId ? docks.get(drone.dockId) : undefined;
+           const dd = data[drone.id];
+           const dockData = dock ? data[dock.id] : undefined;
+-          const flight = dd?.flight_status?.flight_status;
++          const rawFlight = dd?.flight_status?.flight_status;
++          const flight = ['standby', 'landed', 'on_dock'].includes(rawFlight ?? '') ? 'in_flight' : rawFlight;
+           const dockStatus = dockData?.dock?.status;
+           return (
+             <li
+@@ -48,3 +49,5 @@
+     </section>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M03c" });

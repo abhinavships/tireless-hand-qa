@@ -1,0 +1,152 @@
+[
+ {
+  "s": {
+   "id": "G01",
+   "viewport": "desktop",
+   "state": "grounded",
+   "condition": "normal",
+   "action": "observe",
+   "title": "On desktop, with a grounded drone and normal network, the operator watches the screen"
+  },
+  "v": [
+   {
+    "inv": "ECHO",
+    "field": ".video-header > span:nth-child(1)",
+    "detail": "after selecting \"GEN-12063\" it shows \"\"",
+    "layer": "wire→screen (frontend rendering)"
+   },
+   {
+    "inv": "USE",
+    "field": "[data-testid=\"video-state\"]",
+    "detail": "was usable on the known-good build, now missing",
+    "layer": "screen (layout)"
+   }
+  ],
+  "obs": [],
+  "ms": 4607
+ },
+ {
+  "s": {
+   "id": "G02",
+   "viewport": "desktop",
+   "state": "grounded",
+   "condition": "normal",
+   "action": "reload",
+   "title": "On desktop, with a grounded drone and normal network, the operator reloads the page"
+  },
+  "v": [
+   {
+    "inv": "ECHO",
+    "field": ".video-header > span:nth-child(1)",
+    "detail": "after selecting \"GEN-16669\" it shows \"\"",
+    "layer": "wire→screen (frontend rendering)"
+   },
+   {
+    "inv": "USE",
+    "field": "[data-testid=\"video-state\"]",
+    "detail": "was usable on the known-good build, now missing",
+    "layer": "screen (layout)"
+   }
+  ],
+  "obs": [],
+  "ms": 8698
+ },
+ {
+  "s": {
+   "id": "G03",
+   "viewport": "tablet",
+   "state": "grounded",
+   "condition": "socket-delay",
+   "action": "reload",
+   "title": "On tablet, with a grounded drone and telemetry delayed by 1.5 s, the operator reloads the page"
+  },
+  "v": [
+   {
+    "inv": "USE",
+    "field": "[data-testid=\"video-state\"]",
+    "detail": "was usable on the known-good build, now missing",
+    "layer": "screen (layout)"
+   }
+  ],
+  "obs": [],
+  "ms": 11765
+ },
+ {
+  "s": {
+   "id": "G04",
+   "viewport": "phone",
+   "state": "grounded",
+   "condition": "socket-drop",
+   "action": "fleet-change",
+   "title": "On phone, with a grounded drone and 40 % of telemetry dropped, the operator sees a drone added and removed"
+  },
+  "v": [
+   {
+    "inv": "USE",
+    "field": "[data-testid=\"video-state\"]",
+    "detail": "was usable on the known-good build, now missing",
+    "layer": "screen (layout)"
+   }
+  ],
+  "obs": [],
+  "ms": 8639
+ },
+ {
+  "s": {
+   "id": "G05",
+   "viewport": "desktop",
+   "state": "grounded",
+   "condition": "sim-offline",
+   "action": "sweep-all",
+   "title": "On desktop, with a grounded drone and the simulator offline, the operator selects every drone in turn"
+  },
+  "v": [
+   {
+    "inv": "USE",
+    "field": "[data-testid=\"video-state\"]",
+    "detail": "was usable on the known-good build, now missing",
+    "layer": "screen (layout)"
+   }
+  ],
+  "obs": [],
+  "ms": 16123
+ },
+ {
+  "s": {
+   "id": "G06",
+   "viewport": "desktop",
+   "state": "grounded",
+   "condition": "video-freeze",
+   "action": "switch-A-B-A",
+   "title": "On desktop, with a grounded drone and its video stream frozen, the operator switches to another drone and back"
+  },
+  "v": [
+   {
+    "inv": "ECHO",
+    "field": ".video-header > span:nth-child(1)",
+    "detail": "after selecting \"GEN-61894\" it shows \"\"",
+    "layer": "wire→screen (frontend rendering)"
+   },
+   {
+    "inv": "ECHO",
+    "field": ".video-header > span:nth-child(1)",
+    "detail": "after selecting \"Drone 1\" it shows \"\"",
+    "layer": "wire→screen (frontend rendering)"
+   },
+   {
+    "inv": "ECHO",
+    "field": ".video-header > span:nth-child(1)",
+    "detail": "after selecting \"GEN-61894\" it shows \"\"",
+    "layer": "wire→screen (frontend rendering)"
+   },
+   {
+    "inv": "USE",
+    "field": "[data-testid=\"video-state\"]",
+    "detail": "was usable on the known-good build, now missing",
+    "layer": "screen (layout)"
+   }
+  ],
+  "obs": [],
+  "ms": 15385
+ }
+]

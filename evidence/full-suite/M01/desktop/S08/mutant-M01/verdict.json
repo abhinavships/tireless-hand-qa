@@ -1,0 +1,8 @@
+{
+  "scenario": "S08",
+  "project": "desktop",
+  "label": "mutant-M01",
+  "status": "failed",
+  "message": "Error: Video identity must follow selected drone",
+  "duration": 11785
+}

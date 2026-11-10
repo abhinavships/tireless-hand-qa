@@ -1,0 +1,5 @@
+[   0.0s  section 1: title card + clean  (9.1s video, 14.0s speech)]
+Scenario: safe drone names. Drone names are typed in by users, so they could contain hidden code. The test adds a drone whose name is a piece of code. The cockpit must show it as plain text and never run it. The normal cockpit passes.
+
+[   9.1s  section 2: title card + mutant-M10  (18.5s video, 9.8s speech)]
+We planted a bug that makes the cockpit treat the name as code. The test caught it and failed with the message: Stored XSS: a drone name executes JavaScript in the cockpit.

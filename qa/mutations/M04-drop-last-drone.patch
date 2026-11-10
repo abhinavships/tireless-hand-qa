@@ -1,0 +1,18 @@
+# M04 | Functional | targets: S02 | Last fleet device silently omitted
+--- a/frontend/src/components/DeviceList.tsx
++++ b/frontend/src/components/DeviceList.tsx
+@@ -10,7 +10,7 @@
+   const panTo = useTelemetryStore((s) => s.panTo);
+   const data = useTelemetryStore((s) => s.data);
+   const docks = new Map<string, DeviceInfo>(devices.filter((d) => d.type === 'dock').map((d) => [d.id, d]));
+-  const drones = devices.filter((d) => d.type === 'drone');
++  const drones = devices.filter((d) => d.type === 'drone').slice(0, -1);
+ 
+   return (
+     <section className="panel">
+@@ -48,3 +48,5 @@
+     </section>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M04" });

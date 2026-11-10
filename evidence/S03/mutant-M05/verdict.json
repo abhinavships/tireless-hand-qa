@@ -1,0 +1,8 @@
+{
+  "scenario": "S03",
+  "project": "desktop",
+  "label": "mutant-M05",
+  "status": "failed",
+  "message": "Error: battery: operator sees 0, but API says 98.2 (allowed difference 2); telemetry may belong to the wrong drone or be stale",
+  "duration": 20542
+}

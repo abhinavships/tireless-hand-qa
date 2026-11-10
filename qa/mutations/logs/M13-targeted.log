@@ -1,0 +1,59 @@
+ product-backend-1 Copying backend/public/dashboard.html to product-backend-1:/app/backend/public/dashboard.html
+ product-backend-1 Copied backend/public/dashboard.html to product-backend-1:/app/backend/public/dashboard.html
+
+Running 1 test using 1 worker
+
+(node:15925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S12-dashboard-contract.spec.ts:6:1 › S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit (10.6s)
+
+
+  1) [desktop] › scenarios/S12-dashboard-contract.spec.ts:6:1 › S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit 
+
+    Error: Operator cannot land Drone 1: Land control missing
+
+    expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('dash-row-drone-1').getByRole('button', { name: 'Land', exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Operator cannot land Drone 1: Land control missing getByTestId('dash-row-drone-1').getByRole('button', { name: 'Land', exact: true }) with timeout 10000ms
+      - waiting for getByTestId('dash-row-drone-1').getByRole('button', { name: 'Land', exact: true })
+
+
+      19 |     await expect(row, `Operator cannot find fleet drone ${drone.name} on the control panel`).toBeVisible();
+      20 |     await expect(row.getByRole('button', { name: 'Take off', exact: true }), `Operator cannot take off ${drone.name}: Take off control missing`).toBeVisible();
+    > 21 |     await expect(row.getByRole('button', { name: 'Land', exact: true }), `Operator cannot land ${drone.name}: Land control missing`).toBeVisible();
+         |                                                                                                                                      ^
+      22 |   }
+      23 |   const faults = page.locator('details').filter({ has: page.locator('summary', { hasText: 'Faults' }) });
+      24 |   await expectVisibleAndUsable(faults.locator('summary'));
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S12-dashboard-contract.spec.ts:21:134
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-1790407044788-174af254/artifacts/S12-dashboard-contract-S12-58ee4-takeoff-reaches-the-cockpit-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407044788-174af254/artifacts/S12-dashboard-contract-S12-58ee4-takeoff-reaches-the-cockpit-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-1790407044788-174af254/artifacts/S12-dashboard-contract-S12-58ee4-takeoff-reaches-the-cockpit-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-1790407044788-174af254/artifacts/S12-dashboard-contract-S12-58ee4-takeoff-reaches-the-cockpit-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-1790407044788-174af254/artifacts/S12-dashboard-contract-S12-58ee4-takeoff-reaches-the-cockpit-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S12-dashboard-contract.spec.ts:6:1 › S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit 
+Evidence collected for 1 scenarios (mutant-M13; RUN_ID=run-1790407044788-174af254)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-backend-1 Copying backend/public/dashboard.html to product-backend-1:/app/backend/public/dashboard.html
+ product-backend-1 Copied backend/public/dashboard.html to product-backend-1:/app/backend/public/dashboard.html

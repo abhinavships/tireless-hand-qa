@@ -1,0 +1,134 @@
+<html><head><meta charset="utf-8"><title>Tireless Hand · Map QA (Level 2)</title>
+<style>body{font-family:Arial;font-size:11pt}table{border-collapse:collapse}td,th{border:1px solid #999;padding:4px;vertical-align:top}th{background:#e8eef0}pre{font-family:Courier;font-size:9.5pt;background:#f2f2f2}</style></head><body>
+<h1>Tireless Hand · Map QA (Level 2)</h1>
+<p>26 September 2026 · Abhinav</p>
+
+<h2>Summary</h2>
+<p>Tireless Hand tests the FlytBase cockpit's Cesium 3D map as a map: a blind QA reads what the map draws and compares it with what each drone reported over the websocket. In the proof runs it caught 14 of 15 planted map bugs with 0 false alarms on the clean app, and found one real product bug (stale docks keep the online icon).</p>
+<ul>
+<li><b>Why maps are the niche:</b> the map is a single canvas. Normal UI tests read DOM text, so a drone drawn in the wrong place, at the wrong height or with no icon passes them unnoticed.</li>
+<li><b>What is checked:</b> position, height, heading, labels, icons, tracks, camera and how fast the map updates, against the drone's own telemetry.</li>
+<li><b>How bugs are introduced:</b> a separate saboteur process plants a secret bug; the QA never sees it; a referee checks the answer by its sha256 fingerprint.</li>
+<li><b>Agent-discovered checks:</b> a local LLM (Qwen2.5-Coder 7B on an RTX 5090) proposes extra checks from the map code; only those true on the clean app are kept. One of them caught a bug (MAP16, docks drawn 30 m off) that none of the hand-written checks cover.</li>
+</ul>
+
+<h2>System design</h2>
+<p>Three separate processes share nothing except the running app: the saboteur changes it, the QA observes it, the referee scores. Full diagram: <a href="https://claude.ai/artifact/FmSwC9mpK1CMWMgzr3X3dR">Map Lab Blueprint</a>.</p>
+<p><b>Flow:</b> Simulator → Backend :4000 → (websocket telemetry) → Cockpit :4010 Cesium map. The saboteur patches the cockpit and gives the referee a sealed answer + sha256. The QA taps the websocket frames and reads the Cesium scene graph through CDP; the blind inspector runs 15 + 8 checks and sends its verdict to the referee.</p>
+<table><tr><th>Part</th><th>File</th><th>Job</th></tr>
+<tr><td>Saboteur</td><td>qa/blind/saboteur.ts, qa/map/bug.ts</td><td>Applies a MAPxx patch to the cockpit, copies it into the container, publishes only sha256(id:salt)</td></tr>
+<tr><td>Wire tap</td><td>qa/auto/lib.ts</td><td>Records every websocket message the browser receives, with arrival time</td></tr>
+<tr><td>Scene read</td><td>qa/map/anatomy.ts</td><td>Walks React's fiber from the map div to Cesium's Viewer; reads positions, headings, labels, icons, tracks, camera, what is drawn at a pixel</td></tr>
+<tr><td>Inspector</td><td>qa/map/inspector.ts, qa/map/qa.ts</td><td>Flies a test drone and runs the checks; visible browser shows each step</td></tr>
+<tr><td>Referee</td><td>qa/map/trial.ts</td><td>Opens the sealed answer after QA reports, verifies the hash, scores CAUGHT / MISSED / FALSE ALARM, reverts</td></tr></table>
+<p>The product source is never modified by QA. Only the saboteur edits it, and every run ends with the original code restored.</p>
+
+<h2>How the QA works</h2>
+<p>Every check compares one thing the map draws with the telemetry the drone sent; a difference beyond the tolerance is reported as a bug with the concrete numbers, e.g. "height label says 590 m but the drone is at 30 m".</p>
+<ol>
+<li><b>Read the map.</b> Through Playwright (Chrome DevTools Protocol) the QA reaches Cesium's Viewer inside the page and reads each entity's latitude, longitude, height, model heading (from its rotation), label, icon file, track points, and the camera. drillPick tells it what is actually drawn at a pixel.</li>
+<li><b>Read the truth.</b> Every websocket message the browser received: GPS position, height, yaw, flight status, dock location, heartbeat.</li>
+<li><b>Compare.</b> The inspector creates its own test drone, takes off, runs the checks, and deletes the drone afterwards.</li>
+</ol>
+<table><tr><th>Check</th><th>Question</th></tr>
+<tr><td>G1</td><td>Every device the backend knows has an object on the map</td></tr>
+<tr><td>G2</td><td>Drone drawn where its GPS says (within 0.5 m)</td></tr>
+<tr><td>G3</td><td>Height label and 3D height equal the reported height</td></tr>
+<tr><td>G4</td><td>Model points the way the drone is facing</td></tr>
+<tr><td>G5</td><td>Label shows the current flight status</td></tr>
+<tr><td>G6</td><td>Map dock-to-drone distance equals "Dist. from home" in the panel</td></tr>
+<tr><td>G7</td><td>Track ends at the drone and keeps growing</td></tr>
+<tr><td>G8</td><td>Drone visible at its pixel, and clicking it selects it</td></tr>
+<tr><td>G9</td><td>Selecting a drone flies the camera to it</td></tr>
+<tr><td>G10</td><td>Only the selected drone is highlighted</td></tr>
+<tr><td>G11</td><td>2D is top-down, 3D is oblique</td></tr>
+<tr><td>G12</td><td>A deleted drone disappears with its track and labels</td></tr>
+<tr><td>G13</td><td>Docks with no data switch to the offline icon</td></tr>
+<tr><td>G14</td><td>Each new position reaches the map quickly (not an old message)</td></tr>
+<tr><td>G15</td><td>Icon census: one known icon per device, none missing, extra or too small</td></tr></table>
+
+<h2>Learning and discovered checks</h2>
+<p>Most checks need no learning, because the truth is the drone's own telemetry; learning and discovery add 5 more bugs' worth of coverage on top.</p>
+<p><b>Learner (npm run map:learn, once on the clean app).</b> Records the icon files and camera angles, then flies a test drone for 25 s and measures the map's normal accuracy and speed: 0 m position error, 0° heading error, about 80 ms from message to map, a message every ~500 ms. The timing is what lets G14 catch a map that is one message behind.</p>
+<p><b>Discovery (npm run map:discover).</b> The agent works out extra checks itself:</p>
+<ol>
+<li><b>Propose:</b> Qwen2.5-Coder 7B on the RTX 5090 reads CesiumMap.tsx and one real websocket message per topic and writes checks in a strict format ("this thing the map draws must equal this telemetry field"). Three rounds, about 5 s each.</li>
+<li><b>Verify:</b> each check runs on every drone and dock of the clean app while a test drone flies. False checks are thrown away; that filters hallucinations.</li>
+<li><b>Repair:</b> false checks go back to the LLM with what the map really showed; corrections are verified again. Checks looser than 5 m or 5° are rejected, after the LLM once "fixed" a check with a 1000 m tolerance.</li>
+<li><b>Keep:</b> survivors are stored in qa/map/out/discovered.json, re-verified on every run, and run by npm run qa as D1–D8 across the whole fleet.</li>
+</ol>
+<p>Result: 25 proposed, 8 kept (drone position, height, heading, track, label on every drone; dock position; height-line height and position), 17 rejected.</p>
+<table><tr><th>Without learning</th><th>Bugs still caught</th><th>Bugs missed</th></tr>
+<tr><td>Only wire-vs-map checks</td><td>11 of 16 (MAP01–07, 09, 10, 13, 15)</td><td>MAP11, MAP12 (need learned icons/angles), MAP14 (needs learned timing), MAP16 (needs discovered checks), MAP08 (masked by the product bug)</td></tr></table>
+
+<h2>Results</h2>
+<p>Every planted map bug except MAP08 was caught by the check it targets, and the clean app raised no alarms.</p>
+<table><tr><th>Build</th><th>Planted bug</th><th>Checks that failed</th><th>Result</th></tr>
+<tr><td>clean</td><td>none</td><td>none (G13 = product finding)</td><td>No false alarm</td></tr>
+<tr><td>MAP01</td><td>Latitude and longitude swapped</td><td>G2 G4 G6 G7 G8 G14</td><td>Caught</td></tr>
+<tr><td>MAP02</td><td>Drone drawn 40 m east</td><td>G2 G6 G7 G14</td><td>Caught</td></tr>
+<tr><td>MAP03</td><td>Drone icon shrunk to invisible</td><td>G8 G15</td><td>Caught</td></tr>
+<tr><td>MAP04</td><td>Height label shows sea-level altitude (590 m vs 30 m)</td><td>G3</td><td>Caught</td></tr>
+<tr><td>MAP05</td><td>Heading inverted</td><td>G4</td><td>Caught</td></tr>
+<tr><td>MAP06</td><td>Position frozen after first draw</td><td>G2 G3 G6 G7 G8</td><td>Caught</td></tr>
+<tr><td>MAP07</td><td>Track stops growing</td><td>G7 G9</td><td>Caught</td></tr>
+<tr><td>MAP08</td><td>Dock always shows online</td><td>none</td><td>Missed (identical to product bug G13)</td></tr>
+<tr><td>MAP09</td><td>Label keeps first status</td><td>G5</td><td>Caught</td></tr>
+<tr><td>MAP10</td><td>Deleted drones stay on the map</td><td>G12</td><td>Caught</td></tr>
+<tr><td>MAP11</td><td>2D view stays tilted</td><td>G11</td><td>Caught</td></tr>
+<tr><td>MAP12</td><td>Selection styling inverted</td><td>G10</td><td>Caught</td></tr>
+<tr><td>MAP13</td><td>Camera flies to the dock, not the drone</td><td>G9</td><td>Caught</td></tr>
+<tr><td>MAP14</td><td>Map one message behind the wire</td><td>G14 only</td><td>Caught</td></tr>
+<tr><td>MAP15</td><td>Geoid/ellipsoid datum mix-up (146.5 m vs 30 m)</td><td>G3</td><td>Caught</td></tr>
+<tr><td>MAP16</td><td>Dock icons drawn 30 m east</td><td>D5 (discovered), G6</td><td>Caught</td></tr></table>
+<p><b>Real product finding G13.</b> When docks stop reporting, all of them keep the online icon, because the map only redraws when a message arrives. It shows on the clean app in every run.</p>
+<p><b>MAP16 proof.</b> No hand-written check looks at dock positions. The discovered check D5 flagged all 8 docks as drawn 31.6 m from dock.dock_location; the referee confirmed MAP16 by its sha256 fingerprint.</p>
+<p>MAP01–13 come from the full matrix run; MAP03, 04, 14, 15, 16 and the clean control were re-run with the current 15-check inspector.</p>
+
+<h2>How to run it</h2>
+<p>Use two terminals so the bug planter and the QA stay visibly separate; start each with:</p>
+<pre>cd /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa</pre>
+<p><b>Terminal 1 · Saboteur</b></p>
+<pre>npm run bug:status        # confirm: No bug planted
+npm run bug               # list the 16 map bugs
+npm run bug:random        # plant a secret bug (may be none)
+npm run bug -- MAP04      # or a chosen one: MAP04 height label, MAP16 dock offset
+# reload http://localhost:4010 and fly a drone to see it
+npm run bug:reveal        # after QA: what was planted
+npm run bug:revert        # back to the clean app</pre>
+<p><b>Terminal 2 · QA</b></p>
+<pre>npm run qa                # visible browser, every step on screen, report card at the end</pre>
+<p><b>Optional, one-time, clean app only</b></p>
+<pre>npm run map:learn         # icons, camera angles, normal speed
+npm run map:discover      # LLM proposes checks; the clean app keeps the real ones
+ssh -N -L 127.0.0.1:11435:127.0.0.1:11434 rtx5090@192.168.10.222   # GPU tunnel, only if needed</pre>
+<p><b>Stopping and cleanup.</b> Ctrl + C stops qa, map:learn, map:discover and the tunnel; the bug commands finish by themselves. After stopping QA midway:</p>
+<pre>npm run bug:revert                                     # a planted bug stays until reverted
+curl -s -X DELETE localhost:4000/api/control/fault     # clear a simulator fault
+pgrep -fl tsx || echo "nothing running"</pre>
+<p>Delete any leftover MAPQA-xxxx drone in the Control panel. Never run two QA runs at once or plant while QA is running.</p>
+
+<h2>Video flow</h2>
+<p>About 5–6 minutes; the QA run in step 6 is the centre of the video.</p>
+<table><tr><th>Step</th><th>Where</th><th>Do</th><th>Say</th></tr>
+<tr><td>1 · Problem (30 s)</td><td>Blueprint page</td><td>Show the system diagram</td><td>The map is one Cesium canvas; normal UI tests cannot read it</td></tr>
+<tr><td>2 · Clean app (30 s)</td><td>Browser</td><td>Open localhost:4010, select a drone, take off</td><td>Height label on the map matches the telemetry panel</td></tr>
+<tr><td>3 · How QA knows (45 s)</td><td>Terminal 1</td><td>Optional: npm run map:discover, show KEEP / REJECT</td><td>QA reads the map and compares with the drone's own data; the LLM proposes, the app decides</td></tr>
+<tr><td>4 · Plant (30 s)</td><td>Terminal 1</td><td>npm run bug:random or npm run bug -- MAP04</td><td>Only a fingerprint is shown; QA is a separate process</td></tr>
+<tr><td>5 · See the bug (30 s)</td><td>Browser</td><td>Reload, fly a drone</td><td>With MAP04 the map says ~590 m, the panel says 30 m</td></tr>
+<tr><td>6 · Deploy QA (2 min)</td><td>Terminal 2</td><td>npm run qa</td><td>Point at the step banners, the red BUG line and the report card</td></tr>
+<tr><td>7 · Reveal (20 s)</td><td>Terminal 1</td><td>npm run bug:reveal, npm run bug:revert</td><td>The answer matches what QA reported</td></tr>
+<tr><td>8 · Discovery proof (1 min)</td><td>Both</td><td>npm run bug -- MAP16, then npm run qa</td><td>A check the agent found itself flags all 8 docks 31.6 m off</td></tr>
+<tr><td>9 · Close (30 s)</td><td>Blueprint page</td><td>Show the proof matrix</td><td>14 of 15 caught, 0 false alarms, real finding G13</td></tr></table>
+<p>Before recording: npm run bug:status says no bug planted, and the fleet shows only Drone 1–4 (remove extra test drones in the Control panel).</p>
+
+<h2>Limitations and next steps</h2>
+<p>The main limit: the learned and discovered parts assume the baseline app is good, so a bug already present when learning becomes "normal".</p>
+<ul>
+<li><b>Baseline bugs get masked.</b> MAP08 is invisible because the real app already has the same behaviour (G13). A correct discovered check that fails on a buggy baseline is currently discarded instead of flagged.</li>
+<li><b>Next:</b> report discovered checks that fail on the baseline as "possible real bug, needs review" rather than dropping them; add baseline-free physics limits (never drawn kilometres from GPS or underground).</li>
+<li><b>The LLM misses things.</b> It never produced a correct drone height-label check and proposed impossible ones (tracks on docks); the clean-app filter removed those.</li>
+<li><b>Coverage gaps still open:</b> drones that stop reporting, track reset between flights, icon visibility at far zoom, overlapping labels, map tiles offline.</li>
+<li><b>Setup:</b> the inspector expects qa/map/out/map-model.json to exist; discovery needs the GPU tunnel on port 11435.</li>
+</ul>
+</body></html>

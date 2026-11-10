@@ -1,0 +1,60 @@
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+
+Running 1 test using 1 worker
+
+(node:49724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S08-responsive.spec.ts:4:1 › S08 @responsive · fleet selection and primary content are reachable at every size (11.8s)
+
+
+  1) [desktop] › scenarios/S08-responsive.spec.ts:4:1 › S08 @responsive · fleet selection and primary content are reachable at every size 
+
+    Error: Video identity must follow selected drone
+
+    expect(locator).toContainText(expected) failed
+
+    Locator: locator('.video-header')
+    Expected substring: "QA-941ea96c"
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Video identity must follow selected drone locator('.video-header') with timeout 10000ms
+      - waiting for locator('.video-header')
+
+
+      10 |  await cockpit.selectDrone(isolatedDrone.id);
+      11 |  await expect(page.getByRole('heading',{name:/Drone Telemetry/}),'Selected drone identity must update after a reachable row click').toContainText(isolatedDrone.name);
+    > 12 |  await expect(page.locator('.video-header'),'Video identity must follow selected drone').toContainText(isolatedDrone.name);
+         |                                                                                          ^
+      13 |  await narrate(page,'S08 · telemetry, video and connection badge must be reachable without sideways scrolling');
+      14 |  for(const id of ['telemetry-battery','telemetry-home-distance','video-player','video-state','socket-status']) await expectVisibleAndUsable(page.getByTestId(id));
+      15 |  await expectVisibleAndUsable(page.getByRole('link',{name:/Control panel/}));
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S08-responsive.spec.ts:12:90
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408351-26398/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408351-26398/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M01-1790408351-26398/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408351-26398/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M01-1790408351-26398/artifacts/S08-responsive-S08-respons-ac5e0-are-reachable-at-every-size-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S08-responsive.spec.ts:4:1 › S08 @responsive · fleet selection and primary content are reachable at every size 
+Evidence collected for 1 scenarios (mutant-M01; RUN_ID=t05-M01-1790408351-26398)
+Evidence collected for 1 scenarios (mutant-M01; RUN_ID=t05-M01-1790408351-26398)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx

@@ -1,0 +1,14 @@
+# MAP10 | Map & geospatial | targets: map | Removed drones stay on the map (ghosts)
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..9560361 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -308,7 +308,7 @@ function syncEntities(
+   }
+ 
+   for (const entity of viewer.entities.values.slice()) {
+-    if (!byId.has(ownerId(String(entity.id)))) viewer.entities.remove(entity);
++    if (!byId.has(ownerId(String(entity.id))) && false) viewer.entities.remove(entity);
+   }
+ 
+   viewer.scene.requestRender();

@@ -1,0 +1,86 @@
+{
+ "selectedModel": "assets/models/drone-model.glb",
+ "unselectedModel": "assets/models/unSelected-drone.glb",
+ "dockSelected": "assets/docks/online-selected-dock.svg",
+ "dockUnselected": "assets/docks/online-unselected-dock.svg",
+ "pitch2d": -90,
+ "pitch3d": -45,
+ "cal": {
+  "posErr": {
+   "n": 180,
+   "p50": 0,
+   "p95": 0,
+   "p99": 0,
+   "max": 0,
+   "tol": 0.5,
+   "unit": "m"
+  },
+  "headingErr": {
+   "n": 180,
+   "p50": 0,
+   "p95": 0,
+   "p99": 0,
+   "max": 0,
+   "tol": 1,
+   "unit": "\u00b0"
+  },
+  "heightErr": {
+   "n": 180,
+   "p50": 0,
+   "p95": 0,
+   "p99": 0,
+   "max": 0,
+   "tol": 0.5,
+   "unit": "m"
+  },
+  "distErr": {
+   "n": 180,
+   "p50": 0,
+   "p95": 0,
+   "p99": 0,
+   "max": 0,
+   "tol": 2,
+   "unit": "m"
+  },
+  "trackGap": {
+   "n": 180,
+   "p50": 0,
+   "p95": 0,
+   "p99": 0,
+   "max": 0,
+   "tol": 2,
+   "unit": "m"
+  },
+  "latency": {
+   "n": 50,
+   "p50": 81,
+   "p95": 157,
+   "p99": 332,
+   "max": 332,
+   "tol": 406,
+   "unit": "ms"
+  },
+  "cadence": {
+   "n": 49,
+   "p50": 507,
+   "p95": 526,
+   "p99": 534,
+   "max": 534,
+   "tol": 801,
+   "unit": "ms"
+  },
+  "speed": {
+   "n": 49,
+   "p50": 9.71,
+   "p95": 10.4,
+   "p99": 10.78,
+   "max": 10.78,
+   "tol": 16.16,
+   "unit": "m/s"
+  },
+  "flightSeconds": 25
+ },
+ "dockOffline": [],
+ "staleDocksGoOffline": false,
+ "learnedAt": "2026-09-26T10:51:29.628Z"
+}

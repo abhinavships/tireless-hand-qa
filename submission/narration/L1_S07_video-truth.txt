@@ -1,0 +1,5 @@
+[   0.0s  section 1: title card + clean  (16.8s video, 15.9s speech)]
+Scenario: the video label must match the real video. With the camera stopped, the label must say off. When the camera starts, the label must say live, and the video must really be playing. Switching to another drone must show that drone's own camera. The normal app passes.
+
+[  16.8s  section 2: title card + mutant-M08  (18.1s video, 9.7s speech)]
+We planted a bug that labels a stopped video as live. The test caught it and failed with the message: Stopped stream must be labelled off; a live label would mislead the operator.

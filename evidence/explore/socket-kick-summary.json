@@ -1,0 +1,14 @@
+{
+  "kind": "socket-kick",
+  "samples": 18,
+  "badgeStates": [
+    "socket connected",
+    "socket reconnecting"
+  ],
+  "videoStates": [
+    "live"
+  ],
+  "videoTimeStart": 5.207,
+  "videoTimeEnd": 72.069,
+  "outcome": "recovered without reload; no new finding"
+}

@@ -1,0 +1,1679 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "lib/ext/t04.ts",
+      "--project",
+      "desktop",
+      "--repeat-each=3"
+    ],
+    "configFile": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/ext/t04.ts",
+    "rootDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts",
+        "repeatEach": 3,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "/S(09|10|11|17)-.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "tablet",
+        "name": "tablet",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "/S(09|10|11|17)-.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "/S(09|10|11|17)-.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../../evidence/.t04-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "S09-xss.spec.ts",
+      "file": "S09-xss.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "S09 @security cockpit renders payload 1 as text",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3008,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:46:47.350Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-5c68be1be3324a2fd1af",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security cockpit renders payload 2 as text",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1312,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:46:51.067Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-2-as-text-desktop/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-2-as-text-desktop/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-2-as-text-desktop/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-4188c9919efc3f3f06c6",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security dashboard renders payload 1 as text",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10877,
+                  "error": {
+                    "message": "Error: Stored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session\n\nStored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeUndefined\u001b[2m()\u001b[22m\n\nReceived: \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate",
+                    "stack": "Error: Stored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session\n\nStored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeUndefined\u001b[2m()\u001b[22m\n\nReceived: \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:12:184",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                      "column": 184,
+                      "line": 12
+                    },
+                    "snippet": "  10 |    const row=page.getByTestId(`${surface==='cockpit'?'device-row':'dash-row'}-${drone.id}`);\n  11 |    await expect(row).toBeVisible(); await row.scrollIntoViewIfNeeded();\n> 12 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n     |                                                                                                                                                                                        ^\n  13 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n  14 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  15 |   } finally {await api.removeDrone(drone.id);}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                        "column": 184,
+                        "line": 12
+                      },
+                      "message": "Error: Stored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session\n\nStored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeUndefined\u001b[2m()\u001b[22m\n\nReceived: \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n  10 |    const row=page.getByTestId(`${surface==='cockpit'?'device-row':'dash-row'}-${drone.id}`);\n  11 |    await expect(row).toBeVisible(); await row.scrollIntoViewIfNeeded();\n> 12 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n     |                                                                                                                                                                                        ^\n  13 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n  14 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  15 |   } finally {await api.removeDrone(drone.id);}\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:12:184"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:46:52.628Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                    "column": 184,
+                    "line": 12
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-eff5f3dabb94b43076e3",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security dashboard renders payload 2 as text",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11394,
+                  "error": {
+                    "message": "Error: Drone name is interpreted as HTML on dashboard rather than shown as literal operator text\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('dash-row-drone-22')\nTimeout: 10000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 14\u001b[39m\n\n\u001b[32m- \"><svg onload=window.__xss=2>\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+         \">drone-22 · dock-22\u001b[39m\n\u001b[31m+         standby\u001b[39m\n\u001b[31m+         100 %\u001b[39m\n\u001b[31m+         0.0 m\u001b[39m\n\u001b[31m+         0.0 m/s\u001b[39m\n\u001b[31m+         0 m\u001b[39m\n\u001b[31m+         off\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\u001b[31m+           Take off\u001b[39m\n\u001b[31m+           Land\u001b[39m\n\u001b[31m+           Start video\u001b[39m\n\u001b[31m+           Remove\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Drone name is interpreted as HTML on dashboard rather than shown as literal operator text getByTestId('dash-row-drone-22') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('dash-row-drone-22')\u001b[22m\n\u001b[2m    24 × locator resolved to <tr data-testid=\"dash-row-drone-22\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-22 · dock-22\u001b[22m\n\u001b[2m        standby\u001b[22m\n\u001b[2m        100 %\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n",
+                    "stack": "Error: Drone name is interpreted as HTML on dashboard rather than shown as literal operator text\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('dash-row-drone-22')\nTimeout: 10000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 14\u001b[39m\n\n\u001b[32m- \"><svg onload=window.__xss=2>\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+         \">drone-22 · dock-22\u001b[39m\n\u001b[31m+         standby\u001b[39m\n\u001b[31m+         100 %\u001b[39m\n\u001b[31m+         0.0 m\u001b[39m\n\u001b[31m+         0.0 m/s\u001b[39m\n\u001b[31m+         0 m\u001b[39m\n\u001b[31m+         off\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\u001b[31m+           Take off\u001b[39m\n\u001b[31m+           Land\u001b[39m\n\u001b[31m+           Start video\u001b[39m\n\u001b[31m+           Remove\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Drone name is interpreted as HTML on dashboard rather than shown as literal operator text getByTestId('dash-row-drone-22') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('dash-row-drone-22')\u001b[22m\n\u001b[2m    24 × locator resolved to <tr data-testid=\"dash-row-drone-22\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-22 · dock-22\u001b[22m\n\u001b[2m        standby\u001b[22m\n\u001b[2m        100 %\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:13:115",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                      "column": 115,
+                      "line": 13
+                    },
+                    "snippet": "  11 |    await expect(row).toBeVisible(); await row.scrollIntoViewIfNeeded();\n  12 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n> 13 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n     |                                                                                                                   ^\n  14 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  15 |   } finally {await api.removeDrone(drone.id);}\n  16 |  });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                        "column": 115,
+                        "line": 13
+                      },
+                      "message": "Error: Drone name is interpreted as HTML on dashboard rather than shown as literal operator text\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('dash-row-drone-22')\nTimeout: 10000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 14\u001b[39m\n\n\u001b[32m- \"><svg onload=window.__xss=2>\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+         \">drone-22 · dock-22\u001b[39m\n\u001b[31m+         standby\u001b[39m\n\u001b[31m+         100 %\u001b[39m\n\u001b[31m+         0.0 m\u001b[39m\n\u001b[31m+         0.0 m/s\u001b[39m\n\u001b[31m+         0 m\u001b[39m\n\u001b[31m+         off\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\u001b[31m+           Take off\u001b[39m\n\u001b[31m+           Land\u001b[39m\n\u001b[31m+           Start video\u001b[39m\n\u001b[31m+           Remove\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Drone name is interpreted as HTML on dashboard rather than shown as literal operator text getByTestId('dash-row-drone-22') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('dash-row-drone-22')\u001b[22m\n\u001b[2m    24 × locator resolved to <tr data-testid=\"dash-row-drone-22\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-22 · dock-22\u001b[22m\n\u001b[2m        standby\u001b[22m\n\u001b[2m        100 %\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n\n\n  11 |    await expect(row).toBeVisible(); await row.scrollIntoViewIfNeeded();\n  12 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n> 13 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n     |                                                                                                                   ^\n  14 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  15 |   } finally {await api.removeDrone(drone.id);}\n  16 |  });\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:13:115"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:04.763Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                    "column": 115,
+                    "line": 13
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-eaa4204bb2c8568b782b",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security cockpit renders payload 1 as text",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2805,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:55.010Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop-repeat1/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop-repeat1/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-316f748fe5a555a55143",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security cockpit renders payload 2 as text",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2324,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:58.344Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-2-as-text-desktop-repeat1/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-2-as-text-desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-2-as-text-desktop-repeat1/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-8a959f0ccfab9331833b",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security dashboard renders payload 1 as text",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5522,
+                  "error": {
+                    "message": "Error: locator.scrollIntoViewIfNeeded: Element is not attached to the DOM\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n",
+                    "stack": "Error: locator.scrollIntoViewIfNeeded: Element is not attached to the DOM\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:11:47",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                      "column": 47,
+                      "line": 11
+                    },
+                    "snippet": "   9 |    await narrate(page,`S09: operator-supplied name must remain text on ${surface}`);\n  10 |    const row=page.getByTestId(`${surface==='cockpit'?'device-row':'dash-row'}-${drone.id}`);\n> 11 |    await expect(row).toBeVisible(); await row.scrollIntoViewIfNeeded();\n     |                                               ^\n  12 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n  13 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n  14 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                        "column": 47,
+                        "line": 11
+                      },
+                      "message": "Error: locator.scrollIntoViewIfNeeded: Element is not attached to the DOM\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n\n   9 |    await narrate(page,`S09: operator-supplied name must remain text on ${surface}`);\n  10 |    const row=page.getByTestId(`${surface==='cockpit'?'device-row':'dash-row'}-${drone.id}`);\n> 11 |    await expect(row).toBeVisible(); await row.scrollIntoViewIfNeeded();\n     |                                               ^\n  12 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n  13 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n  14 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:11:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:48:00.774Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop-repeat1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop-repeat1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-1-as-text-desktop-repeat1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                    "column": 47,
+                    "line": 11
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-32978e9bab4cedc3148d",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security dashboard renders payload 2 as text",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11951,
+                  "error": {
+                    "message": "Error: Drone name is interpreted as HTML on dashboard rather than shown as literal operator text\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('dash-row-drone-28')\nTimeout: 10000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 14\u001b[39m\n\n\u001b[32m- \"><svg onload=window.__xss=2>\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+         \">drone-28 · dock-28\u001b[39m\n\u001b[31m+         standby\u001b[39m\n\u001b[31m+         100 %\u001b[39m\n\u001b[31m+         0.0 m\u001b[39m\n\u001b[31m+         0.0 m/s\u001b[39m\n\u001b[31m+         0 m\u001b[39m\n\u001b[31m+         off\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\u001b[31m+           Take off\u001b[39m\n\u001b[31m+           Land\u001b[39m\n\u001b[31m+           Start video\u001b[39m\n\u001b[31m+           Remove\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Drone name is interpreted as HTML on dashboard rather than shown as literal operator text getByTestId('dash-row-drone-28') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('dash-row-drone-28')\u001b[22m\n\u001b[2m    5 × locator resolved to <tr data-testid=\"dash-row-drone-28\">…</tr>\u001b[22m\n\u001b[2m      - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-28 · dock-28\u001b[22m\n\u001b[2m        —\u001b[22m\n\u001b[2m        —\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n\u001b[2m    19 × locator resolved to <tr data-testid=\"dash-row-drone-28\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-28 · dock-28\u001b[22m\n\u001b[2m        standby\u001b[22m\n\u001b[2m        100 %\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n",
+                    "stack": "Error: Drone name is interpreted as HTML on dashboard rather than shown as literal operator text\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('dash-row-drone-28')\nTimeout: 10000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 14\u001b[39m\n\n\u001b[32m- \"><svg onload=window.__xss=2>\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+         \">drone-28 · dock-28\u001b[39m\n\u001b[31m+         standby\u001b[39m\n\u001b[31m+         100 %\u001b[39m\n\u001b[31m+         0.0 m\u001b[39m\n\u001b[31m+         0.0 m/s\u001b[39m\n\u001b[31m+         0 m\u001b[39m\n\u001b[31m+         off\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\u001b[31m+           Take off\u001b[39m\n\u001b[31m+           Land\u001b[39m\n\u001b[31m+           Start video\u001b[39m\n\u001b[31m+           Remove\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Drone name is interpreted as HTML on dashboard rather than shown as literal operator text getByTestId('dash-row-drone-28') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('dash-row-drone-28')\u001b[22m\n\u001b[2m    5 × locator resolved to <tr data-testid=\"dash-row-drone-28\">…</tr>\u001b[22m\n\u001b[2m      - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-28 · dock-28\u001b[22m\n\u001b[2m        —\u001b[22m\n\u001b[2m        —\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n\u001b[2m    19 × locator resolved to <tr data-testid=\"dash-row-drone-28\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-28 · dock-28\u001b[22m\n\u001b[2m        standby\u001b[22m\n\u001b[2m        100 %\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:13:115",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                      "column": 115,
+                      "line": 13
+                    },
+                    "snippet": "  11 |    await expect(row).toBeVisible(); await row.scrollIntoViewIfNeeded();\n  12 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n> 13 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n     |                                                                                                                   ^\n  14 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  15 |   } finally {await api.removeDrone(drone.id);}\n  16 |  });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                        "column": 115,
+                        "line": 13
+                      },
+                      "message": "Error: Drone name is interpreted as HTML on dashboard rather than shown as literal operator text\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('dash-row-drone-28')\nTimeout: 10000ms\n\u001b[32m- Expected substring  -  1\u001b[39m\n\u001b[31m+ Received string     + 14\u001b[39m\n\n\u001b[32m- \"><svg onload=window.__xss=2>\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+         \">drone-28 · dock-28\u001b[39m\n\u001b[31m+         standby\u001b[39m\n\u001b[31m+         100 %\u001b[39m\n\u001b[31m+         0.0 m\u001b[39m\n\u001b[31m+         0.0 m/s\u001b[39m\n\u001b[31m+         0 m\u001b[39m\n\u001b[31m+         off\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\u001b[31m+           Take off\u001b[39m\n\u001b[31m+           Land\u001b[39m\n\u001b[31m+           Start video\u001b[39m\n\u001b[31m+           Remove\u001b[39m\n\u001b[31m+ \u001b[43m        \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Drone name is interpreted as HTML on dashboard rather than shown as literal operator text getByTestId('dash-row-drone-28') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('dash-row-drone-28')\u001b[22m\n\u001b[2m    5 × locator resolved to <tr data-testid=\"dash-row-drone-28\">…</tr>\u001b[22m\n\u001b[2m      - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-28 · dock-28\u001b[22m\n\u001b[2m        —\u001b[22m\n\u001b[2m        —\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n\u001b[2m    19 × locator resolved to <tr data-testid=\"dash-row-drone-28\">…</tr>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m        \">drone-28 · dock-28\u001b[22m\n\u001b[2m        standby\u001b[22m\n\u001b[2m        100 %\u001b[22m\n\u001b[2m        0.0 m\u001b[22m\n\u001b[2m        0.0 m/s\u001b[22m\n\u001b[2m        0 m\u001b[22m\n\u001b[2m        off\u001b[22m\n\u001b[2m        \u001b[22m\n\u001b[2m          Take off\u001b[22m\n\u001b[2m          Land\u001b[22m\n\u001b[2m          Start video\u001b[22m\n\u001b[2m          Remove\u001b[22m\n\u001b[2m        \"\u001b[22m\n\n\n  11 |    await expect(row).toBeVisible(); await row.scrollIntoViewIfNeeded();\n  12 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n> 13 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n     |                                                                                                                   ^\n  14 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  15 |   } finally {await api.removeDrone(drone.id);}\n  16 |  });\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:13:115"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:48:07.941Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop-repeat1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop-repeat1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-dashboard-renders-payload-2-as-text-desktop-repeat1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts",
+                    "column": 115,
+                    "line": 13
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-1980f6856c6ae88b75c1",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security cockpit renders payload 1 as text",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3651,
+                  "error": {
+                    "message": "Error: Shared app lock held beyond 120000ms; codex-t01 S09 @security cockpit renders payload 1 as text did not mutate the runtime",
+                    "stack": "Error: Shared app lock held beyond 120000ms; codex-t01 S09 @security cockpit renders payload 1 as text did not mutate the runtime\n    at acquireAppLock (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/fixtures.ts:15:149)\n    at Object.base.extend.appLock.timeout (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/fixtures.ts:30:46)",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/fixtures.ts",
+                      "column": 149,
+                      "line": 15
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m../lib/fixtures.ts:15\n\n  13 |  const deadline=Date.now()+timeout;\n  14 |  while(true) {\n> 15 |   try { await mkdir(path); break; } catch(error) { if((error as NodeJS.ErrnoException).code!=='EEXIST') throw error; if(Date.now()>=deadline) throw new Error(`Shared app lock held beyond ${timeout}ms; ${owner} did not mutate the runtime`); await new Promise(r=>setTimeout(r,500)); }\n     |                                                                                                                                                     ^\n  16 |  }\n  17 |  try { await writeFile(`${path}/owner`,`${owner} ${new Date().toISOString()} pid=${process.pid}\\n`); }\n  18 |  catch(error) { await rm(path,{recursive:true,force:true}); throw error; }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/fixtures.ts",
+                        "column": 149,
+                        "line": 15
+                      },
+                      "message": "Error: Shared app lock held beyond 120000ms; codex-t01 S09 @security cockpit renders payload 1 as text did not mutate the runtime\n\n   at ../lib/fixtures.ts:15\n\n  13 |  const deadline=Date.now()+timeout;\n  14 |  while(true) {\n> 15 |   try { await mkdir(path); break; } catch(error) { if((error as NodeJS.ErrnoException).code!=='EEXIST') throw error; if(Date.now()>=deadline) throw new Error(`Shared app lock held beyond ${timeout}ms; ${owner} did not mutate the runtime`); await new Promise(r=>setTimeout(r,500)); }\n     |                                                                                                                                                     ^\n  16 |  }\n  17 |  try { await writeFile(`${path}/owner`,`${owner} ${new Date().toISOString()} pid=${process.pid}\\n`); }\n  18 |  catch(error) { await rm(path,{recursive:true,force:true}); throw error; }\n    at acquireAppLock (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/fixtures.ts:15:149)\n    at Object.base.extend.appLock.timeout (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/fixtures.ts:30:46)"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:49:24.631Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop-repeat2/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop-repeat2/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S09-xss-S09-security-cockpit-renders-payload-1-as-text-desktop-repeat2/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/fixtures.ts",
+                    "column": 149,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-c6c7e0047e82edae2c33",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security cockpit renders payload 2 as text",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-29ea8a9f752f09518493",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security dashboard renders payload 1 as text",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-ab7a3f24b0683747f7f3",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "S09 @security dashboard renders payload 2 as text",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b4d88bd1b5d056fcec1f-297e5632d3904c505087",
+          "file": "S09-xss.spec.ts",
+          "line": 5,
+          "column": 2
+        }
+      ]
+    },
+    {
+      "title": "S10-org-isolation.spec.ts",
+      "file": "S10-org-isolation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "S10 @security evil org cannot read FlytBase fleet and telemetry",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13290,
+                  "error": {
+                    "message": "Error: Organization isolation broken: evil org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: Organization isolation broken: evil org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:23:124",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                      "column": 124,
+                      "line": 23
+                    },
+                    "snippet": "  21 |   const leaked=Object.keys(received).filter(t=>t==='devices'||t.startsWith('flytbase/'));\n  22 |   await narrate(page,`S10: ${identity} org received ${leaked.length} forbidden FlytBase topics`);\n> 23 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  24 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  25 | });\n  26 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                        "column": 124,
+                        "line": 23
+                      },
+                      "message": "Error: Organization isolation broken: evil org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  21 |   const leaked=Object.keys(received).filter(t=>t==='devices'||t.startsWith('flytbase/'));\n  22 |   await narrate(page,`S10: ${identity} org received ${leaked.length} forbidden FlytBase topics`);\n> 23 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  24 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  25 | });\n  26 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:23:124"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:17.328Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "org-probe.json",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZGVudGl0eSI6ICJldmlsIiwKICAicmVzdWx0IjogIm9ic2VydmF0aW9uIGNvbXBsZXRlIiwKICAicmVjZWl2ZWQiOiB7CiAgICAiZGV2aWNlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTEiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMSIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMSIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTIiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMiIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMiIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTMiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMyIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTQiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgNCIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtNCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTIzIiwKICAgICAgICAidHlwZSI6ICJkb2NrIiwKICAgICAgICAibmFtZSI6ICJEb2NrIDIzIiwKICAgICAgICAiZHJvbmVJZCI6ICJkcm9uZS0yMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTI0IiwKICAgICAgICAidHlwZSI6ICJkb2NrIiwKICAgICAgICAibmFtZSI6ICJEb2NrIDI0IiwKICAgICAgICAiZHJvbmVJZCI6ICJkcm9uZS0yNCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkcm9uZS0xIiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiRHJvbmUgMSIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTEiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZHJvbmUtMiIsCiAgICAgICAgInR5cGUiOiAiZHJvbmUiLAogICAgICAgICJuYW1lIjogIkRyb25lIDIiLAogICAgICAgICJkb2NrSWQiOiAiZG9jay0yIgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImRyb25lLTMiLAogICAgICAgICJ0eXBlIjogImRyb25lIiwKICAgICAgICAibmFtZSI6ICJEcm9uZSAzIiwKICAgICAgICAiZG9ja0lkIjogImRvY2stMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkcm9uZS00IiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiRHJvbmUgNCIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTQiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZHJvbmUtMjMiLAogICAgICAgICJ0eXBlIjogImRyb25lIiwKICAgICAgICAibmFtZSI6ICJRQS1jNDYzZTEwZiIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTIzIgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImRyb25lLTI0IiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiUUEtNDQxZWVjYjkiLAogICAgICAgICJkb2NrSWQiOiAiZG9jay0yNCIKICAgICAgfQogICAgXSwKICAgICJmbHl0YmFzZS9kcm9uZS0xL3RlbGVtZXRyeS9iYXR0ZXJ5IjogewogICAgICAicGVyY2VudCI6IDEwMCwKICAgICAgInZvbHRhZ2UiOiAyNS4yLAogICAgICAidGVtcGVyYXR1cmUiOiAzMCwKICAgICAgInJlbWFpbmluZ19mbGlnaHRfdGltZSI6IDEwMDAKICAgIH0KICB9Cn0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                    "column": 124,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "76d9627b4f53d9328cb4-a2789c88e85986652496",
+          "file": "S10-org-isolation.spec.ts",
+          "line": 5,
+          "column": 52
+        },
+        {
+          "title": "S10 @security missing org cannot read FlytBase fleet and telemetry",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13039,
+                  "error": {
+                    "message": "Error: Organization isolation broken: missing org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: Organization isolation broken: missing org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:23:124",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                      "column": 124,
+                      "line": 23
+                    },
+                    "snippet": "  21 |   const leaked=Object.keys(received).filter(t=>t==='devices'||t.startsWith('flytbase/'));\n  22 |   await narrate(page,`S10: ${identity} org received ${leaked.length} forbidden FlytBase topics`);\n> 23 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  24 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  25 | });\n  26 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                        "column": 124,
+                        "line": 23
+                      },
+                      "message": "Error: Organization isolation broken: missing org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  21 |   const leaked=Object.keys(received).filter(t=>t==='devices'||t.startsWith('flytbase/'));\n  22 |   await narrate(page,`S10: ${identity} org received ${leaked.length} forbidden FlytBase topics`);\n> 23 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  24 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  25 | });\n  26 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:23:124"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:31.954Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "org-probe.json",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZGVudGl0eSI6ICJtaXNzaW5nIiwKICAicmVzdWx0IjogIm9ic2VydmF0aW9uIGNvbXBsZXRlIiwKICAicmVjZWl2ZWQiOiB7CiAgICAiZGV2aWNlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTEiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMSIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMSIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTIiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMiIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMiIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTMiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMyIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTQiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgNCIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtNCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTI0IiwKICAgICAgICAidHlwZSI6ICJkb2NrIiwKICAgICAgICAibmFtZSI6ICJEb2NrIDI0IiwKICAgICAgICAiZHJvbmVJZCI6ICJkcm9uZS0yNCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkcm9uZS0xIiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiRHJvbmUgMSIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTEiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZHJvbmUtMiIsCiAgICAgICAgInR5cGUiOiAiZHJvbmUiLAogICAgICAgICJuYW1lIjogIkRyb25lIDIiLAogICAgICAgICJkb2NrSWQiOiAiZG9jay0yIgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImRyb25lLTMiLAogICAgICAgICJ0eXBlIjogImRyb25lIiwKICAgICAgICAibmFtZSI6ICJEcm9uZSAzIiwKICAgICAgICAiZG9ja0lkIjogImRvY2stMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkcm9uZS00IiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiRHJvbmUgNCIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTQiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZHJvbmUtMjQiLAogICAgICAgICJ0eXBlIjogImRyb25lIiwKICAgICAgICAibmFtZSI6ICJRQS00NDFlZWNiOSIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTI0IgogICAgICB9CiAgICBdLAogICAgImZseXRiYXNlL2Ryb25lLTEvdGVsZW1ldHJ5L2JhdHRlcnkiOiB7CiAgICAgICJwZXJjZW50IjogMTAwLAogICAgICAidm9sdGFnZSI6IDI1LjIsCiAgICAgICJ0ZW1wZXJhdHVyZSI6IDMwLAogICAgICAicmVtYWluaW5nX2ZsaWdodF90aW1lIjogMTAwMAogICAgfQogIH0KfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                    "column": 124,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "76d9627b4f53d9328cb4-eed5f7d92a117030f9cf",
+          "file": "S10-org-isolation.spec.ts",
+          "line": 5,
+          "column": 52
+        },
+        {
+          "title": "S10 @security evil org cannot read FlytBase fleet and telemetry",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 20863,
+                  "error": {
+                    "message": "Error: Organization isolation broken: evil org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: Organization isolation broken: evil org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:23:124",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                      "column": 124,
+                      "line": 23
+                    },
+                    "snippet": "  21 |   const leaked=Object.keys(received).filter(t=>t==='devices'||t.startsWith('flytbase/'));\n  22 |   await narrate(page,`S10: ${identity} org received ${leaked.length} forbidden FlytBase topics`);\n> 23 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  24 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  25 | });\n  26 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                        "column": 124,
+                        "line": 23
+                      },
+                      "message": "Error: Organization isolation broken: evil org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  21 |   const leaked=Object.keys(received).filter(t=>t==='devices'||t.startsWith('flytbase/'));\n  22 |   await narrate(page,`S10: ${identity} org received ${leaked.length} forbidden FlytBase topics`);\n> 23 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  24 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  25 | });\n  26 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:23:124"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:48:21.411Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "org-probe.json",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZGVudGl0eSI6ICJldmlsIiwKICAicmVzdWx0IjogIm9ic2VydmF0aW9uIGNvbXBsZXRlIiwKICAicmVjZWl2ZWQiOiB7CiAgICAiZGV2aWNlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTEiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMSIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMSIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTIiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMiIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMiIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTMiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMyIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTQiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgNCIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtNCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTI0IiwKICAgICAgICAidHlwZSI6ICJkb2NrIiwKICAgICAgICAibmFtZSI6ICJEb2NrIDI0IiwKICAgICAgICAiZHJvbmVJZCI6ICJkcm9uZS0yNCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkcm9uZS0xIiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiRHJvbmUgMSIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTEiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZHJvbmUtMiIsCiAgICAgICAgInR5cGUiOiAiZHJvbmUiLAogICAgICAgICJuYW1lIjogIkRyb25lIDIiLAogICAgICAgICJkb2NrSWQiOiAiZG9jay0yIgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImRyb25lLTMiLAogICAgICAgICJ0eXBlIjogImRyb25lIiwKICAgICAgICAibmFtZSI6ICJEcm9uZSAzIiwKICAgICAgICAiZG9ja0lkIjogImRvY2stMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkcm9uZS00IiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiRHJvbmUgNCIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTQiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZHJvbmUtMjQiLAogICAgICAgICJ0eXBlIjogImRyb25lIiwKICAgICAgICAibmFtZSI6ICJRQS00NDFlZWNiOSIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTI0IgogICAgICB9CiAgICBdLAogICAgImZseXRiYXNlL2Ryb25lLTEvdGVsZW1ldHJ5L2JhdHRlcnkiOiB7CiAgICAgICJwZXJjZW50IjogMTAwLAogICAgICAidm9sdGFnZSI6IDI1LjIsCiAgICAgICJ0ZW1wZXJhdHVyZSI6IDMwLAogICAgICAicmVtYWluaW5nX2ZsaWdodF90aW1lIjogMTAwMAogICAgfQogIH0KfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop-repeat1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop-repeat1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-5e7b7-lytBase-fleet-and-telemetry-desktop-repeat1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                    "column": 124,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "76d9627b4f53d9328cb4-06f2a2bd95b6e1d9b653",
+          "file": "S10-org-isolation.spec.ts",
+          "line": 5,
+          "column": 52
+        },
+        {
+          "title": "S10 @security missing org cannot read FlytBase fleet and telemetry",
+          "ok": false,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19921,
+                  "error": {
+                    "message": "Error: Organization isolation broken: missing org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: Organization isolation broken: missing org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:23:124",
+                    "location": {
+                      "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                      "column": 124,
+                      "line": 23
+                    },
+                    "snippet": "  21 |   const leaked=Object.keys(received).filter(t=>t==='devices'||t.startsWith('flytbase/'));\n  22 |   await narrate(page,`S10: ${identity} org received ${leaked.length} forbidden FlytBase topics`);\n> 23 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  24 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  25 | });\n  26 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                        "column": 124,
+                        "line": 23
+                      },
+                      "message": "Error: Organization isolation broken: missing org receives FlytBase fleet/telemetry (devices, flytbase/drone-1/telemetry/battery)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"devices\",\u001b[39m\n\u001b[31m+   \"flytbase/drone-1/telemetry/battery\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  21 |   const leaked=Object.keys(received).filter(t=>t==='devices'||t.startsWith('flytbase/'));\n  22 |   await narrate(page,`S10: ${identity} org received ${leaked.length} forbidden FlytBase topics`);\n> 23 |   expect(leaked,`Organization isolation broken: ${identity} org receives FlytBase fleet/telemetry (${leaked.join(', ')})`).toEqual([]);\n     |                                                                                                                            ^\n  24 |  } finally {valid.close();unauthorized.disconnect();unauthorized.removeAllListeners();}\n  25 | });\n  26 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts:23:124"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:48:44.775Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "org-probe.json",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZGVudGl0eSI6ICJtaXNzaW5nIiwKICAicmVzdWx0IjogIm9ic2VydmF0aW9uIGNvbXBsZXRlIiwKICAicmVjZWl2ZWQiOiB7CiAgICAiZGV2aWNlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTEiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMSIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMSIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTIiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMiIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMiIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTMiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgMyIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTQiLAogICAgICAgICJ0eXBlIjogImRvY2siLAogICAgICAgICJuYW1lIjogIkRvY2sgNCIsCiAgICAgICAgImRyb25lSWQiOiAiZHJvbmUtNCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkb2NrLTI5IiwKICAgICAgICAidHlwZSI6ICJkb2NrIiwKICAgICAgICAibmFtZSI6ICJEb2NrIDI5IiwKICAgICAgICAiZHJvbmVJZCI6ICJkcm9uZS0yOSIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkcm9uZS0xIiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiRHJvbmUgMSIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTEiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZHJvbmUtMiIsCiAgICAgICAgInR5cGUiOiAiZHJvbmUiLAogICAgICAgICJuYW1lIjogIkRyb25lIDIiLAogICAgICAgICJkb2NrSWQiOiAiZG9jay0yIgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImRyb25lLTMiLAogICAgICAgICJ0eXBlIjogImRyb25lIiwKICAgICAgICAibmFtZSI6ICJEcm9uZSAzIiwKICAgICAgICAiZG9ja0lkIjogImRvY2stMyIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkcm9uZS00IiwKICAgICAgICAidHlwZSI6ICJkcm9uZSIsCiAgICAgICAgIm5hbWUiOiAiRHJvbmUgNCIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTQiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZHJvbmUtMjkiLAogICAgICAgICJ0eXBlIjogImRyb25lIiwKICAgICAgICAibmFtZSI6ICJRQS1mMzA0ZTE1MCIsCiAgICAgICAgImRvY2tJZCI6ICJkb2NrLTI5IgogICAgICB9CiAgICBdLAogICAgImZseXRiYXNlL2Ryb25lLTEvdGVsZW1ldHJ5L2JhdHRlcnkiOiB7CiAgICAgICJwZXJjZW50IjogMTAwLAogICAgICAidm9sdGFnZSI6IDI1LjIsCiAgICAgICJ0ZW1wZXJhdHVyZSI6IDMwLAogICAgICAicmVtYWluaW5nX2ZsaWdodF90aW1lIjogMTAwMAogICAgfQogIH0KfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop-repeat1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop-repeat1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S10-org-isolation-S10-secu-12923-lytBase-fleet-and-telemetry-desktop-repeat1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S10-org-isolation.spec.ts",
+                    "column": 124,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "76d9627b4f53d9328cb4-ae8351bca511d44443d1",
+          "file": "S10-org-isolation.spec.ts",
+          "line": 5,
+          "column": 52
+        },
+        {
+          "title": "S10 @security evil org cannot read FlytBase fleet and telemetry",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "76d9627b4f53d9328cb4-9355afdb01b45cc1e855",
+          "file": "S10-org-isolation.spec.ts",
+          "line": 5,
+          "column": 52
+        },
+        {
+          "title": "S10 @security missing org cannot read FlytBase fleet and telemetry",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "76d9627b4f53d9328cb4-672000351567ad960fed",
+          "file": "S10-org-isolation.spec.ts",
+          "line": 5,
+          "column": 52
+        }
+      ]
+    },
+    {
+      "title": "S11-auth-contract.spec.ts",
+      "file": "S11-auth-contract.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "S11 @security signed-out route guards (evaluator-ready)",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Baseline declares no protected routes; no guard coverage claimed",
+                  "location": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                    "line": 9,
+                    "column": 7
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 219,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:46.320Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Baseline declares no protected routes; no guard coverage claimed",
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                        "line": 9,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7f5e84f45b82859c7c1a-087ea40a20fa632876f7",
+          "file": "S11-auth-contract.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "S11 @security sign-in required controls (evaluator-ready)",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Baseline has no login form; no sign-in coverage claimed",
+                  "location": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                    "line": 19,
+                    "column": 7
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 134,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:46.697Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Baseline has no login form; no sign-in coverage claimed",
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                        "line": 19,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7f5e84f45b82859c7c1a-81f3abb67e63aa83dd96",
+          "file": "S11-auth-contract.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "S11 @security signed-out route guards (evaluator-ready)",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Baseline declares no protected routes; no guard coverage claimed",
+                  "location": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                    "line": 12,
+                    "column": 7
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 1233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:49:12.813Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Baseline declares no protected routes; no guard coverage claimed",
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                        "line": 12,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop-repeat1/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-fb30d-ute-guards-evaluator-ready--desktop-repeat1/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7f5e84f45b82859c7c1a-8b8493d3ddc21909b3d6",
+          "file": "S11-auth-contract.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "S11 @security sign-in required controls (evaluator-ready)",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Baseline has no login form; no sign-in coverage claimed",
+                  "location": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                    "line": 23,
+                    "column": 7
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 433,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:49:14.429Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Baseline has no login form; no sign-in coverage claimed",
+                      "location": {
+                        "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                        "line": 23,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop-repeat1/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S11-auth-contract-S11-secu-a1b3e-d-controls-evaluator-ready--desktop-repeat1/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "7f5e84f45b82859c7c1a-3182933d7422464a3e7f",
+          "file": "S11-auth-contract.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "S11 @security signed-out route guards (evaluator-ready)",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7f5e84f45b82859c7c1a-392bc5f95d6dee551822",
+          "file": "S11-auth-contract.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "S11 @security sign-in required controls (evaluator-ready)",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7f5e84f45b82859c7c1a-fe72b6f9535c3727e4bd",
+          "file": "S11-auth-contract.spec.ts",
+          "line": 18,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "S17-security-posture.spec.ts",
+      "file": "S17-security-posture.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "S17 @security @advisory localhost security posture inventory",
+          "ok": true,
+          "tags": [
+            "security",
+            "advisory"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7370,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:47:46.849Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "security-posture.json",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbnZlbnRvcnkiOiBbCiAgICB7CiAgICAgICJ1cmwiOiAiaHR0cDovL2xvY2FsaG9zdDo0MDEwLyIsCiAgICAgICJzdGF0dXMiOiAyMDAsCiAgICAgICJjc3AiOiBudWxsLAogICAgICAieEZyYW1lT3B0aW9ucyI6IG51bGwKICAgIH0sCiAgICB7CiAgICAgICJ1cmwiOiAiaHR0cDovL2xvY2FsaG9zdDo0MDAwL2Rhc2hib2FyZCIsCiAgICAgICJzdGF0dXMiOiAyMDAsCiAgICAgICJjc3AiOiBudWxsLAogICAgICAieEZyYW1lT3B0aW9ucyI6IG51bGwKICAgIH0KICBdLAogICJjb3JzUHJlZmxpZ2h0IjogewogICAgInN0YXR1cyI6IDIwNCwKICAgICJhbGxvd09yaWdpbiI6ICIqIiwKICAgICJhbGxvd01ldGhvZHMiOiAiR0VULEhFQUQsUFVULFBBVENILFBPU1QsREVMRVRFIgogIH0sCiAgImZyYW1lQWxsb3dlZCI6IHRydWUsCiAgImNhdmVhdCI6ICJMb2NhbCBzaW11bGF0b3IvY29udHJvbCBBUEkgZXhwbGljaXRseSBoYXMgbm8gYXV0aGVudGljYXRpb24gYnkgZGVzaWduLiBNaXNzaW5nIGhhcmRlbmluZyBpcyBhZHZpc29yeSwgbm90IGFuIGF1dGggcmVncmVzc2lvbi4iCn0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S17-security-posture-S17-s-de7c0--security-posture-inventory-desktop/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S17-security-posture-S17-s-de7c0--security-posture-inventory-desktop/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S17-security-posture-S17-s-de7c0--security-posture-inventory-desktop/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f9668ac09cc96f971a60-6f9f54b237923d0d7cbd",
+          "file": "S17-security-posture.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "S17 @security @advisory localhost security posture inventory",
+          "ok": true,
+          "tags": [
+            "security",
+            "advisory"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4315,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:49:15.064Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "security-posture.json",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbnZlbnRvcnkiOiBbCiAgICB7CiAgICAgICJ1cmwiOiAiaHR0cDovL2xvY2FsaG9zdDo0MDEwLyIsCiAgICAgICJzdGF0dXMiOiAyMDAsCiAgICAgICJjc3AiOiBudWxsLAogICAgICAieEZyYW1lT3B0aW9ucyI6IG51bGwKICAgIH0sCiAgICB7CiAgICAgICJ1cmwiOiAiaHR0cDovL2xvY2FsaG9zdDo0MDAwL2Rhc2hib2FyZCIsCiAgICAgICJzdGF0dXMiOiAyMDAsCiAgICAgICJjc3AiOiBudWxsLAogICAgICAieEZyYW1lT3B0aW9ucyI6IG51bGwKICAgIH0KICBdLAogICJjb3JzUHJlZmxpZ2h0IjogewogICAgInN0YXR1cyI6IDIwNCwKICAgICJhbGxvd09yaWdpbiI6ICIqIiwKICAgICJhbGxvd01ldGhvZHMiOiAiR0VULEhFQUQsUFVULFBBVENILFBPU1QsREVMRVRFIgogIH0sCiAgImZyYW1lQWxsb3dlZCI6IHRydWUsCiAgImNhdmVhdCI6ICJMb2NhbCBzaW11bGF0b3IvY29udHJvbCBBUEkgZXhwbGljaXRseSBoYXMgbm8gYXV0aGVudGljYXRpb24gYnkgZGVzaWduLiBNaXNzaW5nIGhhcmRlbmluZyBpcyBhZHZpc29yeSwgbm90IGFuIGF1dGggcmVncmVzc2lvbi4iCn0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S17-security-posture-S17-s-de7c0--security-posture-inventory-desktop-repeat1/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S17-security-posture-S17-s-de7c0--security-posture-inventory-desktop-repeat1/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts/S17-security-posture-S17-s-de7c0--security-posture-inventory-desktop-repeat1/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f9668ac09cc96f971a60-47db6125d32245567b1d",
+          "file": "S17-security-posture.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "S17 @security @advisory localhost security posture inventory",
+          "ok": true,
+          "tags": [
+            "security",
+            "advisory"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "f9668ac09cc96f971a60-39981149084bb737fb56",
+          "file": "S17-security-posture.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-26T06:46:46.218Z",
+    "duration": 283469.767,
+    "expected": 6,
+    "skipped": 12,
+    "unexpected": 9,
+    "flaky": 0
+  }
+}

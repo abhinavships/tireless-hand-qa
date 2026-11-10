@@ -1,0 +1,20 @@
+[
+  {
+    "sourceSpecId": "155f77a9a6747f301e13-24ec269ed798a5fb74c7",
+    "scenario": "S00",
+    "project": "desktop",
+    "label": "mutant-M04",
+    "status": "failed",
+    "message": "Error: Every baseline drone must appear in the cockpit\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  locator('[data-testid^=\"device-row-drone-\"]')\nExpected: 4\nReceived: 3\nTimeout:  10000ms\n\nCall log:\n  - Every baseline drone must appear in the cockpit locator('[data-testid^=\"device-row-drone-\"]') with timeout 10000ms\n  - waiting for locator('[data-testid^=\"device-row-drone-\"]')\n    23 × locator resolved to 3 elements\n       - unexpected value \"3\"\n\n\n   8 |  await cockpit.open(); await cockpit.waitReady();\n   9 |  await narrate(page,'S00 · step 1 · connected fleet has four drones');\n> 10 |  await expect(page.locator('[data-testid^=\"device-row-drone-\"]'),'Every baseline drone must appear in the cockpit').toHaveCount(4);\n     |                                                                                                                     ^\n  11 |  await narrate(page,'S00 · step 2 · select drone and read numeric telemetry');\n  12 |  await cockpit.selectDrone(drones[0].id);\n  13 |  await expect.poll(async()=>{const t=await cockpit.readTelemetry();return [t.battery,t.altRlt,t.hspeed].every(v=>v!==null&&Number.isFinite(v));},{message:'Selected drone must show numeric battery, altitude and speed'}).toBe(true);\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S00-smoke.spec.ts:10:117",
+    "duration": 17330,
+    "title": "S00 · harness smoke: connected fleet, telemetry and live video",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.png",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.webm",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.md",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.zip"
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-087ea40a20fa632876f7",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "mutant-M12",
+    "status": "failed",
+    "message": "Error: Signed-out visitor can open protected route http://localhost:4010/settings\n\nSigned-out visitor can open protected route http://localhost:4010/settings\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n  18 |   const fresh=await context.newPage();const video=fresh.video();\n  19 |   try{const response=await fresh.goto(route.url);await narrate(fresh,'S11: fresh signed-out visitor must be denied protected content');\n> 20 |    await expect.poll(()=>response?.status()===401 || (route.loginRoute!==undefined && new URL(fresh.url()).pathname===new URL(route.loginRoute,route.url).pathname),{message:`Signed-out visitor can open protected route ${route.url}`}).toBe(true);\n     |                                                                                                                                                                                                                                           ^\n  21 |    if(route.protectedSelector)await expect(fresh.locator(route.protectedSelector),'Signed-out visitor must not see protected content').toHaveCount(0);\n  22 |   }finally{if(!fresh.isClosed()){const shot=info.outputPath('signed-out-settings.png');await fresh.screenshot({path:shot});await info.attach('signed-out-settings',{path:shot,contentType:'image/png'});}await context.close();if(video)await info.attach('signed-out-route-video',{path:await video.path(),contentType:'video/webm'});}\n  23 |  }\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts:20:235",
+    "duration": 11025,
+    "title": "S11 @security signed-out route guards (evaluator-ready)",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-1.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-video-1.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-2.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.md",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-81f3abb67e63aa83dd96",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "mutant-M12",
+    "status": "passed",
+    "message": "",
+    "duration": 616,
+    "title": "S11 @security sign-in required controls (evaluator-ready)",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.zip"
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "scenario": "S09",
+    "project": "desktop",
+    "label": "mutant-M10",
+    "status": "failed",
+    "message": "Error: Stored XSS: a drone name executes JavaScript in the cockpit, compromising the operator session\n\nStored XSS: a drone name executes JavaScript in the cockpit, compromising the operator session\n\nexpect(received).toBeUndefined()\n\nReceived: 1\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n  13 |    const marker=await page.evaluate(()=>Reflect.get(window,'__xss'));\n  14 |    if(marker!==undefined)await narrate(page,`S09 FAILED: drone name executed JavaScript on ${surface}; __xss=${marker}`);\n> 15 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n     |                                                                                                                                                                                        ^\n  16 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n  17 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  18 |   } finally {await api.removeDrone(drone.id);}\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:15:184",
+    "duration": 15243,
+    "title": "S09 @security cockpit renders payload 1 as text",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-1-as-text.png",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-1-as-text.webm",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-1-as-text.md",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-1-as-text.zip"
+    ]
+  },
+  {
+    "scenario": "S09",
+    "project": "desktop",
+    "label": "mutant-M10",
+    "status": "failed",
+    "message": "Error: Drone name is interpreted as HTML on cockpit rather than shown as literal operator text\n\nexpect(locator).toContainText(expected) failed\n\nLocator: getByTestId('device-row-drone-151')\nExpected substring: \"\\\"><svg onload=window.__xss=2>\"\nReceived string:    \"\\\">Dock 151dock closedstandby\"\nTimeout: 10000ms\n\nCall log:\n  - Drone name is interpreted as HTML on cockpit rather than shown as literal operator text getByTestId('device-row-drone-151') with timeout 10000ms\n  - waiting for getByTestId('device-row-drone-151')\n    23 × locator resolved to <li class=\"device-row \" data-testid=\"device-row-drone-151\">…</li>\n       - unexpected value \"\">Dock 151dock closedstandby\"\n\n\n  14 |    if(marker!==undefined)await narrate(page,`S09 FAILED: drone name executed JavaScript on ${surface}; __xss=${marker}`);\n  15 |    await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__xss')),{message:`Stored XSS: a drone name executes JavaScript in the ${surface}, compromising the operator session`}).toBeUndefined();\n> 16 |    await expect(row,`Drone name is interpreted as HTML on ${surface} rather than shown as literal operator text`).toContainText(name);\n     |                                                                                                                   ^\n  17 |    await expect(row.locator('img[src=\"x\"],svg[onload]'),'Operator-supplied name must not create executable HTML nodes').toHaveCount(0);\n  18 |   } finally {await api.removeDrone(drone.id);}\n  19 |  });\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S09-xss.spec.ts:16:115",
+    "duration": 14438,
+    "title": "S09 @security cockpit renders payload 2 as text",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-2-as-text.png",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-2-as-text.webm",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-2-as-text.md",
+      "desktop-r0-s09-xss-spec-ts-s09-security-cockpit-renders-payload-2-as-text.zip"
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "sourceSpecId": "60b635a94137ae7cbd04-62890b0d717ddfce8e74",
+    "scenario": "S13",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "passed",
+    "message": "",
+    "duration": 18383,
+    "title": "S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.json",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers-dashboard-axe-json-1.json",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.png",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.webm",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers-video-1.webm",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers-video-2.webm",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.zip"
+    ]
+  }
+]

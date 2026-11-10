@@ -1,0 +1,56 @@
+ product-frontend-1 Copying frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+ product-frontend-1 Copied frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+
+Running 1 test using 1 worker
+
+(node:17336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual (20.5s)
+
+
+  1) [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual 
+
+    Error: battery: operator sees 0, but API says 98.2 (allowed difference 2); telemetry may belong to the wrong drone or be stale
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 2
+    Received:    98.2
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      34 |         expectTelemetryMatchesState(displayed,{battery:state.battery,altRlt:state.height,altAgl:state.height},{battery:2,altRlt:2,altAgl:2});
+      35 |         expectTelemetryMatchesState(displayed,{battery:battery.percent,altRlt:position.position.height,altAsl:position.position.elevation,hspeed:position.speed.horizontal,vspeed:position.speed.vertical},{battery:2,altRlt:2,altAsl:2,hspeed:1,vspeed:1});
+    > 36 |       }).toPass({timeout:8_000,intervals:[100,200,300]});
+         |          ^
+      37 |     };
+      38 |     await narrate(page,'S03 · select flying drone: compare panel to API and raw socket');
+      39 |     await compareSelected(isolatedDrone.id,isolatedDrone.name);
+        at compareSelected (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S03-selected-telemetry.spec.ts:36:10)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S03-selected-telemetry.spec.ts:39:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-1790407082584-c3de06d5/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407082584-c3de06d5/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-1790407082584-c3de06d5/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-1790407082584-c3de06d5/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-1790407082584-c3de06d5/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual 
+Evidence collected for 1 scenarios (mutant-M05; RUN_ID=run-1790407082584-c3de06d5)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+ product-frontend-1 Copied frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx

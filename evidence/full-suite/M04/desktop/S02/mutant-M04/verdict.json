@@ -1,0 +1,8 @@
+{
+  "scenario": "S02",
+  "project": "desktop",
+  "label": "mutant-M04",
+  "status": "failed",
+  "message": "Error: Initial fleet: operators must see every API drone with its correct name and paired dock within 5 seconds",
+  "duration": 10010
+}

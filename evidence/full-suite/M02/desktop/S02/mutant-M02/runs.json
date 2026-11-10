@@ -1,0 +1,19 @@
+[
+  {
+    "sourceSpecId": "154886626a1970a4c7cf-42502b83d7e6f2249c6f",
+    "scenario": "S02",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "passed",
+    "message": "",
+    "duration": 11314,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s02-live-fleet-spec-ts-s02-functional-api-realtime-device-list-follows-fleet-additions-and-removals-without-reload.png",
+      "desktop-r0-s02-live-fleet-spec-ts-s02-functional-api-realtime-device-list-follows-fleet-additions-and-removals-without-reload.webm",
+      "desktop-r0-s02-live-fleet-spec-ts-s02-functional-api-realtime-device-list-follows-fleet-additions-and-removals-without-reload.zip"
+    ]
+  }
+]

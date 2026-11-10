@@ -1,0 +1,203 @@
+<title>Map Lab Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#eef2f0;--paper:#f8faf9;--ink:#15242a;--muted:#5b6b70;--line:#c9d4d2;--grid:#dde5e3;
+  --accent:#0b7489;--accent-soft:#d6ecef;--sab:#9a5bc4;--sab-soft:#efe4f6;--gpu:#b07412;--gpu-soft:#f6ecd8;
+  --ok:#1f8a55;--ok-soft:#dcf1e5;--bad:#c2412d;--bad-soft:#f7e0db;--warn:#a8780a;--warn-soft:#f6edd2;
+  --display:"Saira Condensed","Arial Narrow",sans-serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#0d1517;--paper:#132024;--ink:#e3ecec;--muted:#8fa2a6;--line:#27393e;--grid:#1a2a2e;
+  --accent:#4fc3d6;--accent-soft:#12343b;--sab:#c99af0;--sab-soft:#2b1f36;--gpu:#e7b04e;--gpu-soft:#33280f;
+  --ok:#5bd394;--ok-soft:#123324;--bad:#ff8a72;--bad-soft:#3a1c16;--warn:#f0c44f;--warn-soft:#352b10;}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#0d1517;--paper:#132024;--ink:#e3ecec;--muted:#8fa2a6;--line:#27393e;--grid:#1a2a2e;
+  --accent:#4fc3d6;--accent-soft:#12343b;--sab:#c99af0;--sab-soft:#2b1f36;--gpu:#e7b04e;--gpu-soft:#33280f;
+  --ok:#5bd394;--ok-soft:#123324;--bad:#ff8a72;--bad-soft:#3a1c16;--warn:#f0c44f;--warn-soft:#352b10;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--body);padding-inline:16px;padding-block:0 64px;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+.wrap{max-width:1180px;margin:0 auto}
+header{padding-block:40px 20px;display:grid;gap:10px}
+.eyebrow{font:600 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font:700 clamp(40px,7vw,72px)/.95 var(--display);margin:0;letter-spacing:.01em;text-wrap:balance}
+h2{font:700 30px/1.1 var(--display);margin:0 0 6px;letter-spacing:.02em;text-wrap:balance}
+h3{font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.lede{max-width:68ch;font-size:17px;color:var(--ink)}
+.lede b{color:var(--accent)}
+.kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 14px;display:grid}
+.kpi b{font:700 28px/1 var(--display);font-variant-numeric:tabular-nums}.kpi span{font-size:12.5px;color:var(--muted)}
+section{margin-top:40px;display:grid;gap:14px}
+.sheet{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:18px}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--body)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.cols p{margin:0 0 8px;max-width:65ch}
+code{font:13px var(--mono);background:var(--accent-soft);padding:1px 5px;border-radius:4px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.num{font:13px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.mx td,.mx th{text-align:center;padding:5px 4px}.mx td:first-child,.mx th:first-child{text-align:left}
+.cell{display:inline-block;width:22px;height:22px;border-radius:4px;line-height:22px;font:600 11px var(--mono)}
+.c-hit{background:var(--bad);color:var(--paper)}.c-exp{outline:2px solid var(--ink);outline-offset:1px}.c-find{background:var(--warn-soft);color:var(--warn)}.c-none{background:var(--grid)}
+.pill{display:inline-block;font:600 11px var(--mono);padding:2px 8px;border-radius:99px;letter-spacing:.04em}
+.p-ok{background:var(--ok-soft);color:var(--ok)}.p-bad{background:var(--bad-soft);color:var(--bad)}.p-warn{background:var(--warn-soft);color:var(--warn)}
+.formula{font:14px var(--mono);background:var(--accent-soft);border-radius:6px;padding:10px 12px;overflow-x:auto}
+ol.run{margin:0;padding-left:20px;display:grid;gap:6px}
+.note{font-size:13px;color:var(--muted);max-width:75ch}
+pre.cmd{font:13px/1.6 var(--mono);background:var(--ink);color:var(--paper);border-radius:6px;padding:12px 14px;overflow-x:auto;margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Tireless Hand · Level 2 niche · Maps &amp; geospatial</div>
+  <h1>Map Lab Blueprint</h1>
+  <p class="lede">A blind QA system that tests the FlytBase cockpit's <b>Cesium 3D map as a map</b>. It reads the live scene graph from outside the app, measures it against the WGS84 telemetry on the websocket, and uses tolerances it <b>learned from the clean build's own noise</b>. A separate saboteur process plants secret map bugs; the isolated inspector has to find them; a referee scores the result against a sha256 commitment.</p>
+  <div class="kpis" id="kpis"></div>
+</header>
+
+<section>
+  <div><h2>System design</h2><p class="note">Every box is a separate OS process. Arrows show what each one reads or writes. The QA side is never told which bug was planted; the referee opens the sealed answer only after QA has reported.</p></div>
+  <div class="sheet scroll">
+    <svg viewBox="0 0 1140 640" width="1140" height="640" role="img" aria-labelledby="sdT sdD">
+      <title id="sdT">Map Lab system design</title>
+      <desc id="sdD">Saboteur patches the product. The product streams telemetry over socket.io to the cockpit. The QA side taps the websocket, reads the Cesium scene graph through the React fiber, learns tolerances on the clean build, and runs 15 map checks. The hub verifies the saboteur's sha256 commitment and scores the result.</desc>
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker>
+        <marker id="arS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--sab)"/></marker>
+        <marker id="arG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--gpu)"/></marker>
+        <marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+      </defs>
+      <!-- product band -->
+      <rect x="20" y="20" width="1100" height="130" rx="8" fill="var(--bg)" stroke="var(--line)"/>
+      <text x="36" y="44" font-size="12" font-weight="600" fill="var(--muted)" letter-spacing="1.5">PRODUCT UNDER TEST (docker compose, unmodified except by the saboteur)</text>
+      <rect x="40" y="60" width="200" height="70" rx="6" fill="var(--paper)" stroke="var(--line)"/><text x="140" y="90" text-anchor="middle" font-size="15" font-weight="600" fill="var(--ink)">Simulator</text><text x="140" y="110" text-anchor="middle" font-size="12" fill="var(--muted)">drones · docks · faults</text>
+      <rect x="330" y="60" width="220" height="70" rx="6" fill="var(--paper)" stroke="var(--line)"/><text x="440" y="90" text-anchor="middle" font-size="15" font-weight="600" fill="var(--ink)">Backend :4000</text><text x="440" y="110" text-anchor="middle" font-size="12" fill="var(--muted)">REST control · socket.io</text>
+      <rect x="660" y="60" width="440" height="70" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="1.5"/><text x="880" y="88" text-anchor="middle" font-size="15" font-weight="600" fill="var(--ink)">Cockpit :4010 · CesiumMap.tsx</text><text x="880" y="108" text-anchor="middle" font-size="12" fill="var(--muted)">entities · model heading · height labels · tracks · camera</text>
+      <line x1="240" y1="95" x2="326" y2="95" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ar)"/>
+      <line x1="550" y1="95" x2="656" y2="95" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ar)"/><text x="603" y="86" text-anchor="middle" font-size="11" fill="var(--muted)">WGS84 telemetry</text>
+
+      <!-- saboteur -->
+      <rect x="20" y="200" width="220" height="150" rx="8" fill="var(--sab-soft)" stroke="var(--sab)"/>
+      <text x="36" y="226" font-size="12" font-weight="600" fill="var(--sab)" letter-spacing="1.5">SABOTEUR</text>
+      <text x="36" y="250" font-size="13" fill="var(--ink)">Picks MAP01–15 or none</text>
+      <text x="36" y="270" font-size="13" fill="var(--ink)">git apply + docker cp</text>
+      <text x="36" y="290" font-size="13" fill="var(--ink)">strips lab markers</text>
+      <text x="36" y="314" font-size="12" fill="var(--muted)">publishes only</text>
+      <text x="36" y="332" font-size="12" font-family="var(--mono)" fill="var(--sab)">sha256(id:salt)</text>
+      <path d="M130 200 C130 170 820 175 860 134" fill="none" stroke="var(--sab)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arS)"/><text x="470" y="172" font-size="11" fill="var(--sab)">plants a secret map bug</text>
+
+      <!-- QA side -->
+      <rect x="280" y="200" width="840" height="300" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+      <text x="296" y="226" font-size="12" font-weight="600" fill="var(--accent)" letter-spacing="1.5">QA SIDE · BLIND (never told the bug)</text>
+      <rect x="300" y="244" width="180" height="96" rx="6" fill="var(--paper)" stroke="var(--line)"/><text x="390" y="268" text-anchor="middle" font-size="14" font-weight="600" fill="var(--ink)">Wire tap</text><text x="390" y="288" text-anchor="middle" font-size="12" fill="var(--muted)">every socket.io frame</text><text x="390" y="306" text-anchor="middle" font-size="12" fill="var(--muted)">the browser received,</text><text x="390" y="324" text-anchor="middle" font-size="12" fill="var(--muted)">with arrival time</text>
+      <rect x="500" y="244" width="190" height="96" rx="6" fill="var(--paper)" stroke="var(--line)"/><text x="595" y="268" text-anchor="middle" font-size="14" font-weight="600" fill="var(--ink)">Scene anatomy</text><text x="595" y="288" text-anchor="middle" font-size="12" fill="var(--muted)">React fiber → Viewer</text><text x="595" y="306" text-anchor="middle" font-size="12" fill="var(--muted)">entities, quaternions,</text><text x="595" y="324" text-anchor="middle" font-size="12" fill="var(--muted)">drillPick, camera ray</text>
+      <rect x="710" y="244" width="190" height="96" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="1.5"/>
+      <rect x="920" y="244" width="180" height="96" rx="6" fill="var(--paper)" stroke="var(--line)"/><text x="1010" y="268" text-anchor="middle" font-size="14" font-weight="600" fill="var(--ink)">CDP :9222</text><text x="1010" y="288" text-anchor="middle" font-size="12" fill="var(--muted)">same browser exposed</text><text x="1010" y="306" text-anchor="middle" font-size="12" fill="var(--muted)">to DevTools while</text><text x="1010" y="324" text-anchor="middle" font-size="12" fill="var(--muted)">QA runs (HEADLESS=0)</text><text x="805" y="268" text-anchor="middle" font-size="14" font-weight="600" fill="var(--ink)">Learner v2</text><text x="805" y="288" text-anchor="middle" font-size="12" fill="var(--muted)">calibration flight</text><text x="805" y="306" text-anchor="middle" font-size="12" fill="var(--muted)">noise → tolerances</text><text x="805" y="324" text-anchor="middle" font-size="12" fill="var(--muted)">icons · pitch · latency</text>
+      <rect x="300" y="360" width="800" height="120" rx="6" fill="var(--paper)" stroke="var(--line)"/>
+      <text x="316" y="384" font-size="14" font-weight="600" fill="var(--ink)">Blind map inspector · 15 checks (map/inspector.ts)</text>
+      <text x="316" y="406" font-size="12" fill="var(--muted)">G1 on map · G2 position · G3 height/datum · G4 heading · G5 label · G6 map vs panel distance · G7 track</text>
+      <text x="316" y="426" font-size="12" fill="var(--muted)">G8 visible + clickable · G9 camera follows · G10 selection style · G11 2D/3D pitch · G12 ghosts</text>
+      <text x="316" y="446" font-size="12" fill="var(--muted)">G13 stale docks · G14 wire→map latency (learned) · G15 icon census: one known icon per device, nothing extra</text>
+      <text x="316" y="468" font-size="12" font-family="var(--mono)" fill="var(--accent)">pass ⇔ |screen − wire| ≤ learned tolerance</text>
+      <line x1="390" y1="340" x2="390" y2="356" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#arA)"/>
+      <line x1="595" y1="340" x2="595" y2="356" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#arA)"/>
+      <line x1="795" y1="340" x2="795" y2="356" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#arA)"/><text x="802" y="352" font-size="10" fill="var(--accent)">map-model.json</text>
+      <line x1="390" y1="244" x2="600" y2="134" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#ar)"/><text x="470" y="200" font-size="11" fill="var(--muted)">taps</text>
+      <line x1="595" y1="244" x2="760" y2="134" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#ar)"/><text x="655" y="196" font-size="11" fill="var(--muted)">reads scene</text>
+
+      <!-- hub -->
+      <rect x="20" y="540" width="1100" height="80" rx="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+      <text x="36" y="566" font-size="12" font-weight="600" fill="var(--ink)" letter-spacing="1.5">REFEREE · map/trial.ts</text>
+      <text x="36" y="590" font-size="13" fill="var(--ink)">Opens the sealed answer only after QA reports · verifies sha256(id:salt) · scores CAUGHT / MISSED / FALSE ALARM · reverts the bug</text>
+      <text x="36" y="608" font-size="12" fill="var(--muted)">npm run map:trial [MAPxx | none]  ·  results appended to map/out/trials.jsonl</text>
+      <line x1="130" y1="350" x2="130" y2="536" stroke="var(--sab)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arS)"/><text x="138" y="450" font-size="11" fill="var(--sab)">sealed answer</text>
+      <line x1="590" y1="500" x2="590" y2="536" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#arA)"/><text x="598" y="522" font-size="11" fill="var(--accent)">verdict</text>
+    </svg>
+  </div>
+  <div class="legend"><span><i style="background:var(--accent)"></i>Deterministic QA (decides)</span><span><i style="background:var(--sab)"></i>Saboteur (secret)</span><span><i style="background:var(--muted)"></i>Product data flow</span></div>
+</section>
+
+<section>
+  <div><h2>Learner v2: tolerances from the build's own noise</h2><p class="note">The old learner recorded icons and camera pitch, and the inspector used hand-picked thresholds (1 m, 2°, 3 m). The new learner flies a probe drone for a calibration flight, samples the scene graph about 8 times a second against the wire, and learns each metric's error distribution on the known-good build.</p></div>
+  <div class="cols">
+    <div class="sheet">
+      <h3>Rule</h3>
+      <div class="formula">tolerance = max(floor, p99 × 1.5 + margin)</div>
+      <p class="note" style="margin-top:10px">Accuracy is measured against the frame the map is actually showing, and latency is measured separately, so a slow map does not look like an inaccurate one.</p>
+    </div>
+    <div class="sheet scroll">
+      <h3>Learned on the clean build</h3>
+      <table id="cal"><thead><tr><th>Metric</th><th>n</th><th>p50</th><th>p99</th><th>Tolerance</th><th>Old</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div><h2>Proof matrix: every planted map bug</h2><p class="note">Rows are builds (one secret bug each, plus a clean control). A red cell means the check failed on that build. An outlined cell is the check the bug was designed to hit. Amber G13 is a real product finding on the clean build: stale docks keep the online icon.</p></div>
+  <div class="sheet scroll"><table class="mx" id="mx"></table></div>
+</section>
+
+<section>
+  <div><h2>Is the learner worth it?</h2><p class="note">Measured, not assumed. On this build the map is drawn exactly (0 m, 0°), so the learned position, heading and height tolerances fall back to their floors; there the learner adds little over constants. It matters in two places: it learns the icon set and camera pitch (G10, G11, G15 need them without hard-coding assets), and it measures wire-to-map latency against the telemetry interval. MAP14 draws every position correctly, just one message late; only G14, which uses the learned latency, catches it.</p></div>
+</section>
+
+<section class="cols">
+  <div class="sheet">
+    <h2>Run the demo</h2>
+    <pre class="cmd">cd qa
+npm run map:learn               # once, on the clean build
+npm run map:trial               # secret random bug vs blind QA
+npm run map:trial -- MAP04      # a specific bug · none = control
+HEADLESS=0 npm run map:trial    # watch it; CDP on :9222</pre>
+  </div>
+  <div class="sheet">
+    <h2>Why it's niche</h2>
+    <ol class="run">
+      <li>It tests geodesy, not DOM text: great-circle distance, quaternion heading against local east/north, geoid vs ellipsoid height.</li>
+      <li>It reads Cesium's scene graph with no product changes, through the React fiber on the map canvas.</li>
+      <li>It measures wire-to-map latency per message, which catches a map that is always one message behind even though every drawn position is a real one.</li>
+      <li>The bug planter and the tester are separate processes; the tester only sees the product, never the patch.</li>
+    </ol>
+  </div>
+</section>
+</div>
+
+<script>
+const DATA = /*DATA*/null;
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+if (DATA) {
+  const checks = Array.from({ length: 15 }, (_, i) => 'G' + (i + 1));
+  const rows = DATA.matrix;
+  const bugs = rows.filter((r) => r.id !== 'none');
+  const caught = bugs.filter((r) => (r.failures || []).length).length;
+  const control = rows.find((r) => r.id === 'none');
+  
+  $('#kpis').innerHTML = [
+    [caught + '/' + bugs.length, 'planted map bugs caught'],
+    [control ? ((control.failures || []).length ? 'false alarm' : '0') : '?', 'false alarms on the clean build'],
+    ['15', 'map checks'],
+    
+  ].map(([b, s]) => '<div class="kpi"><b>' + esc(b) + '</b><span>' + esc(s) + '</span></div>').join('');
+  const old = { posErr: '1 m', headingErr: '2°', heightErr: '1 m', distErr: '3 m', trackGap: '3 m', latency: 'none', cadence: '', speed: '' };
+  const label = { posErr: 'Position error', headingErr: 'Heading error', heightErr: '3D height error', distErr: 'Map vs panel distance', trackGap: 'Track end gap', latency: 'Wire → map latency', cadence: 'Telemetry interval', speed: 'Probe speed' };
+  const cal = DATA.model.cal || {};
+  $('#cal tbody').innerHTML = Object.keys(label).filter((k) => cal[k]).map((k) => { const s = cal[k]; const ctx = k === 'cadence' || k === 'speed';
+    return '<tr><td>' + label[k] + '</td><td class="num">' + s.n + '</td><td class="num">' + s.p50 + ' ' + s.unit + '</td><td class="num">' + s.p99 + ' ' + s.unit + '</td><td class="num">' + (ctx ? '<span class="note">context</span>' : '<b>' + s.tol + ' ' + s.unit + '</b>') + '</td><td class="num">' + (old[k] || '') + '</td></tr>'; }).join('');
+  $('#mx').innerHTML = '<thead><tr><th>Build</th>' + checks.map((c) => '<th>' + c + '</th>').join('') + '<th>Result</th></tr></thead><tbody>' + rows.map((r) => {
+    const f = new Set((r.failures || []).map((x) => x.id)); const fi = new Set((r.findings || []).map((x) => x.id)); const exp = new Set(DATA.expect[r.id] || []);
+    const hit = [...exp].some((e) => f.has(e));
+    const res = r.id === 'none' ? (f.size ? '<span class="pill p-bad">FALSE ALARM</span>' : '<span class="pill p-ok">CLEAN</span>') : hit ? '<span class="pill p-ok">CAUGHT</span>' : f.size ? '<span class="pill p-warn">OTHER CHECK</span>' : '<span class="pill p-bad">MISSED</span>';
+    const msg = (r.failures || []).map((x) => x.id + ': ' + x.message).join('\n');
+    return '<tr title="' + esc(msg) + '"><td><b>' + esc(r.id === 'none' ? 'clean' : r.id) + '</b><div class="note">' + esc(r.desc || 'no bug planted') + '</div></td>' + checks.map((c) => '<td><span class="cell ' + (f.has(c) ? 'c-hit' : fi.has(c) ? 'c-find' : 'c-none') + (exp.has(c) ? ' c-exp' : '') + '">' + (f.has(c) ? '✖' : fi.has(c) ? '!' : '') + '</span></td>').join('') + '<td>' + res + '</td></tr>';
+  }).join('') + '</tbody>';
+}
+</script>

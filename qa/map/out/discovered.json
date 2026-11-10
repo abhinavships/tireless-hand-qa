@@ -1,0 +1,381 @@
+{
+ "model": "qwen2.5-coder:7b-instruct",
+ "at": "2026-09-26T11:42:58.659Z",
+ "kept": [
+  {
+   "title": "Drone position",
+   "why": "Drone drawn at its reported position",
+   "entity": "drone",
+   "target": "self",
+   "type": "position",
+   "observable": "position",
+   "lon": "global_position.position.longitude",
+   "lat": "global_position.position.latitude",
+   "angle": false,
+   "tolerance": 1,
+   "id": "D1"
+  },
+  {
+   "title": "Drone height",
+   "why": "Drone's height above ground matches reported altitude",
+   "entity": "drone",
+   "target": "self",
+   "type": "number",
+   "observable": "height",
+   "wire": "global_position.position.height",
+   "angle": false,
+   "tolerance": 1,
+   "id": "D2"
+  },
+  {
+   "title": "Drone heading",
+   "why": "Drone's model orientation matches reported heading",
+   "entity": "drone",
+   "target": "self",
+   "type": "number",
+   "observable": "heading",
+   "wire": "attitude.yaw",
+   "angle": true,
+   "tolerance": 2,
+   "id": "D3"
+  },
+  {
+   "title": "Drone track position",
+   "why": "Drone's flight track shows last point at reported position",
+   "entity": "drone",
+   "target": "track",
+   "type": "position",
+   "observable": "position",
+   "lon": "global_position.position.longitude",
+   "lat": "global_position.position.latitude",
+   "angle": false,
+   "tolerance": 1,
+   "id": "D4"
+  },
+  {
+   "title": "Dock position",
+   "why": "Dock drawn at its reported position",
+   "entity": "dock",
+   "target": "self",
+   "type": "position",
+   "observable": "position",
+   "lon": "dock.dock_location.longitude",
+   "lat": "dock.dock_location.latitude",
+   "angle": false,
+   "tolerance": 1,
+   "id": "D5"
+  },
+  {
+   "title": "Drone label text",
+   "why": "drone label shows name and status",
+   "entity": "drone",
+   "target": "self",
+   "type": "text",
+   "observable": "label",
+   "angle": false,
+   "template": "{name} {flight_status.flight_status}",
+   "tolerance": 0,
+   "id": "D6"
+  },
+  {
+   "title": "Drone Height Line",
+   "why": "The drone's height line should connect its reported position to the ground",
+   "entity": "drone",
+   "target": "hline",
+   "type": "position",
+   "observable": "height",
+   "lon": "global_position.position.longitude",
+   "lat": "global_position.position.latitude",
+   "wire": "global_position.position.height",
+   "angle": false,
+   "tolerance": 1,
+   "id": "D7"
+  },
+  {
+   "title": "Drone Height Line End Points",
+   "why": "height line drawn at the drone",
+   "entity": "drone",
+   "target": "hline",
+   "type": "position",
+   "observable": "position",
+   "lon": "global_position.position.longitude",
+   "lat": "global_position.position.latitude",
+   "tolerance": 1,
+   "angle": false,
+   "id": "D8"
+  }
+ ],
+ "rejected": [
+  {
+   "check": {
+    "title": "Drone label text",
+    "why": "Drone's label shows correct status and name",
+    "entity": "drone",
+    "target": "self",
+    "type": "text",
+    "observable": "label",
+    "wire": "flight_status.flight_status",
+    "angle": false,
+    "template": "{name} {topic.path}",
+    "tolerance": 0,
+    "id": "D4"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Drone track height",
+    "why": "Drone's flight track shows correct altitude",
+    "entity": "drone",
+    "target": "track",
+    "type": "number",
+    "observable": "height",
+    "wire": "global_position.position.height",
+    "angle": false,
+    "tolerance": 1,
+    "id": "D6"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock height",
+    "why": "Dock's reported altitude matches its height label",
+    "entity": "dock",
+    "target": "hlabel",
+    "type": "number",
+    "observable": "height",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "template": "{topic.path} ASL",
+    "tolerance": 1,
+    "id": "D8"
+   },
+   "why": "false on the clean build 64/64 times, e.g. Dock 1: map shows 0.0, check expected 560 (off by 560.0)",
+   "evidence": "Dock 1: map shows 0.0, check expected 560 (off by 560.0)"
+  },
+  {
+   "check": {
+    "title": "Dock height line position",
+    "why": "Dock's vertical height line shows correct altitude",
+    "entity": "dock",
+    "target": "hline",
+    "type": "position",
+    "observable": "height",
+    "lon": "dock.dock_location.longitude",
+    "lat": "dock.dock_location.latitude",
+    "angle": false,
+    "tolerance": 1,
+    "id": "D9"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock height line ends above ground",
+    "why": "Dock's vertical height line ends at correct altitude above ground",
+    "entity": "dock",
+    "target": "hline",
+    "type": "number",
+    "observable": "top_height",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "template": "{topic.path} ASL",
+    "tolerance": 1,
+    "id": "D10"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock height line ends below ground",
+    "why": "Dock's vertical height line ends at correct altitude below ground",
+    "entity": "dock",
+    "target": "hline",
+    "type": "number",
+    "observable": "bottom_height",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "template": "{topic.path} ASL",
+    "tolerance": 1,
+    "id": "D11"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock count of track points",
+    "why": "Dock's flight track shows correct number of points",
+    "entity": "dock",
+    "target": "track",
+    "type": "number",
+    "observable": "count",
+    "angle": false,
+    "template": "{topic.path}",
+    "tolerance": 0,
+    "id": "D12"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Drone track position",
+    "why": "drone flight track ends at last point",
+    "entity": "drone",
+    "target": "track",
+    "type": "position",
+    "observable": "position",
+    "wire": "global_position.position.longitude,global_position.position.latitude,global_position.position.height",
+    "angle": false,
+    "tolerance": 1,
+    "id": "D14"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock height",
+    "why": "dock height equals reported height",
+    "entity": "dock",
+    "target": "self",
+    "type": "number",
+    "observable": "height",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "tolerance": 0.1,
+    "id": "D15"
+   },
+   "why": "false on the clean build 64/64 times, e.g. Dock 1: map shows 0.0, check expected 560 (off by 560.0)",
+   "evidence": "Dock 1: map shows 0.0, check expected 560 (off by 560.0)"
+  },
+  {
+   "check": {
+    "title": "Dock label text",
+    "why": "dock label shows name and altitude",
+    "entity": "dock",
+    "target": "self",
+    "type": "text",
+    "observable": "label",
+    "angle": false,
+    "template": "{name} {dock.dock_location.altitude} m ASL",
+    "tolerance": 0,
+    "id": "D16"
+   },
+   "why": "false on the clean build 64/64 times, e.g. Dock 1: map shows \"Dock 1\", check expected \"Dock 1 560 m ASL\"",
+   "evidence": "Dock 1: map shows \"Dock 1\", check expected \"Dock 1 560 m ASL\""
+  },
+  {
+   "check": {
+    "title": "Dock height line position",
+    "why": "height line ends at reported altitude",
+    "entity": "dock",
+    "target": "hline",
+    "type": "position",
+    "observable": "top_height",
+    "lon": "dock.dock_location.longitude",
+    "lat": "dock.dock_location.latitude",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "tolerance": 0.1,
+    "id": "D17"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Drone Height Label",
+    "why": "The drone's height label should show its reported height above the ground",
+    "entity": "drone",
+    "target": "hlabel",
+    "type": "text",
+    "observable": "height",
+    "wire": "global_position.position.height",
+    "angle": false,
+    "template": "{topic.path|round} m ASL",
+    "tolerance": 0,
+    "id": "D18"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock Height Label",
+    "why": "The dock's height label should show its reported height above the ground",
+    "entity": "dock",
+    "target": "hlabel",
+    "type": "text",
+    "observable": "height",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "template": "{topic.path|round} m ASL",
+    "tolerance": 0,
+    "id": "D20"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock Height Line",
+    "why": "The dock's height line should connect its reported position to the ground",
+    "entity": "dock",
+    "target": "hline",
+    "type": "position",
+    "observable": "height",
+    "lon": "dock.dock_location.longitude",
+    "lat": "dock.dock_location.latitude",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "tolerance": 1,
+    "id": "D21"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock height",
+    "why": "dock height equals reported height",
+    "entity": "dock",
+    "target": "self",
+    "type": "number",
+    "observable": "height",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "tolerance": 0.1,
+    "id": "R2"
+   },
+   "why": "false on the clean build 64/64 times, e.g. Dock 1: map shows 0.0, check expected 560 (off by 560.0)",
+   "evidence": "Dock 1: map shows 0.0, check expected 560 (off by 560.0)"
+  },
+  {
+   "check": {
+    "title": "Dock label text",
+    "why": "dock label shows name and altitude",
+    "entity": "dock",
+    "target": "self",
+    "type": "text",
+    "observable": "label",
+    "wire": "{name} {dock.dock_location.altitude} m ASL",
+    "angle": false,
+    "tolerance": 0,
+    "id": "R3"
+   },
+   "why": "could not be evaluated (64 not applicable)"
+  },
+  {
+   "check": {
+    "title": "Dock height",
+    "why": "Dock's reported altitude matches its height label",
+    "entity": "dock",
+    "target": "hlabel",
+    "type": "number",
+    "observable": "height",
+    "wire": "dock.dock_location.altitude",
+    "angle": false,
+    "template": "{topic.path} ASL",
+    "tolerance": 1000,
+    "id": "D9"
+   },
+   "why": "tolerance 1000 is too loose to ever fail (max 5)"
+  }
+ ]
+}

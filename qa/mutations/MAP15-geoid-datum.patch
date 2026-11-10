@@ -1,0 +1,14 @@
+# MAP15 | Map & geospatial | targets: map | Sea-level (geoid) altitude drawn as WGS84 ellipsoid height: drone drawn tens of metres off (geoid undulation)
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..4fcfe49 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -269,7 +269,7 @@ function syncEntities(
+     const home = dd?.global_position?.home_position;
+     const homeGround = home ? groundHeight(viewer, ground, `home:${device.id}`, home.longitude, home.latitude) : 0;
+     const offset = homeGround - (pos.elevation - pos.height);
+-    const droneH = pos.elevation + offset;
++    const droneH = pos.elevation;
+     const groundBelow = groundHeight(viewer, ground, `below:${device.id}`, pos.longitude, pos.latitude);
+     const entity = viewer.entities.getOrCreateEntity(device.id);
+     entity.position = new Cesium.ConstantPositionProperty(Cesium.Cartesian3.fromDegrees(pos.longitude, pos.latitude, droneH));

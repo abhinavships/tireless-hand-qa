@@ -1,0 +1,93 @@
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+
+Running 2 tests using 1 worker
+
+(node:71990) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S05-offline-truth.spec.ts:6:1 › S05(a) simulator offline does not falsify status @telemetry @network (1.0m)
+(node:72717) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop] › scenarios/S05-offline-truth.spec.ts:53:1 › S05(c) new drone without telemetry never claims active flight @telemetry @network (1.0m)
+
+
+  1) [desktop] › scenarios/S05-offline-truth.spec.ts:6:1 › S05(a) simulator offline does not falsify status @telemetry @network 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByTestId('device-row-drone-242')
+
+
+       at ../lib/cockpit.ts:14
+
+      12 |  async waitRow(id:string) { await expect(this.page.getByTestId(`device-row-${id}`),`Fleet row ${id} must appear in the cockpit`).toBeVisible(); }
+      13 |  /** Select a drone through the same row an operator clicks. */
+    > 14 |  async selectDrone(id:string) { await this.page.getByTestId(`device-row-${id}`).click(); await expect(this.page.getByTestId(`device-row-${id}`)).toHaveClass(/selected/); }
+         |                                                                                 ^
+      15 |  /** Read selected drone telemetry without silently converting missing values to zero. */
+      16 |  async readTelemetry():Promise<Telemetry> {
+      17 |   const ids={battery:'battery',altRlt:'alt-rlt',altAgl:'alt-agl',altAsl:'alt-asl',hspeed:'hspeed',vspeed:'vspeed',heading:'heading',wind:'wind',homeDistance:'home-distance'};
+        at Cockpit.selectDrone (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/cockpit.ts:14:81)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:13:66
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-a-si-67836-fy-status-telemetry-network-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › scenarios/S05-offline-truth.spec.ts:53:1 › S05(c) new drone without telemetry never claims active flight @telemetry @network 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.screenshot: Target page, context or browser has been closed
+
+      69 |   await testInfo.attach('no-telemetry-screen',{path:screen,contentType:'image/png'});
+      70 |  } catch(error) {
+    > 71 |   const screen=testInfo.outputPath('no-telemetry-screen.png');await page.screenshot({path:screen});
+         |                                                                          ^
+      72 |   await testInfo.attach('no-telemetry-screen',{path:screen,contentType:'image/png'});
+      73 |   throw error;
+      74 |  } finally {
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S05-offline-truth.spec.ts:71:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M04-1790409396-12738/artifacts/S05-offline-truth-S05-c-ne-3bea7-ve-flight-telemetry-network-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › scenarios/S05-offline-truth.spec.ts:6:1 › S05(a) simulator offline does not falsify status @telemetry @network 
+    [desktop] › scenarios/S05-offline-truth.spec.ts:53:1 › S05(c) new drone without telemetry never claims active flight @telemetry @network 
+Evidence collected for 1 scenarios (mutant-M04; RUN_ID=t05-M04-1790409396-12738)
+Evidence collected for 1 scenarios (mutant-M04; RUN_ID=t05-M04-1790409396-12738)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx

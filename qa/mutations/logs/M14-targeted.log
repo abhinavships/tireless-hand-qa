@@ -1,0 +1,80 @@
+ product-backend-1 Copying backend/public/dashboard.html to product-backend-1:/app/backend/public/dashboard.html
+ product-backend-1 Copied backend/public/dashboard.html to product-backend-1:/app/backend/public/dashboard.html
+
+Running 1 test using 1 worker
+
+(node:16329) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S13-accessibility-baseline.spec.ts:11:1 › S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers (4.4s)
+
+
+  1) [desktop] › scenarios/S13-accessibility-baseline.spec.ts:11:1 › S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers 
+
+    Error: Operators face new serious/critical accessibility barriers on dashboard; unnamed buttons cannot communicate their action
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "button-name (critical) at [\"#sim-start\"]: Fix any of the following:
+    +   Element does not have inner text that is visible to screen readers
+    +   aria-label attribute does not exist or is empty
+    +   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+    +   Element has no title attribute
+    +   Element does not have an implicit (wrapped) <label>
+    +   Element does not have an explicit <label>
+    +   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+    + ]
+
+      39 |     await info.attach(`${name}-axe.json`, { path: auditPath, contentType: 'application/json' });
+      40 |     await narrate(page, `S13: ${name} audit complete; ${unexpected.length} new serious/critical barriers.`);
+    > 41 |     expect(unexpected, `Operators face new serious/critical accessibility barriers on ${name}; unnamed buttons cannot communicate their action`).toEqual([]);
+         |                                                                                                                                                  ^
+      42 |   }
+      43 | });
+      44 |
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S13-accessibility-baseline.spec.ts:41:146
+
+    attachment #1: cockpit-axe.json (application/json) ─────────────────────────────────────────────
+    test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/attachments/cockpit-axe-json-96a80be9b651769795a18932b00355bd9755bd63.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: dashboard-axe.json (application/json) ───────────────────────────────────────────
+    test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/attachments/dashboard-axe-json-e29de51f3d6ec3040f78016d03abb5e544dcbf0c.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/video-2.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-1790407057635-06be8c0a/artifacts/S13-accessibility-baseline-2e691-ious-accessibility-barriers-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S13-accessibility-baseline.spec.ts:11:1 › S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers 
+Evidence collected for 1 scenarios (mutant-M14; RUN_ID=run-1790407057635-06be8c0a)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-backend-1 Copying backend/public/dashboard.html to product-backend-1:/app/backend/public/dashboard.html
+ product-backend-1 Copied backend/public/dashboard.html to product-backend-1:/app/backend/public/dashboard.html

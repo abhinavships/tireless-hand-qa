@@ -1,0 +1,18 @@
+# M13 | Functional | targets: S12 | Land action removed from control dashboard
+--- a/backend/public/dashboard.html
++++ b/backend/public/dashboard.html
+@@ -171,7 +171,7 @@
+         <td><span class="pill ${vid ? 'ok' : ''}">${vid ? 'on' : 'off'}</span></td>
+         <td class="row">
+           <button data-cmd="takeoff" data-id="${d.id}" ${inAir ? 'disabled' : ''} data-testid="dash-takeoff-${d.id}">Take off</button>
+-          <button data-cmd="land" data-id="${d.id}" ${inAir ? '' : 'disabled'} data-testid="dash-land-${d.id}">Land</button>
++          <!-- Land action omitted -->
+           <button data-video="${vid ? 'stop' : 'start'}" data-id="${d.id}">${vid ? 'Stop video' : 'Start video'}</button>
+           <button class="danger" data-remove="${d.id}">Remove</button>
+         </td></tr>`;
+@@ -244,3 +244,5 @@
+ </script>
+ </body>
+ </html>
++
++<!-- mutation-lab:M13 -->

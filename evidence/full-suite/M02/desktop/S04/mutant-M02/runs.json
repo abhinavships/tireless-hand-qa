@@ -1,0 +1,19 @@
+[
+  {
+    "sourceSpecId": "5b3abbdfe2ee3415e81c-8f76a6e532d6b94b3bbc",
+    "scenario": "S04",
+    "project": "desktop",
+    "label": "mutant-M02",
+    "status": "passed",
+    "message": "",
+    "duration": 28723,
+    "title": "S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s04-flight-workflow-spec-ts-s04-takeoff-cruise-and-landing-agree-across-list-panel-api-and-socket-functional-telemetry.png",
+      "desktop-r0-s04-flight-workflow-spec-ts-s04-takeoff-cruise-and-landing-agree-across-list-panel-api-and-socket-functional-telemetry.webm",
+      "desktop-r0-s04-flight-workflow-spec-ts-s04-takeoff-cruise-and-landing-agree-across-list-panel-api-and-socket-functional-telemetry.zip"
+    ]
+  }
+]

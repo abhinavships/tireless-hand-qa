@@ -1,0 +1,14 @@
+# MAP03 | Map & geospatial | targets: map | Drone model shrunk to an invisible, unclickable size
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..fcd3147 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -21,7 +21,7 @@ const DOCK_ICON = {
+ };
+ const DRONE_MODEL = { selected: 'assets/models/drone-model.glb', unselected: 'assets/models/unSelected-drone.glb' };
+ /* DEFAULT_DRONE_MODEL_STYLE in libs/shared/map devices-entities-sytles.ts */
+-const DRONE_MODEL_STYLE = { minimumPixelSize: 86, maximumScale: 300, scale: 1.0 };
++const DRONE_MODEL_STYLE = { minimumPixelSize: 0, maximumScale: 300, scale: 0.001 };
+ const DOCK_SCALE_BY_DISTANCE = new Cesium.NearFarScalar(500, 0.9, 8000, 0.4);
+ const STALE_AFTER_MS = 5000;
+ /* Height reference: dotted drop line to the ground plus a height label beside the device. */

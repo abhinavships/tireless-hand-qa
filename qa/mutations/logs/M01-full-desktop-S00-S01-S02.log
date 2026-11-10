@@ -1,0 +1,120 @@
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+
+Running 3 tests using 1 worker
+
+(node:45554) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S00-smoke.spec.ts:3:1 › S00 · harness smoke: connected fleet, telemetry and live video (33.5s)
+(node:46288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop] › scenarios/S01-shell-contract.spec.ts:4:1 › S01 @visual · required screen regions and actions remain reachable (18.6s)
+(node:46631) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [desktop] › scenarios/S02-live-fleet.spec.ts:36:1 › S02 @functional @api @realtime device list follows fleet additions and removals without reload (6.6s)
+
+
+  1) [desktop] › scenarios/S00-smoke.spec.ts:3:1 › S00 · harness smoke: connected fleet, telemetry and live video 
+
+    Error: Baseline drone video must be labelled live
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator: getByTestId('video-state')
+    Expected: "live"
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Baseline drone video must be labelled live getByTestId('video-state') with timeout 30000ms
+      - waiting for getByTestId('video-state')
+
+
+      13 |  await expect.poll(async()=>{const t=await cockpit.readTelemetry();return [t.battery,t.altRlt,t.hspeed].every(v=>v!==null&&Number.isFinite(v));},{message:'Selected drone must show numeric battery, altitude and speed'}).toBe(true);
+      14 |  await narrate(page,'S00 · step 3 · video reports live');
+    > 15 |  await expect(cockpit.videoLabel(),'Baseline drone video must be labelled live').toHaveText('live',{timeout:30_000});
+         |                                                                                  ^
+      16 | });
+      17 |
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S00-smoke.spec.ts:15:82
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408153-3730/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408153-3730/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M01-1790408153-3730/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408153-3730/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M01-1790408153-3730/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › scenarios/S01-shell-contract.spec.ts:4:1 › S01 @visual · required screen regions and actions remain reachable 
+
+    Error: Cockpit: operator cannot reach Video tile
+
+    Cockpit: Video tile missing; operator cannot access the video region
+
+    expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('video-player')
+    Expected: 1
+    Received: 0
+    Timeout:  2000ms
+
+    Call log:
+      - Cockpit: Video tile missing; operator cannot access the video region getByTestId('video-player') with timeout 2000ms
+      - waiting for getByTestId('video-player')
+        20 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at ../lib/ext/t02.ts:29
+
+      27 |    await expect(target,`${contract.name}: ${item.name} missing; operator cannot access the ${item.region} region`).toHaveCount(1,{timeout:2_000});
+      28 |    if(item.mustBeVisible||item.mustBeClickable) await expectVisibleAndUsable(target);
+    > 29 |   },`${contract.name}: operator cannot reach ${item.name}`).toPass({timeout:15_000});
+         |                                                             ^
+      30 |  }
+      31 | }
+      32 |
+        at checkContract (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/ext/t02.ts:29:61)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S01-shell-contract.spec.ts:11:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408153-3730/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408153-3730/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M01-1790408153-3730/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M01-1790408153-3730/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M01-1790408153-3730/artifacts/S01-shell-contract-S01-vis-7ee86-nd-actions-remain-reachable-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › scenarios/S00-smoke.spec.ts:3:1 › S00 · harness smoke: connected fleet, telemetry and live video 
+    [desktop] › scenarios/S01-shell-contract.spec.ts:4:1 › S01 @visual · required screen regions and actions remain reachable 
+  1 passed (1.0m)
+Evidence collected for 3 scenarios (mutant-M01; RUN_ID=t05-M01-1790408153-3730)
+Evidence collected for 3 scenarios (mutant-M01; RUN_ID=t05-M01-1790408153-3730)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx

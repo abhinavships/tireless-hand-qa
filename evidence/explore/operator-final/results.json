@@ -1,0 +1,191 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "explore/playwright.config.ts",
+      "operator.spec.ts",
+      "-g",
+      "add remove rapid",
+      "--repeat-each=2"
+    ],
+    "configFile": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore/playwright.config.ts",
+    "rootDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/operator-final/artifacts",
+        "repeatEach": 2,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/explore",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 420000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../evidence/explore/operator-final/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "operator.spec.ts",
+      "file": "operator.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T06 operator add remove rapid switch and phone",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 149005,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:57:22.289Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/operator-final/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/operator-final/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/operator-final/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-95d5c783efd1c26ad9f1",
+          "file": "operator.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "T06 operator add remove rapid switch and phone",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 78573,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-26T06:59:52.325Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/operator-final/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone-repeat1/test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/operator-final/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone-repeat1/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/explore/operator-final/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone-repeat1/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "078afe649bee3f2d7b39-c5903e2531913fd6a20d",
+          "file": "operator.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-26T06:57:21.730Z",
+    "duration": 230726.12099999998,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

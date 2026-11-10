@@ -1,0 +1,12 @@
+product/
+node_modules/
+evidence/**/*.webm
+evidence/**/*.zip
+qa/test-results/
+qa/playwright-report/
+.context/local/
+.context/locks/
+.build.log
+.env
+.context/sealed/
+.DS_Store

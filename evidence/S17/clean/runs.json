@@ -1,0 +1,18 @@
+[
+  {
+    "scenario": "S17",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 6424,
+    "title": "S17 @security @advisory localhost security posture inventory",
+    "repeat": 0,
+    "artifacts": [
+      "video.webm",
+      "trace.zip",
+      "screenshot.png",
+      "security-posture.json"
+    ]
+  }
+]

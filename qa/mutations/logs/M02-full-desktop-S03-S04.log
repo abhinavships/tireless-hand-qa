@@ -1,0 +1,16 @@
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+
+Running 2 tests using 1 worker
+
+(node:54196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual (1.2m)
+  ✓  2 [desktop] › scenarios/S04-flight-workflow.spec.ts:9:1 › S04 · takeoff, cruise and landing agree across list, panel, API and socket @functional @telemetry (28.7s)
+
+  2 passed (1.7m)
+Evidence collected for 2 scenarios (mutant-M02; RUN_ID=t05-M02-1790408505-19869)
+Evidence collected for 2 scenarios (mutant-M02; RUN_ID=t05-M02-1790408505-19869)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx

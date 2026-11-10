@@ -1,0 +1,11 @@
+{
+ "selectedModel": "assets/models/drone-model.glb",
+ "unselectedModel": "assets/models/unSelected-drone.glb",
+ "dockSelected": "assets/docks/online-selected-dock.svg",
+ "dockUnselected": "assets/docks/online-unselected-dock.svg",
+ "pitch2d": -90,
+ "pitch3d": -45,
+ "dockOffline": [],
+ "staleDocksGoOffline": false,
+ "learnedAt": "2026-09-26T10:19:52.815Z"
+}

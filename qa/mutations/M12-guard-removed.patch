@@ -1,0 +1,17 @@
+# M12 | Security | targets: S11 | AUTH_FIXTURE: signed-out visitor can open protected settings
+--- a/frontend/src/App.tsx
++++ b/frontend/src/App.tsx
+@@ -31,7 +31,6 @@
+ }
+ 
+ function SettingsPage() {
+-  if (sessionStorage.getItem(authSessionKey) !== 'signed-in') return <Navigate to="/login" replace />;
+   return <main data-testid="auth-settings" style={{ padding: 24 }}><h1>Protected settings</h1><button type="button">Save settings</button></main>;
+ }
+ 
+@@ -49,3 +48,5 @@
+ }
+ 
+ Object.assign(globalThis, { __authFixtureLab: 'mutation-lab:F-auth' });
++
++Object.assign(globalThis, { __mutationLab: 'mutation-lab:M12' });

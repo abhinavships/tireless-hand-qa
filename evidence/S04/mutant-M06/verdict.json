@@ -1,0 +1,8 @@
+{
+  "scenario": "S04",
+  "project": "desktop",
+  "label": "mutant-M06",
+  "status": "failed",
+  "message": "Error: Flight phase standby: device list and selected telemetry must agree with API/raw socket; a wrong phase misleads the operator",
+  "duration": 8698
+}

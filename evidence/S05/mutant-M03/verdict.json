@@ -1,0 +1,8 @@
+{
+  "scenario": "S05",
+  "project": "desktop",
+  "label": "mutant-M03",
+  "status": "failed",
+  "message": "Error: Offline drone list must preserve the last truthful grounded status, never invent in_flight/online",
+  "duration": 15643
+}

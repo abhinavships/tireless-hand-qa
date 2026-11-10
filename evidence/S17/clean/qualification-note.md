@@ -1,0 +1,1 @@
+Advisory inventory only: one recorded completed pass. Two later planned repeats did not execute because a concurrently added shared globalSetup path was unresolved in the private config. That path is now absolute. No security regression or 3x qualification claimed; no browser rerun performed during packaging.

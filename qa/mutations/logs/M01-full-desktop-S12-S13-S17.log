@@ -1,0 +1,17 @@
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+
+Running 3 tests using 1 worker
+
+(node:51721) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › scenarios/S12-dashboard-contract.spec.ts:6:1 › S12 @visual @functional control panel offers flight controls and takeoff reaches the cockpit (16.6s)
+  ✓  2 [desktop] › scenarios/S13-accessibility-baseline.spec.ts:11:1 › S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers (10.8s)
+  ✓  3 [desktop] › scenarios/S17-security-posture.spec.ts:4:1 › S17 @security @advisory localhost security posture inventory (3.6s)
+
+  3 passed (32.8s)
+Evidence collected for 3 scenarios (mutant-M01; RUN_ID=t05-M01-1790408425-19375)
+Evidence collected for 3 scenarios (mutant-M01; RUN_ID=t05-M01-1790408425-19375)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx
+ product-frontend-1 Copied frontend/src/pages/CockpitPage.tsx to product-frontend-1:/app/frontend/src/pages/CockpitPage.tsx

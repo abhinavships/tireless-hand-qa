@@ -1,0 +1,2 @@
+[   0.0s  section 1: title card + clean  (20.5s video, 28.6s speech)]
+Finding one. This is a real bug in the unmodified app. The test flies a drone, then stops all telemetry from reaching the screen. Five seconds later, the panel still shows the old numbers and the status in flight, with no warning that the data is stale. The test fails with the message: telemetry delivery stopped, but the operator still sees numeric values and in flight, without a stale or offline warning. Why it matters: a drone that is out of contact looks healthy and flying normally.

@@ -1,0 +1,18 @@
+# M14 | Accessibility | targets: S13 | Simulator start button loses accessible name
+--- a/backend/public/dashboard.html
++++ b/backend/public/dashboard.html
+@@ -45,7 +45,7 @@
+   <section>
+     <h2>Simulator</h2>
+     <div class="row">
+-      <button id="sim-start" class="primary" data-testid="dash-sim-start">Start</button>
++      <button id="sim-start" class="primary" data-testid="dash-sim-start"><span aria-hidden="true">▶</span></button>
+       <button id="sim-stop" data-testid="dash-sim-stop">Stop</button>
+       <button id="sim-reset" data-testid="dash-sim-reset">Reset</button>
+       <label>Speed <input id="speed" type="number" min="0.1" step="0.5" value="1" style="width:80px" data-testid="dash-speed" /></label>
+@@ -244,3 +244,5 @@
+ </script>
+ </body>
+ </html>
++
++<!-- mutation-lab:M14 -->

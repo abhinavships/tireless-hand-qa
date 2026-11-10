@@ -1,0 +1,113 @@
+[
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-087ea40a20fa632876f7",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 1055,
+    "title": "S11 @security signed-out route guards (evaluator-ready)",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-1.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-video-1.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-2.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-81f3abb67e63aa83dd96",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 946,
+    "title": "S11 @security sign-in required controls (evaluator-ready)",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.png",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.webm",
+      "desktop-r0-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-8b8493d3ddc21909b3d6",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 1059,
+    "title": "S11 @security signed-out route guards (evaluator-ready)",
+    "repeat": 1,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.png",
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.webm",
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-1.png",
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-video-1.webm",
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-2.png",
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-3182933d7422464a3e7f",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 611,
+    "title": "S11 @security sign-in required controls (evaluator-ready)",
+    "repeat": 1,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.png",
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.webm",
+      "desktop-r1-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-392bc5f95d6dee551822",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 907,
+    "title": "S11 @security signed-out route guards (evaluator-ready)",
+    "repeat": 2,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.png",
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.webm",
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-1.png",
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-video-1.webm",
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready-screenshot-2.png",
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-signed-out-route-guards-evaluator-ready.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "7f5e84f45b82859c7c1a-fe72b6f9535c3727e4bd",
+    "scenario": "S11",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 534,
+    "title": "S11 @security sign-in required controls (evaluator-ready)",
+    "repeat": 2,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.png",
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.webm",
+      "desktop-r2-s11-auth-contract-spec-ts-s11-security-sign-in-required-controls-evaluator-ready.zip"
+    ]
+  }
+]

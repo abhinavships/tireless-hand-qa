@@ -1,0 +1,8 @@
+{
+  "scenario": "S11",
+  "project": "desktop",
+  "label": "mutant-M12",
+  "status": "failed",
+  "message": "Error: Signed-out visitor can open protected route http://localhost:4010/settings",
+  "duration": 11641
+}

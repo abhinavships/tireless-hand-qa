@@ -1,0 +1,44 @@
+[   0.0s  intro card (frozen to fit)]
+This is Tireless Hand, our testing system for the FlytBase drone cockpit, Level 1. It opens the real cockpit at phone, tablet and desktop sizes, and checks that what the operator sees matches the true state from the server. To prove the tests work, we planted bugs on purpose: fifteen of sixteen were caught. We also found three real bugs: stale data shown as live, no separation between organisations, and unsafe drone names.
+
+[   2.5s  L1_S01_shell-contract (49.0s video)]
+The cockpit shell: every key part of the screen must be visible and usable. Both planted bugs, a missing video tile and a missing control panel link, are caught.
+
+[  51.5s  L1_S02_live-fleet (22.0s video)]
+The drone list must match the real fleet, live. A planted bug that hides a drone is caught.
+
+[  73.6s  L1_S03_selected-telemetry (64.8s video)]
+The telemetry panel must show the selected drone's real numbers. Planted battery bugs are caught.
+
+[ 138.4s  L1_S04_flight-workflow (50.9s video)]
+A full flight, take off to landing. Every status on screen must agree with the truth. Two planted status bugs are caught.
+
+[ 189.3s  L1_S05_offline-truth (57.3s video)]
+When the simulator goes offline, the screen must not invent a flying drone. Two planted bugs are caught, and one subtle bug is honestly reported as missed.
+
+[ 246.6s  L1_S06_socket-recovery (25.8s video)]
+The connection badge must say when the connection is lost, and recover on its own. A badge stuck on connected is caught.
+
+[ 272.4s  L1_S07_video-truth (35.0s video)]
+The video label must match real playback. A video labelled live while it is off is caught.
+
+[ 307.4s  L1_S08_responsive (17.9s video)]
+On phones and tablets, everything must stay reachable. Two planted layout bugs are caught.
+
+[ 325.3s  L1_S12_dashboard-contract (47.1s video)]
+The control panel must offer Take off and Land for every drone, and they must work. A missing Land button is caught.
+
+[ 372.4s  L1_S13_accessibility-baseline (25.1s video)]
+Every button must say what it does. An unnamed button is caught.
+
+[ 397.5s  L1_S09_xss (27.7s video)]
+Drone names must be shown as text, never run as code. A planted cockpit bug is caught.
+
+[ 425.2s  L1_F1_stale-telemetry (20.6s video)]
+Real bug one: when telemetry stops, the old numbers stay on screen as if they were live.
+
+[ 445.7s  L1_F2_org-isolation (15.0s video)]
+Real bug two: another organisation, or none at all, can read all live drone data.
+
+[ 460.7s  L1_F3_dashboard-xss (25.2s video)]
+Real bug three: the control panel runs code hidden in a drone name.

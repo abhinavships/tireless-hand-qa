@@ -1,0 +1,155 @@
+[
+  {
+    "scenario": "S01",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3313,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 0,
+    "sourceSpecId": "1b45742fd86809665f01-49b9486f1caa52376ac5",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-S01-0-0-0.png",
+      "desktop-r0-S01-0-0-1.webm",
+      "desktop-r0-S01-0-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S01",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3599,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 1,
+    "sourceSpecId": "1b45742fd86809665f01-fe3ed11248d3bb593727",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r1-S01-1-0-0.png",
+      "desktop-r1-S01-1-0-1.webm",
+      "desktop-r1-S01-1-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S01",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 4027,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 2,
+    "sourceSpecId": "1b45742fd86809665f01-11484376d672cafcdd36",
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r2-S01-2-0-0.png",
+      "desktop-r2-S01-2-0-1.webm",
+      "desktop-r2-S01-2-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S01",
+    "project": "tablet",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3296,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 0,
+    "sourceSpecId": "1b45742fd86809665f01-3804da7e2a80d92a124f",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r0-S01-3-0-0.png",
+      "tablet-r0-S01-3-0-1.webm",
+      "tablet-r0-S01-3-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S01",
+    "project": "tablet",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3543,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 1,
+    "sourceSpecId": "1b45742fd86809665f01-de9b1e771229f8afc07b",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r1-S01-4-0-0.png",
+      "tablet-r1-S01-4-0-1.webm",
+      "tablet-r1-S01-4-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S01",
+    "project": "tablet",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3294,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 2,
+    "sourceSpecId": "1b45742fd86809665f01-00bf5c196a46addd5558",
+    "attempt": 0,
+    "artifacts": [
+      "tablet-r2-S01-5-0-0.png",
+      "tablet-r2-S01-5-0-1.webm",
+      "tablet-r2-S01-5-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S01",
+    "project": "phone",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3096,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 0,
+    "sourceSpecId": "1b45742fd86809665f01-a55065a51320c750f5b4",
+    "attempt": 0,
+    "artifacts": [
+      "phone-r0-S01-6-0-0.png",
+      "phone-r0-S01-6-0-1.webm",
+      "phone-r0-S01-6-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S01",
+    "project": "phone",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3474,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 1,
+    "sourceSpecId": "1b45742fd86809665f01-a04c39acc82d720ed983",
+    "attempt": 0,
+    "artifacts": [
+      "phone-r1-S01-7-0-0.png",
+      "phone-r1-S01-7-0-1.webm",
+      "phone-r1-S01-7-0-2.zip"
+    ]
+  },
+  {
+    "scenario": "S01",
+    "project": "phone",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 3132,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 2,
+    "sourceSpecId": "1b45742fd86809665f01-f682b5812644d14961e8",
+    "attempt": 0,
+    "artifacts": [
+      "phone-r2-S01-8-0-0.png",
+      "phone-r2-S01-8-0-1.webm",
+      "phone-r2-S01-8-0-2.zip"
+    ]
+  }
+]

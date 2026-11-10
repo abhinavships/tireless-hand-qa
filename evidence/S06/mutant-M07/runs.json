@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S06",
+    "project": "desktop",
+    "label": "mutant-M07",
+    "status": "failed",
+    "message": "Error: Socket is disconnected/refused but operator is falsely told connected\n\nexpect(locator).not.toHaveText(expected) failed\n\nLocator:  getByTestId('socket-status')\nExpected: not \"socket connected\"\nReceived: \"socket connected\"\nTimeout:  5000ms\n\nCall log:\n  - Socket is disconnected/refused but operator is falsely told connected getByTestId('socket-status') with timeout 5000ms\n  - waiting for getByTestId('socket-status')\n    14 × locator resolved to <span title=\"Socket connection\" data-testid=\"socket-status\" class=\"badge badge-reconnecting\">socket connected</span>\n       - unexpected value \"socket connected\"\n\n\n  12 |   await api.fault({kind:'socket-refuse',seconds:15});\n  13 |   await expect.poll(()=>truth.socket.connected,{message:'Fault must disconnect the independent truth socket'}).toBe(false);\n> 14 |   await expect(cockpit.badge(),'Socket is disconnected/refused but operator is falsely told connected').not.toHaveText('socket connected',{timeout:5000});\n     |                                                                                                             ^\n  15 |   await narrate(page,'S06: clear refusal; socket and fresh telemetry must recover without a reload');\n  16 |   await api.clearFaults();\n  17 |   await expect(cockpit.badge(),'Socket badge must recover without operator reload').toHaveText('socket connected',{timeout:15000});\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S06-socket-recovery.spec.ts:14:109",
+    "duration": 10014,
+    "title": "S06 socket badge reports refusal and recovers without reload @network @visual",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s06-socket-recovery-spec-ts-s06-socket-badge-reports-refusal-and-recovers-without-reload-network-visual.png",
+      "desktop-r0-s06-socket-recovery-spec-ts-s06-socket-badge-reports-refusal-and-recovers-without-reload-network-visual.webm",
+      "desktop-r0-s06-socket-recovery-spec-ts-s06-socket-badge-reports-refusal-and-recovers-without-reload-network-visual.md",
+      "desktop-r0-s06-socket-recovery-spec-ts-s06-socket-badge-reports-refusal-and-recovers-without-reload-network-visual.zip"
+    ]
+  }
+]

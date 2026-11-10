@@ -1,0 +1,23 @@
+[
+  {
+    "scenario": "S13",
+    "project": "desktop",
+    "label": "mutant-M14",
+    "status": "failed",
+    "message": "Error: Operators face new serious/critical accessibility barriers on dashboard; unnamed buttons cannot communicate their action\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  -  1\n+ Received  + 10\n\n- Array []\n+ Array [\n+   \"button-name (critical) at [\\\"#sim-start\\\"]: Fix any of the following:\n+   Element does not have inner text that is visible to screen readers\n+   aria-label attribute does not exist or is empty\n+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n+   Element has no title attribute\n+   Element does not have an implicit (wrapped) <label>\n+   Element does not have an explicit <label>\n+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\n+ ]\n\n  39 |     await info.attach(`${name}-axe.json`, { path: auditPath, contentType: 'application/json' });\n  40 |     await narrate(page, `S13: ${name} audit complete; ${unexpected.length} new serious/critical barriers.`);\n> 41 |     expect(unexpected, `Operators face new serious/critical accessibility barriers on ${name}; unnamed buttons cannot communicate their action`).toEqual([]);\n     |                                                                                                                                                  ^\n  42 |   }\n  43 | });\n  44 |\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S13-accessibility-baseline.spec.ts:41:146",
+    "duration": 4413,
+    "title": "S13 @visual @a11y cockpit and control panel introduce no serious accessibility barriers",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.json",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers-dashboard-axe-json-1.json",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.png",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.webm",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers-video-1.webm",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers-video-2.webm",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.md",
+      "desktop-r0-s13-accessibility-baseline-spec-ts-s13-visual-a11y-cockpit-and-control-panel-introduce-no-serious-accessibility-barriers.zip"
+    ]
+  }
+]

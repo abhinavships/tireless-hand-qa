@@ -1,0 +1,37 @@
+[
+  {
+    "sourceSpecId": "3df8af9950ac331886cf-5ca48d61231c03d58234",
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "mutant-M01",
+    "status": "passed",
+    "message": "",
+    "duration": 6129,
+    "title": "S05(a) simulator offline does not falsify status @telemetry @network",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.png",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.webm",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-a-simulator-offline-does-not-falsify-status-telemetry-network.zip"
+    ]
+  },
+  {
+    "sourceSpecId": "3df8af9950ac331886cf-46ec58a0c8916bc5e754",
+    "scenario": "S05",
+    "project": "desktop",
+    "label": "mutant-M01",
+    "status": "passed",
+    "message": "",
+    "duration": 4178,
+    "title": "S05(c) new drone without telemetry never claims active flight @telemetry @network",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.png",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network-screenshot-1.png",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.webm",
+      "desktop-r0-s05-offline-truth-spec-ts-s05-c-new-drone-without-telemetry-never-claims-active-flight-telemetry-network.zip"
+    ]
+  }
+]

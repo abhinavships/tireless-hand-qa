@@ -1,0 +1,8 @@
+{
+  "scenario": "S08",
+  "project": "desktop",
+  "label": "mutant-M02",
+  "status": "failed",
+  "message": "Error: Operator cannot see the required control or region",
+  "duration": 29601
+}

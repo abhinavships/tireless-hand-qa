@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S00",
+    "project": "desktop",
+    "label": "clean",
+    "status": "failed",
+    "message": "Error: Smoke starting state requires the baseline fleet of four drones\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 4\nReceived: 5\n\n   5 |  expect(health.simulator,'Smoke requires the running simulator to be connected').toBe('connected');\n   6 |  const drones=(await api.devices()).devices.filter(d=>d.type==='drone');\n>  7 |  expect(drones.length,'Smoke starting state requires the baseline fleet of four drones').toBe(4);\n     |                                                                                          ^\n   8 |  await cockpit.open(); await cockpit.waitReady();\n   9 |  await narrate(page,'S00 · step 1 · connected fleet has four drones');\n  10 |  await expect(page.locator('[data-testid^=\"device-row-drone-\"]'),'Every baseline drone must appear in the cockpit').toHaveCount(4);\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S00-smoke.spec.ts:7:90",
+    "duration": 201,
+    "title": "S00 · harness smoke: connected fleet, telemetry and live video",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.png",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.webm",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.md",
+      "desktop-r0-s00-smoke-spec-ts-s00-harness-smoke-connected-fleet-telemetry-and-live-video.zip"
+    ]
+  }
+]

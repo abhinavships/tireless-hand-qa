@@ -1,0 +1,8 @@
+{
+  "scenario": "S05",
+  "project": "desktop",
+  "label": "mutant-M03b",
+  "status": "failed",
+  "message": "Error: A drone with no telemetry must show unknown/unavailable, never invented in_flight or online",
+  "duration": 16427
+}

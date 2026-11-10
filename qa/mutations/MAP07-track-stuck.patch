@@ -1,0 +1,15 @@
+# MAP07 | Map & geospatial | targets: map | Flight track stops growing after it is first drawn
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..b44283a 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -302,8 +302,8 @@ function syncEntities(
+       const positions = Cesium.Cartesian3.fromDegreesArrayHeights(track.flatMap(([lon, lat, asl]) => [lon, lat, asl + offset]));
+       if (!line.polyline) {
+         line.polyline = new Cesium.PolylineGraphics({ width: 2, material: COLOR_TRACK });
++        line.polyline.positions = new Cesium.ConstantProperty(positions);
+       }
+-      line.polyline.positions = new Cesium.ConstantProperty(positions);
+     }
+   }
+ 

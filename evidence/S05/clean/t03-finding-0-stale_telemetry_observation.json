@@ -1,0 +1,33 @@
+{
+  "faults": {
+    "faults": [
+      {
+        "kind": "socket-drop",
+        "until": 1790407037231,
+        "value": 100
+      }
+    ]
+  },
+  "truth": {
+    "id": "drone-139",
+    "status": "in_flight",
+    "latitude": 18.560887171293572,
+    "longitude": 73.89036868082212,
+    "height": 30,
+    "heading": 231,
+    "battery": 98.5
+  },
+  "visible": {
+    "battery": 99,
+    "altRlt": 30,
+    "altAgl": 30,
+    "altAsl": 590,
+    "hspeed": 10,
+    "vspeed": 0,
+    "heading": 231,
+    "wind": 3.9,
+    "homeDistance": 5
+  },
+  "flight": "in_flight",
+  "socket": "socket connected"
+}

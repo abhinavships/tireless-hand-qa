@@ -1,0 +1,14 @@
+# MAP12 | Map & geospatial | targets: map | Selected drone is drawn with the unselected style and vice versa
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..7be79c4 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -293,7 +293,7 @@ function syncEntities(
+         disableDepthTestDistance: Number.POSITIVE_INFINITY,
+       });
+     }
+-    entity.model!.uri = new Cesium.ConstantProperty(selected ? DRONE_MODEL.selected : DRONE_MODEL.unselected);
++    entity.model!.uri = new Cesium.ConstantProperty(selected ? DRONE_MODEL.unselected : DRONE_MODEL.selected);
+     entity.label!.text = new Cesium.ConstantProperty(`${device.name} ${status}`.trim());
+ 
+     const track = state.track[device.id];

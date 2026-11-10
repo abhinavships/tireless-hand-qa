@@ -1,0 +1,18 @@
+# M10 | Security | targets: S09 | Operator supplied name executes as HTML
+--- a/frontend/src/components/DeviceList.tsx
++++ b/frontend/src/components/DeviceList.tsx
+@@ -33,7 +33,7 @@
+               }}
+             >
+               <div className="device-main">
+-                <span className="device-name">{drone.name}</span>
++                <span className="device-name" dangerouslySetInnerHTML={{ __html: drone.name }} />
+                 {dock && <span className="device-sub">{dock.name}</span>}
+               </div>
+               <div className="device-pills">
+@@ -48,3 +48,5 @@
+     </section>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M10" });

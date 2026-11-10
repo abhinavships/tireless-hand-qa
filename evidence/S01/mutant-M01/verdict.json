@@ -1,0 +1,8 @@
+{
+  "scenario": "S01",
+  "project": "desktop",
+  "label": "mutant-M01",
+  "status": "failed",
+  "message": "Error: Cockpit: operator cannot reach Video tile",
+  "duration": 18842
+}

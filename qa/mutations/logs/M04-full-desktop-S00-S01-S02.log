@@ -1,0 +1,110 @@
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+
+Running 3 tests using 1 worker
+
+(node:61277) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S00-smoke.spec.ts:3:1 › S00 · harness smoke: connected fleet, telemetry and live video (17.3s)
+(node:61893) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop] › scenarios/S01-shell-contract.spec.ts:4:1 › S01 @visual · required screen regions and actions remain reachable (9.6s)
+  ✘  3 [desktop] › scenarios/S02-live-fleet.spec.ts:36:1 › S02 @functional @api @realtime device list follows fleet additions and removals without reload (10.0s)
+
+
+  1) [desktop] › scenarios/S00-smoke.spec.ts:3:1 › S00 · harness smoke: connected fleet, telemetry and live video 
+
+    Error: Every baseline drone must appear in the cockpit
+
+    expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[data-testid^="device-row-drone-"]')
+    Expected: 4
+    Received: 3
+    Timeout:  10000ms
+
+    Call log:
+      - Every baseline drone must appear in the cockpit locator('[data-testid^="device-row-drone-"]') with timeout 10000ms
+      - waiting for locator('[data-testid^="device-row-drone-"]')
+        23 × locator resolved to 3 elements
+           - unexpected value "3"
+
+
+       8 |  await cockpit.open(); await cockpit.waitReady();
+       9 |  await narrate(page,'S00 · step 1 · connected fleet has four drones');
+    > 10 |  await expect(page.locator('[data-testid^="device-row-drone-"]'),'Every baseline drone must appear in the cockpit').toHaveCount(4);
+         |                                                                                                                     ^
+      11 |  await narrate(page,'S00 · step 2 · select drone and read numeric telemetry');
+      12 |  await cockpit.selectDrone(drones[0].id);
+      13 |  await expect.poll(async()=>{const t=await cockpit.readTelemetry();return [t.battery,t.altRlt,t.hspeed].every(v=>v!==null&&Number.isFinite(v));},{message:'Selected drone must show numeric battery, altitude and speed'}).toBe(true);
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S00-smoke.spec.ts:10:117
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408813-31059/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408813-31059/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M04-1790408813-31059/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408813-31059/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M04-1790408813-31059/artifacts/S00-smoke-S00-·-harness-sm-d1769-et-telemetry-and-live-video-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › scenarios/S02-live-fleet.spec.ts:36:1 › S02 @functional @api @realtime device list follows fleet additions and removals without reload 
+
+    Error: Initial fleet: operators must see every API drone with its correct name and paired dock within 5 seconds
+
+    Initial fleet: operators must see every API drone with its correct name and paired dock within 5 seconds
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: ""
+    Received: "Fleet rows differ: operator sees [drone-1,drone-2,drone-3], API has [drone-1,drone-2,drone-3,drone-4]"
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      31 |   timeout: 5_000, intervals: [100, 200, 300],
+      32 |   message: `${phase}: operators must see every API drone with its correct name and paired dock within 5 seconds`,
+    > 33 |  }).toBe('');
+         |     ^
+      34 | }
+      35 |
+      36 | test('S02 @functional @api @realtime device list follows fleet additions and removals without reload', async ({ page, api, cockpit }) => {
+        at expectFleet (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S02-live-fleet.spec.ts:33:5)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S02-live-fleet.spec.ts:40:8
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408813-31059/artifacts/S02-live-fleet-S02-functio-2df40-and-removals-without-reload-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408813-31059/artifacts/S02-live-fleet-S02-functio-2df40-and-removals-without-reload-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M04-1790408813-31059/artifacts/S02-live-fleet-S02-functio-2df40-and-removals-without-reload-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M04-1790408813-31059/artifacts/S02-live-fleet-S02-functio-2df40-and-removals-without-reload-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M04-1790408813-31059/artifacts/S02-live-fleet-S02-functio-2df40-and-removals-without-reload-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › scenarios/S00-smoke.spec.ts:3:1 › S00 · harness smoke: connected fleet, telemetry and live video 
+    [desktop] › scenarios/S02-live-fleet.spec.ts:36:1 › S02 @functional @api @realtime device list follows fleet additions and removals without reload 
+  1 passed (38.9s)
+Evidence collected for 3 scenarios (mutant-M04; RUN_ID=t05-M04-1790408813-31059)
+Evidence collected for 3 scenarios (mutant-M04; RUN_ID=t05-M04-1790408813-31059)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx
+ product-frontend-1 Copied frontend/src/components/DeviceList.tsx to product-frontend-1:/app/frontend/src/components/DeviceList.tsx

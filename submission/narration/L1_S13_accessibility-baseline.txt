@@ -1,0 +1,5 @@
+[   0.0s  section 1: title card + clean  (17.4s video, 16.9s speech)]
+Scenario: accessibility. Every button must say what it does, so everyone, including people using screen readers, can act. The test runs an accessibility scan on the cockpit and the control panel, and allows only two known, reviewed colour issues. The normal app passes.
+
+[  17.4s  section 2: title card + mutant-M14  (7.7s video, 12.0s speech)]
+We planted a bug that removes the name from a control panel button. The test caught it and failed with the message: Operators face new serious accessibility barriers; unnamed buttons cannot communicate their action.

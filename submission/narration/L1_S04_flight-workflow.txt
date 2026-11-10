@@ -1,0 +1,8 @@
+[   0.0s  section 1: title card + clean  (24.1s video, 19.0s speech)]
+Scenario: a full flight. The test takes a drone off, lets it climb to about thirty metres, and lands it. At every step, the status in the drone list, the status in the telemetry panel, the server, and the live data feed must all agree. The altitude on screen must follow the real climb. The normal app passes.
+
+[  24.1s  section 2: title card + mutant-M03c  (14.7s video, 10.2s speech)]
+We planted a bug that shows a grounded drone as airborne in the list. The test caught it and failed with the message: Flight phase standby: device list and selected telemetry must agree.
+
+[  38.8s  section 3: title card + mutant-M06  (12.1s video, 10.6s speech)]
+We planted a bug that freezes the flight status in the telemetry panel. The test caught it and failed with the message: Flight phase standby: device list and selected telemetry must agree.

@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S08",
+    "project": "phone",
+    "label": "mutant-M09b",
+    "status": "failed",
+    "message": "Error: Operator cannot reach/use device-row-drone-161: is vertically clipped by an ancestor; centre is covered by section\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"is vertically clipped by an ancestor\",\n+   \"centre is covered by section\",\n+ ]\n\n   at ../lib/oracles.ts:76\n\n  74 |     return { label: element.getAttribute('data-testid') ?? element.textContent?.trim().slice(0, 100) ?? element.tagName, issues };\n  75 |   });\n> 76 |   expect(result.issues, `Operator cannot reach/use ${result.label}: ${result.issues.join('; ')}`).toEqual([]);\n     |                                                                                                   ^\n  77 | }\n  78 |\n  79 | /** Assert the page does not require horizontal scrolling to reach its content. */\n    at expectVisibleAndUsable (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/oracles.ts:76:99)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S08-responsive.spec.ts:9:2",
+    "duration": 2722,
+    "title": "S08 @responsive · fleet selection and primary content are reachable at every size",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "phone-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.png",
+      "phone-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.webm",
+      "phone-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.md",
+      "phone-r0-s08-responsive-spec-ts-s08-responsive-fleet-selection-and-primary-content-are-reachable-at-every-size.zip"
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S01",
+    "project": "desktop",
+    "label": "mutant-M01",
+    "status": "failed",
+    "message": "Error: Cockpit: operator cannot reach Video tile\n\nCockpit: Video tile missing; operator cannot access the video region\n\nexpect(locator).toHaveCount(expected) failed\n\nLocator:  getByTestId('video-player')\nExpected: 1\nReceived: 0\nTimeout:  2000ms\n\nCall log:\n  - Cockpit: Video tile missing; operator cannot access the video region getByTestId('video-player') with timeout 2000ms\n  - waiting for getByTestId('video-player')\n    21 × locator resolved to 0 elements\n       - unexpected value \"0\"\n\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate\n\n   at ../lib/ext/t02.ts:29\n\n  27 |    await expect(target,`${contract.name}: ${item.name} missing; operator cannot access the ${item.region} region`).toHaveCount(1,{timeout:2_000});\n  28 |    if(item.mustBeVisible||item.mustBeClickable) await expectVisibleAndUsable(target);\n> 29 |   },`${contract.name}: operator cannot reach ${item.name}`).toPass({timeout:15_000});\n     |                                                             ^\n  30 |  }\n  31 | }\n  32 |\n    at checkContract (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/ext/t02.ts:29:61)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S01-shell-contract.spec.ts:11:3",
+    "duration": 18842,
+    "title": "S01 @visual · required screen regions and actions remain reachable",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s01-shell-contract-spec-ts-s01-visual-required-screen-regions-and-actions-remain-reachable.png",
+      "desktop-r0-s01-shell-contract-spec-ts-s01-visual-required-screen-regions-and-actions-remain-reachable.webm",
+      "desktop-r0-s01-shell-contract-spec-ts-s01-visual-required-screen-regions-and-actions-remain-reachable.md",
+      "desktop-r0-s01-shell-contract-spec-ts-s01-visual-required-screen-regions-and-actions-remain-reachable.zip"
+    ]
+  }
+]

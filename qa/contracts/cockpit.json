@@ -1,0 +1,13 @@
+{
+  "name": "Cockpit", "url": "/", "scenario": "S01",
+  "elements": [
+    {"name":"Cockpit identity","locator":{"css":".brand"},"mustBeVisible":true,"region":"header"},
+    {"name":"Socket connection status","locator":{"testid":"socket-status"},"mustBeVisible":true,"region":"header"},
+    {"name":"Control panel action","locator":{"role":"link","name":"Control panel"},"mustBeVisible":true,"mustBeClickable":true,"region":"header"},
+    {"name":"Fleet list","locator":{"role":"heading","name":"Devices"},"mustBeVisible":true,"region":"devices"},
+    {"name":"Selected drone telemetry","locator":{"testid":"telemetry-battery"},"mustBeVisible":true,"region":"telemetry"},
+    {"name":"Map canvas","locator":{"testid":"map-canvas"},"mustBeVisible":true,"region":"map"},
+    {"name":"Video tile","locator":{"testid":"video-player"},"mustBeVisible":true,"region":"video"},
+    {"name":"Video state","locator":{"testid":"video-state"},"mustBeVisible":true,"region":"video"}
+  ]
+}

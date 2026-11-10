@@ -1,0 +1,41 @@
+# M05b | Sensitivity | targets: S03 | Battery comes from previously selected drone while other telemetry remains selected
+--- a/frontend/src/components/TelemetryPanel.tsx
++++ b/frontend/src/components/TelemetryPanel.tsx
+@@ -1,3 +1,4 @@
++import { useRef } from 'react';
+ import { useTelemetryStore } from '../store/telemetry.store';
+ import { TESTIDS } from '../testids';
+ 
+@@ -17,6 +18,17 @@
+   const devices = useTelemetryStore((s) => s.devices);
+   const data = useTelemetryStore((s) => s.data);
+ 
++  const lastSelected = useRef(selected);
++  const previousSelected = useRef(selected);
++  if (lastSelected.current === null && selected !== null) {
++    lastSelected.current = selected;
++    previousSelected.current = selected;
++  } else if (lastSelected.current !== selected) {
++    previousSelected.current = lastSelected.current;
++    lastSelected.current = selected;
++  }
++  const previousBattery = previousSelected.current ? data[previousSelected.current]?.battery : undefined;
++
+   const device = devices.find((d) => d.id === selected);
+   const droneId = device?.type === 'drone' ? device.id : device?.droneId;
+   const dockId = device?.type === 'dock' ? device.id : device?.dockId;
+@@ -27,7 +39,7 @@
+   const status = drone?.flight_status?.flight_status ?? 'unknown';
+ 
+   const rows: Array<{ label: string; value: string; testid: string }> = [
+-    { label: 'Battery', value: fmt(drone?.battery?.percent, '%', 0), testid: TESTIDS.telemetryBattery },
++    { label: 'Battery', value: fmt(previousBattery?.percent, '%', 0), testid: TESTIDS.telemetryBattery },
+     { label: 'Altitude RLT', value: fmt(pos?.position.height, 'm'), testid: TESTIDS.telemetryAltRlt },
+     { label: 'Altitude AGL', value: fmt(pos?.position.height, 'm'), testid: TESTIDS.telemetryAltAgl },
+     { label: 'Altitude ASL', value: fmt(pos?.position.elevation, 'm'), testid: TESTIDS.telemetryAltAsl },
+@@ -61,3 +73,5 @@
+     </section>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M05b" });

@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "S02",
+    "project": "desktop",
+    "label": "mutant-M04",
+    "status": "failed",
+    "message": "Error: Initial fleet: operators must see every API drone with its correct name and paired dock within 5 seconds\n\nInitial fleet: operators must see every API drone with its correct name and paired dock within 5 seconds\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: \"\"\nReceived: \"Fleet rows differ: operator sees [drone-1,drone-2,drone-3], API has [drone-1,drone-2,drone-3,drone-4]\"\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  31 |   timeout: 5_000, intervals: [100, 200, 300],\n  32 |   message: `${phase}: operators must see every API drone with its correct name and paired dock within 5 seconds`,\n> 33 |  }).toBe('');\n     |     ^\n  34 | }\n  35 |\n  36 | test('S02 @functional @api @realtime device list follows fleet additions and removals without reload', async ({ page, api, cockpit }) => {\n    at expectFleet (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S02-live-fleet.spec.ts:33:5)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S02-live-fleet.spec.ts:40:8",
+    "duration": 6643,
+    "title": "S02 @functional @api @realtime device list follows fleet additions and removals without reload",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s02-live-fleet-spec-ts-s02-functional-api-realtime-device-list-follows-fleet-additions-and-removals-without-reload.png",
+      "desktop-r0-s02-live-fleet-spec-ts-s02-functional-api-realtime-device-list-follows-fleet-additions-and-removals-without-reload.webm",
+      "desktop-r0-s02-live-fleet-spec-ts-s02-functional-api-realtime-device-list-follows-fleet-additions-and-removals-without-reload.md",
+      "desktop-r0-s02-live-fleet-spec-ts-s02-functional-api-realtime-device-list-follows-fleet-additions-and-removals-without-reload.zip"
+    ]
+  }
+]

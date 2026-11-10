@@ -1,0 +1,212 @@
+{
+  "faults": [
+    {
+      "kind": "socket-kick",
+      "result": "PASS",
+      "samples": 18,
+      "badges": [
+        "socket connected",
+        "socket reconnecting"
+      ],
+      "videoStates": [
+        "live"
+      ],
+      "dimensions": [
+        "1280x720"
+      ],
+      "video": "evidence/explore/faults/artifacts/operator-T06-fault-exploration-socket-kick/video.webm",
+      "observations": "evidence/explore/faults/artifacts/operator-T06-fault-exploration-socket-kick/observations.json"
+    },
+    {
+      "kind": "sim-offline",
+      "result": "PASS",
+      "samples": 12,
+      "badges": [
+        "socket connected"
+      ],
+      "videoStates": [
+        "live"
+      ],
+      "dimensions": [
+        "1280x720"
+      ],
+      "video": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-sim-offline/video.webm",
+      "observations": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-sim-offline/observations.json"
+    },
+    {
+      "kind": "socket-delay",
+      "result": "PASS",
+      "samples": 12,
+      "badges": [
+        "socket connected"
+      ],
+      "videoStates": [
+        "live"
+      ],
+      "dimensions": [
+        "1280x720",
+        "2x2"
+      ],
+      "video": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-delay/video.webm",
+      "observations": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-delay/observations.json"
+    },
+    {
+      "kind": "socket-drop",
+      "result": "PASS",
+      "samples": 12,
+      "badges": [
+        "socket connected"
+      ],
+      "videoStates": [
+        "live"
+      ],
+      "dimensions": [
+        "0x0",
+        "1280x720"
+      ],
+      "video": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-drop/video.webm",
+      "observations": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-drop/observations.json"
+    },
+    {
+      "kind": "socket-refuse",
+      "result": "PASS",
+      "samples": 12,
+      "badges": [
+        "socket reconnecting"
+      ],
+      "videoStates": [
+        "live"
+      ],
+      "dimensions": [
+        "1280x720"
+      ],
+      "video": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-refuse/video.webm",
+      "observations": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-socket-refuse/observations.json"
+    },
+    {
+      "kind": "video-degrade",
+      "result": "PASS",
+      "samples": 12,
+      "badges": [
+        "socket connected"
+      ],
+      "videoStates": [
+        "live",
+        "reconnecting"
+      ],
+      "dimensions": [
+        "2x2",
+        "320x180"
+      ],
+      "video": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-degrade/video.webm",
+      "observations": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-degrade/observations.json"
+    },
+    {
+      "kind": "video-flicker",
+      "result": "PASS",
+      "samples": 12,
+      "badges": [
+        "socket connected"
+      ],
+      "videoStates": [
+        "live",
+        "reconnecting"
+      ],
+      "dimensions": [
+        "0x0",
+        "1280x720",
+        "2x2"
+      ],
+      "video": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-flicker/video.webm",
+      "observations": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-flicker/observations.json"
+    },
+    {
+      "kind": "video-freeze",
+      "result": "PASS",
+      "samples": 12,
+      "badges": [
+        "socket connected"
+      ],
+      "videoStates": [
+        "live",
+        "reconnecting"
+      ],
+      "dimensions": [
+        "0x0",
+        "2x2"
+      ],
+      "video": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-freeze/video.webm",
+      "observations": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-freeze/observations.json"
+    },
+    {
+      "kind": "video-stutter",
+      "result": "PASS",
+      "samples": 12,
+      "badges": [
+        "socket connected"
+      ],
+      "videoStates": [
+        "live",
+        "reconnecting"
+      ],
+      "dimensions": [
+        "0x0",
+        "1280x720",
+        "2x2"
+      ],
+      "video": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-stutter/video.webm",
+      "observations": "evidence/explore/faults-remaining/artifacts/operator-T06-fault-exploration-video-stutter/observations.json"
+    }
+  ],
+  "operator": {
+    "result": "PASS",
+    "repetitions": 2,
+    "results": "evidence/explore/operator-final/results.json",
+    "videos": [
+      "evidence/explore/operator-final/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone/video.webm",
+      "evidence/explore/operator-final/artifacts/operator-T06-operator-add-remove-rapid-switch-and-phone-repeat1/video.webm"
+    ]
+  },
+  "soak": {
+    "result": "PASS_INFORMATIONAL",
+    "seconds": 605,
+    "samples": 33,
+    "pageErrors": 0,
+    "log": "evidence/explore/artifacts/soak-T06-10-minute-cockpit-soak/soak.json",
+    "note": "Started before D16; concurrent runtime changes; not clean qualification",
+    "video": "evidence/explore/artifacts/soak-T06-10-minute-cockpit-soak/video.webm"
+  },
+  "newFindings": [],
+  "qualifiedSoak": {
+    "status": "PARTIAL_STOPPED_BY_COORDINATOR",
+    "completedSegments": [
+      {
+        "segment": 1,
+        "durationMs": 150858,
+        "samples": 15,
+        "pageErrors": 0,
+        "fleetMismatches": 0,
+        "video": "evidence/explore/soak-locked/artifacts/soak-T06-locked-soak-segment-1-of-4-150-seconds-/video.webm",
+        "log": "evidence/explore/soak-locked/artifacts/soak-T06-locked-soak-segment-1-of-4-150-seconds-/soak.json"
+      },
+      {
+        "segment": 2,
+        "durationMs": 150156,
+        "samples": 14,
+        "pageErrors": 0,
+        "fleetMismatches": 0,
+        "video": "evidence/explore/soak-locked/artifacts/soak-T06-locked-soak-segment-2-of-4-150-seconds-/video.webm",
+        "log": "evidence/explore/soak-locked/artifacts/soak-T06-locked-soak-segment-2-of-4-150-seconds-/soak.json"
+      }
+    ],
+    "totalObservationMs": 301014,
+    "remainingSegments": 2,
+    "note": "Coordinator latest-user scope narrowed to S11/S17 packaging; queued segments cancelled without touching T03 lock."
+  },
+  "excludedRuns": {
+    "unlockedMutationContaminatedWorkflowFailures": 1,
+    "initialLockWaitInterruptions": 2,
+    "finalSoakQueuedInterruptions": 1,
+    "finalSoakNotRun": 1
+  }
+}

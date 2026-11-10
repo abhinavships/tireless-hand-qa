@@ -1,0 +1,20 @@
+[
+  {
+    "sourceSpecId": "e65d5739f352ac96bcdc-89c945ce19d0fbf13c3d",
+    "scenario": "S03",
+    "project": "desktop",
+    "label": "mutant-M04",
+    "status": "timedOut",
+    "message": "Test timeout of 110000ms exceeded.\nError: locator.click: Test timeout of 110000ms exceeded.\nCall log:\n  - waiting for getByTestId('device-row-drone-234')\n\n\n   at ../lib/cockpit.ts:14\n\n  12 |  async waitRow(id:string) { await expect(this.page.getByTestId(`device-row-${id}`),`Fleet row ${id} must appear in the cockpit`).toBeVisible(); }\n  13 |  /** Select a drone through the same row an operator clicks. */\n> 14 |  async selectDrone(id:string) { await this.page.getByTestId(`device-row-${id}`).click(); await expect(this.page.getByTestId(`device-row-${id}`)).toHaveClass(/selected/); }\n     |                                                                                 ^\n  15 |  /** Read selected drone telemetry without silently converting missing values to zero. */\n  16 |  async readTelemetry():Promise<Telemetry> {\n  17 |   const ids={battery:'battery',altRlt:'alt-rlt',altAgl:'alt-agl',altAsl:'alt-asl',hspeed:'hspeed',vspeed:'vspeed',heading:'heading',wind:'wind',homeDistance:'home-distance'};\n    at Cockpit.selectDrone (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/cockpit.ts:14:81)\n    at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S03-selected-telemetry.spec.ts:21:19",
+    "duration": 112983,
+    "title": "S03 · selected drone shows its real battery, altitude and speed @telemetry @visual",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s03-selected-telemetry-spec-ts-s03-selected-drone-shows-its-real-battery-altitude-and-speed-telemetry-visual.png",
+      "desktop-r0-s03-selected-telemetry-spec-ts-s03-selected-drone-shows-its-real-battery-altitude-and-speed-telemetry-visual.webm",
+      "desktop-r0-s03-selected-telemetry-spec-ts-s03-selected-drone-shows-its-real-battery-altitude-and-speed-telemetry-visual.md",
+      "desktop-r0-s03-selected-telemetry-spec-ts-s03-selected-drone-shows-its-real-battery-altitude-and-speed-telemetry-visual.zip"
+    ]
+  }
+]

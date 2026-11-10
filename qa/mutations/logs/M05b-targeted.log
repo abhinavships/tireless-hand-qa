@@ -1,0 +1,59 @@
+ product-frontend-1 Copying frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+ product-frontend-1 Copied frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+
+Running 1 test using 1 worker
+
+(node:41791) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual (1.2m)
+
+
+  1) [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual 
+
+    Error: Selected QA-7733ab3e-flying-B battery must match API for drone-195, not the previously selected drone's battery (tolerance 2%)
+
+    Selected QA-7733ab3e-flying-B battery must match API for drone-195, not the previously selected drone's battery (tolerance 2%)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 2
+    Received:    6.700000000000003
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      36 |         const shown=(await readTelemetryFast(page)).battery;
+      37 |         return shown===null?Infinity:Math.abs(shown-state.battery);
+    > 38 |       },{timeout:8_000,message:`Selected ${name} battery must match API for ${id}, not the previously selected drone's battery (tolerance 2%)`}).toBeLessThanOrEqual(2);
+         |                                                                                                                                                  ^
+      39 |       await expect(async()=> {
+      40 |         const state=(await api.state()).drones[id];
+      41 |         const position=await truth.waitFor<PositionTruth>(topic(id,'global_position'));
+        at compareSelected (/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S03-selected-telemetry.spec.ts:38:146)
+        at /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S03-selected-telemetry.spec.ts:50:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05-M05b-1790408011-4875/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/t05-M05b-1790408011-4875/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05-M05b-1790408011-4875/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05-M05b-1790408011-4875/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/t05-M05b-1790408011-4875/artifacts/S03-selected-telemetry-S03-917c2--and-speed-telemetry-visual-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › scenarios/S03-selected-telemetry.spec.ts:10:1 › S03 · selected drone shows its real battery, altitude and speed @telemetry @visual 
+Evidence collected for 1 scenarios (mutant-M05b; RUN_ID=t05-M05b-1790408011-4875)
+Evidence collected for 1 scenarios (mutant-M05b; RUN_ID=t05-M05b-1790408011-4875)
+Wrote /Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/mutation-matrix.md
+ product-frontend-1 Copying frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx
+ product-frontend-1 Copied frontend/src/components/TelemetryPanel.tsx to product-frontend-1:/app/frontend/src/components/TelemetryPanel.tsx

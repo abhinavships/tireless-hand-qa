@@ -1,0 +1,14 @@
+# M07 | Network | targets: S06 | Socket badge falsely claims connected during disconnection
+--- a/frontend/src/components/SocketBadge.tsx
++++ b/frontend/src/components/SocketBadge.tsx
+@@ -7,7 +7,9 @@
+   useEffect(() => socketClient.onStatus(setStatus), []);
+   return (
+     <span className={`badge badge-${status}`} data-testid={TESTIDS.socketStatus} title="Socket connection">
+-      socket {status}
++      socket connected
+     </span>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M07" });

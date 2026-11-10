@@ -1,0 +1,14 @@
+# MAP11 | Map & geospatial | targets: map | 2D button leaves the camera tilted instead of top-down
+diff --git a/frontend/src/components/CesiumMap.tsx b/frontend/src/components/CesiumMap.tsx
+index f7e4c2f..370d98d 100644
+--- a/frontend/src/components/CesiumMap.tsx
++++ b/frontend/src/components/CesiumMap.tsx
+@@ -32,7 +32,7 @@ const HEIGHT_LINE_MATERIAL = new Cesium.PolylineDashMaterialProperty({
+ });
+ const MIN_HEIGHT_LINE_M = 0.5;
+ /* Camera pitch for the 2D (top-down) and 3D (oblique) views. */
+-const PITCH_2D = -Cesium.Math.PI_OVER_TWO;
++const PITCH_2D = Cesium.Math.toRadians(-45);
+ const PITCH_3D = Cesium.Math.toRadians(-45);
+ export type MapView = '2d' | '3d';
+ 

@@ -1,0 +1,218 @@
+[
+  {
+    "at": 0,
+    "badge": "socket connected",
+    "video": "live",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nN 3.4 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 0,
+      "height": 0,
+      "ready": 0
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2275
+    }
+  },
+  {
+    "at": 1,
+    "badge": "socket connected",
+    "video": "live",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nN 3.5 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 0,
+      "height": 0,
+      "ready": 0
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2276
+    }
+  },
+  {
+    "at": 2,
+    "badge": "socket connected",
+    "video": "live",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nN 3.4 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 0,
+      "height": 0,
+      "ready": 0
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2278
+    }
+  },
+  {
+    "at": 3,
+    "badge": "socket connected",
+    "video": "live",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nN 3.5 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 0,
+      "height": 0,
+      "ready": 0
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2279
+    }
+  },
+  {
+    "at": 4,
+    "badge": "socket connected",
+    "video": "reconnecting",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nN 3.5 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 2,
+      "height": 2,
+      "ready": 4
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2280
+    }
+  },
+  {
+    "at": 5,
+    "badge": "socket connected",
+    "video": "reconnecting",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nN 3.4 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 2,
+      "height": 2,
+      "ready": 4
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2281
+    }
+  },
+  {
+    "at": 6,
+    "badge": "socket connected",
+    "video": "reconnecting",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nN 3.5 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 2,
+      "height": 2,
+      "ready": 4
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2282
+    }
+  },
+  {
+    "at": 7,
+    "badge": "socket connected",
+    "video": "reconnecting",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nN 3.4 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 2,
+      "height": 2,
+      "ready": 4
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2283
+    }
+  },
+  {
+    "at": 8,
+    "badge": "socket connected",
+    "video": "reconnecting",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nNE 3.4 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 2,
+      "height": 2,
+      "ready": 4
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2284
+    }
+  },
+  {
+    "at": 9,
+    "badge": "socket connected",
+    "video": "reconnecting",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nNE 3.4 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 2,
+      "height": 2,
+      "ready": 4
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2285
+    }
+  },
+  {
+    "at": 10,
+    "badge": "socket connected",
+    "video": "reconnecting",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nNE 3.4 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 2,
+      "height": 2,
+      "ready": 4
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2286
+    }
+  },
+  {
+    "at": 11,
+    "badge": "socket connected",
+    "video": "reconnecting",
+    "telemetry": "Battery\n100 %\nAltitude RLT\n0.0 m\nAltitude AGL\n0.0 m\nAltitude ASL\n560.0 m\nH-Speed\n0.0 m/s\nV-Speed\n0.0 m/s\nHeading\n316 °\nWind\nNE 3.4 m/s\nDist. from home\n0 m",
+    "player": {
+      "time": 0,
+      "width": 2,
+      "height": 2,
+      "ready": 4
+    },
+    "health": {
+      "status": "ok",
+      "simulator": "connected",
+      "video": "up",
+      "uptime": 2287
+    }
+  }
+]

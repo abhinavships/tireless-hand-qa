@@ -1,0 +1,8 @@
+{
+  "scenario": "S08",
+  "project": "phone",
+  "label": "mutant-M09",
+  "status": "failed",
+  "message": "Error: Operator must scroll horizontally: content 1040px exceeds viewport 390px",
+  "duration": 1307
+}

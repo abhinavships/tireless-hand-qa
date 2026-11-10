@@ -1,0 +1,180 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "lib/ext/t04.ts",
+      "--list",
+      "--grep",
+      "S11",
+      "--project",
+      "desktop"
+    ],
+    "configFile": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/ext/t04.ts",
+    "rootDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/lib/run-lock.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "/S(09|10|11|17)-.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "tablet",
+        "name": "tablet",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "/S(09|10|11|17)-.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/evidence/.t04-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "phone",
+        "name": "phone",
+        "testDir": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "/S(09|10|11|17)-.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../../evidence/.t04-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "S11-auth-contract.spec.ts",
+      "file": "S11-auth-contract.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "S11 @security signed-out route guards (evaluator-ready)",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "S11 requires T05 F-auth base overlay (AUTH_FIXTURE=1)",
+                  "location": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                    "line": 12,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7f5e84f45b82859c7c1a-087ea40a20fa632876f7",
+          "file": "S11-auth-contract.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "S11 @security sign-in required controls (evaluator-ready)",
+          "ok": true,
+          "tags": [
+            "security"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "S11 requires T05 F-auth base overlay (AUTH_FIXTURE=1)",
+                  "location": {
+                    "file": "/Users/abhinavsden/orca/workspaces/hackathon_the_tireless_hand/numbfish/qa/scenarios/S11-auth-contract.spec.ts",
+                    "line": 12,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7f5e84f45b82859c7c1a-81f3abb67e63aa83dd96",
+          "file": "S11-auth-contract.spec.ts",
+          "line": 25,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-26T07:15:15.308Z",
+    "duration": 122.35400000000004,
+    "expected": 0,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

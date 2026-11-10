@@ -1,0 +1,8 @@
+{
+  "scenario": "S09",
+  "project": "desktop",
+  "label": "mutant-M01",
+  "status": "failed",
+  "message": "Error: Stored XSS: a drone name executes JavaScript in the dashboard, compromising the operator session",
+  "duration": 34127
+}

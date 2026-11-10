@@ -1,0 +1,18 @@
+# M06 | Functional | targets: S04 | Panel flight status stuck docked throughout flight
+--- a/frontend/src/components/TelemetryPanel.tsx
++++ b/frontend/src/components/TelemetryPanel.tsx
+@@ -24,7 +24,7 @@
+   const dock = dockId ? data[dockId]?.dock : undefined;
+   const pos = drone?.global_position;
+   const wind = dock?.weather.wind;
+-  const status = drone?.flight_status?.flight_status ?? 'unknown';
++  const status = 'docked';
+ 
+   const rows: Array<{ label: string; value: string; testid: string }> = [
+     { label: 'Battery', value: fmt(drone?.battery?.percent, '%', 0), testid: TESTIDS.telemetryBattery },
+@@ -61,3 +61,5 @@
+     </section>
+   );
+ }
++
++Object.assign(globalThis, { __mutationLab: "mutation-lab:M06" });

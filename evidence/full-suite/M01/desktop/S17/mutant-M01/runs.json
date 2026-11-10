@@ -1,0 +1,19 @@
+[
+  {
+    "sourceSpecId": "f9668ac09cc96f971a60-6f9f54b237923d0d7cbd",
+    "scenario": "S17",
+    "project": "desktop",
+    "label": "mutant-M01",
+    "status": "passed",
+    "message": "",
+    "duration": 3645,
+    "title": "S17 @security @advisory localhost security posture inventory",
+    "repeat": 0,
+    "attempt": 0,
+    "artifacts": [
+      "desktop-r0-s17-security-posture-spec-ts-s17-security-advisory-localhost-security-posture-inventory.png",
+      "desktop-r0-s17-security-posture-spec-ts-s17-security-advisory-localhost-security-posture-inventory.webm",
+      "desktop-r0-s17-security-posture-spec-ts-s17-security-advisory-localhost-security-posture-inventory.zip"
+    ]
+  }
+]

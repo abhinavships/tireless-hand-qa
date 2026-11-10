@@ -1,0 +1,50 @@
+[
+  {
+    "scenario": "S07",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 32170,
+    "title": "S07 · video off/live labels match actual playback and selected stream @video @visual",
+    "repeat": "05baff4f9c28997cf801-2262ba506c9ab6dfd35c",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-0-screenshot.png",
+      "t03-hard-0-video.webm",
+      "t03-hard-0-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S07",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 14764,
+    "title": "S07 · video off/live labels match actual playback and selected stream @video @visual",
+    "repeat": "05baff4f9c28997cf801-dccfdb6738beecc31839",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-1-screenshot.png",
+      "t03-hard-1-video.webm",
+      "t03-hard-1-trace.zip"
+    ]
+  },
+  {
+    "scenario": "S07",
+    "project": "desktop",
+    "label": "clean",
+    "status": "passed",
+    "message": "",
+    "duration": 13538,
+    "title": "S07 · video off/live labels match actual playback and selected stream @video @visual",
+    "repeat": "05baff4f9c28997cf801-7fd693b2d12daefba7d7",
+    "attempt": 0,
+    "artifacts": [
+      "t03-hard-2-screenshot.png",
+      "t03-hard-2-video.webm",
+      "t03-hard-2-trace.zip"
+    ]
+  }
+]
